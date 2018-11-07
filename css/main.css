@@ -1,17 +1,4 @@
 /*
-_____________________________________________________________
-General Styles
-_____________________________________________________________
-*/
-*,
-*:before,
-*:after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-/*
 ============================================================
 Browser display reset: Ensure cross-browser consistency
 ============================================================
@@ -63,6 +50,19 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+/*
+_____________________________________________________________
+General Styles
+_____________________________________________________________
+*/
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 
 /* All elements with the attribute "data-vegetable"
    are given green text */
@@ -217,23 +217,39 @@ Clearfix
 .group{
 	clear:both;
 	*zoom:1;
+	margin:0, auto;
 }
 /*
 ===========================================
-Structure for desktops
+Structure (Re-usable styles) Using Floats
 ==========================================
 */
-section, 
-aside{
+.col-1-5,
+.col-2-5,
+.col-3-5,
+.col-4-5{
 	float:left;
-	padding:15px;
+	min-height:200px;
+	padding:30px;
+	border:thin solid red;
 }
-section{
+.col-1-5{
+	width:20%;
+}
+.col-2-5{
+	width:40%;
+}
+.col-3-5{
 	width:60%;
+}
+.col-4-5{
+	width:80%
+}
+
+section{
 	background-color:rgba(6,200,200,0.4);
 }
 aside{
-	width:20%;
 	background-color:yellow;
 }
 footer{
