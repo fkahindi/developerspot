@@ -1,0 +1,251 @@
+/*
+_____________________________________________________________
+General Styles
+_____________________________________________________________
+*/
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*
+============================================================
+Browser display reset: Ensure cross-browser consistency
+============================================================
+ http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
+  License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+	font-family:'Arial Narrow';
+	line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* All elements with the attribute "data-vegetable"
+   are given green text */
+[data-vegetable] {
+  color: green;
+}
+
+/* All elements with the attribute "data-vegetable"
+   with the exact value "liquid" are given a golden
+   background color */
+[data-vegetable="liquid"] {
+  background-color: goldenrod;
+}
+
+/* All elements with the attribute "data-vegetable",
+   containing the value "spicy", even among others,
+   are given a red text color */
+[data-vegetable~="spicy"] {
+  color: red;
+}
+
+/* 
+___________________________________________________
+Mobile devices first 
+___________________________________________________
+*/
+header{
+	width:100%;
+	position:fixed;
+	background-color:rgb(240,240,240);
+	padding:0;
+}
+nav{
+	width:100%;
+	height:40px;
+	margin:0;
+	padding-top:10px;
+	background-color:rgb(230,230,230);
+	text-align:center;
+}
+nav li{
+	display:inline-block;
+}
+nav a{
+	text-decoration:none;
+	color:black;
+}
+nav a:hover{
+	color:gray;
+	font-weight:bold
+}
+.section, .aside{
+	width:100%;
+	padding:5px;
+	
+}
+.section{
+	background-color:cyan;
+}
+.aside{
+	background-color:yellow;
+}
+form {
+  display: table;
+  margin: 0 auto;
+}
+
+form div {
+  display: table-row;
+}
+
+form label, form input {
+  display: table-cell;
+  margin-bottom: 10px;
+}
+
+form label {
+  width: 200px;
+  padding-right: 5%;
+  text-align: right;
+}
+
+form input {
+  width: 300px;
+}
+
+form p {
+  display: table-caption;
+  caption-side: bottom;
+  width: 300px;
+  color: #999;
+  font-style: italic;
+}
+footer{
+	bottom:0;
+	width:100%;
+	margin-bottom:0;
+	font-size:12px;
+}
+footer li{
+	display:inline-table
+}
+footer a{
+	text-decoration:none;
+	color:black;
+}
+footer a:hover{
+	color:red;
+	font-weight:bold;
+}
+/*
+___________________________________________________
+For desktop screens  
+___________________________________________________
+*/
+@media only screen and (min-width:768px) {
+/*
+=================================================
+General classes
+=================================================
+*/
+.left{
+	text-align:left;
+}
+.right{
+	text-align:right;
+}
+.float-right{
+	float:right;
+}
+.float-left{
+	float:left;
+}	
+header{
+	position:static; 
+	padding-top:10px;
+}
+/*
+===================================================
+Clearfix
+===================================================
+
+*/
+.group:before,
+.group:after{
+	content:"";
+	display: table;
+}
+.group:after{
+	clear:both;
+} 
+.group{
+	clear:both;
+	*zoom:1;
+}
+/*
+===========================================
+Structure for desktops
+==========================================
+*/
+section, 
+aside{
+	float:left;
+	padding:15px;
+}
+section{
+	width:60%;
+	background-color:rgba(6,200,200,0.4);
+}
+aside{
+	width:20%;
+	background-color:yellow;
+}
+footer{
+	position:fixed;
+	height:40px;
+	padding:10px 40px;
+	background-color:rgb(240,240,240);
+	
+}
+
+/*
+End of desktop styles
+_________________________________________________
+*/
+}
