@@ -62,26 +62,18 @@ _____________________________________________________________
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
-
-/* All elements with the attribute "data-vegetable"
-   are given green text */
-[data-vegetable] {
-  color: green;
+body{
+	background:white;
 }
-
-/* All elements with the attribute "data-vegetable"
-   with the exact value "liquid" are given a golden
-   background color */
-[data-vegetable="liquid"] {
-  background-color: goldenrod;
+header{
+	width:100%;
+	padding:0;
+	background:#293f50;
 }
-
-/* All elements with the attribute "data-vegetable",
-   containing the value "spicy", even among others,
-   are given a red text color */
-[data-vegetable~="spicy"] {
-  color: red;
+footer{
+	bottom:0;
+	position:fixed;
+	padding:10px 40px;
 }
 
 /* 
@@ -89,41 +81,29 @@ ___________________________________________________
 Mobile devices first 
 ___________________________________________________
 */
-header{
-	width:100%;
-	position:fixed;
-	background-color:rgb(240,240,240);
-	padding:0;
-}
+@media only screen and (max-width: 480px){
+	.banner{
+		padding:15px;
+		text-align:center;
+	}
 nav{
 	width:100%;
 	height:40px;
 	margin:0;
 	padding-top:10px;
-	background-color:rgb(230,230,230);
 	text-align:center;
 }
-nav li{
-	display:inline-block;
-}
-nav a{
-	text-decoration:none;
-	color:black;
-}
-nav a:hover{
-	color:gray;
-	font-weight:bold
-}
+
 .section, .aside{
 	width:100%;
 	padding:5px;
 	
 }
 .section{
-	background-color:cyan;
+	
 }
 .aside{
-	background-color:yellow;
+	
 }
 form {
   display: table;
@@ -159,6 +139,7 @@ form p {
 footer{
 	bottom:0;
 	width:100%;
+	position:fixed;
 	margin-bottom:0;
 	font-size:12px;
 }
@@ -172,6 +153,7 @@ footer a{
 footer a:hover{
 	color:red;
 	font-weight:bold;
+}
 }
 /*
 ___________________________________________________
@@ -195,10 +177,53 @@ General classes
 }
 .float-left{
 	float:left;
-}	
-header{
-	position:static; 
+}
+/*
+=================================================
+Header
+=================================================
+*/	
+.login-bar{
+	height:60px;
+	float:right;
+	margin-right:200px;
+	padding:10px;
+}
+.banner{
+	width:760px;
+	margin:auto;
 	padding-top:10px;
+}
+/*
+=================================================
+Navigation
+=================================================
+*/
+nav{
+	text-align:center;
+	padding: 20px;
+}
+nav li{
+	display:inline-block;
+}
+nav a{
+	text-decoration:none;
+	color:black;
+}
+nav a:hover{
+	color:gray;
+	font-weight:bold
+}
+footer li{
+	display:inline-table
+}
+footer a{
+	text-decoration:none;
+	color:black;
+}
+footer a:hover{
+	color:red;
+	font-weight:bold;
 }
 /*
 ===================================================
@@ -217,21 +242,18 @@ Clearfix
 .group{
 	clear:both;
 	*zoom:1;
-	
 }
 /*
 ===========================================
-Structure (Re-usable styles) Using Floats
+Grid
 ==========================================
 */
 .col-1-5,
 .col-2-5,
 .col-3-5,
 .col-4-5{
-	float:left;
-	min-height:200px;
-	padding:30px;
-	border:thin solid red;
+	display: inline-block;
+	vertical-align: top;
 }
 .col-1-5{
 	width:20%;
@@ -245,12 +267,24 @@ Structure (Re-usable styles) Using Floats
 .col-4-5{
 	width:80%
 }
+main{
+	width:90%;
+	margin:0;
+	padding5px;
+	background-color: white;
+}
 footer{
-	position:fixed;
+	
 	height:40px;
 	padding:10px 40px;
-	background-color:rgb(240,240,240);
-	
+}
+/*
+===========================================
+Typography
+==========================================
+*/
+body{
+	font-size:120%;
 }
 
 /*

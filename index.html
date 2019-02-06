@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -11,11 +11,10 @@
 </head>
 <body>
 	<header>
-		<div class="group">
-			<span class="float-right"><script> dayToDay()</script></span>
-			<span class="float-right"><script> timeOfDay()</script></span>
+		<div class="group login-bar">
+		<a href="#">Login</a>
 		</div>
-		<div class="group">
+		<div class="group banner">
 			<img src="images/spexbanner.png" alt="Spex Banner" width="40%" height="50%">
 		
 		</div>
@@ -31,91 +30,19 @@
 		</nav>
 		</div>
 	</header>
+	<main>
+		<section class='col-3-5'>
+			<h1>Welcome</h1>
 	
-	<div class="group">
-		<aside class="col-1-5">
-			<h3>Left Menu</h3>	
-		
+		</section><!--
+		--><aside class='col-2-5'>
+			<h3>Analytics</h3>
 		</aside>
-		<section class="col-3-5">
-			<h2>Main Section</h2>
-			<p>An element with position: fixed; is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled. The top, right, bottom, and left properties are used to position the element.
-			A fixed element does not leave a gap in the page where it would normally have been located.
-			Notice the fixed element in the lower-right corner of the page. Here is the CSS that is used:
-			Example
-			div.fixed {
-				position: fixed;
-				bottom: 0;
-				right: 0;
-				width: 300px;
-				border: 3px solid #73AD21;
-			} 
-			This  element has position: fixed;
-			________________________________________
-			position: absolute;
-			An element with position: absolute; is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed).
-			However; if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along with page scrolling.
-			Note: A "positioned" element is one whose position is anything except static.
-			Here is a simple example:
-			This  element has position: relative; 
-			This  element has position: absolute; 
-			Here is the CSS that is used:
-			Example
-			div.relative {
-				position: relative;
-				width: 400px;
-				height: 200px;
-				border: 3px solid #73AD21;
-			} 
-
-			div.absolute {
-				position: absolute;
-				top: 80px;
-				right: 0;
-				width: 200px;
-				height: 100px;
-				border: 3px solid #73AD21;
-			} 
-			</p>
-		<hr>
-			<form>
-			  <p>First of all, tell us your name and age.</p>
-			  <div>
-				<label for="fname">First name:</label>
-				<input type="text" id="fname">
-			  </div>
-			  <div>
-				<label for="lname">Last name:</label>
-				<input type="text" id="lname">
-			  </div>
-			  <div>
-				<label for="age">Age:</label>
-				<input type="text" id="age">
-			  </div>
-			</form>
-		</section>
-		<aside class="col-1-5">
-			<h3>Right bar</h3>
-			<p>Ingredients for my recipe: <i lang="fr-FR">Poulet basquaise</i></p>
-			<ul>
-				  <li data-quantity="1kg" data-vegetable>Tomatoes</li>
-				  <li data-quantity="3" data-vegetable>Onions</li>
-				  <li data-quantity="3" data-vegetable>Garlic</li>
-				  <li data-quantity="700g" data-vegetable="not spicy like chili">Red pepper</li>
-				  <li data-quantity="2kg" data-meat>Chicken</li>
-				  <li data-quantity="optional 150g" data-meat>Bacon bits</li>
-				  <li data-quantity="optional 10ml" data-vegetable="liquid">Olive oil</li>
-				  <li data-quantity="25cl" data-vegetable="liquid">White wine</li>
-			</ul>		
-		</aside>
-	</div>
-	<div class="group">
-		<section class="col-1-5"><h3>Image Goes Here...</h3></section>
-		<section class="col-1-5"><h3>Image Goes Here...</h3></section>
-		<section class="col-1-5"><h3>Image Goes Here...</h3></section>
-		<section class="col-1-5"><h3>Image Goes Here...</h3></section>
-		<section class="col-1-5"><h3>Image Goes Here...</h3></section>
-	</div>
+	
+	</main>
+	
+	
+	
 	<footer>
 		<div class="group">
 			<span class="float-left">&copy;2018 &nbsp;Spexdata.com</span>
