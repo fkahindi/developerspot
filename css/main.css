@@ -71,9 +71,11 @@ header{
 	background:#293f50;
 }
 footer{
+	width:100%;
 	bottom:0;
 	position:fixed;
 	padding:10px 40px;
+	background:rgba(15, 15,15, 0.5);
 }
 
 /* 
