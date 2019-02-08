@@ -38,6 +38,9 @@ body {
 ol, ul {
   list-style: none;
 }
+a{
+	text-decoration:none;
+}
 blockquote, q {
   quotes: none;
 }
@@ -69,6 +72,10 @@ header{
 	width:100%;
 	padding:0;
 	background:#293f50;
+	
+}
+.date-bar, .login-bar a{
+	color:rgb(240, 240,240);
 }
 footer{
 	width:100%;
@@ -185,10 +192,16 @@ General classes
 Header
 =================================================
 */	
-.login-bar{
+.date-bar{
+	width:20%;
 	height:60px;
-	float:right;
-	margin-right:200px;
+	margin-left:100px;
+	padding:10px;
+}
+.login-bar{
+	width:20%;
+	height:60px;
+	margin-right:100px;
 	padding:10px;
 }
 .banner{
@@ -210,10 +223,10 @@ nav li{
 }
 nav a{
 	text-decoration:none;
-	color:black;
+	color:rgb(200,200,200);
 }
 nav a:hover{
-	color:gray;
+	color:rgb(240, 240,240);
 	font-weight:bold
 }
 footer li{
@@ -224,7 +237,7 @@ footer a{
 	color:black;
 }
 footer a:hover{
-	color:red;
+	color:rgb(240, 240,240);
 	font-weight:bold;
 }
 /*
