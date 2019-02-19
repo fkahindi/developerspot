@@ -13,27 +13,23 @@
 <body>
 	<header>
 		<div class="group">
-			<div class="date-bar">
-				<?php date_default_timezone_set("Africa/Nairobi"); echo date("l"). "  ". date("d-M-Y");?>
-			
-			</div>
-			<div class="float-right login-bar">
+			<div class="login-bar">
 				<a href="#">Login </a> <span>&#124;</span>
 				<a href="#">Sign up</a> 
-			</div>
-		</div>
-		<div class="group banner">
-			<img src="images/spexbanner.png" alt="Spex Banner" width="40%" height="50%">
+			</div><!--
 		
+			--><div class="banner">
+				<img src="images/spexbanner.png" alt="Spex Banner" width="60%" height="60%">
+			</div>
 		</div>
 		<div class="dropdown">
 			<button class="dropdown-button">|||</button>
 			<nav class="dropdown-content">
 				<ul> 
-					<li><a href="#">Home</a></li><span>&#124;</span>
-					<li><a href="#"> About</a></li><span>&#124;</span>
-					<li><a href="#"> Data Science</a></li><span>&#124;</span>
-					<li><a href="#"> Developer</a></li><span>&#124;</span>
+					<li><a href="#">Home</a></li> <span>&#124;</span>
+					<li><a href="#"> About</a></li> <span>&#124;</span>
+					<li><a href="#"> Data Science</a></li> <span>&#124;</span>
+					<li><a href="#"> Developer</a></li> <span>&#124;</span>
 					<li><a href="#"> Contact Us</a></li>
 				</ul>	
 		
