@@ -32,8 +32,8 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 body {
-	font-family:'Arial Narrow';
-	line-height: 1;
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 1.3;
 }
 ol, ul {
   list-style: none;
@@ -71,13 +71,17 @@ body{
 header, footer{
 	width:100%;
 	padding:0;
-	font-family:Calibri;	
+	font-family:Calibri, 'Arial Narrow', Arial, sans-seriferif;	
 }
-.date-bar, .login-bar a{
+.login-bar a{
+	font-variant:small-caps;
 	color:rgb(240,240,240);
 }
 header{
 	background:#293f50;
+}
+nav a{
+	font-variant:small-caps;
 }
 main{
 	margin:0 auto;
@@ -92,6 +96,9 @@ footer{
 	padding:10px 40px;
 	background:rgba(15, 15,15, 0.5);
 }
+footer a{
+	font-variant:small-caps;
+}
 ::selection{
 	color:red;
 	background:yellow;
@@ -102,6 +109,7 @@ For testing only
 main, section, aside{
 	border: 1px solid yellow;
 }
+
 @media only screen and (max-width: 600px){
 /* 
 Extra Small devices (Phones 600px and down) 
@@ -112,6 +120,7 @@ Extra Small devices (Phones 600px and down)
 Header
 ===================================================
 */
+
 header{
 		height:45px;
 	}
@@ -122,24 +131,26 @@ header{
 	display:none;	 
 	}
 .login-bar{
-	width:40%;
+	width:30%;
 	float:none;
 	position:relative;
 	left:60%;
+	padding:5px 0 0 0;
+	text-align:center;
+	font-size:80%;
 }
 .login-bar span{
 	color:white;
 }
 .login-bar a:hover{
-	font-weight:bold;
 	text-decoration:underline;
 }
 .banner{
-	width:200px;
+	width:50%;
 	float:none;
 	position:relative;
-	left:30%;
-	
+	left:15%;
+	text-align:center;
 }
 /* Menu styling for mobile */
 .dropdown {
@@ -160,7 +171,6 @@ header{
 	-webkit-transform: rotate(90deg);
     -o-transform: rotate(90deg); 
     -moz-transform: rotate(90deg);
-
 }
 .dropdown-content {
     display: none;
@@ -170,7 +180,7 @@ header{
     z-index: 1;
 }
 .dropdown-content a {
-    color: black;
+    color:rgba(200,200,200,0.7);
     padding: 5px 10px;
     text-decoration: none;
     display: block;
@@ -181,7 +191,7 @@ header{
 	border-top: 1px solid silver;
 	}
 .dropdown-content a:hover {
-	background-color:rgba(200,200,200,0.3);
+	background:rgba(200,200,200,0.3);
 	color:white;
 	}
 .dropdown-button:hover{
@@ -218,18 +228,16 @@ footer div span{
 	display:block;	
 }
 footer span:first-child{
-	padding-bottom:10px;
+	padding-bottom:5px;
 }
 footer li{
 	display:inline-table
 }
 footer a{
-	text-decoration:none;
 	color:black;
 }
 footer a:hover{
 	color:white;
-	font-weight:bold;
 }
 }
 
@@ -237,68 +245,144 @@ footer a:hover{
 /* 
 Small Devices (Portrait tablets and large phones, 600px and above)
 */
-	
-}
-@media only screen and (min-width:768px){
 /*
-Medium Devices (Landscate tablets, 768px and up)
-*/
-	
-}
-
-@media only screen and (min-width:992px) {
-/*
-Large Devices (Laptops and Desktops 992px and above)  
-*/
-	/*
-	=================================================
+=================================================
 	General classes
 	=================================================
 	*/
-.left{
-	text-align:left;
+.group:before,
+.group:after{
+	content:"";
+	display: table;
 }
-.right{
-	text-align:right;
-}
+.group:after{
+	clear:both;
+} 
+.group{
+	clear:both;
+	*zoom:1;
+} 
 .float-right{
 	float:right;
 }
-.float-left{
+float-left{
 	float:left;
 }
-/*
-=================================================
-Header
-=================================================
-*/	
+body{
+	font-size:100%;
+}
 header{
-		min-height:45px;
+		height:70px;
 	}
-.date-bar{
-	float:left;
-	display:inline-block;
-	position:relative;
-	left:100px;
-	width:20%;
-	height:40px;
-	padding-top:10px;
-	padding-bottom:5px;
+[class*="col-"]{
+	width:100%
+}
+main{
+	width:90%
 }
 .login-bar{
-	display:inline-block;
-	position:relative;
-	right:20px;
-	width:20%;
-	height:40px;
-	padding-top:10px;
-	padding-bottom:5px;
+	display:block;
+	float:right;
+	width:40%;
+	height:30px;
+	margin-top:5px;
+	text-align:center;
+}
+.login-bar a:hover{
+	text-decoration:underline;
 }
 .banner{
-	position:relative;
-	left: 250px;
-	width:760px;
-	padding-top:5px;
+	display:block;
+	float:left;
+	width:55%;
+	height:30px;
+	margin-top:5px;
+	text-align:center;
+}
+.dropdown button{
+	display:none;
+}
+nav{
+	font-size:90%;
+	text-align:center;
+	padding: 5px;
+}
+nav li{
+	display:inline-block;
+}
+nav a{
+	font-size:110%;
+	color:rgb(250, 250,250);
+}
+nav a:hover{
+	color:rgba(200,200,200,0.7);
+}
+footer{
+	font-size:90%;
+}
+footer li{
+	display:inline-table
+}
+.login-bar span{
+	color:rgba(240, 256,40,.3);
+}
+ul span{
+	color:rgb(200,200,200);
+}
+footer a{
+	color:black;
+}
+footer a:hover{
+	color:rgb(240, 240,240);
+}	
+
+}
+@media only screen and (min-width:768px){
+/*
+================================================
+MEDIUM DEVICES (LANDSCAPE TABLETS, 768px and up)
+================================================
+*/
+.group:before,
+.group:after{
+	content:"";
+	display: table;
+}
+.group:after{
+	clear:both;
+} 
+.group{
+	clear:both;
+	*zoom:1;
+} 
+.float-right{
+	float:right;
+}
+float-left{
+	float:left;
+}
+header{
+		height:70px;
+	}
+.login-bar{
+	display:block;
+	float:right;
+	width:40%;
+	height:30px;
+	margin-top:5px;
+	text-align:center;
+}
+.login-bar a:hover{
+	text-decoration:underline;
+}
+.banner{
+	display:block;
+	float:left;
+	width:50%;
+	height:30px;
+	margin-top:5px;
+	text-align:center;
+
 }
 .dropdown button{
 	display:none;
@@ -311,19 +395,17 @@ Navigation & Links
 */
 nav{
 	text-align:center;
-	padding: 20px;
+	padding: 5px;
 }
 nav li{
 	display:inline-block;
 }
 nav a{
-	text-decoration:none;
+	font-size:110%;
 	color:rgb(250, 250,250);
-	
 }
 nav a:hover{
-	color:rgb(0,100,256);
-	font-weight:bold
+	color:rgba(200,200,200,0.7);
 }
 footer li{
 	display:inline-table
@@ -334,18 +416,150 @@ footer li{
 ul span{
 	color:rgb(200,200,200);
 }
-.login-bar a:hover{
-	color:rgb(0,100,256);
-	text-decoration:underline;
+footer a{
+	color:black;
+}
+footer a:hover{
+	color:rgb(240, 240,240);
 }
 
+/*
+===================================================
+Clearfix
+===================================================
+
+*/
+.group:before,
+.group:after{
+	content:"";
+	display: table;
+}
+.group:after{
+	clear:both;
+} 
+.group{
+	clear:both;
+	*zoom:1;
+}
+/*
+===========================================
+Grid
+==========================================
+*/
+.col-1-5,
+.col-2-5,
+.col-3-5,
+.col-4-5{
+	display: inline-block;
+	vertical-align: top;
+}
+.col-1-5{
+	width:20%;
+}
+.col-2-5{
+	width:40%;
+}
+.col-3-5{
+	width:60%;
+}
+.col-4-5{
+	width:80%
+}
+main{
+	width:100%;
+	padding:10px;
+	
+}
+footer{
+	
+	height:40px;
+	padding:10px 40px;
+}
+/*
+===========================================
+Typography
+==========================================
+*/
+
+
+/*
+End of desktop styles
+_________________________________________________
+*/
+}
+
+@media only screen and (min-width:992px) {
+/*
+Large Devices (Laptops and Desktops 992px and above)  
+*/
+	
+/*
+=================================================
+Header
+=================================================
+*/	
+header{
+	height:80px;
+	}
+.login-bar{
+	display:block;
+	float:right;
+	width:20%;
+	height:35px;
+	padding-top:5px;
+}
+.login-bar a:hover{
+	text-decoration:underline;
+}
+.banner{
+	display:block;
+	float:left;
+	width:30%;
+	height:35px;
+	padding-top:5px;
+}
+.dropdown button{
+	display:none;
+}
+
+/*
+=================================================
+Navigation & Links
+=================================================
+*/
+nav{
+	height:200px;
+	text-align:center;
+	padding-top:0;
+	padding-bottom:10px;
+	font-size:100%;
+}
+nav li{
+	display:inline-block;
+}
+nav a{
+	color:rgb(250, 250,250);
+	font-size:110%;
+	
+}
+nav a:hover{
+	color:rgba(200,200,200,0.7);
+}
+footer li{
+	display:inline-table
+}
+.login-bar span{
+	color:rgba(240, 256,40,.3);
+}
+ul span{
+	color:rgb(200,200,200);
+}
 footer a{
 	text-decoration:none;
 	color:black;
 }
 footer a:hover{
 	color:rgb(240, 240,240);
-	font-weight:bold;
 }
 
 /*
@@ -396,9 +610,8 @@ main{
 	
 }
 footer{
-	
 	height:40px;
-	padding:10px 40px;
+	padding:10px 200px;
 }
 /*
 ===========================================
