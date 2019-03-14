@@ -59,8 +59,8 @@ General Styles
 _____________________________________________________________
 */
 *,
-*:before,
-*:after {
+*::before,
+*::after {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -91,8 +91,7 @@ section, aside{
 	text-align:justify;
 }
 footer{
-	position:fixed;
-	bottom:0;
+	
 	padding:10px 40px;
 	background:rgba(15, 15,15, 0.5);
 }
@@ -106,9 +105,7 @@ footer a{
 /* 
 For testing only
 */
-main, section, aside{
-	border: 1px solid yellow;
-}
+
 
 @media only screen and (max-width: 600px){
 /* 
@@ -152,9 +149,14 @@ header{
 	left:15%;
 	text-align:center;
 }
-/* Menu styling for mobile */
+/* 
+------------------------------------------------
+NAVIGATION MENU
+STYLING FOR MOBILE 
+------------------------------------------------
+*/
 .dropdown {
-    position: fixed;
+    position: absolute;
     display: inline-block;
 	top:0;
 	left:0;
@@ -218,14 +220,12 @@ footer{
 	bottom:0;
 	width:100%;
 	height:50px;
-	position:fixed;
-	margin-bottom:0;
 	font-size:12px;
 	text-align:center;
 }
 footer div span{
 	float:none;
-	display:block;	
+	display:inline-block;	
 }
 footer span:first-child{
 	padding-bottom:5px;
@@ -429,12 +429,12 @@ Clearfix
 ===================================================
 
 */
-.group:before,
-.group:after{
+.group::before,
+.group::after{
 	content:"";
 	display: table;
 }
-.group:after{
+.group::after{
 	clear:both;
 } 
 .group{
@@ -446,28 +446,35 @@ Clearfix
 Grid
 ==========================================
 */
+.flex-container{
+	display:flex;
+	flex-direction: row;
+	justify-content:center;
+	align-items:center;
+}
 .col-1-5,
 .col-2-5,
 .col-3-5,
 .col-4-5{
+	float:left;
 	display: inline-block;
 	vertical-align: top;
 }
 .col-1-5{
-	width:20%;
+	max-width:20%;
 }
 .col-2-5{
-	width:40%;
+	max-width:40%;
 }
 .col-3-5{
-	width:60%;
+	max-width:60%;
 }
 .col-4-5{
-	width:80%
+	max-width:80%
 }
 main{
 	width:100%;
-	padding:10px;
+	
 	
 }
 footer{
@@ -568,12 +575,12 @@ Clearfix
 ===================================================
 
 */
-.group:before,
-.group:after{
+.group::before,
+.group::after{
 	content:"";
 	display: table;
 }
-.group:after{
+.group::after{
 	clear:both;
 } 
 .group{

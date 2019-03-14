@@ -1,0 +1,35 @@
+* [33mcommit 2349bbba8d18d0911c7298dec4a7930aeb1c0ffc[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+[31m|[m Author: Francis <fkahindi@gmail.com>
+[31m|[m Date:   Wed Feb 6 15:14:03 2019 +0300
+[31m|[m 
+[31m|[m     changes made to index.html and main.css
+[31m|[m 
+* [33mcommit bdaace4b2f230f3dcdb437f14b4fc2bd63d3f70d[m
+[31m|[m Author: Francis <fkahindi@gmail.com>
+[31m|[m Date:   Thu Jan 10 11:27:34 2019 +0300
+[31m|[m 
+[31m|[m     Initial main project commit
+[31m|[m 
+* [33mcommit 95aa572b4c4223b1d4221cd0362cc7f2b2c2d788[m
+[31m|[m Author: Francis <fkahindi@gmail.com>
+[31m|[m Date:   Wed Nov 7 09:55:02 2018 +0300
+[31m|[m 
+[31m|[m     Removed backgroud color style rules on sections
+[31m|[m 
+* [33mcommit 34d04576c4c0a5af5245caa2f5f5e41cba04d402[m[33m ([m[1;33mtag: v1.1[m[33m)[m
+[31m|[m Author: Francis <fkahindi@gmail.com>
+[31m|[m Date:   Wed Nov 7 09:43:07 2018 +0300
+[31m|[m 
+[31m|[m     Changed Floating Sections:
+[31m|[m 
+* [33mcommit 787851231ee9c659ef916f31aeb2768ea8b890b4[m
+[31m|[m Author: Francis <fkahindi@gmail.com>
+[31m|[m Date:   Wed Nov 7 09:41:18 2018 +0300
+[31m|[m 
+[31m|[m     Added more section
+[31m|[m 
+* [33mcommit fb6d51536b2ced4ad1547c2737f2df675fa59d3e[m
+  Author: Francis <fkahindi@gmail.com>
+  Date:   Wed Nov 7 08:38:43 2018 +0300
+  
+      Initial project version

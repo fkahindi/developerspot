@@ -1,3 +1,6 @@
+<?phpdeclare(strict_types=1;)
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,21 +8,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Francis Kahindi">
 	<title>Spex Management Solutions: Consulting</title>
-	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/form.css">
-	<link rel="icon" href="icons/logoicon.png" sizes="16x16 32x32" type="image/x-icon">
-	<script type="text/javascript" src="js/dates.js"></script>
+	<link rel="stylesheet" href="resources/css/main.css">
+	<link rel="stylesheet" href="resources/css/form.css">
+	<link rel="icon" href="resources/icons/logoicon.png" sizes="16x16 32x32" type="image/x-icon">
+	<script type="text/javascript" src="resources/js/dates.js"></script>
 </head>
 <body>
 	<header>
 		<div class="group">
 			<div class="login-bar">
-				<a href="#">Login </a> <span>&#124;</span>
+				<a href="resources/pages/loginForm.php">Login </a> <span>&#124;</span>
 				<a href="#">Sign up</a> 
 			</div><!--
 		
 			--><div class="banner">
-				<img src="images/spexbanner.png" alt="Spex Banner" width="60%" height="60%">
+				<img src="resources/images/spexbanner.png" alt="Spex Banner" width="60%" height="60%">
 			</div>
 		</div>
 		<div class="dropdown">
@@ -42,15 +45,14 @@
 	
 		</section><!--
 		--><aside class='col-2-5'>
-			<h2>Analytics</h2>
-			<p>Stressed with data? It shouldn't be so. Your data analytics starts here. We discover the hidden trends and advise you accordingly.</p>
-			<p>Feel free to contact us and we will be glad to help you</p>
+			<?phpdeclare(strict_types=1;)
+				//Echo session variables set in session.php file
+				echo "Favourite color is ".$_SESSION["favcolor"];
+				echo "Favourite pet is ".$_SESSION["favpet"];  
+			?>
 		</aside>
 	
 	</main>
-	
-	
-	
 	<footer>
 		<div class="group">
 			<span class="float-right">
@@ -61,7 +63,7 @@
 					<li><a href="#"> Developer|</a></li>
 				</ul>	
 			</span>
-			<span class="float-left">&copy;2018 &nbsp;Spexdata.com</span>
+			<span class="float-left">&copy;<?php date_default_timezone_set("Africa/Nairobi");echo date('Y');?>&nbsp;Spexdata.com</span>
 		</div>
 		
 	</footer>
