@@ -1,0 +1,53 @@
+form {
+  display: table;
+  margin: 0 auto;
+}
+
+form div {
+  display: table-row;
+}
+
+form label, form input {
+  display: table-cell;
+  margin-bottom: 10px;
+}
+
+form label {
+  
+  text-align: right;
+}
+
+form input[type='text'] {
+  height:35px;
+  font-size:110%;
+  font-family:'Helvetica Nue',Helvetica;
+}
+form input[type='submit']{
+	vertical-align:center;
+	width:70px;
+	line-height:32px;
+	background:rgb(12,30,33);
+	color:white;
+	
+}
+.error {color: #FF0000;} 
+@media only screen and (min-width:600px){
+	form label {
+  width: 200px;
+  padding-right: 5%;
+  text-align: right;
+}
+form input[type='text'] {
+  width: 300px;
+  position:relative;
+  left:10px;
+  
+}
+form p {
+  display: table-caption;
+  caption-side: bottom;
+  width: 300px;
+  color: #999;
+  font-style: italic;
+}
+}
