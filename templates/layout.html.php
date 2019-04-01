@@ -1,24 +1,17 @@
-<?php 
-setcookie("test_cookie", "test", time()+ 3600, '/' );
-?>
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="Francis Kahindi">
-	<title>Spex Management Solutions: Consulting</title>
-	<link rel="stylesheet" href="resources/css/main.css">
-	<link rel="stylesheet" href="resources/css/form.css">
-	<link rel="icon" href="resources/icons/logoicon.png" sizes="16x16 32x32" type="image/x-icon">
-	<script type="text/javascript" src="resources/js/dates.js"></script>
+	<?php include __DIR__ .'/../templates/head.html.php';?>
 </head>
 <body>
 	<header>
 		<div class="group">
 			<div class="login-bar">
-				<a href="resources/pages/loginForm.php">Login </a> <span>&#124;</span>
-				<a href="#">Sign up</a> 
+				<?php echo (isset($_SESSION['loggedin']) && $_SESSION['loggedin']== true)? 
+				'<a href="templates/logout.html.php">Log out </a> <span>&#124;</span>':  
+				'<a href="templates/login.html.php">Login </a> <span>&#124;</span>'; ?>
+				<a href="templates/signup.html.php">Sign up</a> 
 			</div><!--
 		
 			--><div class="banner">
@@ -28,15 +21,16 @@ setcookie("test_cookie", "test", time()+ 3600, '/' );
 		<div class="dropdown">
 			<button class="dropdown-button">|||</button>
 			<nav class="dropdown-content">
-				<?php include  'templates/nav.html.php'; ?>	
+				<?php include  __DIR__ .'/../templates/nav.html.php'; ?>	
 		
 			</nav>
 		</div>
 	</header>
 	<main class="group">
 		<section class='col-3-5'>
-			<h1>Welcome</h1>
-	
+			<?=$title ?>
+			<?=$output?>
+			
 		</section><!--
 		--><aside class='col-2-5'>
 			<?php
@@ -52,7 +46,7 @@ setcookie("test_cookie", "test", time()+ 3600, '/' );
 	<footer>
 		<div class="group">
 			<span class="float-right">
-				<?php include  'templates/nav.html.php'; ?>	
+				<?php include  __DIR__ .'/../templates/nav.html.php'; ?>	
 			</span>
 			<span class="float-left">&copy;<?php date_default_timezone_set("Africa/Nairobi");echo date('Y');?>&nbsp;Spexdata.com</span>
 		</div>
