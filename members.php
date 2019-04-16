@@ -1,8 +1,18 @@
 <?php
-include 'includes/DatabaseConnection.php';
+session_start();
+
+include __DIR__ . '/includes/loginStatus.php';
+
+include __DIR__ .'/templates/layout.html.php';
+
+include __DIR__ .'/includes/DatabaseConnection.php';
+
+
 try{
+	$title = $output='';
 	$sql= 'SELECT * FROM `members`';
 	$result=$pdo->query($sql);
+	
 	
 	
 	$title ='Members List';
@@ -18,5 +28,5 @@ catch(PDOException $e){
 	$output = 'Database error: ' . $e->getMessage() . '
 	in ' .$e->getFile() . ':' . $e->getLine();
 }
-include __DIR__ .'/templates/layout.html.php';
+
 

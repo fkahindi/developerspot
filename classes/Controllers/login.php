@@ -1,5 +1,5 @@
 <?php
-	include __DIR__ .'/../../includes/DatabaseConnection.php';
+	
 		
 	//If $valid is still true, no fields were left blank
 	//Prepare a select statement
@@ -30,27 +30,24 @@
 							//Store data in session variables
 							$_SESSION['loggedin'] = true;
 							$_SESSION['email'] = $email;
-							$_SESSION['password']= $harshed_password;
+							$_SESSION['password']= $hashed_password;
 							
 							//Redirect to welcome page
 							header('Location: ../templates/welcome.html.php');
 						}else{
 							//Display error password
 							
-							$errors['password'] ='The password you entered was incorrect';
-							
-							//Display login form with recover password option
-							$recover_password_option ='Forgot password? <a href="../templates/recoverpassword.html.php">Recover it</a>.' ;
-							
+							$errors['password'] ='Incorrect email or password';
+														
 							include __DIR__ . '/../../templates/login.html.php';
 						}
 					}
 				}else{
 					//Display error message the email does not exist
-					$errors['email'] ='The email you entered does not exist';
+					$errors['email'] ='Email address does not exist';
 					
-					//Display login form again with a signup option
-					$signup_option = '<a href="../templates/signup.html.php">Sign up</a>'. ' here for an account.';
+					//Display login form again
+					
 					include __DIR__ . '/../../templates/login.html.php';
 				}
 			}else{

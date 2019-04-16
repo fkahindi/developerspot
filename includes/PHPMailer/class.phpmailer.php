@@ -2025,7 +2025,7 @@ class PHPMailer
         if ($this->XMailer == '') {
             $result .= $this->headerLine(
                 'X-Mailer',
-                'PHPMailer ' . $this->Version . ' (https://github.com/PHPMailer/PHPMailer)'
+                'PHPMailer ' . $this->Version . ' (localhost/spexproject/includes/PHPMailer)'
             );
         } else {
             $myXmailer = trim($this->XMailer);
@@ -3243,7 +3243,7 @@ class PHPMailer
                 //Include a link to troubleshooting docs on SMTP connection failure
                 //this is by far the biggest cause of support questions
                 //but it's usually not PHPMailer's fault.
-                return $this->language[$key] . ' https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting';
+                return $this->language[$key] . ' localhost/spexproject/includes/PHPMailer';
             }
             return $this->language[$key];
         } else {
