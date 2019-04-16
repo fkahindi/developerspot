@@ -8,7 +8,7 @@
 <body>
 	<div id="register">
 		<h2>Sign Up Form </h2>
-		<form action="../includes/processform.php" method ="POST" name="signup">
+		<form action="../includes/processFormAuthentication.php" method ="POST" name="signup">
 		
 			<div class="group-form">
 				<label for="fullname">Full Name:</label>
@@ -35,10 +35,11 @@
 			<input name="confirm_password" id="confirm_password" class="form-control" type="password" autocomplete="off">
 			<span class="errorMsg"><?php echo(!empty($errors['confirm_password']) ? $errors['confirm_password'] : ''); ?>	</span>
 			</div>
-			<input name="sumbit"  type="submit" class="button" value="Sign Up">
-			<p>Aready have an account? <a href="login.html.php">Login here</a>.</p>
-
+			<input name="signup"  type="submit" class="button" value="Sign Up">
 		</form>
+	</div>
+	<div class="section">
+		<p>Aready have an account? <a href="/spexproject/templates/login.html.php">Log in here</a>.</p>
 	</div>
 </body>
 </html>

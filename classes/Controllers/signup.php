@@ -12,7 +12,8 @@
 			if($stmt->execute()){
 				if($stmt->rowCount()== 1){
 					$valid = false;
-					$email_err = 'This email already exists';
+					$errors['email'] = 'This email already exists';
+					include __DIR__ .'/../../templates/signup.html.php';
 				}else{
 					$valid = true;
 					$email = $_POST['email'];
@@ -47,7 +48,8 @@
 			if($stmt->execute()){
 				
 				//Redirect to login page
-				header('Location: ../templates/login.html.php');
+				$GLOBALS['success_msg'] = 'Registration successful';
+				header('Location: ../templates/signupsuccessful.html.php');
 			}else{
 				echo 'Something went wrong. You could not be registered';
 			}

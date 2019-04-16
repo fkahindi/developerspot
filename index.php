@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 $title='Spex Management Solutions';
 
 ob_start();

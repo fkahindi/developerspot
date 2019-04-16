@@ -1,4 +1,4 @@
-<?php session_start()?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +9,20 @@
 		<div class="group">
 			<div class="login-bar">
 				<?php echo (isset($_SESSION['loggedin']) && $_SESSION['loggedin']== true)? 
-				'<a href="templates/logout.html.php">Log out </a> <span>&#124;</span>':  
-				'<a href="templates/login.html.php">Login </a> <span>&#124;</span>'; ?>
-				<a href="templates/signup.html.php">Sign up</a> 
+				'<a href="/spexproject/includes/logout.php">Log out </a> <span>&#124;</span>':  
+				'<a href="/spexproject/templates/login.html.php">Login </a> <span>&#124;</span>'; ?>
+				<a href="/spexproject/templates/signup.html.php">Sign up</a> 
+				<div class="special">
+				<?php echo (isset($_SESSION['loggedin']) && $_SESSION['loggedin']== true)? $_SESSION['email']. '<span>&#124;</span>': ''; ?>
+				<?php echo (isset($_SESSION['loggedin']) && $_SESSION['loggedin']== true)? '<a href="/spexproject/templates/change-password.html.php">Change password </a>' : ''; ?>
+				</div>
 			</div><!--
 		
 			--><div class="banner">
-				<img src="resources/images/spexbanner.png" alt="Spex Banner" width="60%" height="60%">
+				<img src="/spexproject/resources/images/spexbanner.png" alt="Spex Banner" width="60%" height="60%">
+				
 			</div>
+			
 		</div>
 		<div class="dropdown">
 			<button class="dropdown-button">|||</button>
@@ -28,8 +34,7 @@
 	</header>
 	<main class="group">
 		<section class='col-3-5'>
-			<?=$title ?>
-			<?=$output?>
+			
 			
 		</section><!--
 		--><aside class='col-2-5'>
