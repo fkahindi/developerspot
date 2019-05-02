@@ -54,7 +54,7 @@
 					
 					//Redirect to login page
 					$GLOBALS['success_msg'] ='Update successful';
-					header('Location: ../templates/signupsuccessful.html.php');
+					header('Location: ../templates/login.html.php');
 				}else{
 					echo 'Sorry, password update was not successful';
 				}

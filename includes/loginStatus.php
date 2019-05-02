@@ -1,6 +1,6 @@
 <?php
 //check if user already loged in, if not redirect to login page
-if(!isset($_SESSION['loggedin']) && $_SESSION['loggedin']!== true){
+if(!isset($_SESSION['loggedin']) && $_SESSION['loggedin']!= true){
 		header('Location: /spexproject/templates/login.html.php');
 		exit;
 	}else{
@@ -21,11 +21,9 @@ if(!isset($_SESSION['loggedin']) && $_SESSION['loggedin']!== true){
 					$hashed_password = $row['password'];
 					
 					//Check whether session email and password match the ones in the database
-					if($_SESSION['email']== $email && $_SESSION['password'] === $hashed_password){
+					if($_SESSION['email']== $email && $_SESSION['password'] == $hashed_password){
 						
 						$_SESSION['loggedin'] = true;
-						$_SESSION['email'] = $email;
-						$_SESSION['password']= $hashed_password;
 						
 					}else{
 						//There is a problem, the user session using someones session
@@ -35,9 +33,5 @@ if(!isset($_SESSION['loggedin']) && $_SESSION['loggedin']!== true){
 					echo 'User could not be verified';
 				}
 			}
-		}else{
-			//User is not logged in
-			header('Location: /spexproject/templates/login.html.php');
-			exit;
 		}
 	}

@@ -3,7 +3,7 @@
 		
 	//If $valid is still true, no fields were left blank
 	//Prepare a select statement
-	$sql = 'SELECT id, email, password FROM `members` WHERE email = :email';
+	$sql = 'SELECT id, fullname, email, password FROM `members` WHERE email = :email';
 	
 		if($stmt=$pdo->prepare($sql)){
 			
@@ -20,6 +20,7 @@
 				if($stmt->rowCount()== 1){
 					if($row = $stmt->fetch()){
 						$id = $row['id'];
+						$fullname = $row['fullname'];
 						$email = $row['email'];
 						$hashed_password = $row['password'];
 						if(password_verify($password, $hashed_password)){
@@ -31,6 +32,7 @@
 							$_SESSION['loggedin'] = true;
 							$_SESSION['email'] = $email;
 							$_SESSION['password']= $hashed_password;
+							$_SESSION['fullname'] = $fullname;
 							
 							//Redirect to welcome page
 							header('Location: ../templates/welcome.html.php');

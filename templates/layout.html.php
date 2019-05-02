@@ -13,7 +13,7 @@
 				'<a href="/spexproject/templates/login.html.php">Login </a> <span>&#124;</span>'; ?>
 				<a href="/spexproject/templates/signup.html.php">Sign up</a> 
 				<div class="special">
-				<?php echo (isset($_SESSION['loggedin']) && $_SESSION['loggedin']== true)? $_SESSION['email']. '<span>&#124;</span>': ''; ?>
+				<?php echo (isset($_SESSION['loggedin']) && $_SESSION['loggedin']== true)? $_SESSION['fullname']. '<span> &#124;</span>': ''; ?>
 				<?php echo (isset($_SESSION['loggedin']) && $_SESSION['loggedin']== true)? '<a href="/spexproject/templates/change-password.html.php">Change password </a>' : ''; ?>
 				</div>
 			</div><!--
@@ -38,13 +38,7 @@
 			
 		</section><!--
 		--><aside class='col-2-5'>
-			<?php
-				if(count($_COOKIE)>0){
-					echo "Cookies are enabled";
-				}else{
-					echo "Cookies are disabled";
-				}
-			?>
+			
 		</aside>
 	
 	</main>

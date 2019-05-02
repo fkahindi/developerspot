@@ -10,5 +10,5 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
 }
 ?>
 
-<h4>Wecome <?php echo (!empty($_SESSION['email'])? $_SESSION['email']:'');?></h4>
-<p>Start <a href="../index.php">browsing</a>.</p>
+<h4>Welcome <?php echo (!empty($_SESSION['fullname'])? $_SESSION['fullname']:'');?></h4>
+<p>Start <a href="../index.php"> browsing</a>.</p>

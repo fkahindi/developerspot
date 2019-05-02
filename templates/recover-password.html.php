@@ -13,7 +13,7 @@
 	<div id="recover">
 	<h2>Recover Password</h2>
 	
-		<form method="POST" action="../includes/processFormAuthentication.php">
+		<form method="POST" action="../includes/processFormAuthentication-Test.php">
 			<label for="email">Enter your email:</label>
 			 <input type="email" name="email" autocomplete="off"> <span class="errorMsg">
 			 <?php echo (!empty($errors['email'])? $errors['email'] :'');?></span>

@@ -1,12 +1,13 @@
 <?php
 
+
+
 $output='<p>Dear user,</p>';
 $output.='<p>Please click on the following link to reset your password.</p>';
-$output.='<p>---------localhost/spexproject/----------------------------------------------------</p>';
+$output.='<p>---------Spex Solutions----------------------------------------------------</p>';
 $output.='<p><a href="localhost/spexproject/templates/reset-password.html.php?
 key='.$token.'&email='.$email.'&action=reset" target="_blank">
-localhost/spexproject/templates/reset-password.html.php?
-?key='.$token.'&email='.$email.'&action=reset</a></p>';		
+localhost/spexproject/templates/reset-password.html.php?key='.$token.'&email='.$email.'&action=reset</a></p>';		
 $output.='<p>-------------------------------------------------------------</p>';
 $output.='<p>Please be sure to copy the entire link into your browser.
 The link will expire after 1 day for security reason.</p>';
@@ -16,26 +17,29 @@ your account and change your security password as someone may have guessed it.</
 $output.='<p>Thanks,</p>';
 $output.='<p>Spex Solutions Team</p>';
 $body = $output; 
-$subject = "Password Recovery - Spex.co.ke";
+$subject = "Password Recovery";
  
 $email_to = $email;
 $fromserver = "noreply@spex.co.ke"; 
+
 require("PHPMailer/PHPMailerAutoload.php");
 $mail = new PHPMailer();
 $mail->IsSMTP();
-$mail->Host = "mail.localhost"; // Enter your host here
+$mail->Host = 'smtp.gmail.com'; // Enter your host here
 $mail->SMTPAuth = true;
-$mail->Username = "info@spex.co.ke"; // Enter your email here
-$mail->Password = "fkdsii"; //Enter your password here
-$mail->Port = 25;
+$mail->Username = "fkahindi@gmail.com"; // Enter your email here
+$mail->Password = "erzwhncbbuudjlcz"; //Enter your password here
+$mail->SMTPSecure = 'tls';
+$mail->Port = 587;
 $mail->IsHTML(true);
-$mail->From = "info@spex.co.ke";
+$mail->From = "fkahindi@gmail.com";
 $mail->FromName = "Spex Solutions";
 $mail->Sender = $fromserver; // indicates ReturnPath header
 $mail->Subject = $subject;
 $mail->Body = $body;
 $mail->AddAddress($email_to);
 if(!$mail->Send()){
+	echo 'Message could not be sent.';
 	echo "Mailer Error: " . $mail->ErrorInfo;
 }else{
 	echo "<div class='error'>
