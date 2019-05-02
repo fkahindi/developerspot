@@ -8,7 +8,7 @@
 <body>
 	<div id="register">
 		<h2>Sign Up Form </h2>
-		<form action="../includes/processFormAuthentication.php" method ="POST" name="signup">
+		<form action="../includes/processFormAuthentication-Test.php" method ="POST" name="signup">
 		
 			<div class="group-form">
 				<label for="fullname">Full Name:</label>

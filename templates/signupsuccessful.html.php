@@ -1,3 +1,4 @@
-<h2><?php echo (!empty($GLOBALS['success_msg'])? $GLOBALS['success_msg'] : '');?></h2>
+<h3>Congratulations! You are now registered with us.</h3>
 
-<p>You are can now <a href="login.html.php">Log in.</a></p>
+
+<p>Please, <a href="login.html.php">Login </a> to continue</p>

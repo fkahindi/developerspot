@@ -27,6 +27,7 @@
 		//If $valid is still true, no fields were left blank, email is not taken and idata can be added
 		
 	if($valid){
+		$date_reg = new DateTime();	
 		//Insert record to the database
 		$sql = 'INSERT INTO `members` (fullname, email, password, date_reg) 
 		VALUES (:fullname, :email, :password, :date_reg)';
@@ -48,7 +49,6 @@
 			if($stmt->execute()){
 				
 				//Redirect to login page
-				$GLOBALS['success_msg'] = 'Registration successful';
 				header('Location: ../templates/signupsuccessful.html.php');
 			}else{
 				echo 'Something went wrong. You could not be registered';

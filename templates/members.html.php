@@ -1,4 +1,6 @@
-<?php ?>
+<?php 
+include __DIR__ . '/../includes/loginStatus.php';
+?>
 		<?php foreach($result as $member): ?>
 		<blockquote>
 			<p><?=$member['firstname']?> <nbsp> 

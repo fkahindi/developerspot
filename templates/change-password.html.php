@@ -1,5 +1,7 @@
 <?php
+session_start();
 
+include __DIR__ . '/../includes/loginStatus.php';
  ?>
 <!doctype html>
 <html lang="en">
@@ -9,12 +11,12 @@
 	<link rel="stylesheet" href="../resources/css/form.css">
 </head>
 <body>
-	<h3> </h3>
-	<p>Please fill out this form to reset your password.</p>
+	<h4 class="errorMsg"><?php echo $_SESSION['fullname']; ?>, you are about to change your password. </h4>
+	<p>Please, fill out this form to reset your password.</p>
 	<div id="reset">
 	<h2>Reset Password</h2>
 	
-		<form method="POST" action="../includes/processFormAuthentication.php">
+		<form method="POST" action="../includes/processFormAuthentication-Test.php">
 			<label for="old_password">Old Password:</label>
 			 <input type="password" name="old_password" autocomplete="off">
 			<span class="errorMsg"><?php echo (!empty($errors['old_password'])? $errors['old_password'] :'');?></span>

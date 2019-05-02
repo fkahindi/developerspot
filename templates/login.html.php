@@ -6,13 +6,13 @@
 	<link rel="stylesheet" href="../resources/css/form.css">
 </head>
 <body>
-	<h3 class="successMsg"><?php echo(!empty($successMsg)? $successMsg :'');?></h3>
+	<h3 class="successMsg"><?php echo(!empty($GLOBALS['successMsg'])? $GLOBALS['success_msg'] :'');?></h3>
 	<p><?php echo(!empty($loginMsg)? $loginMsg :''); ?></p>
 	
 	<div id="login">
 	<h2>Log in</h2>
 	
-		<form method="POST" action="../includes/processFormAuthentication.php">
+		<form method="POST" action="../includes/processFormAuthentication-Test.php">
 			<label for="email">Email address:</label>
 			 <input type="text" name="email" value="<?php echo (!empty($email)? $email:'');?>"autocomplete="off"> <span class="errorMsg"><?php echo (!empty($errors['email'])? $errors['email'] :'');?></span>
 			
