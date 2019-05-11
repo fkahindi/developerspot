@@ -1,4 +1,4 @@
- .section,#register,#login, #recover,#reset{
+ .section,#register,#login, #recover,#reset, #upload{
 width: 300px; border: 1px solid #d6d7da; 
 padding: 0px 15px 15px 15px; 
 border-radius: 5px;font-family: arial; 

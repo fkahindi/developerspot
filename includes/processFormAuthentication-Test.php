@@ -2,7 +2,7 @@
 //Initialize session
 session_start();
 
-$fullname = $email = $password = $confirm_password = $new_password = $old_password ='';
+$fullname = $photo = $email = $password = $confirm_password = $new_password = $old_password ='';
 
 $errors =[];
 $valid = true;
@@ -135,6 +135,7 @@ if(isset($_POST['login'])){
 				//Assign record values to variable
 				$id = $row['id'];
 				$fullname = $row['fullname'];
+				$photo = $row['photo'];
 				$email = $row['email'];
 				$hashed_password = $row['password'];
 				
@@ -148,6 +149,7 @@ if(isset($_POST['login'])){
 					$_SESSION['email'] = $email;
 					$_SESSION['password']= $hashed_password;
 					$_SESSION['fullname'] = $fullname;
+					$_SESSION['photo']= $photo;
 						
 					//Redirect to welcome page
 					header('Location: ../templates/welcome.html.php');	
@@ -413,6 +415,92 @@ if(isset($_POST['reset_password'])){
 		include __DIR__ . '/../templates/reset-password.html.php';
 	}
 		
+}
+if(isset($_POST['image-upload'])){
+	require __DIR__ . '/loginStatus.php';
+	
+	$target_dir = '../resources/photos/';
+	$target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
+	$uploadOk = 1;
+	$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+	
+	try{	
+		//Check if an image has been selected
+	
+		$check = getimagesize($_FILES['fileToUpload']['tmp_name']);
+		if($check !== false){
+			
+			// Check file size
+			if($_FILES['fileToUpload']['size']>500000){
+				$uploadOk = 0;
+				$errors['fileToUpload'] = 'Sorry, your file is too large';
+
+				include __DIR__ . '/../templates/imageupload.html.php';
+				
+				// Allow only .jpg, .png and .gif file formats
+			}else if($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'gif'){
+				$uploadOk = 0;
+				$errors['fileToUpload'] = 'Sorry, only JPG and PNG files are allowed';
+				
+				include __DIR__ . '/../templates/imageupload.html.php';
+			}else{
+				$uploadOk = 1;
+			
+			}
+			
+		}else{
+			$uploadOk = 0;
+			$errors['fileToUpload'] =  'No image selected';	
+		}
+		
+		//If everything is ok, try to upload the file
+		if($uploadOk == 1){
+			
+			//Prepare file by renaming the image file with account session name
+			$fullname_arr = explode(' ',$_SESSION['fullname']);
+			$name = implode($fullname_arr);
+			
+			//Split the original file name and take the extension name
+			$file_pieces = explode('.',$_FILES['fileToUpload']['name']);
+			$extension = $file_pieces[1];
+			
+			//Combine the new file name with the extension name
+			$target_file = strtolower($name .'.'.$extension);
+			
+			if(move_uploaded_file($_FILES['fileToUpload']['tmp_name'],'../resources/photos/'.$target_file)){
+				$file_path = '/spexproject/resources/photos/'.$target_file;
+				$email = $_SESSION['email'];
+							
+				try{
+					include __DIR__ .  '/../includes/DatabaseConnection.php';
+					include __DIR__ .  '/../includes/DatabaseFunctions.php';
+										
+					$update = updateImage($pdo, $file_path, $email);
+					
+					$selectRecord = selectRecord($pdo,$email);
+					if($selectRecord->rowCount()== 1){
+						$row = $selectRecord->fetch();
+						
+						//Set the session photo path again	
+						$_SESSION['photo'] = $row['photo'];
+					}			
+				
+					echo 'The image '. basename($target_file). ' has been updated<br>';
+					echo '<a href="../index.php">Continue</a>';
+										
+				}catch(PDOException $e){
+					$title ='An error has occured';
+					$output = 'Database error: ' . $e->getMessage() . ' in '
+					. $e->getFile() . ':' . $e->getLine();
+				}
+				
+			}else{
+				echo 'Sorry, there was an error uploading your file.';
+			}		
+		}
+	}catch(Exception $e){
+		echo 'Caught Exception: ' . $e->getMessage();
+	}
 }
 		
 	function test_input($data){
