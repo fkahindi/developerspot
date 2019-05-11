@@ -38,7 +38,14 @@ function updatePassword($pdo, $new_password, $email) {
 	query($pdo, $sql, $parameters);
 }
 
-function 			 {
+function updateImage($pdo, $photo, $email){
+	$sql ='UPDATE `members` SET `photo` = :photo 
+	WHERE `email` = :email';
+	$parameters = [':photo' => $photo, ':email' => $email];
+	query($pdo, $sql, $parameters);
+}
+
+function deleteToken($pdo, $email){
 	$parameters = [':email' => $email];
 	query($pdo, 'DELETE FROM `password_reset_temp`
 	WHERE `email` = :email', $parameters);
