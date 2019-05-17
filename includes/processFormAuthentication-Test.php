@@ -416,6 +416,8 @@ if(isset($_POST['reset_password'])){
 	}
 		
 }
+
+
 if(isset($_POST['image-upload'])){
 	require __DIR__ . '/loginStatus.php';
 	
@@ -427,8 +429,7 @@ if(isset($_POST['image-upload'])){
 	try{	
 		//Check if an image has been selected
 	
-		$check = getimagesize($_FILES['fileToUpload']['tmp_name']);
-		if($check !== false){
+		if(getimagesize($_FILES['fileToUpload']['tmp_name']) !== false){
 			
 			// Check file size
 			if($_FILES['fileToUpload']['size']>500000){
@@ -450,7 +451,9 @@ if(isset($_POST['image-upload'])){
 			
 		}else{
 			$uploadOk = 0;
-			$errors['fileToUpload'] =  'No image selected';	
+			$errors['fileToUpload'] =  'No image was selected.';	
+			
+			include __DIR__ . '/../templates/imageupload.html.php';
 		}
 		
 		//If everything is ok, try to upload the file

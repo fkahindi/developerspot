@@ -1,4 +1,4 @@
-
+<?php $title='Best Statistical Software';?>
 <h1>Best Statistical Software Package</h1>
 
 <p>The best statistical software package is the tool that works best for the user based upon what needs to be done, cost, and what works best with existing software. Similar to using a particular tool, each package has its advantages and disadvantages over each other. The major packages are R, SPSS, and SAS.</p>

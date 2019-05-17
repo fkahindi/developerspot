@@ -27,7 +27,7 @@ include __DIR__ . '/../../includes/loginStatus.php';
 			<span class="float-right">
 				<?php include  __DIR__ .'/../../templates/nav.html.php'; ?>	
 			</span>
-			<span class="float-left">&copy;<?php date_default_timezone_set("Africa/Nairobi");echo date('Y');?>&nbsp;Spexdata.com</span>
+			<span class="float-left">&copy;<?php date_default_timezone_set("Africa/Nairobi");echo date('Y');?>&nbsp;Spex.co.ke</span>
 		</div>
 		
 	</footer>
