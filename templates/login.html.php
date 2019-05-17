@@ -10,7 +10,7 @@
 	<p><?php echo(!empty($loginMsg)? $loginMsg :''); ?></p>
 	
 	<div id="login">
-	<h2>Log in</h2>
+	<h2>Please, Login</h2>
 	
 		<form method="POST" action="../includes/processFormAuthentication-Test.php">
 			<label for="email">Email address:</label>

@@ -100,7 +100,7 @@ header, footer{
 	font-family: 'Arial Narrow', sans-serif;
 	color:orange;
 	font-size:80%;
-	padding:10px 0;
+	padding:5px 0;
 	text-align:right;
 	
 }
@@ -214,7 +214,21 @@ For testing only
 /* 
 Extra Small devices (Phones 600px and down) 
 */
-
+.group:before,
+.group:after{
+	content:"";
+	display: table;
+}
+.group:after{
+	clear:both;
+} 
+.group{
+	clear:both;
+	*zoom:1;
+} 
+main{
+	padding:0 10px;
+}
 /* 
 ===================================================
 Header
@@ -222,7 +236,8 @@ Header
 */
 
 header{
-		height:60px;
+	width:100%;
+	height:60px;
 	}
 [class*="col-"]{
 	width:100%
@@ -231,13 +246,17 @@ header{
 	display:none;	 
 	}
 .login-bar{
-	width:40%;
-	float:none;
-	position:relative;
-	left:60%;
+	width:50%;
+	float:right;
 	padding:5px 0 0 0;
-	text-align:center;
+	text-align:left;
 	font-size:80%;
+}
+.banner-bar{
+	float:left;
+	width:50%;
+	padding-left:10%;
+	padding-top:10px;
 }
 .login-bar span{
 	color:white;
@@ -245,14 +264,41 @@ header{
 .login-bar a:hover{
 	text-decoration:underline;
 }
-.banner{
-	width:60%;
-	float:none;
-	position:relative;
-	left:5%;
+.account-photo-box{
+	display:inline-block;
+	float:right;
+	width:25%;
+	height:30px;
+	text-align:right;
+	padding:0 10px;
+	overflow:hidden;
+}
+.login-signup{
+	display:inline-block;
+	float:left;
+	width:70%;
+	height:35px;
+	padding:5px;
+	overflow:hidden;
 	text-align:center;
+	font-size:90%;
+}
+.image-photo{
+	height:25px;
+	width:25px;
+	border-radius:25px 25px;
+}
+.special{
+	padding:0 10px;
+}
+
+.banner{
+	text-align:center;
+	width:90%; 
+	height:50%;
 	
 }
+
 /* 
 ------------------------------------------------
 NAVIGATION MENU
@@ -323,9 +369,10 @@ section, aside{
 footer{
 	bottom:0;
 	width:100%;
-	height:60px;
+	height:70px;
 	font-size:12px;
 	text-align:center;
+	padding:10px;
 }
 footer div span{
 	float:none;
@@ -339,6 +386,7 @@ footer li{
 }
 footer a{
 	color:black;
+	font-size:90%;
 }
 footer a:hover{
 	color:white;
@@ -352,7 +400,7 @@ Small Devices (Portrait tablets and large phones, 600px and above)
 /*
 =================================================
 	General classes
-	=================================================
+=================================================
 	*/
 .group:before,
 .group:after{
@@ -379,46 +427,101 @@ header{
 main{
 	width:90%
 }
-.login-bar{
-	display:block;
-	float:right;
-	width:50%;
-	height:30px;
-	margin-top:5px;
-	text-align:center;
+/*
+=================================================
+Header and Sections
+=================================================
+*/	
+header{
+	height:70px;
+	}
+.banner-bar, .nav-bar, .login-bar{
+	float:left;
+	display:inline-block;
+	height:70px;
+	margin:0;
+	padding:5px 0;
 }
+
+.banner-bar{
+	width:20%;	
+}
+.nav-bar{
+	width:60%;
+}
+.login-bar{
+	width:20%;
+	padding-right:5px;
+}
+
 .login-bar a:hover{
 	text-decoration:underline;
 }
-.banner{
-	display:block;
-	float:left;
-	width:55%;
-	height:30px;
-	margin-top:5px;
-	text-align:center;
+.login-bar span{
+	color:rgba(240, 256,40,.3);
 }
-
+.image-photo{
+	height:25px;
+	width:25px;
+	border-radius:25px 25px;
+}
+.special{
+	padding:0;
+	font-size:70%;
+}
+.account-photo-box{
+	display:inline-block;
+	float:right;
+	width:25%;
+	height:30px;
+	text-align:right;
+	padding:5px 0;
+	overflow:hidden;
+}
+.login-signup{
+	display:inline-block;
+	float:left;
+	width:70%;
+	height:35px;
+	padding:5px 0;
+	overflow:hidden;
+	text-align:left;
+	font-size:70%;
+}
+.banner{
+	padding-top:5px;
+	padding-left:10px;
+	width:90%; 
+	height:50%;
+}
 .dropdown button{
 	display:none;
 }
+
+
+/*
+=================================================
+Navigation & Links
+=================================================
+*/
 nav{
-	font-size:90%;
-	text-align:center;
-	padding: 5px;
+	position:relative;
+	top:10px;
+	text-align:left;
+	padding: 5px 0;
 }
 nav li{
 	display:inline-block;
 }
 nav a{
-	font-size:110%;
+	font-size:75%;
 	color:rgb(250, 250,250);
 }
 nav a:hover{
 	color:rgba(200,200,200,0.7);
 }
 footer{
-	font-size:90%;
+	font-size:80%;
 }
 footer li{
 	display:inline-table
@@ -461,32 +564,74 @@ MEDIUM DEVICES (LANDSCAPE TABLETS, 768px and up)
 float-left{
 	float:left;
 }
+/*
+=================================================
+Header and Sections
+=================================================
+*/	
 header{
-		height:70px;
+	height:70px;
 	}
-.login-bar{
-	display:block;
-	float:right;
-	width:50%;
-	height:30px;
-	margin-top:5px;
-	text-align:center;
+.banner-bar, .nav-bar, .login-bar{
+	float:left;
+	display:inline-block;
+	height:70px;
+	margin:0;
+	padding:5px 0;
 }
+.banner-bar{
+	width:25%;	
+}
+.nav-bar{
+	width:50%;
+}
+.login-bar{
+	width:25%;
+	padding-right:10px;
+}
+
 .login-bar a:hover{
 	text-decoration:underline;
 }
-.banner{
-	display:block;
-	float:left;
-	width:50%;
+.login-bar span{
+	color:rgba(240, 256,40,.3);
+}
+.image-photo{
 	height:30px;
-	margin-top:5px;
+	width:30px;
+	border-radius: 30px 30px;
+}
+.special{
+	padding:0;
+}
+.account-photo-box{
+	display:inline-block;
+	float:right;
+	width:25%;
+	height:35px;
+	padding:5px;
+	overflow:hidden;
+}
+.login-signup{
+	display:inline-block;
+	float:left;
+	width:70%;
+	height:35px;
+	padding:5px;
+	overflow:hidden;
 	text-align:center;
-
+	font-size:90%;
+}
+.banner{
+	padding-top:5px;
+	padding-left:20px;
+	width:80%; 
+	height:60%;
 }
 .dropdown button{
 	display:none;
 }
+
 
 /*
 =================================================
@@ -494,6 +639,8 @@ Navigation & Links
 =================================================
 */
 nav{
+	position:relative;
+	top:20px;
 	text-align:center;
 	padding: 5px;
 }
@@ -501,7 +648,7 @@ nav li{
 	display:inline-block;
 }
 nav a{
-	font-size:110%;
+	font-size:90%;
 	color:rgb(250, 250,250);
 }
 nav a:hover{
@@ -619,11 +766,10 @@ header{
 	
 }
 .nav-bar{
-	width:55%;
-	
+	width:50%;
 }
 .login-bar{
-	width:15%;
+	width:20%;
 	padding-right:15px;
 }
 
@@ -634,11 +780,12 @@ header{
 	color:rgba(240, 256,40,.3);
 }
 .image-photo{
-	height:35px;
-	width:35px;
-	border-radius: 17.5px 17.5px;
+	height:30px;
+	width:30px;
+	border-radius: 30px 30px;
 }
 .account-photo-box{
+	float:right;
 	display:inline-block;
 	width:30%;
 	height:40px;
@@ -647,15 +794,18 @@ header{
 }
 .login-signup{
 	display:inline-block;
+	float:left;
 	width:70%;
 	height:40px;
 	padding:5px;
 	overflow:hidden;
-	text-align:left;
+	text-align:center;
 }
 .banner{
-	height:80px;
 	padding-top:5px;
+	padding-left:20px;
+	width:60%; 
+	height:60%;
 }
 .dropdown button{
 	display:none;
@@ -667,6 +817,8 @@ Navigation & Links
 =================================================
 */
 nav{
+	position:relative;
+	top:40px;
 	text-align:center;
 	padding-top:0;
 	padding-bottom:10px;
@@ -686,7 +838,6 @@ nav a:hover{
 footer li{
 	display:inline-table
 }
-
 ul span{
 	color:rgb(200,200,200);
 }
