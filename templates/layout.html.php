@@ -23,7 +23,9 @@
 			<span class="float-right">
 				<?php include  __DIR__ .'/../templates/nav.html.php'; ?>	
 			</span>
-			<span class="float-left">&copy;<?php date_default_timezone_set("Africa/Nairobi");echo date('Y');?>&nbsp;Spex.co.ke</span>
+			<span class="float-left">
+				<?php include __DIR__ . '/../templates/copyright.html.php';?>
+			</span>
 		</div>
 		
 	</footer>
