@@ -242,9 +242,7 @@ header{
 [class*="col-"]{
 	width:100%
 }
-.date-bar{
-	display:none;	 
-	}
+
 .login-bar{
 	width:50%;
 	float:right;
@@ -271,7 +269,6 @@ header{
 	height:30px;
 	text-align:right;
 	padding:0 10px;
-	overflow:hidden;
 }
 .login-signup{
 	display:inline-block;
@@ -279,7 +276,6 @@ header{
 	width:70%;
 	height:35px;
 	padding:5px;
-	overflow:hidden;
 	text-align:center;
 	font-size:90%;
 }
@@ -367,7 +363,7 @@ section, aside{
 	
 }
 footer{
-	bottom:0;
+	
 	width:100%;
 	height:70px;
 	font-size:12px;
@@ -393,7 +389,7 @@ footer a:hover{
 }
 }
 
-@media only screen and (min-width:600px){
+@media only screen and (min-width:600px) and (max-width:768px){
 /* 
 Small Devices (Portrait tablets and large phones, 600px and above)
 */
@@ -483,8 +479,7 @@ header{
 	float:left;
 	width:70%;
 	height:35px;
-	padding:5px 0;
-	overflow:hidden;
+	padding-top:5px;
 	text-align:left;
 	font-size:70%;
 }
@@ -508,6 +503,7 @@ nav{
 	position:relative;
 	top:10px;
 	text-align:left;
+	margin: 0;
 	padding: 5px 0;
 }
 nav li{
@@ -540,7 +536,7 @@ footer a:hover{
 }	
 
 }
-@media only screen and (min-width:768px){
+@media only screen and (min-width:768px) and (max-width:992px){
 /*
 ================================================
 MEDIUM DEVICES (LANDSCAPE TABLETS, 768px and up)
@@ -580,14 +576,14 @@ header{
 	padding:5px 0;
 }
 .banner-bar{
-	width:25%;	
+	width:22%;	
 }
 .nav-bar{
 	width:50%;
 }
 .login-bar{
-	width:25%;
-	padding-right:10px;
+	width:28%;
+	padding:10px;
 }
 
 .login-bar a:hover{
@@ -610,21 +606,21 @@ header{
 	width:25%;
 	height:35px;
 	padding:5px;
-	overflow:hidden;
+	
 }
 .login-signup{
 	display:inline-block;
 	float:left;
 	width:70%;
 	height:35px;
-	padding:5px;
-	overflow:hidden;
+	padding-top:5px;
 	text-align:center;
 	font-size:90%;
+	
 }
 .banner{
 	padding-top:5px;
-	padding-left:20px;
+	padding-left:10px;
 	width:80%; 
 	height:60%;
 }
@@ -640,9 +636,10 @@ Navigation & Links
 */
 nav{
 	position:relative;
-	top:20px;
-	text-align:center;
-	padding: 5px;
+	top:15px;
+	text-align:left;
+	margin:0;
+	padding:5px 0;
 }
 nav li{
 	display:inline-block;
@@ -741,7 +738,7 @@ _________________________________________________
 */
 }
 
-@media only screen and (min-width:992px) {
+@media only screen and (min-width:992px) and (max-width:1200px){
 /*
 Large Devices (Laptops and Desktops 992px and above)  
 */
@@ -762,11 +759,11 @@ header{
 	padding:10px 0;
 }
 .banner-bar{
-	width:30%;
+	width:28%;
 	
 }
 .nav-bar{
-	width:50%;
+	width:52%;
 }
 .login-bar{
 	width:20%;
@@ -780,9 +777,9 @@ header{
 	color:rgba(240, 256,40,.3);
 }
 .image-photo{
-	height:30px;
-	width:30px;
-	border-radius: 30px 30px;
+	height:35px;
+	width:35px;
+	border-radius: 35px 35px;
 }
 .account-photo-box{
 	float:right;
@@ -790,16 +787,14 @@ header{
 	width:30%;
 	height:40px;
 	padding:5px;
-	overflow:hidden;
 }
 .login-signup{
 	display:inline-block;
 	float:left;
 	width:70%;
 	height:40px;
-	padding:5px;
-	overflow:hidden;
-	text-align:center;
+	padding-top:5px;
+	text-align:left;
 }
 .banner{
 	padding-top:5px;
@@ -819,7 +814,8 @@ Navigation & Links
 nav{
 	position:relative;
 	top:40px;
-	text-align:center;
+	margin:0 ;
+	text-align:left;
 	padding-top:0;
 	padding-bottom:10px;
 	font-size:100%;
@@ -915,6 +911,166 @@ _________________________________________________
 @media only screen and (min-width:1200px) {
 /*
 Extra large devices (Large Laptops and Desktops, 1200px and up )
+*/
+
+/*
+=================================================
+Header and Sections
+=================================================
+*/	
+header{
+	height:120px;
+	}
+.banner-bar, .nav-bar, .login-bar{
+	float:left;
+	display:inline-block;
+	height:120px;
+	margin:0;
+	padding:10px 0;
+}
+.banner-bar{
+	width:30%;
+	
+}
+.nav-bar{
+	width:45%;
+}
+.login-bar{
+	width:25%;
+	padding-right:15px;
+}
+
+.login-bar a:hover{
+	text-decoration:underline;
+}
+.login-bar span{
+	color:rgba(240, 256,40,.3);
+}
+.image-photo{
+	height:40px;
+	width:40px;
+	border-radius: 40px 40px;
+}
+.account-photo-box{
+	float:right;
+	display:inline-block;
+	width:30%;
+	height:40px;
+	padding:5px;
+	text-align:right;
+}
+.login-signup{
+	display:inline-block;
+	float:left;
+	width:70%;
+	height:40px;
+	padding-top:5px;
+	text-align:center;
+}
+.banner{
+	padding-top:5px;
+	padding-left:20px;
+	width:60%; 
+	height:60%;
+}
+.dropdown button{
+	display:none;
+}
+
+/*
+=================================================
+Navigation & Links
+=================================================
+*/
+nav{
+	position:relative;
+	top:40px;
+	margin:0 auto;
+	text-align:left;
+	padding-top:0;
+	padding-bottom:10px;
+	font-size:100%;
+}
+nav li{
+	display:inline-block;
+}
+nav a{
+	color:rgb(250, 250,250);
+	font-size:110%;
+	
+}
+nav a:hover{
+	color:rgba(200,200,200,0.7);
+}
+footer li{
+	display:inline-table
+}
+ul span{
+	color:rgb(200,200,200);
+}
+footer a{
+	text-decoration:none;
+	color:black;
+}
+footer a:hover{
+	color:rgb(240, 240,240);
+}
+
+/*
+===================================================
+Clearfix
+===================================================
+
+*/
+.group::before,
+.group::after{
+	content:"";
+	display: table;
+}
+.group::after{
+	clear:both;
+} 
+.group{
+	clear:both;
+	*zoom:1;
+}
+/*
+===========================================
+Grid
+==========================================
+*/
+.col-1-5,
+.col-2-5,
+.col-3-5,
+.col-4-5{
+	display: inline-block;
+	vertical-align: top;
+}
+.col-1-5{
+	width:20%;
+}
+.col-2-5{
+	width:40%;
+}
+.col-3-5{
+	width:60%;
+}
+.col-4-5{
+	width:80%
+}
+main{
+	width:90%;
+	padding:5px;
+	
+}
+footer{
+	height:40px;
+	padding:10px 200px;
+}
+/*
+===========================================
+Typography
+==========================================
 */
 	
 }
