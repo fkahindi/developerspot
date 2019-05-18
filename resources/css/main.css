@@ -616,7 +616,6 @@ header{
 	padding-top:5px;
 	text-align:center;
 	font-size:90%;
-	
 }
 .banner{
 	padding-top:5px;
@@ -636,10 +635,10 @@ Navigation & Links
 */
 nav{
 	position:relative;
-	top:15px;
+	top:20px;
 	text-align:left;
 	margin:0;
-	padding:5px 0;
+	padding:0;
 }
 nav li{
 	display:inline-block;
@@ -918,6 +917,9 @@ Extra large devices (Large Laptops and Desktops, 1200px and up )
 Header and Sections
 =================================================
 */	
+body{
+	font-size:110%;
+}
 header{
 	height:120px;
 	}
@@ -947,15 +949,15 @@ header{
 	color:rgba(240, 256,40,.3);
 }
 .image-photo{
-	height:40px;
-	width:40px;
-	border-radius: 40px 40px;
+	height:50px;
+	width:50px;
+	border-radius: 50px 50px;
 }
 .account-photo-box{
 	float:right;
 	display:inline-block;
 	width:30%;
-	height:40px;
+	height:60px;
 	padding:5px;
 	text-align:right;
 }
@@ -965,7 +967,7 @@ header{
 	width:70%;
 	height:40px;
 	padding-top:5px;
-	text-align:center;
+	text-align:center;	
 }
 .banner{
 	padding-top:5px;
@@ -984,7 +986,7 @@ Navigation & Links
 */
 nav{
 	position:relative;
-	top:40px;
+	top:60px;
 	margin:0 auto;
 	text-align:left;
 	padding-top:0;
