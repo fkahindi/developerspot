@@ -13,26 +13,26 @@
 			<div class="group-form">
 				<label for="fullname">Full Name:</label>
 				<input  name="fullname" id="fullname" class="form-control" type="text" 
-				value="<?php echo (empty($fullname)? '': $fullname); ?>" autocomplete="off">
+				value="<?php echo (empty($fullname)? '': $fullname); ?>" autocomplete="off" required>
 				<span class="errorMsg"> <?php echo(!empty($errors['fullname']) ? $errors['fullname'] : ''); ?></span>
 			</div>
 			
 			<div class="group-form">
 				<label for="email"> Email:</label>
 				<input name="email" id="email" class="form-control" type="text" 
-				 type="email" value="<?php echo(empty($email)? '': $email); ?>" autocomplete="off">
+				 type="email" value="<?php echo(empty($email)? '': $email); ?>" autocomplete="off" required>
 				<span class="errorMsg"> <?php echo(!empty($errors['email']) ? $errors['email'] : ''); ?> </span>
 			</div>
 
 			<div class="group-form">
 				<label for="password">Password:</label>
-				<input name="password" id="password" class="form-control" type="password" autocomplete="off">
+				<input name="password" id="password" class="form-control" type="password" autocomplete="off" required>
 				<span class="errorMsg" ><?php echo(!empty($errors['password']) ? $errors['password'] : ''); ?></span>
 			</div>
 			
 			<div class="group-form">
 			<label for="confirm_password">Confirm Password:</label>
-			<input name="confirm_password" id="confirm_password" class="form-control" type="password" autocomplete="off">
+			<input name="confirm_password" id="confirm_password" class="form-control" type="password" autocomplete="off" required>
 			<span class="errorMsg"><?php echo(!empty($errors['confirm_password']) ? $errors['confirm_password'] : ''); ?>	</span>
 			</div>
 			<input name="signup"  type="submit" class="button" value="Sign Up">

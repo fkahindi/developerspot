@@ -2,6 +2,11 @@
 //Initialize session
 session_start();
 
+//include necessary the files
+
+include __DIR__ .'/../includes/DatabaseConnection.php';
+include __DIR__ . '/../classes/DatabaseTable.php';
+
 $fullname = $photo = $email = $password = $confirm_password = $new_password = $old_password ='';
 
 $errors =[];
@@ -57,15 +62,10 @@ if(isset($_POST['signup'])){
 				
 	}else{
 		try{			
-			include __DIR__ .  '/../includes/DatabaseConnection.php';
-			include __DIR__ .  '/../includes/DatabaseFunctions.php';
+			$membersTable = new DatabaseTable($pdo, 'members', 'email');
+			$query = $membersTable->selectRecords($_POST['email']);
 			
-			$selectRecord = selectRecord($pdo,$_POST['email']);
-			//$rownum =$selectRecord->rowCount();
-			//echo $rownum;
-			
-
-			if($selectRecord->rowCount()==1){
+			if($query->rowCount()==1){
 				$valid = false;
 				$errors['email'] = 'This email already exists';
 				
@@ -80,8 +80,16 @@ if(isset($_POST['signup'])){
 			$date_reg = new DateTime();	
 			$date_reg = $date_reg->format('Y-m-d H:i:s');
 			$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-			$insertRecord = insertRecord($pdo,$fullname, $email, $password, $date_reg );
 			
+			$fields = [
+				'fullname'=> $_POST['fullname'],
+				'email' => $email,
+				'password' => $password,
+				'date_reg' => $date_reg
+			];
+			
+			$membersTable->insertRecord($fields);
+					
 			header('Location: ../templates/signupsuccessful.html.php');
 			}
 
@@ -93,7 +101,7 @@ if(isset($_POST['signup'])){
 	}
 }
 	
-	// This section handles logins
+// This section handles user logins
 if(isset($_POST['login'])){
 	
 	$email = $_POST['email'];
@@ -121,16 +129,16 @@ if(isset($_POST['login'])){
 	}else{
 		
 		try{
-			include __DIR__ .'/../includes/DatabaseConnection.php';
-			include __DIR__ .  '/../includes/DatabaseFunctions.php';
-		
-			$selectRecord = selectRecord($pdo,$_POST['email']);
+						
+			$membersTable = new DatabaseTable($pdo,'members', 'email');
+			
+			$query = $membersTable->selectRecords($_POST['email']);
 				
 			//Check if records exists in the database
-			if($selectRecord->rowCount()==1){
+			if($query->rowCount()==1){
 				
 				//Fetch the entire record
-				$row = $selectRecord->fetch();
+				$row = $query->fetch();
 				
 				//Assign record values to variable
 				$id = $row['id'];
@@ -168,20 +176,18 @@ if(isset($_POST['login'])){
 				//Display login form again
 				include __DIR__ . '/../templates/login.html.php';
 			}	
+
 		}catch(PDOException $e){
 		$title ='An error has occured';
 		$output = 'Database error: ' . $e->getMessage() . ' in '
 		. $e->getFile() . ':' . $e->getLine();
 		}
-		
+
 	}
 	
 }
 	
 if(isset($_POST['change_password'])){
-	
-	//Check if user is logged in, if not redirect to login page
-	include __DIR__ . '/loginStatus.php';
 	
 	$old_password = $_POST['old_password'];
 	$new_password = $_POST['new_password'];
@@ -212,14 +218,13 @@ if(isset($_POST['change_password'])){
 	}else{
 		
 		try{
-			include __DIR__ .  '/../includes/DatabaseConnection.php';
-			include __DIR__ .  '/../includes/DatabaseFunctions.php';
 			
-			$selectRecord = selectRecord($pdo,$_SESSION['email']);
+			$membersTable = new DatabaseTable($pdo,'members', 'email');
+			$query = $membersTable->selectRecords($_SESSION['email']);
 			
-			if($selectRecord->rowCount()==1){
+			if($query->rowCount()==1){
 				
-				$row=$selectRecord->fetch();
+				$row=$query->fetch();
 				
 				$hashed_password = $row['password'];
 				$old_password = $_POST['old_password'];
@@ -247,17 +252,21 @@ if(isset($_POST['change_password'])){
 				$new_password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
 				$email = $_SESSION['email'];
 				
-				$update = updatePassword($pdo, $new_password, $email);
+				$fields =['password'=> $new_password];
+				
+				$membersTable->update($fields);
 				
 				session_destroy();
 				
-				//Redirect to login page
+				//Set global variables to display on the login form
 				$successMsg ='Update successful.';
 				$loginMsg ='Please, login with your new password';
 				$GLOBALS['success_msg'];
 				$GLOBALS['loginMsg'];
 				
+				//Redirect to login page
 				header('Location: ../templates/login.html.php');
+			
 			}
 		}catch(PDOException $e){
 			
@@ -274,7 +283,7 @@ if(isset($_POST['recover_password'])){
 			
 	if(empty($_POST['email'])){
 		$valid = false;
-		$errors['email'] = 'You did not enter your email';
+		$errors['email'] = 'Enter your email address';
 		
 	}else{
 		filter_var($email, FILTER_SANITIZE_EMAIL);
@@ -294,17 +303,17 @@ if(isset($_POST['recover_password'])){
 	}else{
 		
 		try{
-			include __DIR__ .  '/../includes/DatabaseConnection.php';
-			include __DIR__ .  '/../includes/DatabaseFunctions.php';
-		
-			$selectRecord = selectRecord($pdo, $_POST['email']);
-			if(empty($selectRecord->rowCount())){
+			$membersTable = new DatabaseTable($pdo, 'members', 'email');
+			
+			$query = $membersTable->selectRecords($_POST['email']);
+			
+			if(empty($query->rowCount())){
 				$valid = false;
 				$errors['email'] = 'This email address is not registered';
 				include __DIR__ . '/../templates/recover-password.html.php';
 			}else{
 				$valid = true;
-				if($row=$selectRecord->fetch()){
+				if($row=$query->fetch()){
 				$email = $row['email'];
 				$password = $row['password'];
 				}
@@ -315,7 +324,14 @@ if(isset($_POST['recover_password'])){
 				$expDate = $expDate->format('Y-m-d H:i:s');				
 				$token = bin2hex(random_bytes(50));
 				
-				$insertToken = insertToken($pdo, $email, $token, $expDate);
+				$fields =[
+					'email' => $email,
+					'token' => $token,
+					'expDate' => $expDate
+				];
+				$password_resetTable =  new DatabaseTable($pdo, 'password_reset_temp');
+				$password_resetTable->insertRecord($fields);
+				
 				include __DIR__. '/../includes/sendLink.php';
 			}
 		}catch(PDOException $e){
@@ -353,8 +369,6 @@ if(isset($_POST['reset_password'])){
 	if($valid){
 		
 		try{
-			include __DIR__ .  '/../includes/DatabaseConnection.php';
-			include __DIR__ .  '/../includes/DatabaseFunctions.php';
 			
 			if(isset($_GET['key']) && isset($_GET['email']) && isset($_GET['action'])){	
 				$token = $_GET['key'];
@@ -459,6 +473,26 @@ if(isset($_POST['image-upload'])){
 		//If everything is ok, try to upload the file
 		if($uploadOk == 1){
 			
+			//Get the user name id to use in the file name
+			$email = $_SESSION['email'];
+			
+			try{
+				$membersTable = new DatabaseTable($pdo, 'members', 'email');
+				$query = $membersTable->selectRecords($email);
+				
+				if($query->rowCount()== 1){
+					$row = $query->fetch();
+					
+					//Set the session photo path again	
+					$id = $row['id'];
+				}
+				
+			}catch(PDOException $e){
+					$title ='An error has occured';
+					$output = 'Database error: ' . $e->getMessage() . ' in '
+					. $e->getFile() . ':' . $e->getLine();
+			}
+			
 			//Prepare file by renaming the image file with account session name
 			$fullname_arr = explode(' ',$_SESSION['fullname']);
 			$name = implode($fullname_arr);
@@ -467,28 +501,27 @@ if(isset($_POST['image-upload'])){
 			$file_pieces = explode('.',$_FILES['fileToUpload']['name']);
 			$extension = $file_pieces[1];
 			
-			//Combine the new file name with the extension name
-			$target_file = strtolower($name .'.'.$extension);
+			//To ensure filename uniqueness combine name with user id, a sufix -0 and the extension name
+			$target_file = strtolower($name .'-0'. $id .'.'.$extension);
 			
 			if(move_uploaded_file($_FILES['fileToUpload']['tmp_name'],'../resources/photos/'.$target_file)){
 				$file_path = '/spexproject/resources/photos/'.$target_file;
-				$email = $_SESSION['email'];
-							
+											
 				try{
-					include __DIR__ .  '/../includes/DatabaseConnection.php';
-					include __DIR__ .  '/../includes/DatabaseFunctions.php';
-										
-					$update = updateImage($pdo, $file_path, $email);
+					$fields = ['photo' => $file_path];
 					
-					$selectRecord = selectRecord($pdo,$email);
-					if($selectRecord->rowCount()== 1){
-						$row = $selectRecord->fetch();
+					$membersTable->update($fields);
+					
+					//Fetch the records again to place the image photo in session
+					$query = $membersTable->selectRecords($email);
+					if($query->rowCount()== 1){
+						$row = $query->fetch();
 						
 						//Set the session photo path again	
 						$_SESSION['photo'] = $row['photo'];
 					}			
-				
-					echo 'The image '. basename($target_file). ' has been updated<br>';
+					
+					echo 'Your photo has been updated. You may need to refresh the page for it to reflect. <br>';
 					echo '<a href="../index.php">Continue</a>';
 										
 				}catch(PDOException $e){

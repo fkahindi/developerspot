@@ -15,7 +15,7 @@
 	
 		<form method="POST" action="../includes/processFormAuthentication-Test.php">
 			<label for="email">Enter your email:</label>
-			 <input type="email" name="email" autocomplete="off"> <span class="errorMsg">
+			 <input type="email" name="email" autocomplete="off" required> <span class="errorMsg">
 			 <?php echo (!empty($errors['email'])? $errors['email'] :'');?></span>
 			 
 			<input type="submit" name="recover_password" class="button" value="Submit"> 

@@ -98,7 +98,7 @@ header, footer{
 }
 .special{
 	font-family: 'Arial Narrow', sans-serif;
-	color:orange;
+	color:#FFE87C;
 	font-size:80%;
 	padding:5px 0;
 	text-align:right;
@@ -157,7 +157,7 @@ main ul{
 	padding-left: 20px;
 }
 main ul li{
-	
+	text-align:left;
 	text-indent: 5px;
 }
 main h1, h2, h3{
@@ -169,19 +169,19 @@ main h1, h2, h3{
 	
 }
 main h1{
-	font-size:200%;
+	font-size:100%;
 	font-weight:800;
 	color:rgb(0,100,100);
 	
 }
 main h2{
-	font-size:150%;
+	font-size:100%;
 	font-weight:600;
 	color:green;
 	
 }
 main h3{
-	font-size:120%;
+	font-size:100%;
 	font-weight:600;
 	text-align:left;
 	color:maroon;
@@ -205,9 +205,6 @@ footer a{
 	color:red;
 	background:yellow;
 }
-/* 
-For testing only
-*/
 
 
 @media only screen and (max-width: 600px){
@@ -255,6 +252,7 @@ header{
 	width:50%;
 	padding-left:10%;
 	padding-top:10px;
+	text-align:right;
 }
 .login-bar span{
 	color:white;
@@ -297,8 +295,7 @@ header{
 
 /* 
 ------------------------------------------------
-NAVIGATION MENU
-STYLING FOR MOBILE 
+NAVIGATION MENU: STYLING FOR MOBILE 
 ------------------------------------------------
 */
 .dropdown {
@@ -357,15 +354,27 @@ nav{
 nav ul>span{
 	display:none;
 }
+
+/* 
+--------------------------------------------------
+MAIN SECTION
+--------------------------------------------------
+*/
 section, aside{
 	width:100%;
 	padding:5px;
 	
 }
+/* 
+--------------------------------------------------
+FOOTER SECTION
+--------------------------------------------------
+*/
+
 footer{
 	
 	width:100%;
-	height:70px;
+	min-height:40px;
 	font-size:12px;
 	text-align:center;
 	padding:10px;
@@ -395,7 +404,7 @@ Small Devices (Portrait tablets and large phones, 600px and above)
 */
 /*
 =================================================
-	General classes
+	GENERAL CLASSES
 =================================================
 	*/
 .group:before,
@@ -425,7 +434,7 @@ main{
 }
 /*
 =================================================
-Header and Sections
+	HEADER AND SECTIONS
 =================================================
 */	
 header{
@@ -496,7 +505,7 @@ header{
 
 /*
 =================================================
-Navigation & Links
+NAVIGATION & LINKS
 =================================================
 */
 nav{
@@ -516,8 +525,15 @@ nav a{
 nav a:hover{
 	color:rgba(200,200,200,0.7);
 }
+/*
+=================================================
+FOOTER
+=================================================
+*/
 footer{
 	font-size:80%;
+	min-height:40px;
+	
 }
 footer li{
 	display:inline-table
@@ -534,6 +550,23 @@ footer a{
 footer a:hover{
 	color:rgb(240, 240,240);
 }	
+/*
+=================================================
+TYPOGRAPHY
+=================================================
+*/
+main h1{
+	font-size:140%;
+	font-weight:800;
+}
+main h2{
+	font-size:130%;
+	font-weight:600;	
+}
+main h3{
+	font-size:110%;
+	font-weight:600;
+}
 
 }
 @media only screen and (min-width:768px) and (max-width:992px){
@@ -562,7 +595,7 @@ float-left{
 }
 /*
 =================================================
-Header and Sections
+HEADER AND SECTIONS
 =================================================
 */	
 header{
@@ -630,7 +663,7 @@ header{
 
 /*
 =================================================
-Navigation & Links
+NAVIGATION & LINKS
 =================================================
 */
 nav{
@@ -668,7 +701,7 @@ footer a:hover{
 
 /*
 ===================================================
-Clearfix
+CLEARFIX
 ===================================================
 
 */
@@ -686,7 +719,7 @@ Clearfix
 }
 /*
 ===========================================
-Grid
+PAGE GRID
 ==========================================
 */
 .flex-container{
@@ -726,9 +759,25 @@ footer{
 }
 /*
 ===========================================
-Typography
+TYPOGRAPHY
 ==========================================
 */
+
+main h1{
+	font-size:140%;
+	font-weight:800;
+}
+main h2{
+	font-size:130%;
+	font-weight:600;
+	color:green;
+	
+}
+main h3{
+	font-size:110%;
+	font-weight:600;
+	
+}
 
 
 /*
@@ -744,7 +793,7 @@ Large Devices (Laptops and Desktops 992px and above)
 	
 /*
 =================================================
-Header and Sections
+HEADER AND SECTIONS
 =================================================
 */	
 header{
@@ -807,7 +856,7 @@ header{
 
 /*
 =================================================
-Navigation & Links
+NAVIGATION & LINKS
 =================================================
 */
 nav{
@@ -846,7 +895,7 @@ footer a:hover{
 
 /*
 ===================================================
-Clearfix
+CLEARFIX
 ===================================================
 
 */
@@ -864,7 +913,7 @@ Clearfix
 }
 /*
 ===========================================
-Grid
+PAGE GRID 
 ==========================================
 */
 .col-1-5,
@@ -897,9 +946,23 @@ footer{
 }
 /*
 ===========================================
-Typography
+TYPOGRAPHY
 ==========================================
 */
+
+main h1{
+	font-size:160%;
+	font-weight:800;	
+}
+main h2{
+	font-size:150%;
+	font-weight:600;
+		
+}
+main h3{
+	font-size:120%;
+	font-weight:600;
+}
 
 
 /*
@@ -917,9 +980,7 @@ Extra large devices (Large Laptops and Desktops, 1200px and up )
 Header and Sections
 =================================================
 */	
-body{
-	font-size:110%;
-}
+
 header{
 	height:120px;
 	}
@@ -981,7 +1042,7 @@ header{
 
 /*
 =================================================
-Navigation & Links
+NAVIGATION & LINKS
 =================================================
 */
 nav{
@@ -1020,7 +1081,7 @@ footer a:hover{
 
 /*
 ===================================================
-Clearfix
+CLEARFIX
 ===================================================
 
 */
@@ -1038,7 +1099,7 @@ Clearfix
 }
 /*
 ===========================================
-Grid
+PAGE GRID 
 ==========================================
 */
 .col-1-5,
@@ -1071,8 +1132,26 @@ footer{
 }
 /*
 ===========================================
-Typography
+TYPOGRAPHY
 ==========================================
 */
+
+main h1{
+	font-size:180%;
+	font-weight:800;
+	color:rgb(0,100,100);
+	
+}
+main h2{
+	font-size:160%;
+	font-weight:600;
+	color:green;
+	
+}
+main h3{
+	font-size:120%;
+	font-weight:600;
+}
+
 	
 }
