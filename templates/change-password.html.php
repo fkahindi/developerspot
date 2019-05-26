@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include __DIR__ . '/../includes/loginStatus.php';
+
  ?>
 <!doctype html>
 <html lang="en">
@@ -18,15 +18,15 @@ include __DIR__ . '/../includes/loginStatus.php';
 	
 		<form method="POST" action="../includes/processFormAuthentication-Test.php">
 			<label for="old_password">Old Password:</label>
-			 <input type="password" name="old_password" autocomplete="off">
+			 <input type="password" name="old_password" autocomplete="off" required>
 			<span class="errorMsg"><?php echo (!empty($errors['old_password'])? $errors['old_password'] :'');?></span>
 						 
 			<label for="new_password">New Password:</label>
-			 <input type="password" name="new_password" autocomplete="off">
+			 <input type="password" name="new_password" autocomplete="off" required>
 			<span class="errorMsg"><?php echo (!empty($errors['new_password'])? $errors['new_password'] :'');?></span>
 			
 			<label for="confirm_new_password">Confirm New Password:</label>
-			 <input type="password" name="confirm_new_password" autocomplete="off">
+			 <input type="password" name="confirm_new_password" autocomplete="off" required>
 			<span class="errorMsg"><?php echo (!empty($errors['confirm_new_password'])? $errors['confirm_new_password'] :'');?></span>
 					
 			<input type="submit" name="change_password" class="button" value="Change"> 

@@ -1,7 +1,7 @@
 <div class="group">
 	<!-- Banner bar follows-->
 	<div class="banner-bar">
-		<img src="/spexproject/resources/images/spexbanner.png" alt="Spex Banner" class="banner">
+		<img src="/spexproject/resources/images/spexbanner-orange-yellow.png" alt="Spex Banner" class="banner">
 	</div>
 	<!--Navigation bar follows-->
 	<div class="nav-bar dropdown">
@@ -19,7 +19,7 @@
 			</div>
 			<div class="login-signup ">
 			<?php echo (isset($_SESSION['loggedin']) && $_SESSION['loggedin']== true)? 
-			'<a href="/spexproject/includes/logout.php">Log out </a> <span> &#124;</span><nbsp>
+			'<a href="/spexproject/includes/logout.php">Log out </a> <span> &#124; </span>
 			<span class="settings">
 				<ul>
 					<li><a href="#">Settings</a></li>
