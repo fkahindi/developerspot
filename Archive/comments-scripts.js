@@ -1,5 +1,90 @@
 $('document').ready(function(){
+	var name_state = false;
+	var email_state = false;
+	/**
+	* Scripts to manage subscription form
+	*/
+	$('#name').on('blur',function(){
+		var name = $('#name').val();
+		var nameFilter = /^[\w\s.\-]*$/; //Check if it's a valid text
+		
+		//Validate text
+		if(!nameFilter.test(name)){
+			name_state = false;
+			$('#name').parent().removeClass();
+			$('#name').parent().addClass("form_error");
+			$('#name').siblings("span").text('Name contains illegal characters');
+		}else{
+			name_state = true;
+			$('#name').parent().removeClass();
+			$('#name').parent().addClass("form_success");
+			$('#name').siblings("span").text('');
+		}
+	});
+		
+	$('#email').on('blur',function(){
+		var email = $('#email').val();
+		var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/ ; //Check if it's valid mail address
+		var illegalChars = /[\(\)\<\>\,\;\:\\\"\[\]]/ ; // Check for illegal characters
+		if (email == '') {
+			email_state = false;
+			return;
+		}
+		//Further email validation
+		if(!emailFilter.test(email)){
+			email_state = false;
+			$('#email').parent().removeClass();
+			$('#email').parent().addClass("form_error");
+			$('#email').siblings("span").text('Please! Enter valid email address');
+		}else if(email.match(illegalChars)){
+			email_state = false;
+			$('#email').parent().removeClass();
+			$('#email').parent().addClass("form_error");
+			$('#email').siblings("span").text('Sorry... Email address contains illegal characters');
+		}else{
+			email_state = true;
+			$('#email').parent().removeClass();
+			$('#email').parent().addClass("form_success");
+			$('#email').siblings("span").text('');
+		}
+	});
+	$('#submit_subscribe').on('click',function(e){
+		var name = $('#name').val();
+		var email = $('#email').val();
+		e.preventDefault();
+		if(name_state == false || email_state == false){
+			$('.subscribe_error').text('Fix errors in the form first')
+			if(email == ''){
+				email_state = false;
+				$('#email').parent().removeClass();
+				$('#email').parent().addClass("form_error");
+				$('#email').siblings("span").text('Please! Fill email address field');
+			}
+		}else{
+			$.ajax({
+				url: '/spexproject/includes/subscribeFormFunctions.php', 
+				type: 'POST',
+				data: {
+				'subscribe':1,
+				'name': name,
+				'email': email
+				},
+				success: function(response){
+				
+				$('#subscribe_response').append(response);
+				
+				$('#name').val('');
+				$('#email').val('');
+				
+				}
+			}); 
+		}	
+	});
   
+  /*
+  * The following are:
+  *	Scripts to manage user comments on articles
+  */
   $('#submit_comment').on('click', function(e){
 	  e.preventDefault();
 	
@@ -31,6 +116,10 @@ $('document').ready(function(){
     });
   });
   
+  /*
+  * The following are:
+  *	Scripts to manage replies to comments on articles
+  */
 	//When user clicks reply link to add reply under user's comment
 	$('.reply-btn').on('click', function(e){
 	  

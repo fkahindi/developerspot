@@ -13,7 +13,7 @@ before the contents are processed by ther server.
 <pre class="prettyprint linenums">
 &lt;! DOCTYPE html&gt;
 &lt;html lang="en"&gt;
-&lt;head>
+&lt;head&gt;
 	&lt;meta charset="UTF-8"&gt;
 	&lt;title&gt;Registration Form&lt;/title&gt;
 &lt;/head&gt;
@@ -80,7 +80,7 @@ before the contents are processed by ther server.
 <p>We are going to update our earlier form with the <code> pattern </code> attribute in each input we have used. The <code> pattern </code> attribute will enable us to evaluate the input value using a <em> regular expression</em> for a match. So, in essence you define a rule on the type of characters that should be allowed in the input, without which the value in the field will be deemed invalid. If you are not familiar with regular expressions you can check <a href="post.html.php?id=3"> Regular Expressions in JavaScript</a> or <a href="post.html.php?id=4"> Regular Expressions in PHP</a> elsewhere on this site. As for now we are going to use the ones that suit our purpose and explain what they stand mean. </p>
 <p>Further, a global <code>title</code> attribute can be used along with the <code> pattern </code> attribute which will pop up to guide the user what is expected of them when filling the field.</p>
 
-<h3>Example 1</h3>
+<h3>Pattern and Title Attributes</h3>
 <pre class="prettyprint linenums">
 &lt;form method="POST" action=""&gt;
 	&lt;label for="username"&gt;Username:&lt;/label&gt;
@@ -91,7 +91,7 @@ before the contents are processed by ther server.
 <p>The pattern above allows one or more alphanumeric character (a-zA-Z0-9) and the underscore. The <code> \w </code> stands for both lowercase and uppercase alphabet letter, numerals 0-9 and the underscore (_). The backslash <code> "\" </code> is telling the browser that "w" is a special characther and should not be treated literally. Also note that the "w" used here is lowercase. Uppercase "W" negates (a-zA-Z0-9).</p> 
 <p>The <code> + </code> expects at least one of the characters mentioned to be typed in the field. This pattern could also have been expressed as <code> pattern="[a-z0-9_]+" </code> and it would mean the same as above. One can also restrict the number of characters to be typed in the field by using using braces <code> {} </code> such as <code> "\w{3,}" </code> which allows three or more characters. The pattern "\w{3,7}" restricts between three and seven characters and  <code> "\w{,7}" </code> allows at most seven characters in the field.</p> 
 <p>Try the form with different character patterns and limitations and see how it responds at submission.</p>
-<h3>Example 2</h3>
+<h3>Validating Telephone Field</h3>
 <p>Let's try to validate a telephone field. Telephone number formats vary from country to country but we expect a country code that starts with a <code> + </code> symbol. If the country code is a three-digit number, we can take care of that by starting the expression with <code> "\+[0-9]{3}" </code>. We have used character class defined by <code>[ ]</code> for the digit range 0-9. This expression can be translated to mean the field must start with "+"  then followed by exactly any three digits between 0 and 9.</p> 
 <p>We could achieve exactly the same effect by using named character class pattern as <code> "\+\d{3}" </code>. The "\d" stands for digits 0-9.</p> 
 <p>Next, we want a hyphen "-" to connect the country code and the telephone number of nine digits. So, the complete expression will look like the one below:</p>
@@ -104,7 +104,7 @@ before the contents are processed by ther server.
 </pre>
 <p>Notice that we have used type="text" attribute instead of "tel" just to illustrate how an expression can change a text field to accept only numbers and the " + " symbol. If there are no requirements on the number of digits and how they should be grouped you can just use <code> type="tel" </code> and it will suffice.</p> 
 <p class="special-p"><strong>Note:</strong> When dealing with telephone numbers for a global audience caution should be exercised as some countries use different telephone number formats. That's why type="tel" attribute is ideal for such cases.</p>
-<h3>Example 3</h3>
+<h3>Validating Email Address</h3>
 <p>Suppose we want to validate an email address using a pattern than the <code> type="email" </code>. We must take care of the mandatory characters that make an email valid and must be in their correct positions. For example there must be an "@" and it must not be starting the email address. Further, there must be a dot "." and it should not be ending the email address. After the last dot "." there must be at least two letters. That's the pattern of most email addresses. And by convention we use lowercase characters for email address.</p> 
 <p>Taking those considerations we can build an expression like the one below.</P>
 
@@ -119,7 +119,7 @@ before the contents are processed by ther server.
 <p>The pattern above means that the email address can begin with one or more <em> alphanumeric characters (a-z or 0-9)</em>, one or more <em>. _ % + -</em> characters, followed by a mandatory <em>@</em>. After the <em>@</em> one or more alphanumeric characters including a dot "." or hyphen "-" can follow. Finally, a mandatory dot(.) followed by at least two alphabet characters.</p> 
 <p>The "$" symbol is used to mark the end of the matching pattern. Here, it means that the last two or more alphabet characters after the last dot should end the email address. Any other non-alphabet character after that will cause the email address to be invalid. The email in this case must be typed in lowercase letters and only the characters listed can be used in the email.</p> 
 <p>A pattern like this can be designed to filter emails of certain characteristic where the general type="email" would not work.</p>
-<h3>Example 4</h3>
+<h3>Validating Passwords</h3>
 <p>Next, we are going to build an expression to validate passwords. Many establishements that store sensitive information devise password policies that try to make it hard crack. Forcing users to use passwords that have a combination of uppercase and lowercase letters, numbers and symbols. This trend truly results in strong passwords that are harder to crack, but this practice has proved to be counter productive. Instead, many firms nowadays prefer to use strong encrypting algorithms at the back-end where the passwords are at a higher risk of being stolen than at the front-end.</p> 
 <p>In that case, it's not a good idea to restict users too much to the point where they may feel being panalized for using the form. Nevertheless, moderate requirements will not harm. Let's consider the pattern below:</p>
 <pre class="prettyprint linenums">
