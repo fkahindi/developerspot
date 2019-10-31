@@ -1,15 +1,15 @@
 <h1>Regular Expressions in PHP</h1>
-<p>Regular expressions (a.k.a regexp) are special formatted character sequence used to find patterns in text. These expressions are so important that they are almost a programming language of their own. Regexp can be used to validate whether a user entered correct data in a form, even before the form is processed by the server or whether certain patterns exist in a  block of text. Various programming languages such PHP, Java, JavaScript and Perl use regular expressions to process and manipulate text. While there's alot in common in how each of these languages utilize regular expressions, their implementation vary slightly. In this tutotial, we are going to use regular expressions in PHP. </P>
+<p>Regular expressions (a.k.a regexp) are special formatted character sequence used to find patterns in text. These expressions are so important that they are almost a programming language of their own. Regexp can be used to validate whether a user entered correct data in a form, even before the form is processed by the server or whether certain patterns exist in a  block of text. Various programming languages such PHP, Java, JavaScript and Perl use regular expressions to process and manipulate text. While there's alot in common in how each of these languages utilize regular expressions, their implementation vary slightly. In this tutotial, we are going to use <span class="key">regular expressions in PHP</span>. </P>
 
 <h2>Regular Expression Syntax</h2>
-<p>The syntax of a regular expression involve special characters that are given special meaning within the regular expression. The special characters are: <code><strong> . ? * + [ ]( ){ } ^ | \</strong></code>. These characters have a special meaning in a regular expression and cannot be used literally, unless they are properly escaped. To use a special character as a regular one you need to escape it by typing a backslash before the character. For example to find a dot ('<code>.</code>') in a string you will need to type <code>\.</code> in the regular expression to make it a regular dot. We will explore how they are used shortly.</p>
+<p>The syntax of a regular expression involve <span class="key">special characters</span> that are given special meaning within the regular expression. The special characters are: <code><strong> . ? * + [ ]( ){ } ^ | \</strong></code>. These characters have a special meaning in a regular expression and cannot be used literally, unless they are properly escaped. To use a special character as a regular one you need to escape it by typing a backslash before the character. For example to find a dot ('<code>.</code>') in a string you will need to type <code>\.</code> in the regular expression to make it a regular dot. We will explore how they are used shortly.</p>
 <h3>Patterns and Flags</h3>
-<p>A regular expression syntax consists of a <em>pattern</em> and an optional <em>flag</em>. The <em>pattern</em> will almost always involve one or more of the special characters listed above. Flags are be used when you want to change the behavior of how the matching is to be done. More on that later.  Further, there are two ways on how to construct a regular expression: </p>
+<p>A <span class="key">regular expression syntax</span> consists of a <em>pattern</em> and an optional <em>flag</em>. The <em>pattern</em> will almost always involve one or more of the special characters listed above. Flags are be used when you want to change the behavior of how the matching is to be done. More on that later.  Further, there are two ways on how to construct a regular expression: </p>
 <ol>
 	<li>Using the object construct (long form)</li>
 	<li>Using the literal construct (short form)</li>
 </ol>
-<p>The object construct syntax looks like this:</p>
+<p>The <span class="key">object construct</span> syntax looks like this:</p>
 <pre class="prettyprint">
 
 	regexp = new RegExp('pattern', 'flags')
@@ -34,7 +34,7 @@
 	$my_regex ='/abc/'; 
 	
 </pre>
-<p>In the literal construct the <code>"/"</code> tells PHP that the characters in between the "/" is a regular expression, just like quotation marks we use for strings. We are storing this regular expression in a variable <code>my_regex</code> and when using it, we are essentially telling PHP to find whether the string we are matching contain characters abc in their proper order. In this tutorial we will concentrate on using the literal construct to build regular expressions.</p> 
+<p>In the <span class="key">literal construct</span> the <code>"/"</code> tells PHP that the characters in between the "/" is a regular expression, just like quotation marks we use for strings. We are storing this regular expression in a variable <code>my_regex</code> and when using it, we are essentially telling PHP to find whether the string we are matching contain characters abc in their proper order. In this <span class="key">tutorial</span> we will concentrate on using the literal construct to build regular expressions.</p> 
 <h3>Character Classes</h3>
 <p>A character class is a set of charachters listed within square brackets in which any of them can be used as a match. For example if we want to match the characters a, b, or c in a single position we would write the expression as a set <code>[abc]</code>. This means we want are match if a, b or c occur in a string and they don't have to be the order abc. So, if the string we are matching against has any one of the letters a, b or c it will return "true". In case you want to match any other characters apart from a, b or c,  you would need to negate the class by using the special character carat (<code>^</code>) just after the opening square bracket <code>[</code>, i.e <code>[^abcd]</code>. If you want to match a range of characters you will need a hyphen (<code>-</code>). For example <code>[a-z]</code> matches any lowercase letter from a to z. The below table lists the possibilities of character classes you can form</p>
 <table>
@@ -47,7 +47,7 @@
 	<tr><td>[0-9]</td><td>Matches any digit between 0 and 9</td></tr>
 	<tr><td>[a-z0-9]</td><td>Matches any character between a and z or 0 to 9</td></tr>
 </table>
-<h3>PHP Matching Functions</h3>
+<h3><span class="key">PHP Matching Functions</span></h3>
 <p>PHP has several in-built functions we can use with our regular expressions to match against any string. Listed below are the preg_ family functions. <code>preg_</code> stands for <em>PHP regular expression</em></p>
 <table>
 	<tr><th>Functions</th><th>What it does</th></tr>
@@ -136,7 +136,7 @@ Well, one thing you need to take note of is that the character class matches any
 </pre>
 <p>The quantifier <code>*</code> is telling PHP to match "chef" or "chief" if "i" appears between "ch" and "ef". </p>
 <h3>Quantifiers</h3>
-<p>Quantifiers help us to match more than one character or a pattern in a number of ways. Remember I stated above that the character class seeks to match a single character for the possibilities listed in the class. What if you want to find a match of a repeated character or more than one character. That's where these quantifiers come in. Below is list of the repetition quantifiers and what they do. We will use letter f to explain what the symbols stand for.</p>
+<p><span class="key">Quantifiers</span> help us to match more than one character or a pattern in a number of ways. Remember I stated above that the character class seeks to match a single character for the possibilities listed in the class. What if you want to find a match of a repeated character or more than one character. That's where these quantifiers come in. Below is list of the repetition quantifiers and what they do. We will use letter f to explain what the symbols stand for.</p>
 <table>
 	<tr><th>RegEx</th><th>What it means</th></tr>
 	<tbody>
@@ -204,7 +204,7 @@ Well, one thing you need to take note of is that the character class matches any
 	$matches = preg_match_all($pattern, $txt, $array);
 	echo $matches. " matches found";//1 match found
 </pre>
-<h3>Pattern Modifiers (Flags)</h3>
+<h3><span class="key">Pattern Modifiers</span> (Flags)</h3>
 <p>The flags we referred to as optional in the regular expressions syntax at the beginning of the tutotial are pattern modifiers. They change the way the pattern will evaluate the string to be matched. You should note that in certain circumstances they are mandatory based on what you want to achieve. Listed are the commonly used flags. </p>
 <table>
 	<tr><th>Flag</th><th>What it does</th></tr>
@@ -232,7 +232,7 @@ Well, one thing you need to take note of is that the character class matches any
 	<tr><td>\S</td><td>Matches any non-whitespace character. Same as <strong>[^ \t\n\r]</strong></td></tr>
 	</tbody>
 </table>
-<p>Let's look at examples that use these predifined character classes. Evaluate what the expression below would match before testing it.</p> 
+<p>Let's look at examples that use these predifined <span class="key">character classes</span>. Evaluate what the expression below would match before testing it.</p> 
 <pre class="prettyprint linenums">
 &lt;?php
 	$txt = "PDA is an acronym for personal digital assistant \nPhD stands for Doctor of Philosopht \npH indicator \nHypertext Processor:PHP";
@@ -262,7 +262,7 @@ Well, one thing you need to take note of is that the character class matches any
 </pre>
 <p>In the above pattern we have also used a comma <code> , </code> because the names are delimited by commas, otherwise the expression would treat the commas as part of the first two lastnames. </p>
 <h3>Word Boundary</h3>
-<p>A word boundary character <code> \b </code> helps in searching for words that begin or end with a certain pattern. For example if we type the expression as <code> /\bcon/ </code> it will match all words that begin with "con" such as connect, constant, container e.t.c. If we instead type it as <code> /con\b/ </code> it will match words that end with "con" such as lexicon, unicon, beacon e.t.c. Typing the regexp as <code> /\bcon\b/ </code> will exactly match the word con. In the code below <code> preg_replace() </code> function to search for the word "sea" and replace it with "beach" while using <code>\b</code> word boundary in the regexp. Tweak the pattern and string to gain more understanding.</p>
+<p>A <span class="key">word boundary character</span> <code> \b </code> helps in searching for words that begin or end with a certain pattern. For example if we type the expression as <code> /\bcon/ </code> it will match all words that begin with "con" such as connect, constant, container e.t.c. If we instead type it as <code> /con\b/ </code> it will match words that end with "con" such as lexicon, unicon, beacon e.t.c. Typing the regexp as <code> /\bcon\b/ </code> will exactly match the word con. In the code below <code> preg_replace() </code> function to search for the word "sea" and replace it with "beach" while using <code>\b</code> word boundary in the regexp. Tweak the pattern and string to gain more understanding.</p>
 <pre class="prettyprint linenums">
 &lt;?php
 	$string = "The sea shined under the sun and seasand";
