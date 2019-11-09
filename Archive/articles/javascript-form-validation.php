@@ -82,7 +82,7 @@
 	}
 &lt;/script&gt;
 </pre>
-<p>In the above code we have declared a variable <i>fullname</i> and assigned it to a selector <code>document.getElementById('fullname')</code> that selects the fullname input in the form using the unique id <i>fullname</i>. Then to get the input value of the user, we have used <code>fullname.value</code> in the <code>regexp.test()</code> method. To make it simple, we have used an alert message to notify the user, incase of invalid characters.</p>
+<p>In the above code we have declared a variable <i>fullname</i> and assigned it to a selector <code>document.getElementById ('fullname')</code> that selects the fullname input in the form using the unique id <i>fullname</i>. Then to get the input value of the user, we have used <code>fullname.value</code> in the <code>regexp.test()</code> method. To make it simple, we have used an alert message to notify the user, incase of invalid characters.</p>
 <p>Now to make the validation work, we are going to add an event listener <code>onblur=""</code> in the form fullname input tag, then assign it to a <code>validFullname()</code> function. When the field loses focus the event listner will call this function, which in turn will run the regular expression to validate what has been typed in. An alert message will be fired to the user incase of invalid input.</p>
 <pre class="prettyprint linenums">
 &lt;label for="Fullname"&gt;Full Name:&lt;/label&gt;
