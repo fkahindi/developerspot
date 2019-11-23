@@ -10,7 +10,7 @@ function selectRecord($pdo, $email) {
 
 function selectPasswordTemp($pdo, $email, $token){
 	$sql= 'SELECT * FROM `password_reset_temp`
-	WHERE `email` = :email $$ `token` =:key';
+	WHERE `email` = :email && `token` =:key';
 	
 	$parameters =['email'=>$email, 'key'=>$token];
 	
