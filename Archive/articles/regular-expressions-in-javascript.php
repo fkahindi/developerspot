@@ -40,9 +40,9 @@
 	<tr><td>{n,m}</td><td>Matches the preceding character(s) at least n and at most m times.</td></tr>
 	<tr><td>(x)</td><td>Matches x and remembers the match. Also called <em>capturing parenthesis</em></td></tr>
 	<tr><td>(?:x)</td><td>Matches x but does not remember the match. Also called <em>non-capturing parenthesis</em></td></tr>
-	<tr><td>x(?=y)</td><td>Matches x only if x is followed by y. Also called positive look ahead.</em></td></tr>
-	<tr><td>x(?!y)</td><td>Matches x only if x is not followed by y. Also called negated look ahead.</em></td></tr>
-	<tr><td>(?&lt;=y)x</td><td>Matches x only if x is preceded by y. Also called positive look behind.</em></td></tr>
+	<tr><td>x(?=y)</td><td>Matches x only if x is followed by y. Also called <em>positive look ahead.</em></td></tr>
+	<tr><td>x(?!y)</td><td>Matches x only if x is not followed by y. Also called <em>negated look ahead.</em></td></tr>
+	<tr><td>(?&lt;=y)x</td><td>Matches x only if x is preceded by y. Also called <em>positive look behind.</em></td></tr>
 	<tr><td>(?&lt;!y)x</td><td>Matches x only if x is not preceded by y. Also called negated look behind.</td></tr>
 	<tr><td>(x|y)</td><td>Matches either x or y.</td></tr>
 	<tr><td>\</td><td>A backslash preceding a non-special character indicates that the proceding character should be treated as special. For example <code> \t </code> matches tab space instead of <code>t</code>. </td></tr>
@@ -290,7 +290,7 @@ console.log(regexp.test("pot")); // true
 console.log(regexp.test("sip cup ")); // false - expects one three-letter word
 console.log(regexp.test(" cup")); // false - a space is a character
 </pre>
-<p>The regular expression above can be explained as follows: the <code>.{3}</code> searches a string for exactly a three-character word. Then to search for a string that consists of only a  three-character word we use the beginning <code>^</code> character and ending <code$code> character for string boundaries. Hence the <code>/^.{3}$/</code> regular expression.</p>
+<p>The regular expression above can be explained as follows: the <code>.{3}</code> searches a string for exactly a three-character word. Then to search for a string that consists of only a  three-character word we use the beginning <code>^</code> character and ending <code>$</code> character for string boundaries. Hence the <code>/^.{3}$/</code> regular expression.</p>
 <p>If we want to search for a number with a decimal point, then we can build a regular expression like <code> /\d+\.\d+/ </code>.</p>
 <pre class="prettyprint linenums">
 var regexp = /\d+\.\d+/;
