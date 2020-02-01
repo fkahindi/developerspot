@@ -55,13 +55,13 @@
 &lt;/style&gt;
 </pre>
 <p>Before we go on to <span class="key">validating specific fields</span>, let's explain how we will go about it.</p> 
-<p>Generally, form data is checked at the time the form is submitted. At submission, if any field does not pass the validation rule, the browser will respond based on how you told it to handle the error. Alternatively, each field can be validated instantly using <span class="key">event listeners</span>. In this case when the user shifts focus to another field, the data is validated and any violation is flagged instantly.</p>
+<p>Generally, form data is checked at the time the form is submitted. At submission, if any field does not pass the validation rule, the browser will respond based on how you told it to handle the error. Alternatively, each field can be validated instantly using <span class="key">event handlers</span>. In this case when the user shifts focus to another field, the data is validated and any violation is flagged instantly.</p>
 <p>We are going to create a <code>script</code> that will take care of all the validation in the form. For simplicity, we will place the script below the page after the <code>&lt;/html&gt;</code> closing tag. The best practice is to create an external script file and place its reference at the same place, but that is only for scripts management purpose, it does not affect the script performance. The reason why JavaScripts should be placed at the bottom of the HTML document is to allow the page to render first, before loading scripts. This improves rendering speed and especially in mobile devices because they have smaller bandwidth. </p> 
-<p>If you will place your scripts on the page as we a going to do, the code must be placed within the <code>script</code> tags as shown below.</p>
+<p>If you will place your scripts on the page as we are going to do, the code must be placed within the <code>script</code> tags as shown below.</p>
 <pre class="prettyprint linenums">
 &lt;/html&gt;
 &lt;script&gt;
-...your script go here...
+...your scripts go here...
 &lt;/script&gt;
 </pre>
 <h2><span class="key">Validating a Text Field</span></h2>
@@ -69,9 +69,9 @@
 <p>There is a wide range of characters that can go into a text field. However, we wouldn't like users, some of whom might have evil intent, submit anything they have imagined. Leaving a text field open to any character is a gamble, and it puts other users and your server at risk of getting attacked through client-side scripting such as <em>Cross-Site Scripting (XSS)</em>.</p>
 <p class="special-p"><span class="key">Cross-site scripting</span> (XSS) is a computer security vulnerability in web applications that enables an attacher to inject a client-side script into web pages viewed by others.</p>
 <h3>Validating <code>Fullname</code> Field</h3>
-<p>Supposed we would like to allow only text, numbers and underscore in the <code>fullname</code> field, then we could use a regular expression of the form <code>/\w/</code>. The <code>\w</code> is a special character in regular expressions representing both uppercase and lowercase letters, numbers and underscore. It can also be written as <code>/[a-zA-Z0-9_]/</code>. Both mean the same thing. Since we expect a user to give both their firstname and lastname, we should also allow a space, a dot (.) for initials and a hyphen (-) for compound names seperated by dash. Now in regular expressions a space can be represented by <code>\s</code>. The dot and hyphen can be used as they are, so long as we put them in a character set <code>[ ]</code>.</p>
-<p>A regular expression for such scenario would look like this: <code>/^[\w\s.-]+$/</code>. The <code>^</code> at the beginning and <code>$</code> at the end are <span class="key">string boundary anchors</span>. It simply means that, if the characters of the  <code>Fullname</code> being evaluated do not match any of the characters listed within these two anchors, it will be rejected. The character set<code>[ ]</code> is used when one wants to evaluate a string against the characters in the set, in a <em>single position</em>. To enable the regular expression evaluate a whole string, in this case <i>fullname</i> we have used the special character <code>+</code> after the character set: <code>[ ]+</code>. The plus "+" symbol means match one or more times. Without it, we would only be able to type a single character name in the field, anything more than that would be disallowed.  </p> 
-<p>Let's put this regular expression in a code that will validate the fullname field. There are various ways we can do it, but here we will wrap the regular expression in a small function in the script, then add an inline event listener in the HTML form field. Below is the code.</p>
+<p>Suppose we would like to allow only text, numbers and underscore in the <code>fullname</code> field, then we could use a regular expression of the form <code>/\w/</code>. The <code>\w</code> is a special character in regular expressions representing both uppercase and lowercase letters, numbers and underscore. It can also be written in the form: <code>/[a-zA-Z0-9_]/</code>. Both mean the same thing. Since we expect a user to give both their firstname and lastname, we should also allow a space, a dot (.) for initials and a hyphen (-) for compound names seperated by dash. Now in regular expressions a space can be represented by <code>\s</code>. The dot and hyphen can be used as they are, so long as we put them in a character set <code>[ ]</code>.</p>
+<p>A regular expression for such scenario would look like this: <code>/^[\w\s.-]+$/</code>. The <code>^</code> at the beginning and <code>$</code> at the end are <span class="key">string boundary anchors</span>. It simply means that, if the characters of the  <code>Fullname</code> being evaluated do not match any of the characters listed within these two anchors, it will be rejected. The character set<code>[ ]</code> is used when one wants to evaluate a string against the characters in the set in a <em>single position</em>. To enable the regular expression evaluate a whole string, in this case <i>fullname</i> we have used the special character <code>+</code> after the character set: <code>[ ]+</code>. The plus "+" symbol means match one or more times. Without it, we would only be able to type a single character name in the field, anything more than that would be disallowed.  </p> 
+<p>Let's put this regular expression in a code that will validate the fullname field. There are various ways we can do it, but here we will wrap the regular expression in a small function in the script, then add an inline event handler in the HTML form field. Below is the code.</p>
 <pre class="prettyprint linenums">
 &lt;script&gt;
 	function validFullname(){
@@ -83,8 +83,8 @@
 	}
 &lt;/script&gt;
 </pre>
-<p>In the code above, we have declared a variable <i>fullname</i> and assigned it to a selector <code>document.getElementById ('fullname')</code> that selects the fullname input in the form, using the unique id <i>fullname</i>. Then, to get the input value of the user, we have used <code>fullname.value</code> in the <code>regexp.test()</code> method. To make it simple, we have used an alert message to notify the user, incase of invalid characters.</p>
-<p>Now to make the validation work, we are going to add an event listener <code>onblur=""</code> in the form fullname input tag, then assign it to a <code>validFullname()</code> function. When the field loses focus, the event listner will call this function, which in turn will run the regular expression to validate what has been typed in. An alert message will be fired to the user incase of invalid input. The form event listener will look like the one below.</p>
+<p>In the code above, we have declared a variable <i>fullname</i> and assigned it to an element selector, <code>document.getElementById ('fullname')</code> that selects the fullname input in the form, using the unique id <i>fullname</i>. Then, to get the input value of the user, we have used <code>fullname.value</code> in the <code>regexp.test()</code> method. To make it simple, we have used an alert message to notify the user, incase of invalid characters.</p>
+<p>Now to make the validation work, we are going to add an event handler <code>onblur=""</code> in the form fullname input tag, then assign it to a <code>validFullname()</code> function. When the field loses focus, the event handler will call this function, which in turn will run the regular expression to validate what has been typed in. An alert message will be fired to the user incase of invalid input. The form event handler will look like the one below.</p>
 <pre class="prettyprint linenums">
 &lt;label for="Fullname"&gt;Full Name:&lt;/label&gt;
 &lt;input type="text" name="Fullname" placeholder="Fullname ..." 
@@ -128,7 +128,7 @@ function validUsername(){
 }
 &lt;/script&gt;
 </pre>
-<p>Go ahead and add the event listener on the username input as shown below and test the regular expression.</p>
+<p>Go ahead and add the event handler on the username input as shown below and test the regular expression.</p>
 <pre class="prettyprint linenums">
 &lt;label for="username"&gt;Username:&lt;/label&gt;
 &lt;input type="text" name="username" placeholder="Username ..." 
@@ -152,7 +152,7 @@ function validEmail(){
 	}
 }
 </pre>
-<p>Then add the event listener on the email input as shown below.</p>
+<p>Then add the event handler on the email input as shown below.</p>
 <pre class="prettyprint linenums">
 &lt;label for="email"&gt;Email:&lt;/label&gt;
 &lt;input type="text" name="email" placeholder="Email ..." 
@@ -174,7 +174,7 @@ function validTel(){
 		}
 	}
 </pre>
-<p>Also add the event listener <code>onblur="validTel()</code> in the Tel input field in the form. You can tell your users the format you expect from them using the placeholder attribute or label.</p>
+<p>Also add the event handler <code>onblur="validTel()</code> in the Tel input field in the form. You can tell your users the format you expect from them using the placeholder attribute or label.</p>
 <p class="special-p">Remember <code>\d</code> is equivalent to <code>[0-9]</code>. The two can be used interchangeably.</p>
 <p>Still on telephone numbers, we want to try other formats. suppose we want to accept telephone numbers of the format <code>+XX XXXX XXXX</code> or <code>+XX-XXXX-XXXX</code> or <code>+XX.XXXX.XXXX</code>. We are going to build a regular expression that will accept the three formats without a hitch.</p> 
 <p>Let's start building the regular expression step by step. We begin with  the extreme ends of the expression, <code>/^...$/</code>. We have already explained the use of "^" and "$" at the extreme ends. We will make the country code and "+" symbol optional,so we use the expression: <code>/^(\+[\d]{2})?$/</code>. The country code will consist of exactly the "+" and two digits. The user can opt not to type it and it will still be acceptable.</p> 
@@ -198,7 +198,7 @@ function validTel(){
 <p class="special-p">Note that most of the special characters when used within the character set <code>[]</code>, lose their special meaning and are treated as regular characters. However, using the hyphen (-) in the character set can be tricky, for the reasons explained above. To avoid unexpected results, follow the recommendations provided.</p> 
 <p>But, we are not yet through. If we let the regular expression remain as it is, it will match the characters we have restricted it to, but also has the liberty to allow any other character available out there. That's not our objective. To prevent such occurance we need to bind the expression with the string boundary anchors; <code>^</code> and <code>$</code> . If we include these two characters, the regular expression should now be <code>/^[\w.#*-]{6,}$/</code>.</p> 
 <p>Now the regular expression is properly set, it will only match the characters in the set and not allow anything else. You will then need to notify your users appropriately, what characters they are allowed to use.</p> 
-<p>Let's test this regular expression by adding a function to handle it. Don't forget to put the event listener <code>onblur = "validPassword()"</code> on the password input.</p>
+<p>Let's test this regular expression by adding a function to handle it. Don't forget to put the event handler <code>onblur = "validPassword()"</code> on the password input.</p>
 <pre class="prettyprint linenums">
 function validPassword(){
 	var password = document.getElementById('password');
@@ -228,7 +228,7 @@ function validPassword(){
 <h3>Embellishing The Form</h3>
 <p>You might have realised that the alert message triggered by invalid data can be irritating sometimes. The best way to deal with that is to create an error variable that will display error messages beneath the input. Further, we can make the input change color when an error has occured. </p>
 <p>Another thing you might have noticed is that if you set focus on an input and click elsewhere, even if you did not type anything, an error alert is fired. One would expect that if nothing changed in the field there should be nothing to warrant a validation call. But the event <code><span class="key">onblur</span></code> occurs when the input loses focus and is oblivious of whether there was a change or not.</p> 
-<p>Another event listener that does the same job but behaves differently is  <code> <span class="key">nochange</span></code>. It only occurs when something changed in the input. That is what we would want. So we are going to change <code>onblur</code> to <code> onchange</code>. We will also return the <code>email</code> and <code> tel</code> type attributes to the inputs and designate the required fields. The form code should now look like the one below. </p> 
+<p>Another event handler that does the same job but behaves differently is  <code> <span class="key">nochange</span></code>. It only occurs when something changed in the input. That is what we would want. So we are going to change <code>onblur</code> to <code> onchange</code>. We will also return the <code>email</code> and <code> tel</code> type attributes to the inputs and designate the required fields. The form code should now look like the one below. </p> 
 <pre class="prettyprint linenums">
 &lt;form method="POST" action=""&gt;
 	&lt;label for="Fullname"&gt;Full Name:&lt;/label&gt;
@@ -370,7 +370,7 @@ function validPassword(){
 &lt;/script&gt;
 </pre>
 <p>You will notice that some of the error messages should actually be instructions to the user on how to fill in the form. If they are extracted and embedded under the appropriate input fields and styled with smaller font size, users will be properly guided, hence make less errors. That way the appropriate error messages would be short and precise. I leave that to you; tweak the form the way you please.</P>
-<p>At form submission, we want to check whether all the required fields have been filled. If not, handle the error. We are going to add <code>onsubmit="formSubmit()"</code> event listener on the form tag, that will be calling a function <code>formSubmit()</code> every time the form is submitted. Immediately below the opening form tag add an empty <code>div</code> element with an id <code>formError</code> to display a general error message if the form has errors at submission. See the affected area below. </p>
+<p>At form submission, we want to check whether all the required fields have been filled. If not, handle the error. We are going to add <code>onsubmit="formSubmit()"</code> event handler on the form tag, that will be calling a function <code>formSubmit()</code> every time the form is submitted. Immediately below the opening form tag add an empty <code>div</code> element with an id <code>formError</code> to display a general error message if the form has errors at submission. See the affected area below. </p>
 <pre class="prettyprint linenums">
 &lt;form method="POST" action="" onsubmit="formSubmit()"&gt;
 	&lt;div id="formError"&gt;&lt;/div&gt;
@@ -621,5 +621,6 @@ function validPassword(){
 	}
 &lt;/script&gt;
 </pre>
+<p class="special-p">It is good to let you know that we have used HTML attributes to place our event handlers for simplicity. Using inline JavaScript code within HTML is discouraged because among other reasons it is hard to debug as the files grow. But, it's a good start. As you become familiar with JavaScript, you will be able to handle all events in the JavaScript code without mixing it with HTML.    </p>
 <h2>Conclusion</h2>
 <p>That marks the end of front-end form validation. Once you have tested that your scripts are working well, you can add any HTML5 form validation that you might have disabled for testing purposes. HTML  and JavaScript validation rules must be consistent, otherwise they may conflict and confuse users. This is just one of the steps to securing your form. You must also ensure that the server-side software properly sanitizes and validates form data. </p>
