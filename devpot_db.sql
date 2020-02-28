@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 28, 2019 at 09:10 AM
+-- Generation Time: Feb 25, 2020 at 02:00 PM
 -- Server version: 8.0.15
 -- PHP Version: 7.3.3
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `devpot_db`
 --
-CREATE DATABASE IF NOT EXISTS `develop2_devpot_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `devpot_db`;
 
 -- --------------------------------------------------------
 
@@ -38,29 +36,6 @@ CREATE TABLE `comments` (
   `created_at` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `hits`
---
-
-CREATE TABLE `hits` (
-  `pageid` varchar(100) NOT NULL,
-  `isunique` tinyint(1) NOT NULL,
-  `hitcount` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `nodupes`
---
-
-CREATE TABLE `nodupes` (
-  `ids_hash` char(64) NOT NULL,
-  `time` bigint(20) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -133,18 +108,6 @@ CREATE TABLE `post_topic` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rating_info`
---
-
-CREATE TABLE `rating_info` (
-  `user_id` int(11) NOT NULL,
-  `post_id` int(11) NOT NULL,
-  `rating_action` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `replies`
 --
 
@@ -167,19 +130,6 @@ CREATE TABLE `roles` (
   `role_id` int(11) NOT NULL,
   `role` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `stats`
---
-
-CREATE TABLE `stats` (
-  `page` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `ip` text NOT NULL,
-  `page_views` int(10) UNSIGNED DEFAULT '0',
-  `referrer` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -267,19 +217,6 @@ ALTER TABLE `comments`
   ADD KEY `post_id` (`post_id`);
 
 --
--- Indexes for table `hits`
---
-ALTER TABLE `hits`
-  ADD PRIMARY KEY (`pageid`,`isunique`),
-  ADD KEY `pageid` (`pageid`);
-
---
--- Indexes for table `nodupes`
---
-ALTER TABLE `nodupes`
-  ADD PRIMARY KEY (`ids_hash`);
-
---
 -- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
@@ -311,12 +248,6 @@ ALTER TABLE `post_topic`
   ADD KEY `post_topic_topics_relationship` (`topic_id`);
 
 --
--- Indexes for table `rating_info`
---
-ALTER TABLE `rating_info`
-  ADD UNIQUE KEY `UC_rating_info` (`user_id`,`post_id`);
-
---
 -- Indexes for table `replies`
 --
 ALTER TABLE `replies`
@@ -328,12 +259,6 @@ ALTER TABLE `replies`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`role_id`);
-
---
--- Indexes for table `stats`
---
-ALTER TABLE `stats`
-  ADD UNIQUE KEY `page` (`page`);
 
 --
 -- Indexes for table `subscribers`
@@ -386,7 +311,8 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT;
+ ADD PRIMARY KEY (`permission_id`),
+ MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `permission_role`
@@ -416,24 +342,28 @@ ALTER TABLE `replies`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
+ADD PRIMARY KEY (`role_id`),
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `subscribers`
 --
 ALTER TABLE `subscribers`
+ADD PRIMARY KEY (`subscribe_id`),
   MODIFY `subscribe_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `subscribe_temp_tbl`
 --
 ALTER TABLE `subscribe_temp_tbl`
+  ADD PRIMARY KEY (`id`),
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `topics`
 --
 ALTER TABLE `topics`
+  ADD PRIMARY KEY (`topic_id`),
   MODIFY `topic_id` int(6) NOT NULL AUTO_INCREMENT;
 
 --
