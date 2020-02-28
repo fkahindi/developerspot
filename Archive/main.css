@@ -107,6 +107,7 @@ footer li{
 nav ul, .account-display-settings ul{
 	list-style:none;
 }
+
 nav ul li a{
 	padding:15px 10px;
 	color:rgb(250, 250,250);
@@ -157,6 +158,7 @@ aside{
 	clear:both;
 	*zoom:1;
 } 
+
 /*****************************
 **		TYPOGRAPHY			**
 ******************************/
@@ -217,15 +219,15 @@ nav ul li a:hover{
 .search-container input[type=text], .search-container button{
 	font-size: 100%;
 }
-h1, h2, h3{
+main h1, h2, h3{
 	font-weight:bold;
 	padding:5px;
 	text-align:left;
 }
-h1{
+main h1{
 	color:#071418;
 }
-h2{
+main h2{
 	color:#585858;
 }
 main h3{
@@ -240,7 +242,7 @@ main p{
 	padding:10px;
 }
 main .special-p{
-	background:rgba(100,160,100,.5);
+	background:rgb(100,200,100);
 }
 main .special-p code{
 	background:inherit;
@@ -318,7 +320,7 @@ code{
 	text-decoration:underline;
 }
 .log-account-section span{
-	color:rgb(256, 256,256);
+	color:rgba(240, 256,40,.3);
 }
 .login-signup{
 	display:block;
@@ -401,7 +403,8 @@ code{
 /* Show tooltip when mouse over container */
 .tooltip:hover .tooltip-text{
 	visibility:visible;
-	opacity:1;	
+	opacity:1;
+	
 }
 
 /********************************************
@@ -435,6 +438,8 @@ code{
 #profile-checkbox-control:checked ~ .tooltip-text{
 	visibility:hidden;
 }
+
+
 /******************************
 STYLING FOR COMMENTS SECTION
 *******************************/
@@ -476,6 +481,7 @@ STYLING FOR COMMENTS SECTION
 	line-height:1.2;
 	background: rgb(220,220,220);
 	border-radius:0 10px/ 10px 20px;
+	
 }
 .user-info .created-date{
 	padding-left:5px;
@@ -502,6 +508,65 @@ div[class^="group replies_container_"] {
 	display:none;
 }
 
+/********************************
+STYLING FOR SOCIAL MEDIA ICONS
+********************************/
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  right:0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+.icon-bar a:hover {
+  opacity: 0.7;
+}
+
+.facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.google {
+  background: #dd4b39;
+  color: white;
+}
+
+.linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.instagram {
+  background: #125688;
+  color: white;
+}
+
+.pinterest {
+  background: #cb2027;
+  color: white;
+}
 /***************************************
 ** STYLING FOR CODE DISPLAY SECTIONS  **
 ****************************************/
@@ -618,12 +683,9 @@ header{
 	width:50%;
 	position:absolute;
 	top:30px;
-	left:40%;
+	left:50%;
 	padding-right:2%;
 	text-align:right;
-}
-.log-account-section span{
-	
 }
 .account-display-settings{
 	margin-left:-6.5em; 
@@ -652,6 +714,7 @@ header{
 NAVIGATION MENU: FOR MOBILE 
 ===========================================
 */
+
 .dropdown {
     position: absolute;
     display: inline-block;
@@ -662,8 +725,7 @@ NAVIGATION MENU: FOR MOBILE
 	display:block;
     background-color: #293f50;
     color: white;
-    padding: 15px;
-	height: 100%;
+    padding: 10px;
     border: none;
     cursor: pointer;
 	transform: rotate(90deg);
@@ -724,15 +786,12 @@ MAIN SECTION
 section, aside{
 	width:100%;
 	padding:5px;
+	
 }
 main h1, h2, h3{
 	font-weight:bolder;
 	padding:5px;
 	text-align:left;
-}
-main p{
-	text-align:left;
-	padding:10px;
 }
 .post-main-image{
 	width:70%;
@@ -773,6 +832,7 @@ aside ul, aside ol{
 	padding:2px 0;
 	line-height:.8;
 }
+
 .published-topics ul{
 	padding:0;
 }
@@ -829,14 +889,7 @@ TYPOGRAPHY
 	font-size:80%;
 }
 .dropdown-button {
-	font-family:sans-serif, calibri;
-    font-size: 1em;
-}
-main p{
-	font-size:1.3em;
-}
-.post-acreditation{
-	font-size:.7em;
+    font-size: 16px;
 }
 .reply-thread, .reply-btn{
 	font-size:0.9em;
