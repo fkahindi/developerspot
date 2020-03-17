@@ -56,6 +56,3 @@
 	<li>Limited statistical procedures vs R although more procedures than SPSS</li>
 	<li>Some procedures require purchase of add-on components</li>
 </ul>
-
-	
-

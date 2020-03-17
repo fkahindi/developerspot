@@ -622,5 +622,5 @@ function validPassword(){
 &lt;/script&gt;
 </pre>
 <p class="special-p">It is good to let you know that we have used HTML attributes to place our event handlers for simplicity. Using inline JavaScript code within HTML is discouraged because among other reasons it is hard to debug as the files grow. But, it's a good start. As you become familiar with JavaScript, you will be able to handle all events in the JavaScript code without mixing it with HTML.    </p>
-<h2>Conclusion</h2>
+<h3>Conclusion</h3>
 <p>That marks the end of front-end form validation. Once you have tested that your scripts are working well, you can add any HTML5 form validation that you might have disabled for testing purposes. HTML  and JavaScript validation rules must be consistent, otherwise they may conflict and confuse users. This is just one of the steps to securing your form. You must also ensure that the server-side software properly sanitizes and validates form data. </p>
