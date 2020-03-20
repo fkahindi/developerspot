@@ -1,15 +1,18 @@
 <h1>HTML5 Form Validation</h1>
-<p>In this tutorial we are going to look at how we can validate a form before submission. <span class="key">Form validation</span> is important because it's one of the ways to prevent bad guys from injecting malicious code into your server. There are three stages a form can be validated
-before its contents are processed by the server: 
+<p><span class="key">Validating form data</span> is a crucial task a developer needs to think through before getting the form out there, where teaming bots and hackers roam the web, looking for an opportunity to compromise server and innocent user's security. It may not be a permanet fix but it makes the life of the bad guys a little harder.</p>
+<h3>Phases of Form Validation</h3>
+<p>There are three stages a form can be validated before its contents are processed by the server:</p>
 <ul>
 	<li>HTML validation</li>
 	<li>JavaScript validation</li>
 	<li>Server-side validation</li>
 </ul> 
-<p>The first two techniques are commonly called <span class="key"><em>front-end validation</em></span>, because the validation is done at the user's browser before data is transmitted to the server. The third type of validation also known as <span class="key"><em>back-end  validation</em></span>, takes place on the host server computer after the form has been submitted. </p>
+<p>The first two techniques are commonly called <span class="key"><em>front-end validation</em></span>, because the validation is done at the user's browser before data is transmitted to the server. The third type of validation is also known as <span class="key"><em>back-end  validation</em></span>, and takes place on the host server computer after the form has been submitted. </p>
+<h3><span class="key">Front-end Vs Back-end Validation</span></h3>
 <p>Form validation is not automatic, the developer has to take deliberate steps to ensure form data is safe to be handled by the server. That doesn't mean that back-end validation is less important, on the contrary, it is the most important. If the first two methods fail, the server-side validation is the last resort. </p>
-<p>However, relying solely on the server to validate user input can overwork the server and slow other critcal processes, especially in a busy environment. This is because, when server validation detects form errors, the data has to be ralayed back to the user for correction. The user then will have an opportunity to correct the errors and resend the form. This process will repeat as long as the form has invalid data. Too much of this back and forth on a single task creates an extra load to the server and can impact server performance. For this reason, form validation should start at the browser level and scale up to the server.</p> 
-<p>In this tutorial we will use the features provided by <span class="key">HTML5</span> to carry out form validation at the browser level. Let's begin with creating a form with five input fields: <em>username</em>, <em>email</em>, <em>password</em>, <em>telephone</em> and <em>textarea</em>. You can just copy the code below into your code editor and save the file as <code>registration.html</code> or any other name with the extension <code>.html</code></p>
+<p>However, relying solely on the server to validate user input can overwork the server and slow other critcal processes, especially in a busy environment. This is because, when server validation detects form errors, the data has to be ralayed back to the user for correction.</p> 
+<p>The user then will have an opportunity to correct the errors and resend the form. This process will repeat as long as the form has invalid data. Too much of this back and forth on a single task creates an extra load to the server and can impact server performance. For this reason, form validation should start at the browser level and scale up to the server.</p> 
+<p>In this tutorial we will use the <span class="key">features provided by HTML5</span> to carry out form validation at the browser level. Let's begin with creating a form with five input fields: <em>username</em>, <em>email</em>, <em>password</em>, <em>telephone</em> and <em>textarea</em>. You can just copy the code below into your code editor and save the file as <code>registration.html</code> or any other name with the extension <code>.html</code></p>
 <pre class="prettyprint linenums">
 &lt;! DOCTYPE html&gt;
 &lt;html lang="en"&gt;
@@ -76,7 +79,7 @@ before its contents are processed by the server:
 <p>You can deliberately mess around with these attributes and see how your form responds, before we turn to <em>pattern</em> attribute.</p>
 <h4>The <code><span class="key"> pattern </span></code> Attribute</h4>
 <p>Let's now turn to the  <code> pattern </code> atttibute. This attribute was introduced in HTML5 to allow complex HTML validation techniques, using what is called <em> regular expressions</em>. Regular expressions are special defined pattern of characters that must be matched against what is typed in the field. The <code> pattern </code> attribute can be used with <code> text </code>, <code> tel </code>, <code> date </code>, <code> email </code>, <code> password </code>, <code> url </code> and <code> search </code> input types.</p>
-<h2>HTML5 Form Validation Using Regular Expressions</h2>
+<h3>HTML5 Form Validation Using Regular Expressions</h3>
 <p>We are going to update our earlier form with the <code> pattern </code> attribute in each input we have used. The <code> pattern </code> attribute will enable us to evaluate the input value using a <em> regular expression</em> for a match. So, in essence you define a rule for the type of characters that should be allowed in the input, without which the value in the field will be deemed invalid. I'm intending to post a tutorial on <span class="key">regular expressions</span> for those unfamiliar with these type of rules. Watch out for <i>Regular Expressions in JavaScript</i> in the upcoming post on this site. As for now, we are going to use regular expressions that suit our purpose and we will also explain what they mean. </p>
 <p>Further, a global <code>title</code> attribute will used along with the <code> pattern </code> attribute to enable a pop up guide to the user.</p>
 
@@ -179,5 +182,5 @@ before its contents are processed by the server:
 </pre>
 <br>
 <p class="special-p">Notice that the <code> required </code> attribute is still used because we consider these fields as important that they must be filled. When the user clicks <code> submit </code> button, the browser will first check whether these fields are filled.</p>
-<h2>Conclusion</h2>
+<h3>Conclusion</h3>
 <p>So far that covers form validation in HTML5. Now that you know the fundamentals of form validation, you can start using these principles as you design your forms. It helps in reducing, if not eliminating the risk of someone compromising your server security. I wish you the best in coding!</p>
