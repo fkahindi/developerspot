@@ -1,8 +1,9 @@
 <h1>Regular Expressions in JavaScript</h1>
 <p><span class="key">Regular expressions</span> also known as RegExp are <span class="key">special formatted characters</span> that are used to <span class="key">match patterns in strings</span> of text. For example they can be used to validate whether a user entered correct data in a form, before it is processed by the server. They are also used to manupulate strings in various ways such as search and replace.</p> 
-<p>Various programming languages such JavaScript, PHP, Python and Perl use regular expressions to process and manipulate text. While there's a lot in common in how each of these languages utilize regular expressions, their specific implemention vary. In this <span class="key">tutotial</span>, we will use JavaScript to explore usage of regular expressions. </P>
+<p>Various programming languages such JavaScript, PHP, Python and Perl use regular expressions to process and manipulate text. While there's a lot in common in how each of these languages utilize regular expressions, their specific implemention may vary.</p> 
+<p>In this <span class="key">tutotial</span>, we are going to use JavaScript to explore the usage of regular expressions. </P>
 <h3>Regular Expression Syntax</h3>
-<p>A <span class="key">regular expression in JavaScript</span> can be created in one of two ways:</p>
+<p>A <span class="key">regular expression in JavaScript</span> can be build in one of two ways:</p>
 <ol><li><span class="key">Regular expression literal</span></li><li><span class="key">Regular expression constructor</span></li></ol>
 <p>Regular expressions in both approaches consists of a <code> pattern </code> and optional <code>flag(s)</code>. Whichever approach one uses, the result will be a regular expression object. </p>
 <h4>Regular Expression Literal</h4>
@@ -16,10 +17,11 @@
 <p><strong>Syntax: <code> new RegExp('pattern', 'flags'); </code></strong></p>
 <p><b>Example:  <code> var regex = new RegExp('abc');</code> </b>without flags.</p>
 <p><b>Example:  <code> var regex = new RegExp('abc','m');</code> </b>with flag <em>m</em> enabling it to search a multi-line string.</p>
-<p class="special-p">Use the constructor syntax to create dynamic regular expressions or in situations where the expression will come from the user input, in which case the literal syntax does not work. </p>	
+<p class="special-p">Use the constructor syntax to create dynamic regular expressions or in situations where the expression will come from the user input, in which case the literal syntax will not work. </p>	
 <h3>Special Characters in Regular Expressions</h3>
-<p> Regular expressions use characters that have special meaning in the expressions. That's why <i>regular expressions</i> are like a programming language of its own. The following characters have a special meaning in regular expressions: <code><strong> . ? * + [ ]( ){ } ^ | \</strong></code>.</p> 
-<p>In case you want to use these characters in a regular expression in their literal sense, you must escape them with a backslash "\". For example, if you want to search for a question mark in a string then the regular expression should be <code>/\?/</code>. That way the '?' is treated as a question mark and not as a special character. In the table below we have listed these characters and what each of them mean when used in regular expressions. Later on, we shall explore how we can make use of them in searching and matching strings. </p>
+<p> Regular expressions use characters that have special meaning in the expressions. That's why <i>regular expressions</i> are like a programming language of its own. The following characters have special meaning in regular expressions: <code><em> . ? * + [ ] ( ) { } ^ | \</em></code>.</p> 
+<p>In case you want to use these characters in a regular expression in their literal sense, you must escape them with a backslash "\". For example, if you want to search for a question mark in a string then the regular expression could be <code>/\?/</code>. In this case the '?' is treated as a question mark and not as a special character.</p> 
+<p>The table below lists the special characters and their meaning when used in a regular expression. Later on, we shall explore how we can use them in searching and matching strings. </p>
 
 <table>
 	<tr><th>RegExp</th><th>Description</th></tr>
@@ -54,11 +56,11 @@
 	<tr><td>\W</td><td>Matches any non-word character. Same as [^a-zA-Z0-9_] </td></tr>
 	<tr><td>\D</td><td>Matches any non-digit character. Same as [^0-9] </td></tr>
 </table>
-<p>As said before, incase you want to use any of these special characters literally, you must escape the character with a backslash. If for instance, you want to search for "a" followed by "+" then followed by "b" you will have to type the regular expression as <code> /a\+b/ </code>. Then "+" will not be treated as a special character. </p>	
-<p>However, as we shall see later, when these <span class="key">special characters</span> are used in a character set "[ ]" they are treated literally and need not be escaped. For example if you wanted to match either "a+b" or "a-b" then you could type the regular expression as <code>/a[+-]b/</code>. No need to escape them. </p>
-<p class="special-p">We are going to use the JavaScript Engine in the bowser Console panel, located in Web Developer tools to practise with regular expressions. To access Web Developer tools, use the specific browser's menu or short-cut keys. FireFox and Microsoft Edge use <code>Shift+F12</code>; Chrome and Opera browsers use <code>Ctrl+Shift+I</code> as short-cut to Developer tools. If the Develop menu on Safari is not displayed,  use <b>Preferences -> Advanced </b> tab and check the <b>Show Develop menu</b> box.</p>
+<p>As said before, incase you want to use any of these special characters literally, you must escape the character with a backslash. If for instance, you want to search for "a" followed by "+" then followed by "b", you would type the regular expression as <code> /a\+b/ </code>. Then "+" will not be treated as a special character. </p>	
+<p>However, as we shall see later, when these <span class="key">special characters</span> are used in a character set "[ ]" they are treated literally, and need not be escaped. For example, if you wanted to match either "a+b" or "a-b",  you could type the regular expression as <code>/a[+-]b/</code>. No need to escape them. </p>
+<p class="special-p">We are going to use the JavaScript Engine in the bowser Console panel, located in Web Developer tools to practise with regular expressions. To access Web Developer tools, use the specific browser's menu or short-cut keys. FireFox and Microsoft Edge use <code>Shift+F12</code>; Chrome and Opera browsers use <code>Ctrl+Shift+I</code> as short-cut to Developer tools. If the Develop menu on Safari is not displayed,  use <b><i>Preferences -> Advanced</i></b> tab and check the <b><i>Show Develop menu</i></b> box.</p>
 <h3>Flags</h3>
-<p>Sometimes regular expressions include flags. Flags change the way the search or match will be performed. Whether to use flags or not depends on what you want to achieve. The flags listed below can be used in JavaScript.</p>
+<p>Sometimes regular expressions include flags. Flags change the way the search or match will be performed. Whether to use flags or not, depends on what you want to achieve. The flags listed below can be used in JavaScript.</p>
 <table>
 	<tr><th>Flag</th><th>Description</th></tr>
 	<tr><td>i</td><td>Makes the search case-insensitive i.e. treats a and A equally.</td></tr>
@@ -69,7 +71,7 @@
 </table>
 <h3>Methods to Work with Regular Expressions</h3>
 <p>In JavaScript regular expressions are implemented using methods. Methods can be called from a built-in <code> <strong>RegExp class</strong> </code> such as <code> test </code> and <code> exec </code> or from <code> <strong>string methods:</strong> </code>  such as <code> match </code>, <code> search </code>, <code> replace </code> and <code> split</code>. </p> 
-<p>In most of the examples in this tutotial we will use the shorter literal syntax <code> /.../</code> to practise with the above methods. But first, let's look at these methods seperately with simple regular expressions before we come to the special characters in detail.</p>
+<p>In most of the examples in this tutotial we will use the shorter literal syntax <code> /.../</code> to practise with the above methods. But first, let's look at these methods seperately with simple regular expressions, before we come to the special characters in detail.</p>
 <h4>regexp.test(str)</h4>
 <p>The <code> <span class="key">regexp.test(str)</span> </code> method searches for a match and returns<code> true</code> if the match is found or <code> false</code> if there is no match.</p>
 <p>Run the following code in the console of your browser and see the result.</p>
@@ -78,7 +80,7 @@ var str = "In the animal kingdom lion is king";
 var regex = /king/;
 regex.test(str); // true
 </pre>
-<p>The regex.test found a match ("king") in the string and returned <i>true</i>.</p>
+<p>The <i>regex.test</i> found a match ("king") in the string and returned <i>true</i>.</p>
 <h4>regex.exec(str)</h4>
 <p>The <code><span class="key">regex.exec(str)</span></code> searches for all matches and returns an array of all matched groups.</p>
 <pre class="prettyprint linenums">
@@ -99,8 +101,8 @@ var str = "In the animal kingdom lion is king";
 regex = /king/;
 str.search(regex); //returns 14 (first position of a match)
 </pre>
-<p>We can't use <code> search </code> method to find the next match, we need to use other methods to do that.</p>
-<p>Before we move on, let's illustrate how to use the RegExp constructor syntax to create a dynamic regular expression.</p>
+<p>We can't use <code> search </code> method to find the next match. We need to use other methods to do that.</p>
+<p>Before we move on, let's illustrate how to use the <i>RegExp</i> constructor syntax to create a dynamic regular expression.</p>
 <pre class="prettyprint linenums">
 var search = prompt("What do you want to find?","king");
 regex = new RegExp(search);
@@ -128,21 +130,21 @@ str.match(regex); //returns [0: "king" 1: "king" length: 2]
 <p>If there are no matches the <code>str.match()</code> method returns a <code>null</code> (not the same as empty).</p>
 <p class="special-p">Both <code>str.match(regex)</code> and <code>regex.exec(str)</code> return an array of the match with other properties if the match is successful, otherwise they return <i>null</i>. You can use either of the methods to get more information about a match.</p>
 <h4>str.split(regex|substr, limit)</h4>
-<p>This method splits a string using <i>regexp</i> or <i>substr</i> as delimiter. Suppose we want to split the date 9/24/2019 using forwardslashes as delimeter. Run the following code in your browser console.</p>
+<p>This method splits a string using <i>regexp</i> or <i>substr</i> as delimiter. Suppose we want to split the date 9/24/2019 using forwardslashes as delimeter, run the following code in your browser console.</p>
 <pre class="prettyprint linenums">
 alert("9/24/2019".split("/")); // returns [9, 24, 2019]
 </pre>
-<p>In the above code we have specified the delimeter in a substring. If we use a regular expression to specify the delimeter, we will have to escape the forwardslash delimeter like the code below.</p>
+<p>In the above code we have specified the delimeter in a substring. If we used a regular expression to specify the delimeter, we would have to escape the forwardslash delimeter like the code below.</p>
 <pre class="prettyprint linenums">
 alert("9/24/2019".split(/\//)); // returns [9, 24, 2019]
 </pre>
 <p>So, both give the same result.</p>
 <h4>str.replace(str|regex, str|func)</h4>
-<p>This method performs search and replace. The first argument is what is to be searched and the second argument is the replacementIt. Let's replace the dashes with a colon in the code below. </p>
+<p>This method performs search and replace. The first argument is what is to be searched and the second argument is the replacement. Let's replace the dashes with a colon in the date format in the code below. </p>
 <pre class="prettyprint linenums">
 alert("22-09-40".replace(/-/g, ":")); // returns 22:09:40
 </pre>
-<p>If you don't use the "g" flag in the regular expression above, the search will replace the first dash and stop there, resulting to 22:09-40.</p>
+<p>If you don't use the "g" flag in the regular expression above, the search will replace the first dash and stop there, resulting in 22:09-40.</p>
 <p>We can also use the following special characters to specify positions of insertion.</p>
 <table>
 	<tr><th>Symbol</th><th>Inserts</th></tr>
@@ -158,15 +160,15 @@ var str = "Lucy Doe, Lucy Soi, Lucy Roe";
 alert(str.replace(/Lucy/g, "Ms $&amp;")); 
 //returns Ms Lucy Doe, Ms Lucy Soi, Ms Lucy Roe 
 </pre>
-<p>The expression below will change the two words "King" and "Lion"</p>
+<p>The expression below will interchange the two words "King" and "Lion"</p>
 <pre class="prettyprint linenums">
 var str = "King Lion";
 alert(str.replace(/(King) (Lion)/, "$2,$1")); //return Lion,King
 </pre>
 <p>In the above illustration we have included capturing groups <code>(King)</code> and <code>(Lion)</code> but we will explain more on that later.</p>
-<p>Well, now let's turn to testing various regular expressions, highlighting the usage of the various special characters.</p>
+<p>Well, now let's turn to testing various regular expressions, highlighting the usage of various special characters.</p>
 <h4><span class="key">Character Set [abc]</span></h4>
-<p>Using a character set <code>[abc]</code> in a regular expression, tells it to match any of the letters "a", "b" or "c" in a string in a single position. To make it clear, let's suppose we want to match the words "bear", "rear", "wear" and "Tear". Then our regular expression would look like <code> /[brtw]ear/</code>. Let's do several matches in the browser console.</p>
+<p>Using a character set <code>[abc]</code> in a regular expression, tells it to match any of the letters "a", "b" or "c" in the provided string in a single position. To make it clear, let's suppose we want to match the words "bear", "rear", "wear" and "Tear". Then our regular expression would look like <code> /[brtw]ear/</code>. Let's do several matches in the browser console.</p>
 <pre class="prettyprint linenums">
 var regexp = /[brtw]ear/;
 console.log(regexp.test("bear")); // returns true
@@ -178,7 +180,7 @@ console.log(regexp.test("ear"));  //false - before "ear" there must one of these
 console.log(regexp.test("bearing")); // true - it matched "bear" in the (bear)ing
 console.log(regexp.test("rebear")); // true - it matched "bear" in the re(bear)
 </pre>
-<p>From the matches above, you can see that so long as the string you are testing has a word consisting a cluster of four letters <code> b|ear, r|ear, t|ear, w|ear</code> it won't matter whether there are other letter before or after the cluster, there will be a match. If we wanted to match both lower and upper cases then the regular expression would have been <code> /[brtw]ear/i </code>, making it case-insensitive. </p>
+<p>From the matches above, you can see that so long as the string you are testing has a word consisting a cluster of four letters <code> b|ear, r|ear, t|ear, w|ear</code>, it won't matter whether there are other letters before or after the cluster, there will be a match. If we wanted to match both lower and upper cases then the regular expression could have been <code> /[brtw]ear/i </code>, making it case-insensitive. </p>
 <h4>Negated Character Set [^abc]</h4>
 <p>Negated set helps in matching anything but not what is in the set. Let's negate the earlier character set.</p>
 <pre class="prettyprint linenums">
@@ -190,9 +192,9 @@ console.log(regexp.test("ear"));  //false - before "ear" there must a letter oth
 console.log(regexp.test("rebear")); // false - because of b.
 </pre>
 <br>
-<p class="special-p">Take note that the caret <code>^</code> has a different meaning when placed outside the set sech as <code> /^[abc]/</code>. That would mean the string to match must begin with any of the three letters a, b or c.</p>
+<p class="special-p">Take note that the caret <code>^</code> has a different meaning when placed outside the set such as <code> /^[abc]/</code>. That would mean that the string to match must begin with any of the three letters <i>a</i>, <i>b</i> or <i>c</i>.</p>
 <h4>Character Set Ranges, [a-z] or [0-9]</h4>
-<p>Sometimes the characters you want to use in the set follow consecutively. In such cases you can use a range. Suppose we had used a range [a-zA-Z] in matching "bear", "rear", "wear" and "Tear". All of them would return true. Let's try it.</p>
+<p>Sometimes the characters you want to use in a set follow each other consecutively. In such cases you can use a character range. For example, if we had used the range [a-zA-Z] in matching "bear", "rear", "wear" and "Tear". All of them would have returned true. Let's try it.</p>
 <pre class="prettyprint linenums">
 var regexp = /[a-zA-Z]ear/;
 console.log(regexp.test("bear")); // true
@@ -203,9 +205,9 @@ console.log(regexp.test("Gear")); // true
 console.log(regexp.test("HEAR")); // false - the regexp is case sensitive outside the set
 </pre>
 <br>
-<p class="special-p">Sometimes instead of using character set ranges, you can replace them with named sets also called <i><span class="key">meta-characters</span></i> like <code> \d</code> instead of <code> [0-9]</code>, <code> \w</code> instead of <code> [a-zA-Z0-9_]</code>. You can also negate by <code> \D </code> instead of <code> [^0-9] </code> or <code> \W </code> instead of <code> [^a-zA-Z0-9_] </code>.</p>
+<p class="special-p">Sometimes instead of using character set ranges, you could replace them with named sets, also called <i><span class="key">meta-characters</span></i> like <code> \d</code> instead of <code> [0-9]</code>, <code> \w</code> instead of <code> [a-zA-Z0-9_]</code>. You could also negate by <code> \D </code> instead of <code> [^0-9] </code> or <code> \W </code> instead of <code> [^a-zA-Z0-9_] </code>.</p>
 <h4>Quantifiers</h4>
-<p>The special characters <code> + * ? {n} {n,} {,n} {n,m} </code> are also called <span class="key">quantifiers</span>. They dictate how many times the preceding character or group should be matched. Let's see some examples.</p>
+<p>The special characters <code> + * ? {n} {n,} {,n} {n,m} </code> are also called <span class="key">quantifiers</span>. They dictate how many times the preceding character or group of characters should be matched. Let's look at some examples.</p>
 <p> <code>+</code> :- Matches the preceding character once or more times. It is equivalent to <code>{1,}</code>. Let's use the <code>\d+</code> to match one or more digits.</p>
 <pre class="prettyprint linenums">
 var regexp = /\d+/;
@@ -222,14 +224,14 @@ console.log(regexp.test("2")); // true
 console.log(regexp.test("k")); // false
 console.log(regexp.test("")); //false
 </pre>
-<p> <code>*</code> :- Matches the preceding character 0 or more times. It is equivalent to <code>{0,}</code>. If we use <code>/fo*d/</code>, the '*' makes the word to be matched whether the 'o' is there or not. It also matches for multiple 'o'.</p>
+<p> <code>*</code> :- Matches the preceding character 0 or more times. It is equivalent to <code>{0,}</code>. If we use <code>/fo*d/</code>, the "*" makes the word to be matched whether the "o" is there or not. It also matches for multiple "o".</p>
 <pre class="prettyprint linenums">
 var regexp = /fo*d/;
 console.log(regexp.test("fd")); //true - missig "o" is expected
 console.log(regexp.test("fod")); // true
 console.log(regexp.test("fooood")); // true - 0 or more "o" is expected
 </pre>
-<p>We would have used <code>{0,}</code> and get the same result.</p>
+<p>We could have used <code>{0,}</code> and got the same result.</p>
 <pre class="prettyprint linenums">
 var regexp = /fo{0,}d/;
 console.log(regexp.test("fd")); //true 
@@ -253,10 +255,10 @@ console.log(regexp.test("food")); // true
 console.log(regexp.test("foood")); // false
 </pre>
 <br>
-<p class="special-p">Please note that these special characters we have just explained when used within character sets like <code> [+*?.]</code>, they cease to be special and assume the literal meaning. In this case <code> [+*?.] </code> would match any of these symbols <code>"+", "*", "?" or "."</code> in a single position.</p>
+<p class="special-p">Please, note that these special characters we have just explained when used within character sets like <code> [+*?.]</code>, they cease to be special and assume the literal meaning. In this case <code> [+*?.] </code> would match any of these symbols <code>+, *, ? or .</code> in a single position.</p>
 <h4><span class="key">Position Anchors</span>: <span class="key">String Boundary Characters</span></h4>
-<p>There are two special characters <code> ^</code> and <code> $</code> that help in matching the beginning and the end of a string respectively. They are common in regular expressions. </p>
-<p><code>^</code> :-For a match to occur, the string must begin with the character(s) placed after '^'. Let's use <code>/^food/</code>.</p>
+<p>There are two special characters <code> ^</code> and <code> $</code> that help in matching the beginning and the end of a string, respectively. They are common in regular expressions. </p>
+<p><code>^</code> :- When used it means, for a match to occur, the string must begin with the character(s) placed after "^". Let's use <code>/^food/</code> expressioin to test some strings.</p>
 <pre class="prettyprint linenums">
 var regexp = /^food/;
 console.log(regexp.test("food for the hungry")); //true 
@@ -264,17 +266,17 @@ console.log(regexp.test("the hungry need food")); // false -food is not starting
 console.log(regexp.test("foolish act")); // false -food is expected to begin the string
 console.log(regexp.test("foodish")); // true -it matched food in (food)ish
 </pre>
-<p>In the above test a match occurs only if the string begins with "food". That is the case in line 2 and 5. </p>
-<P class="special-p">Please note when using the caret <code> ^</code> in a character set like, <i>[^xyz]</i> it means exclude xyz in the match. However, placing the caret outside the character set like, <i>^[xyz]</i> it matches a string the starts with any these character x, y, or z. So, <code> /^[xyz]ox/</code> will match "xox", "yox", "xoxes" but not "wox" or anything that does not start with x, y or z.</p>
-<p><code>$</code> :- For a match to occur the string must end with the character(s) placed before "$"</p>
+<p>In the above tests a match occured only where the string began with "food". That was the case in line 2 and 5. </p>
+<P class="special-p">When the caret <code> ^</code> is used inside a character set like, <i>[^xyz]</i> it means exclude <i>xyz</i> in the match. However, placing the caret outside the character set like, <code>^[xyz]</code> it matches a string the starts with any these character <i>x</i>, <i>y</i>, or <i>z</i>. So, <code> /^[xyz]ox/</code> will match "xox", "yox", "xoxes" but not "wox" or anything that does not start with x, y or z.</p>
+<p><code>$</code> :- This symbol is used to mark the end of the string to be matched. For a match to occur the string must end with the character(s) placed before <i>"$"</i>. See the example below.</p>
 <pre class="prettyprint linenums">
 var regexp = /good$/;
 console.log(regexp.test("good food")); //false - end of the string is not "good" 
 console.log(regexp.test("the food was good")); // true
-console.log(regexp.test("goody goody")); // false -the string should end with exactly "good"
+console.log(regexp.test("goody goody")); // false -the string ends with "goody" instead of "good"
 </pre>
 <h4><span class="key">Word Boundary Character</span></h4>
-<p>A word boundary is denoted by <code> \b </code>. It does not denote a character but rather a boundary between characters. For example <code> /\bking\b/ </code> will match <i>"king"</i> in <i>"lion is king"</i> but not in <i>"animal kingdom"</i></p>
+<p>A word boundary is denoted by <code> \b </code>. A word boundary does not denote a character but rather a boundary between characters. For example <code> /\bking\b/ </code> will match <i>"king"</i> in <i>"lion is king"</i> but not in <i>"animal kingdom"</i></p>
 <pre class="prettyprint linenums">
 var regexp = /\bking\b/;
 console.log(regexp.test("king fisher")); // true
@@ -282,9 +284,9 @@ console.log(regexp.test("kingfish")); // false
 console.log(regexp.test("in the animal kingdom")); // false
 console.log(regexp.test("in the animal kingdom \n lion is king")); // true
 </pre>
-<p>The word boundary "\b" is used to search for standalone English words. As you can see in the 5th line it can search beyond the end of a line to new lines of text. The special character <code>\n</code> breaks the line of text into a new line. </p>
+<p>The word boundary <code>\b</code> is used to match standalone English words. As you can see in the 5th line it can search beyond the end of a line to new lines of text. The special character <code>\n</code> breaks the line of text into a new line. </p>
 <h4>The Dot (.)</h4>
-<p>The dot <code>.</code> is a specail character that matches any character except <i> new line <code>(\n)</code></i>. Suppose we want to find exactly a three-character string. We can use the knowledge we have already gained by building regular expression like the one below.</p>
+<p>The dot <code>.</code> is a specail character that matches any character except <i> new line <code>(\n)</code></i>. Suppose we wanted to find exactly a three-character string. We could use the knowledge we have already gained and build the regular expression <code>/^.{3}$/</code>. Let's use it as below.</p>
 <pre class="prettyprint linenums">
 var regexp = /^.{3}$/;
 console.log(regexp.test("123")); // true
@@ -293,8 +295,8 @@ console.log(regexp.test("pot")); // true
 console.log(regexp.test("sip cup ")); // false - expects one three-letter word
 console.log(regexp.test(" cup")); // false - a space is a character
 </pre>
-<p>The regular expression above can be explained as follows: the <code>.{3}</code> searches a string for exactly a three-character word. Then to search for a string that consists of only a  three-character word we use the beginning <code>^</code> character and ending <code>$</code> character for string boundaries. Hence the <code>/^.{3}$/</code> regular expression.</p>
-<p>If we want to search for a number with a decimal point, then we can build a regular expression like <code> /\d+\.\d+/ </code>.</p>
+<p>The regular expression above can be explained as follows: the <code>.{3}</code> searches for a three-character word in a string of text. Then to restrict the match to only a three-character-word string, we enclose the expression in the string boundary characters <code>^</code> and <code>$</code>. Hence the <code>/^.{3}$/</code> regular expression.</p>
+<p>If we wanted to search for a number with a decimal point, then we could build a regular expression like <code> /\d+\.\d+/ </code>.</p>
 <pre class="prettyprint linenums">
 var regexp = /\d+\.\d+/;
 console.log(regexp.test("123")); // false - no decimal point
@@ -303,27 +305,27 @@ console.log(regexp.test("64.00")); // true - because \d stands for 0-9
 console.log(regexp.test("0.99")); // true
 console.log(regexp.test("798.407")); // true
 </pre>
-<p><code>\d+</code> means 1 or more digits and <code>\.</code> means the normal decimal point or period.</p>
-<p class="special-p">Remember the dot '.' is a special character and d is not. When escaped with the backslash '\' they change meaning depending on where they are being used.</p>
-<p>Suppose we want to search for an opening HTML-tag without attributes. An opening HTML-tag starts with <code>&lt;</code> and ends with <code>&gt;</code>. Then the name of the tag must start with a letter or letters and sometimes it can be followed by a number. Examples are <code>p</code>, <code>h1</code> tags. Our regular expression, therefore can be like the one below. </p>
+<p><code>\d+</code> means match 1 or more digits and <code>\.</code> stands for the normal decimal point or period, because we have escaped it.</p>
+<p class="special-p">Remember the dot <i>.</i> is a special character in regular expressions and <i>d</i> is not. When they are escaped with the backslash "\" they change meaning depending on where they are being used.</p>
+<p>Suppose we want to search for an opening HTML-tag without attributes. An opening HTML-tag starts with <code>&lt;</code> and ends with <code>&gt;</code>. Then the name of the tag must start with a letter or letters and sometimes it can be followed by a number. Examples are <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code> tags. Our regular expression, therefore can be expressed as the one below. </p>
 <pre class="prettyprint linenums">
 var regexp = /&lt;[a-z][a-z0-9]*&gt;/i;
 console.log(regexp.test("&lt;body&gt;")); // true
 console.log(regexp.test("&lt;H1&gt;")); // true
 console.log(regexp.test("&lt;!doctype&gt;")); // false - ! is not part of the regexp
 </pre>
-<p>The regular expression above starts and ends with the angle brackets. The name must begin with a letter <code>[a-z]</code> and can be followed by nothing or more letters or digits <code>[a-z0-9]*</code>. Finally we have made it case insensitive <code>/i</code> because HTML tags are not restricted to lowercase only.
+<p>The above regular expression starts and ends with the angle brackets. The element name must begin with a letter <code>[a-z]</code> and can be followed by nothing or more letters or digits <code>[a-z0-9]*</code>. Finally we have made it case insensitive <code>/i</code> because HTML tags are not restricted to lowercase only.
 </p>
-<p>The regular expression below incorporates opening and closing HTML tags. What makes a closing HTML tag is the forwardslash placed immediately after the left angle bracket. So we have improved the previous regexp by adding <code>\/?</code> at the beginning the regexp. </p>
+<p>The regular expression below incorporates opening and closing HTML tags. What makes a closing HTML tag is the forwardslash placed immediately after the left angle bracket. So we have improved the previous <i>regexp</i> by adding <code>\/?</code> at the beginning the regexp. </p>
 <pre class="prettyprint linenums">
 var regexp = /&lt;\/?[a-z][a-z0-9]*&gt;/i;
 console.log(regexp.test("&lt;body&gt;")); // true
 console.log(regexp.test("&lt;/body&gt;")); // true
 console.log(regexp.test("&lt;/H2&gt;")); // true
 </pre>
-<p>The forwardslash had to be escaped <code>\/</code> and the <code>/?</code> makes the slash optional in the regular expression.</p>
+<p>The forwardslash had to be escaped <code>\/</code> and the <code>/?</code> makes the forwardslash optional in the regular expression.</p>
 <h4>Greedy Vs Non-greedy Quantifiers</h4>
-<p>The quantifiers <code>* + ? {}</code> are by themselves called <em>greedy quantifiers.</em> They try to match as many characters as possible. Let's illustrate that by trying to match the string <i>75489Ave</i> using <code>/\d+/</code> regular expression.</p>
+<p>The quantifiers <code>* + ? {}</code> are by themselves referred to as <em>greedy quantifiers.</em> They try to match as many characters as possible. Let's illustrate that by trying to match the string <i>75489Ave</i> using <code>/\d+/</code> regular expression.</p>
 <pre class="prettyprint linenums">
 var str = "75489Ave";
 var regex = /\d+/;
@@ -336,21 +338,21 @@ var regexp = /\d+/g;
 str.match(regexp); // returns "75489", "2874950", "123", "345", "12"
 </pre>
 <p>You can see from the above illustrations that <code>/d+/</code> is greedy. It tries to match as many digits as it can find.</p>
-<p>To make these quantifiers <em>non-greedy</em> or <em>lazy</em> we use <code>?</code> immediately after the quantifier. So whenever you see expressions such as <code>+?</code>, <code>*?</code>, <code>??</code> and <code>{}?</code> they are the same quantifiers made <em> non-greedy</em>, to match the fewest characters as possible. Now let's run the previous code with the non-greedy quantifier  <code>+?</code> and see what we will get.</p>
+<p>To make these quantifiers <em>non-greedy</em> or <em>lazy</em> we use <code>?</code> immediately after the quantifier. So whenever you see expressions such as <code>+?</code>, <code>*?</code>, <code>??</code>, <code>{}?</code>, they are the same quantifiers made <em> non-greedy</em> to match the fewest characters as possible. Now let's run the previous code with the non-greedy quantifier  <code>+?</code> and see what we will get.</p>
  <pre class="prettyprint linenums">
 var str = "75489Ave";
 var regex = /\d+?/;
 str.match(regex); // returns 7
 </pre>
-<p>You can see it matched the first digit and ignored the rest.</p>
+<p>You can see it matched the first digit and ignored the rest. Let's try a longer string while incorporating the global flag <code>g</code>. </p>
 <pre class="prettyprint linenums">
 var str = "75489Ave abd2874950 123abc345 wxy12xyz";
 var regexp = /\d+?/g;
 str.match(regexp); // "7", "5", "4", "8", "9", "2", "8", "7", "4", "9", … ] 
 </pre>
-<p>The global search is even more interesting, it matches each digit it finds in the string as a seperate entity. It makes sense because we have told it to be "non-greedy" and match the fewest digits as possible, and yet it must continue to the end of the string.</p>
+<p>The global search is even more interesting, it matches each digit it finds in the string as a seperate entity. It makes sense because we have made it to be "non-greedy" to match the fewest digits as possible, and yet it must continue to the end of the string.</p>
 <h4>Capturing (Parentheses) Groups</h4>
 <p>When a pattern or part of a pattern of a regular expression is placed within parenthesis <code>( )</code> it is called a <em><span class="key">capturing group</span></em>. The parenthesis matches what is placed within it and remembers the match. It also helps in creating sub expressions within the regular expression. If a quantifier is placed after the parenthesis, the quantifier applies to the whole group.</p>
-<p>For example, when type the pattern as <code>/(no)+/</code> it will look for one or more of "no". So it can match "no", "nono", "nonono" and so on. It will mean something different if we use <code>/no+/</code>. The latter pattern means look for "n" that is followed by "o" one or more times. So it will match "no", "noo", "nooo" and so on. </p>
+<p>For example, when we use a pattern like <code>/(no)+/</code> it will look for one or more <i>"no"</i>. So it can match "no", "nono", "nonono" and so on. It would mean something different if we used <code>/no+/</code>. The latter pattern means, look for "n" that may or may not be followed by <i>"o"</i>. So it can match "no", "noo", "nooo" and so on. </p>
 <h3>Conclusion</h3>
 <p>Well, we have covered some good ground in exploring regular expressions in JavaScript. You now need to start using them in your programming to get familiar with them. Whenever you see a regular expression in somebody's code, try to interpret it before you look it up. The next tutorial I intend to do is, <em>validating forms using regular expressions</em>. I wish you happy coding.</p>
