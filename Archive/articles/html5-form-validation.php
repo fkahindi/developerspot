@@ -1,4 +1,5 @@
 <h1>HTML5 Form Validation</h1>
+<!-- HTML form validation is a front-end validation technique. It uses HTML5 attributes to validate user input at the browser level before the form is submitted to the server. -->
 <p><span class="key">Validating form data</span> is a crucial task a developer needs to think through before getting the form out there, where teaming bots and hackers roam the web, looking for an opportunity to compromise server and innocent user's security. It may not be a permanet fix but it makes the life of the bad guys a little harder.</p>
 <h3>Phases of Form Validation</h3>
 <p>There are three stages a form can be validated before its contents are processed by the server:</p>
