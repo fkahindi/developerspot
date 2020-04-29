@@ -8,23 +8,10 @@ $('document').ready(function(){
 			}
 			return String(keywords);
 		}
-		/* The following function help to generate content for description meta tag.  */
-		function getMetaDescription(){
-			var metaDescription = [];
-			var descriptions = document.querySelectorAll('.meta-description');
-			for(var description of descriptions){
-				metaDescription.push(description.innerHTML);
-			}
-			return String(metaDescription);
-		}
+		
 		/* Get keyswords for meta */
 		var meta = document.getElementsByName('keywords')[0];
 		var words = getKeywords();
 		meta.setAttribute("content",words.toLowerCase());
 		
-		/* Get description for meta */
-		
-		var meta_descr = document.getElementsByName('description')[0];
-		var description = getMetaDescription();
-		meta_descr.setAttribute("content",description);
 	});

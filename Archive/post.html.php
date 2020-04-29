@@ -17,11 +17,19 @@ if(!isset($_SESSION)){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-	<?php include __DIR__ .'/head.html.php';?>	
+	<?php include __DIR__ .'/head.html.php';?>
+	
+	<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5e81b21589347a0019b87608&product=inline-share-buttons' async='async'></script>
+	<!--Facebook meta tags -->
+	<meta property="og:url"           content="https://www.developerspot.co.ke/post.html.php" />
+	<meta property="og:type"          content="website" />
+	<meta property="og:title"         content="<?php echo htmlspecialchars_decode($posts['post_title']) ;?>" />
+	<meta property="og:description"   content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>" />
+	<meta property="og:image"         content="https://www.developerspot.co.ke/resources/social-media-image.jpeg" />
+	
 	<!-- Links for google code prettify both (.css and .js at bottom of page) files -->
 	<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.css" />
 	<title><?php echo htmlspecialchars_decode($posts['post_title']) ;?> | Developers Pot</title>
-	<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5e81b21589347a0019b87608&product=inline-share-buttons' async='async'></script>
 	
 </head>
 <body>
@@ -44,25 +52,25 @@ if(!isset($_SESSION)){
 				<?php echo isset($posts['updated_at'])? 'Updated on '. date( 'F j, Y', strtotime($posts['updated_at'])): 'Published on '. date( 'F j, Y', strtotime($posts['created_at'])) ?>
 			</div>
 			<div class="social-media hide-in-bigger-screens">
-			<!-- Go to www.addthis.com/dashboard to customize your tools -->
-                <?php include __DIR__ .'/social-icons-links.html.php';?>
+			<!--Social media font awesome icons -->
+				
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_inline_share_toolbox"></div>
             
 			</div>
 			
 			<div class="post-main-image">
-				<figure>
 				<?php echo (!empty($posts['image'])? '<img src="'.$posts['image'].'" alt="article image" class="article-post-image">':'')?>
-				<figcaption><?php echo (!empty($posts['image_caption'])? $posts['image_caption']:'' ); ?></figcaption>
-				</figure>
 			</div>
 			
 			<div>				
 			<!-- The page content will be fetched from database -->
 			<?php echo htmlspecialchars_decode($posts['post_body']) ;?>
 				<div class="social-media">
-
+			<!--Social media font awesome icons -->
+				
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                <?php include __DIR__ .'/social-icons-links.html.php';?>
+                <div class="addthis_inline_share_toolbox"></div>
             
 				</div>
 				
@@ -86,7 +94,13 @@ if(!isset($_SESSION)){
 				<p><a href="post.html.php?id=<?php echo $latest_post['post_id'] ?>&title=<?php echo $latest_post['post_slug']?>"> <?php echo $latest_post['post_title'] ?></a></p>
 				<?php endforeach; ?>
 			</div>
-			
+			<div class="social-media hide-in-mobile icon-bar">
+			<!--Social media font awesome icons -->
+				
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_inline_share_toolbox"></div>
+            
+			</div>
 		</aside><!--			
 			--><aside class="hide-in-bigger-screens">
 				<div class="published-topics">
@@ -96,32 +110,30 @@ if(!isset($_SESSION)){
 			</aside>
 	</main>
 	<footer class="group">
-		<div class="align-center">
-			<p><a href="../policies/privacy-policy.php">Privacy policy</a></p>
-			<p><a href="../policies/terms-conditions.php">Terms & Conditions </a></p>
-			<p><a href="../policies/cookie-policy.php">Cookie policy</a></p>
-		</div>
-		<div class="group">
-			<span class="nav">
+			<span class="float-right">
 				<?php include  __DIR__ .'/nav.html.php'; ?>	
 			</span>
-			<span class="copyright">
+			<span class="float-left">
 				<?php include __DIR__ . '/copyright.html.php';?>
-			</span>
-			
-			<!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_follow_toolbox"></div>
-		</div>
+			</span> 
 	</footer>
 	<!--for local server-->
 	<script src="<?php echo BASE_URL ?>resources/js/jquery-1.7.2.min.js"></script> 
 	<!-- -->
 	<script src="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.js"></script>
-	<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
+	<script src="<?php echo BASE_URL ?>/resources/js/menu-profile-controls.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/subscribe-comments-replies-scripts.js"></script>
+	<script src="<?php echo BASE_URL ?>resources/js/get-meta-keywords.js"></script>
 	<!-- This is for local offline server -->
 	<script>window.onload=function(){prettyPrint()}</script>
-	<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e8b3d1cdb759869"></script>
+	<!--Script for facebook -->
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=502152493814762&autoLogAppEvents=1"></script>
+	<!--Script for twitter -->
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>	
+	<!--Script for linkedin -->
+	<script src="https://platform.linkedin.com/in.js"></script>
+	<!--Script for pintrest -->
+	<script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
 	
 </body>
 </html>

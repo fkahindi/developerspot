@@ -1,4 +1,5 @@
 <h1>Regular Expressions in JavaScript</h1>
+<!-- Regular expressions in JavaScript, uses special character expressions called RegEx and JavaScript methods to identify patterns in strings of text for manipulation and validation. -->
 <p><span class="key">Regular expressions</span> also known as RegExp are <span class="key">special formatted characters</span> that are used to <span class="key">match patterns in strings</span> of text. For example they can be used to validate whether a user entered correct data in a form, before it is processed by the server. They are also used to manupulate strings in various ways such as search and replace.</p> 
 <p>Various programming languages such JavaScript, PHP, Python and Perl use regular expressions to process and manipulate text. While there's a lot in common in how each of these languages utilize regular expressions, their specific implemention may vary.</p> 
 <p>In this <span class="key">tutotial</span>, we are going to use JavaScript to explore the usage of regular expressions. </P>

@@ -1,4 +1,5 @@
 <h1>Regular Expressions in PHP</h1>
+<!--It explores ways of using regular expressions formation and PHP methods to match text patterns in strings. -->
 <p>Regular expressions (a.k.a regexp) are special formatted character sequence used to find patterns in text. These expressions are so important that they are almost a programming language of their own. Regexp can be used to validate whether a user entered correct data in a form, even before the form is processed by the server or whether certain patterns exist in a  block of text. Various programming languages such PHP, Java, JavaScript and Perl use regular expressions to process and manipulate text. While there's alot in common in how each of these languages utilize regular expressions, their implementation vary slightly. In this tutotial, we are going to use <span class="key">regular expressions in PHP</span>. </P>
 
 <h2>Regular Expression Syntax</h2>
