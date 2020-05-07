@@ -1,8 +1,8 @@
 <h1>Server-Side Form Sanitization</h1>
-<!--It uses a mix of PHP sanitizing and validating functions and regular expressions to ensure user input data  is safe to be handled by the server.-->
-<p>In the previous posts we looked at front-end form validation, which is done at the browser level. In this post we are going to deal with <span class="key"><i>form sanitization</i></span> and <i>validation</i> on the server side. We will use a mix of <em>regular expressions</em>, PHP <em>sanitizing</em> and <em>validating functions</em>. We will do all these using PHP server scripting language.</p> 
+<!--It uses a mix of server-side PHP sanitiztion and validation functions and regular expressions to ensure form input data  is safe to be handled by the server.-->
+<p>In the previous posts we looked at front-end form validation, which is done at the browser level. In this post we are going to deal with <em><span class="key">form sanitization</span></em> and <em>validation</em> on the server side. We will use a mix of <em>regular expressions</em>, PHP <em>sanitization</em> and <em>validation functions</em>. We will do all these using PHP server scripting language.</p> 
 <p>To be sure we are on the same page, your computer needs to be running a local web server. Mine is a <span class="key"> WAMP server</span>. WAMP stands for Windows, Apache, MySQL and PHP stack.</p> 
-<p class="special-p"><strong><span class="key">Apache</span></strong> is an <span class="key"><em>HTTP server</em></span> that enables your computer to serve web pages to browsers. <strong><span class="key">MySQL</span></strong> is a <em>relational database management system</em> that integrates well with PHP in an Apache environment. <strong><span class="key">PHP (Hypertext Pre-processor)</span></strong> is a <em>server side scripting language</em> used to develop static and dynamic websites and web applications.</p> 
+<p class="special-p"><strong><span class="key">Apache</span></strong> is an <em><span class="key">HTTP server</span></em> that enables your computer to serve web pages to browsers. <strong><span class="key">MySQL</span></strong> is a <em>relational database management system</em> that integrates well with PHP in an Apache environment. <strong><span class="key">PHP (Hypertext Pre-processor)</span></strong> is a <em>server side scripting language</em> used to develop static and dynamic websites and web applications.</p> 
 <p>In this case, your browsers will be running in the same computer with the web server.</p>
 <p>
 <ul>
@@ -60,14 +60,12 @@
 	form{
 		width:25%;
 		margin:40px auto;
-		
 	}
 	input{
 		display:block;
 		width:80%;
 		margin:10px 20px;
 		padding:10px 0;
-		
 	}
 	textarea{
 		width:80%;
@@ -81,7 +79,6 @@
 </pre>
 <h2>Sanitizing Form Data</h2>
 <p>When form data is received at the server, the first thing to do is to sanitize it. Sanitization removes all illegal characters that can be used by attackers to compromise server security. </p>
-
 <p>We are  going to add some PHP code to the form code above, as appropriate. The first change we will make is to use <code>&lt; ?php echo htmlspecialchars ($_SERVER['PHP_SELF']); ?&gt;</code> as the value of the <code> action </code> attribute of the form. So, the form openning tag should look like this:
 <pre class="prettyprint">
 &lt;form method = "POST" action ="&lt;?php echo htmlspecialchars($_SERVER['PHP_SELF']);?&gt;"&gt;
@@ -108,7 +105,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$errors = [];
 		
 	//First check that the mandatory fields are not empty
-	
 	if(empty($_POST["name"])){
 		$errors["name"] = "Name can't be empty";
 	}
@@ -124,12 +120,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 	//Since variables are not empty, 
 	//remove any illegal characters by sanitizing inputs
-	
 	$name = filter_var($name, FILTER_SANITIZE_STRING);
 	$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 	$tel = filter_var($tel, FILTER_SANITIZE_NUMBER_INT);
 	$password = filter_var($password, FILTER_SANITIZE_STRING);
-	
 }
 ?&gt;
 </pre>
@@ -166,7 +160,7 @@ $password_pattern = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^\W_]{8,}$/";
 </pre>
 <p>Let's explain this really quick. <code>(?=.*\d)</code> matches at least one digit, <code>(?=.*[a-z])</code> matches at least one lowercase character and <code>(?=.*[A-Z])</code> matches at least one uppercase character. The <code>[^\W_]</code> negates all non-wordly characters and underscore, which means all symbols are disallowed. <code>{8,}</code> means the password must be at least eight charachers. </p>
 <h3>Sanitizing Textarea Field</h3>
-<p>Before we put down the code, let's see how we will sanitize the comment field. If you've been following my previous posts on <em>front-end</em> form validation techniques, I observed that <span class="key">sanitizing <code>textarea</code> field</span> at the browser level is tricky. Idealy, we should allow the user to type anything in the comments area, but still ensure that the text is safe to be processed at the server. Fortunately, the PHP <code>htmlspecialchars()</code> function we have already explained in the previous sections ensures that all characters typed in the comment box will be safe for server processing. </p> 
+<p>Before we put down the code, let's see how we will sanitize the comment field. If you've been following my previous posts on <em>front-end</em> form validation techniques, I observed that <code><span class="key">sanitizing textarea field</span></code> at the browser level is tricky. Idealy, we should allow the user to type anything in the comments area, but still ensure that the text is safe to be processed at the server. Fortunately, the PHP <code>htmlspecialchars()</code> function we have already explained in the previous sections ensures that all characters typed in the comment box will be safe for server processing. </p> 
 <p>The field is sanitized as shown below.</p>
 <pre class="prettyprint">
 $comment = htmlspecialchars($comment);
@@ -192,11 +186,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$text_pattern = "/^(?:[a-zA-Z])[\w\s.-]{2,}$/";
 	$tel_pattern = "/^(\+\d{1,3})?[0]?[\d]{9}$/";
 	$password_pattern = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^\W_]{8,}$/";
-	
 		
 	//First check that the mandatory fields are not empty
 	//Then sanitize and validate
-	
 	if(empty($_POST["name"])){
 		$errors["name"] = "Name can't be empty";
 		$valid = false;
@@ -246,7 +238,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if($valid){
 						
 		// output the sanitized and validated data
-		
 		echo 'Name: '.$name .'&lt;br&gt;';
 		echo 'Email: '.$email .'&lt;br&gt;';
 		echo 'Tel Number: '.$tel .'&lt;br&gt;';
@@ -294,7 +285,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		
 	//First check that the mandatory fields are not empty
 	//Then sanitize and validate
-	
 	if(empty($_POST["name"])){
 		$errors["name"] = "Name can't be empty";
 		$valid = false;
@@ -311,6 +301,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$valid = false;
 	}else{
 		$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+		
 		//Validate email field
 		$emaiil = trim($email);
 		if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -343,7 +334,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if($valid){
 						
 		// output the sanitized and validated data
-		
 		echo 'Name: '.$name .'&lt;br&gt;';
 		echo 'Email: '.$email .'&lt;br&gt;';
 		echo 'Tel Number: '.$tel .'&lt;br&gt;';
@@ -364,14 +354,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	form{
 		width:25%;
 		margin:40px auto;
-		
 	}
 	input{
 		display:block;
 		width:80%;
 		margin:10px 20px;
 		padding:10px 0;
-		
 	}
 	textarea{
 		width:80%;
