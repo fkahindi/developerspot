@@ -102,7 +102,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$tel = $_POST["tel"];
 	$password = $_POST["password"];
 	$comment = $_POST["comment"];
-	$errors = [];
+	$errors = [ ];
 		
 	//First check that the mandatory fields are not empty
 	if(empty($_POST["name"])){
@@ -179,7 +179,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$tel = $_POST["tel"];
 	$password = $_POST["password"];
 	$comment = $_POST["comment"];
-	$errors = [];
+	$errors = [ ];
 	$valid = true;
 	
 	//Regular expressions
@@ -275,7 +275,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$tel = $_POST["tel"];
 	$password = $_POST["password"];
 	$comment = $_POST["comment"];
-	$errors = [];
+	$errors = [ ];
 	$valid = true;
 	
 	//Regular expressions
