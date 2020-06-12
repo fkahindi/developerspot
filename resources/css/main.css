@@ -238,6 +238,43 @@ button{
 div[class^="group replies_container_"] {
 	display:none;
 }
+/********************************
+STYLING FOR SOCIAL MEDIA ICONS
+********************************/
+.social-media{
+	padding:10px;
+}
+.fa{
+	padding: 20px;
+	font-size: 30px;
+	width: 30px;
+	text-align: left;
+	text-decoration: none;
+	margin: 5px 3px;
+}
+.fa:hover{
+	opacity:0.7;
+}
+.fa-facebook{
+	background:#3b5998;
+	color:white;
+}
+.fa-twitter{
+	background:#55acee;
+	color:white;
+}
+.fa-linkedin{
+	background:#007bb5;
+	color:white;
+}
+.fa-pinterest{
+	background:#cb2027;
+	color:white;
+}
+.fa-whatsapp{
+	background:#00b489;
+	color:white;
+}
 /*****************************************
 	***			TYPOGRAPHY			****
 ******************************************/
@@ -357,9 +394,6 @@ nav ul>span{
 /*=====================================
 MAIN SECTION
 =====================================*/
-.social-media{
-	padding-left:10px;
-}
 main .special-p{
     padding:10px;
 }

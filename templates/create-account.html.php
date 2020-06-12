@@ -46,7 +46,7 @@ if(isset($_POST['create-account'])){
 	</form>
 </div>
 	<div class="section">
-		<p>Aready have an account? <a href="<?php echo BASE_URL ?>templates/login.html.php">Log in </a>.</p>
+		<p>Already have an account? <a href="<?php echo BASE_URL ?>templates/login.html.php">Log in </a>.</p>
 	</div>
 	<!-- Scripts -->
 	<script src="<?php echo BASE_URL ?>resources/js/jquery-1.7.2.min.js"></script>

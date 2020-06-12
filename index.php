@@ -774,6 +774,9 @@ main p, main li{
 			</aside><!--
 			--><section class="col-5-10">
 				<h1 class="align-center">Web Develoment | Tutorials for Developers</h1><hr>
+				<div class="social-media">
+					<?php include __DIR__ .'/templates/social-icons-links.php';?>
+				</div>
 				<?php foreach($published_post_ids as $post_id): ?>
 				<?php $post = getPostById($post_id['post_id']) ?>
 				<?php $post['author'] = getPostAuthorById($post['user_id'])?>
@@ -796,6 +799,10 @@ main p, main li{
 					<a href="templates/post.html.php?id=<?php echo $post_id['post_id'] ?>&title=<?php echo $post['post_slug'] ?>">Read more...</a>
 				</div><br>
 				<?php endforeach; ?>
+				<!-- Social icons -->
+				<div >
+					<?php include __DIR__ .'/templates/social-icons-links.php';?>
+				</div>
 			</section><!--			
 			--><aside class="col-3-10">
 				<!-- Sidebar content goes here-->
@@ -813,14 +820,11 @@ main p, main li{
 					<?php include __DIR__ . '/templates/published_posts_by_topics.html.php';?>				
 				</div>
 			</aside>
-			<!-- Go to www.addthis.com/dashboard to customize your tools -->
-		<div class="addthis_inline_share_toolbox"></div>
 		</main>
 		<footer>
 			<?php include __DIR__ .'/templates/footer.html.php'?>
 		</footer>
 		<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 		<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
-		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e8b3d1cdb759869"></script>
 	</body>
 </html>

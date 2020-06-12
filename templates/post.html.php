@@ -816,28 +816,25 @@ main p, main li{
 			<div class="post-acreditation">  
 				<?php echo isset($posts['updated_at'])? 'Updated on '. date( 'F j, Y', strtotime($posts['updated_at'])): 'Published on '. date( 'F j, Y', strtotime($posts['created_at'])) ?>
 			</div>
-			<div class="social-media hide-in-bigger-screens">
-			<!-- Go to www.addthis.com/dashboard to customize your tools -->
-               <div class="addthis_inline_share_toolbox"></div>
-            
+			<div class="social-media">
+			<!-- Social icons -->
+				<div class="social-media">
+					<?php include __DIR__ .'/social-icons-links.php';?>
+				</div>
 			</div>
-			
 			<div class="post-main-image">
 				<figure>
 				<?php echo (!empty($posts['image'])? '<img src="'.$posts['image'].'" loading="lazy" alt="'.(!empty($posts['image_caption'])? $posts['image_caption']:'').'" class="article-post-image">':''); ?>
 				<figcaption><?php echo (!empty($posts['image_caption'])? $posts['image_caption']:'' ); ?></figcaption>
 				</figure>
 			</div>
-			
 			<div>				
 			<!-- The page content will be fetched from database -->
 			<?php echo htmlspecialchars_decode($posts['post_body']) ;?>
 				<div class="social-media">
-                <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                <div class="addthis_inline_share_toolbox"></div>
-            
+                <!-- Social icons -->
+					<?php include __DIR__ .'/social-icons-links.php';?>
 				</div>
-				
 				<div>
 				<!-- Call to subscribe for notification -->
 				<?php  include __DIR__.'/subscribe.html.php';?>
@@ -877,9 +874,6 @@ main p, main li{
 	<script src="<?php echo BASE_URL ?>resources/js/subscribe-comments-replies-scripts.js"></script>
 	<!-- This is for local offline server -->
 	<script>window.onload=function(){prettyPrint()}</script>
-	<!-- Go to www.addthis.com/dashboard to customize your tools -->
-	<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5e81b21589347a0019b87608&product=inline-share-buttons'></script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e8b3d1cdb759869"></script>
-	
+		
 </body>
 </html>

@@ -518,7 +518,7 @@ function resetPassword(){
 			}
 		
 		}else{
-			echo 'Token was not found, please try again';
+			echo 'Token was not found, please try recover password again.';
 			exit();
 		}	
 	}
