@@ -1,18 +1,18 @@
 <h1>Server-Side Form Sanitization</h1>
 <!--It uses a mix of server-side PHP sanitiztion and validation functions and regular expressions to ensure form input data  is safe to be handled by the server.-->
 <p>In the previous posts we looked at front-end form validation, which is done at the browser level. In this post we are going to deal with <em><span class="key">form sanitization</span></em> and <em>validation</em> on the server side. We will use a mix of <em>regular expressions</em>, PHP <em>sanitization</em> and <em>validation functions</em>. We will do all these using PHP server scripting language.</p> 
-<p>To be sure we are on the same page, your computer needs to be running a local web server. Mine is a <span class="key"> WAMP server</span>. WAMP stands for Windows, Apache, MySQL and PHP stack.</p> 
-<p class="special-p"><strong><span class="key">Apache</span></strong> is an <em><span class="key">HTTP server</span></em> that enables your computer to serve web pages to browsers. <strong><span class="key">MySQL</span></strong> is a <em>relational database management system</em> that integrates well with PHP in an Apache environment. <strong><span class="key">PHP (Hypertext Pre-processor)</span></strong> is a <em>server side scripting language</em> used to develop static and dynamic websites and web applications.</p> 
-<p>In this case, your browsers will be running in the same computer with the web server.</p>
+<p>To be sure we are on the same page, your computer needs to be running on a local web server. Mine is a <em><span class="key"> WAMP server</span></em>. <strong>WAMP</strong> stands for Windows, Apache, MySQL and PHP stack.</p> 
+<p class="special-p"><strong><span class="key">Apache</span></strong> is an <em><span class="key">HTTP server</span></em> that enables your computer to serve web pages to client browsers. <strong><span class="key">MySQL</span></strong> is a <em>relational database management system</em> that integrates well with PHP in an Apache environment. <strong><span class="key">PHP (Hypertext Pre-processor)</span></strong> is a <em>server side scripting language</em> used to develop static and dynamic websites and web applications.</p> 
+<p>In this case, your browser will be running in the same computer with the web server.</p>
 <p>
 <ul>
-<li>If you are on windows, you can install WAMP server at <a href="www.wampserver.com"> www.wampserver.com</a> .</li>
+<li>If you are on windows, you can install WAMP server at <a href="https://www.wampserver.com"> www.wampserver.com</a> .</li>
 <li> If you are on a Mac, you can install MAMP at <a href="https://mamp.info">www.mamp.info</a>. MAMP stands for Mac OS X, Apache, MySQL and PHP stack.</li>
 <li>If you are on Linux, you can download and install LAMP (Linux, Apache, MySQL and PHP) at <a href="https://www.linux.com">www.linux.com</a>.</li> 
 <li>Whichever operating system you are using, you can install a cross-platform server stack, <a href="https://www.apachefriends.org">XAMPP server</a> that can run on Windows, Linux or Mac.</li>
 </ul>
-<P class="special-p">Please, follow the installation instructions carefully to successfully install your web server. You may be instructed to make some changes in certain files after each installation of a module.</p>
-<p>When you are through with web server installation, the next thing you may consider is whether you are using a professional code editor. Code editors that come packaged with operating systems can get you by, but are not convenient for big projects. There are professional code editors such as: <a href="https://www.code.visualstudio.com"> Visual Studio Code</a>, <a href="https://www.notepad-plus-plus.org">Notepad++</a>, <a href="https://www.sublimetext.com">Sublime Text</a> or any other professional one. For some reasons I'm stuck with <i>Notepad++ </i> and it's doing a good job.</p>
+<P class="special-p">Please, follow the installation instructions carefully to successfully install your web server. You may be instructed to make some changes in certain files after each module installation.</p>
+<p>When you are through with web server installation, the next thing you may consider is having a professional <em>code editor</em>. Text editors that come packaged with operating systems can get you by, but are not convenient for big projects. There are professional code editors such as: <a href="https://www.code.visualstudio.com"> Visual Studio Code</a>, <a href="https://www.notepad-plus-plus.org">Notepad++</a>, <a href="https://www.sublimetext.com">Sublime Text</a> or any other professional one. For some reasons I'm stuck with <i>Notepad++ </i> and it's doing a good job.</p>
 <p>To test whether your web server installed correctly, we will use a PHP function. Copy the code below and paste it in your code editor. Then save it in the web root folder <code>htdocs</code> of the Apache folder with the name <code>phpinfo.php</code> .</p>
 <pre class="prettyprint">
 &lt;?php
@@ -20,12 +20,12 @@
 ?&gt;
 </pre>
 <p>Then, open any browser on your computer and type <code>localhost/phpinfo.php</code> in the address bar. If you get a screen like the one below, then your web server installed successfully.</p>
-<figure> 
+<figure class="align-center"> 
 	<img src="../resources/images/phpinfo-screen.png" alt="php web server configuration screen" width="100%" height="100%"/>
-	<figcaption class="key">PHP web server configuration screen.</figcaption>
+	<figcaption class="align-center">PHP web server configuration screen.</figcaption>
 </figure>
-<p>The screen above lists all the necessary software modules and environment variables of the web server. During installation you may have been instructed to tweak certain configuration files to make make them work for you. For specific instructions, it's beyond the scope of this tutorial. </p>
-<p>Let's move to <span class="key"> sanitization and validation of form input</span>. In PHP it is easier to use the in-built <span class="key"> PHP filter </span> functions to sanitize and validate data submitted through a form.</p>
+<p>The screen above lists all the necessary software modules and environment variables of the web server. During installation you may have been instructed to tweak certain configuration files to make them work for you. It is beyond the scope of this tutorial to discuss specific instructions. </p>
+<p>Let's move to <span class="key"> sanitizing and validating form inputs</span>. In PHP it is easier to use the built-in <span class="key"> PHP filter </span> functions to sanitize and validate data submitted through a form.</p>
 <p>We are going to use a form with the following inputs.</p>
 <pre class="prettyprint linenums">
 &lt;! DOCTYPE html&gt;
@@ -52,7 +52,7 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-<p>Although we have not used the <code>required</code> html attribute, all fields will be treated as required except the <i>comment</i> field. That means all required fields must be filled before data can be submitted for processing. However, the comment textarea in this case can be left blank.</p> 
+<p>Although we have not used the <code>required</code> html attribute, we will treat all fields as mandatory except the <i>comment</i> field. That means all mandatory fields must be filled before data can be submitted for processing. Only the <em>comment</em> textarea in this case can be left blank.</p> 
 <p>Create a new folder in the web folder, <i>htdocs</i> and name it <code>form-security</code>. Save the above code in the folder <i>form-security</i> you have just created with the name <code>php-sanitized-form.php</code></p>
 <p>Then add the following CSS in the head section of the HTML document and save the changes.</p>
 <pre class="prettyprint linenums">
@@ -79,15 +79,15 @@
 </pre>
 <h2>Sanitizing Form Data</h2>
 <p>When form data is received at the server, the first thing to do is to sanitize it. Sanitization removes all illegal characters that can be used by attackers to compromise server security. </p>
-<p>We are  going to add some PHP code to the form code above, as appropriate. The first change we will make is to use <code>&lt; ?php echo htmlspecialchars ($_SERVER['PHP_SELF']); ?&gt;</code> as the value of the <code> action </code> attribute of the form. So, the form openning tag should look like this:
+<p>We are  going to add some PHP code to the form code above, as appropriate. The first change we will make is to use <code>&lt;?php echo htmlspecialchars ($_SERVER['PHP_SELF']); ?&gt;</code> as the value of the <code> action </code> attribute of the form. So, the form openning tag should look like this:
 <pre class="prettyprint">
 &lt;form method = "POST" action ="&lt;?php echo htmlspecialchars($_SERVER['PHP_SELF']);?&gt;"&gt;
 </pre>
-<p>What we want is, when the form is submitted the data is processed on the same page instead of jumping to another page. That way any errors encountered will be displayed on the same page.</p>
+<p>What we want is when the form is submitted, the data is processed on the same page instead of jumping to another page. That way, any errors encountered will be displayed on the same page.</p>
 <h4>$_SERVER["PHP_SELF"] Variable</h4>
-<p><code>$_SERVER[]</code> is one of the <em><span class="key">super global variables</span></em>. It is used to hold information about headers, paths and scripts. A super global variable can access global variables from anywhere in the PHP script. It is also accessible from within the page it is defined and from other pages. </p>
-<p class="key">The <code>PHP_SELF</code> is a variable that returns the current script being executed. Therefore, <code>$_SERVER["PHP_SELF"]</code> submits the form to the page itself instead of a different page.</p>
-<p class="special-p">The <code><span class="key">htmlspecialchars</span>()</code> is a function that converts special characters into <span class="key">HTML entities </span> so that <code> &lt;</code> and <code>&gt;</code> are converted into entities <code>&amp;lt;</code> and <code>&amp;gt;</code> respectively. This prevents attackers from exploiting the form by inserting HTML or JavaScript code through the form such as the case of <i>cross-site-scripting</i> attacks. </p>
+<p><code>$_SERVER[]</code> is one of the <em><span class="key">super global variables</span></em>. It is used to hold information about headers, paths and scripts. A super global variable can access global variables from anywhere in the PHP script. It is also accessible from within the page it is defined and from other pages. <code><span class="key">PHP_SELF</span></code> is a variable that returns the current script being executed.</p>
+<p>Therefore, <code>$_SERVER["PHP_SELF"]</code> submits the form to the page itself instead of a different page.</p>
+<p class="special-p">The <code><span class="key">htmlspecialchars</span>()</code> is a function that converts special characters into <span class="key">HTML entities </span> such that <code> &lt;</code> and <code>&gt;</code> are converted into <code>&amp;lt;</code> and <code>&amp;gt;</code> respectively. This prevents attackers from exploiting the form by inserting HTML or JavaScript code through <i>cross-site-scripting</i>. </p>
 <p>Next we create a PHP code to handle sanitization. Copy the following code and paste it above the HTML code in the <code>php-sanitized-form.php</code> document.</p>
 <pre class="prettyprint linenums">
 &lt;?php
@@ -102,11 +102,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$tel = $_POST["tel"];
 	$password = $_POST["password"];
 	$comment = $_POST["comment"];
-<<<<<<< HEAD
 	$errors = [ ];
-=======
-	$errors = [];
->>>>>>> 914d0f95ea75aa0a7d66e5cbc3ba2993755ba632
 		
 	//First check that the mandatory fields are not empty
 	if(empty($_POST["name"])){
@@ -131,10 +127,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?&gt;
 </pre>
-<p>The first thing we will do is to catch the form input data into appropriate variables. Then ensure that the <em>required</em> fields are not blank. In case there is any blank field, we capture the error and push it to the <code>$errors</code> array variable with an appropriate message. If all fields are filled as required, we sanitize the data.</p>
+<p>What we are doing is to catch the form input data into appropriate variables. Then we ensure that the <em>required</em> fields are not blank. In case there is any blank field, we capture the error and push it to the <code>$errors</code> array variable with an appropriate message. If all fields are filled as required, we go ahead and sanitize the data.</p>
 <h3>Sanitizing Functions</h3>
-<p><strong><span class="key">Sanitizing functions</span></strong> are designed to strip tags and special characters off the string being evaluated. Tags and special characters can be used by malicious people to exploit your form. These functions, which are part of the core PHP, ensure data is safe to be handled by the server.</p>
-<p>Sanitizaion may result into strings with whitespaces. We will use <code>trim()</code> function to remove whitespaces in <code>email</code> and <code>password</code> because there shouldn't have any spaces. </p>
+<p><strong><span class="key">Sanitizing functions</span></strong> are designed to strip tags and special characters off the string being evaluated. Tags and special characters can be used by malicious people to exploit your form. These functions, which are part of the core PHP, ensure that form data is safe to be handled by the server.</p>
+<p>Sanitization may result into strings with whitespaces. We will use <code>trim()</code> function to remove whitespaces in <code>email</code> and <code>password</code> because they shouldn't have any spaces. </p>
 <pre class="prettyprint linenums">
 $email = trim($email);
 $password = trim($password);
@@ -147,7 +143,7 @@ $password = trim($password);
 	<li>The <code> password</code> should consist of 8 or more characters with at least one uppercase letter, one lowercase and at least one digit.  </li>
 	
 </ol>
-<p class="special-p">The <code>tel</code> need not be validated after sanitization, since we have used <code>tel</code> html attribute. But, your app should be prepared to handle telephone number of varying formats. <code>tel</code> html attribute handles the "+", "-" and spaces very well. It also strips special characters. However, if the form is used with an old browser, the <code>tel</code> attribute wont be recognized, which means using a regular expression is a good idea.</p> 
+<p class="special-p">The <code>tel</code> field does not need to be validated after sanitization, since the <code>tel</code> html attribute does some of that. Nevertheless, your app should be prepared to handle telephone number of varying formats. <code>tel</code> html attribute handles the "+", "-" and spaces very well. It also strips special characters. However, if the form is used in an old browser, the <code>tel</code> attribute won't be recognized, which means using a regular expression is a good idea.</p> 
 <p>The three conditions outlined above will require regular expressions. To meet the first condition, we will use the pattern below.</p>
 <pre class="prettyprint">
 $text_pattern = "/^(?:[a-zA-Z])[\w\s.-]{2,}$/";
@@ -183,11 +179,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$tel = $_POST["tel"];
 	$password = $_POST["password"];
 	$comment = $_POST["comment"];
-<<<<<<< HEAD
 	$errors = [ ];
-=======
-	$errors = [];
->>>>>>> 914d0f95ea75aa0a7d66e5cbc3ba2993755ba632
 	$valid = true;
 	
 	//Regular expressions
@@ -283,11 +275,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$tel = $_POST["tel"];
 	$password = $_POST["password"];
 	$comment = $_POST["comment"];
-<<<<<<< HEAD
 	$errors = [ ];
-=======
-	$errors = [];
->>>>>>> 914d0f95ea75aa0a7d66e5cbc3ba2993755ba632
 	$valid = true;
 	
 	//Regular expressions

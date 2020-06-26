@@ -8,7 +8,7 @@ include __DIR__ .'/admin/includes/admin_functions.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style type="text/css">
+<style>
 html,body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -39,8 +39,6 @@ body {
 a{text-decoration:none;}
 figcaption{text-align:left;}
 *,*::before,*::after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 .nav, .copyright,.policies{
@@ -133,8 +131,9 @@ h2{
 	display:none;
 }
 em, i{font-style:italic;}
-main{font-family:'Hind Vadodara', sans-serif;}
-header, footer{font-family:Calibri, sans-serif;}
+main{font-family:calibri,arial;}
+section,.paragraph-snippet{font-family:serif, arial;}
+header, footer{font-family:'Calibri Light', Calibri, sans-serif;}
 footer a{font-size:.8em;}
 .banner-bar{font-family: Aladin;}
 .banner-bar a{color:rgb(255, 255,255);}
@@ -753,12 +752,14 @@ main p, main li{
 </style>
 	<!-- head section -->
 	<meta name="description" content="A blogging site dedicated to front-end and back-end  technologies for web development. Provides informative and practical tutorials to unlock the potential of any upcoming web developer." />
-	<?php require_once __DIR__ .'/templates/head.html.php'; ?>
 	
+	<?php require_once __DIR__ .'/templates/head.html.php'; ?>
 	<!--// head section -->
 	<title>Developerspot: For front-end and back-end web development tutorials</title> 
 	</head>
 	<body>
+	<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=502152493814762&autoLogAppEvents=1" nonce="Ysx2ofWc"></script>
 		<header>
 		<?php require_once __DIR__ . '/templates/header.html.php';?>
 		  

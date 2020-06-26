@@ -1,0 +1,146 @@
+<h1>HTML Document Structure</h1>
+<!--It illustrates how an HTML document is structured for both semantic and presentation markup to take advantage of SEO design.  -->
+
+<p>Before a webpage can be rendered properly on a browser, the elements on the page need to follow a certain structure the browser parser understands. This tutorial will give a quick overview of how a web document needs to be structured for proper rendering across browsers. It's a kind of a template you can copy and paste on your <em>text editor</em> or <em>IDE</em> and go on to add your web content. It is meant for the <em>newbie</em> in web design.</p>
+<h3>What You Need to Build Your First Web Page</h3>
+<p>You need the following to create your first web page:</p>
+	
+	<ol>
+		<li>A PC or Mac to work on (obviously)</li>
+		<li>Text editor, such as <em>Notepad</em> for Windows or <em>textEdit</em> for Mac to type your scripts</li>
+		<li>A browser such as Chrome or Safari to view your web pages </li>
+		<li>Knowledge of HTML</li>
+		<li>Knowledge of CSS</li>
+		<li>Knowledge of JavaScript (at the moment not mandatory) </li>
+	</ol>
+<p class="special-p">You don't need to install anything in your PC or Mac to display your first webpage. Notepad come shipped with Windows and textEdit come shipped with a Mac OS X. However, installing a professional editor such as Sublime, Visual Studio or Notepad++ can go along way in making your coding environment comfortable. HTML, CSS and JavaScript is knowledge you will acquire by and by.</p>
+<p>A webpage is an HTML document that can be interpreted by a web browser such as <em>Chrome</em>, <em>Firefox</em> or <em>Safari</em> and display its contents. The two scripting languages that are fundamental to building webpages are <em>HTML</em> and <em>CSS</em>. <strong>HTML</strong> stands for <em>hypertext markup language</em> and <strong>CSS</strong> is an acronym for <em>Cascading Style Sheets</em>. HTML is used to markup the content to be displayed on the brower while CSS describes how the content should be presented to the user on the screen. This involves page layout, text formats such as color, size and positioning of page elements.</p>
+<p>HTML and CSS help build static web pages. To add interactivity to your webpages, you need to add <em>JavaScript</em> to your knowledge base. There are many <em>libraries</em> and <em>frameworks</em> associated with these languages, but solid understanding of these three languages enables one work well with their frameworks and libraries. This tutorial is the first of an intended web development series and we are starting with HTML document structure.</p>
+<h2>Semantic HTML Markup</h2>
+<p>Apart from structuring web documents for proper rendering, modern web documents need to follow SEO (search engine optimization) markup principles. This not only enables search engines to crawl and index the webpages so that they can appear on search page results, but also aid user agents and screen readers to  understand the pages. Here we will follow SEO principles. </p>
+<p class="special-p">Semantic HTML is the use of HTML markup to reinforce the meaning (semantic) of the web contnent rather than its presentation.</p>
+<p>HTML uses <em>tags</em> to markup the elements to be presented by the browser. A tag consists of the element name enclosed by angle brackets <code>&lt;</code> and <code>&gt;</code>. For example to draw a horizontal line on the page we use <code>&lt;hr&gt;</code> tag. Some of these tags must have their closing equivalent and others don't. For example the <em>html</em> tag has the openning <code>&lt;html</code> tag and <code>&lt;/html&gt;</code> closing tag. The <code>&lt;hr&gt;</code> doesn't have a closing tag. We are going to learn more HTML tags as we proceed the same way we learn English vocabulary to build language mastery. </p>
+<h2>How to Structure an HTML Document</h2>
+<p>A web document starts with <code>&lt;!DOCTYPE html&gt;</code>. This element tells the brower that the document it is about to parse is an HTML document. Other markup languages browsers can parse are <code>xhtml</code> or <code>xml</code>. Here we follow the HTML standards, more specifically HTML5.  By convention HTML elements and their attributes are typed in lowercase.</p>
+<p><code>&lt;!DOCTYPE html&gt;</code> does not have a closing tag.  Therefore, what follows is the <code>&lt;html&gt;</code> tag. All elements of the web document must be placed within the <code> &lt;html lang="en" &gt;</code> openning tag and <code>&lt;/html&gt;</code> closing tag. In other words, this is how it will look like:</p>
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+		
+	.... the rest go here ...
+	
+&lt;/html&gt;
+</pre>
+<p>This tells the brower where the HTML document start and where it ends.</p>
+<h3>The <code>&lt;head&gt;</code> Section</h3>
+<p>A proper web document has a section marked by <code>&lt;head&gt;</code> start tag and <code>&lt;/head&gt;</code> end tag. Head elements apart from <code>&lt;title&gt;</code> element, are not rendered on the screen. However, they relay important information to the browser and search engines when they crawl the page. Most of the element in the <code>&lt;/head&gt;</code> tags are non-closing <code>&lt;meta&gt;</code> tags. We are going to add the most important <code>&lt;meta&gt;</code> tags in the head section. </p>
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; 
+		&lt;meta name="author" content="your name"&gt;
+		&lt;meta name="description" content="Briefly describe your web page her "&gt;
+		&lt;meta name="keywords" content="type keywords/ phrases that searchers may use to search for your contents."&gt;
+		&lt;title&gt;HTML Document Structure&lt;/title&gt;
+	&lt;/head&gt;		
+&lt;/html&gt;
+</pre>
+<p>Let's explain their usage before we move to the next section. <code>utf-8</code> tells the brower to use <em>8-bit Unicode Transformation Format</em> to parse the document. The <meta>meta viewport</meta> prepares the browser to <em>render</em> the document using <em>responsive</em> layout. SEO principles requires that webpages be designed with <em>responsive </em> layout. That means the same webpage can be viewed nicely on large screens and smartphone screens without the user having to scroll sideways to view page items.</p>
+<p class="special-p">Responsive web design is nowadays mandatory  for SEO.</p>  
+<p>Use the <code>meta author</code> to put your name to show that you are the one who designed the web page. <code>meta description</code> is important because its content appear on search enginge result page as the <i>description</i> of the web page. </p>
+<p>The <code>meta keywords</code> contain <em>keywords</em> and <em>phrases</em> that you have used in your document and are likely to be the ones people will use on search engines to look up content like yours. Both <em>description</em>  and <em>keywords</em> used to be important parameters search engines ranked webpages in their indices till developers started abusing them through <em>keywords stuffing</em>. Nowadays search engines use <em>sophisticated algorithms</em> that utilize various parameters to rank webpages. </p>
+<p class="special-p"><strong>Keyword stuffing</strong> is loading a webpage with the same target term in an attempt to gain unfair rank advantage in search engine. Keyword stuffing can lead to a website penalized or banned by search engines.</p>
+<p>The <code>&lt;title&gt;</code> tag is only tag in the <code>&lt;head&gt;</code> section whose contents will render on the browser as the title of the webpage. The <code>&lt;title&gt;</code>, <code>&lt;description&gt;</code> and <code>&lt;keywords&gt;</code> tags need to be consistent with the general content of the webpage for the page to fair well with search engines, otherwise search engines will penalize the page. </p>
+<h3>The <code>&lt;body&gt;</code> Section</h3>
+<p>What follows after the <code>&lt;head&gt;</code> section is the <code>&lt;body&gt;</code> secton. All the content that will display on the brower screen must be placed within the openning <code>&lt;body&gt;</code> tag and ending <code>&lt;/body&gt;</code> tag. The <code>body</code> section itself must be placed within the <code>html</code> tags. So let's add the <em>body</em> section to the document.</p>
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; 
+		&lt;meta name="author" content="your name"&gt;
+		&lt;meta name="description" content="Briefly describe your web page her "&gt;
+		&lt;meta name="keywords" content="type keywords/ phrases that searchers may use to search for your contents."&gt;
+		&lt;title&gt;HTML Document Structure&lt;/title&gt;
+		&lt;link rel="stylesheet" href=""&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	...All visible page content will go here...
+	&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>The <code>&lt;body&gt;</code> section most times is subdivied sections for layout and semantic purposes. The <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> tags are used extensively to section the page layout and positioning. However, following SEO design principles, we also need to use <em>semantic</em> tags to portray the meaning rather than <em>presentation</em> only. Let's look at the ones you are likely to use in most of your webpages.</p>
+<h4>The <code>&lt;header&gt;</code> section</h4>
+<p>The <code>&lt;header&gt;</code> section is normally placed at the upper section of the webpage. It can encompass <em>navigation links </em>, <em>company name</em>, <em>logo</em> or the <em>heading</em> of the page. Navigation links are in turn placed in <code>&lt;nav&gt;</code> tags. Accoding to SEO principles each web page should to have only one <code>&lt;h1&gt;</code> heading element. Any other headings on the page should be given lower heading tags (such as <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code> and so on) to signify sub-headings.</p>
+<h4>The <code>&lt;main&gt;</code> Section</h4>
+<p>The <strong><code>&lt;main&gt;</code> element</strong> represent the dominant content of the <code>&lt;body&gt;</code>. There is supposed to be only one <code>&lt;main&gt;</code> on a webpage. Since this section in most times is the largest of all it can be subdivided by other semantic element tags such as <code>&lt;aside&gt;</code>, <code>&lt;section&gt;</code> or <code>&lt;article&gt;</code> as the developer sees it fit. Later on, these sections can be styled with CSS to display appropriately on different screen sizes.</p>
+<h4>The <code>&lt;article&gt;</code> Section</h4>
+<p>The <strong><code>&lt;article&gt;</code> element</strong> denotes a self contained composition of the page that can be distributed independently such as articles of a newspaper. Each <code>&lt;article&gt;</code> typically should be identified by a heading; either <code>&lt;h1&gt;</code> or <code>&lt;h2&gt;</code> tag. A web document can have multiple <code>&lt;article&gt;</code> sections within a <code>&lt;main&gt;</code> section. </p>
+<h4>The <code>&lt;section&gt;</code> Section</h4>
+<p><strong><code>&lt;section&gt;</code> element</strong> surround generic section of a webpage or app such as chapters, headers, footers .It can be used for a standalone sections which do not have more specific semantic to represent them. </p>
+<h4>The <code>&lt;aside&gt;</code> Section</h4>
+<p>It represents a portion a document whose content is not directly related document's main content. <code>&lt;aside&gt;</code> element is frequently used to represent sidebars. </p>
+<h4>The <code>&lt;footer&gt;</code> Section</h4>
+<p>Footer section is placed at the bottom of the document, just before the <code>&lt;/body&gt;</code> closing tag. The <code>&lt;footer&gt;</code> can contain page navigation links, but most importantly, should contain information about page content that does not change across the site. Information such as contact address, organisation name, copyright should be placed here. </p>
+
+<p>Let's use these sections in a most likely way you may want to use them.</p>
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; 
+		&lt;meta name="author" content="your name"&gt;
+		&lt;meta name="description" content="Briefly describe your web page her "&gt;
+		&lt;meta name="keywords" content="type keywords/ phrases that searchers may use to search for your contents."&gt;
+		&lt;title&gt;HTML Document Structure&lt;/title&gt;
+		&lt;link rel="stylesheet" href=""&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;header&gt;
+			&lt;section&gt;
+				&lt;!--Logo or company company name can be place here --&gt;
+			&lt;/section&gt;
+			&lt;nav&gt; 
+				&lt;!--Menu navigation links go here --&gt;
+			&lt;/nav&gt;
+		&lt;/header&gt;
+		&lt;main&gt;
+			&lt;aside&gt;
+			 &lt;!--Content that will appear on the sides
+				of the main content on a multi-column layout 
+				of a big screen device.
+			--&gt;
+			&lt;/aside&gt;
+			&lt;section&gt;
+				&lt;h1&gt;The Document Structure&lt;/h1&gt;
+				&lt;article&gt;
+					&lt;h2&gt;First Article &lt;/h2&gt;
+					&lt;!--
+					..Article1 content here... 
+					--&gt;
+				&lt;/article&gt;
+				&lt;article&gt;
+					&lt;h2&gt;Second Article &lt;/h2&gt;
+					&lt;!--
+					..Article2 content here... 
+					--&gt;
+				&lt;/article&gt;
+			&lt;/section&gt;
+		&lt;/main&gt;	
+		&lt;footer&gt;
+			&lt;nav&gt;
+				&lt;!--navigation links --&gt;
+			&lt;/nav&gt;
+			&lt;!-- copyright info, company address, social media icons --&gt;
+		&lt;/footer&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>The above sectioning may be used for a two column page where the <code>&lt;aside&gt;</code> is a smaller column floated to the left or right. The main column designated by <code>&lt;main&gt;</code> with various sectioning. Most of the semantic tags we have used were introduced in HTML5. In the next post we will target those tags with style for distinct layout presentation.</p>
+<p class="special-p">The <code>&lt;div&gt;</code> tags can be used to section the document as above but remember it has no semantic value other than grouping elements of some common characteristics.</p>
+<h3>Conclusion</h3>
+<p>In the next post we will put meat to the above skeleton and learn more HTML elements and how to use them. I welcome your comments in the below comment section. Happy coding!</p>

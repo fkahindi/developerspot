@@ -7,11 +7,8 @@ include __DIR__ .'/../admin/includes/admin_functions.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
 <head>
-=======
->>>>>>> 914d0f95ea75aa0a7d66e5cbc3ba2993755ba632
-<style type="text/css">
+<style>
 html,body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 margin: 0;
 padding: 0;
@@ -70,8 +67,8 @@ footer a{font-size:.8em;}
 .banner-bar a{color:rgb(255, 255,255);}
 .login-signup a{color:rgb( 200, 200, 233);}
 main{margin:0 auto;}
-main{font-family:'Hind Vadodara', sans-serif;}
-header, footer{font-family:Calibri, sans-serif;}
+main{font-family:serif, arial;}
+header, footer{font-family:'Calibri Light', Calibri, sans-serif;}
 .banner-bar{font-family: Aladin;}
 main p{
 	line-height:1.4em;

@@ -1,40 +1,39 @@
-$('document').ready(function(){
-
+$("document").ready(function(){
 	var email_state = false;
 	var privacy_state = false;
 	/**
 	* Scripts to manage subscription form
 	*/		
-	$('#email').on('blur',function(){
-		var email = $('#email').val();
+	$("#email").on("blur",function(){
+		var email = $("#email").val();
 		var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/ ; /* Check if it's valid mail address */
 		var illegalChars = /[\(\)<>\,\;\:\\\"\[\]]/ ; /* Check for illegal characters */
-		if (email === '') {
+		if (email === "") {
 			email_state = false;
 			return;
 		}
 		/* Further email validation */
 		if(!emailFilter.test(email)){
 			email_state = false;
-			$('#email').parent().removeClass();
-			$('#email').parent().addClass("form_error");
-			$('#email').siblings("span").text('Please! Enter valid email address');
+			$("#email").parent().removeClass();
+			$("#email").parent().addClass("form_error");
+			$("#email").siblings("span").text("Please! Enter valid email address");
 		}else if(email.match(illegalChars)){
 			email_state = false;
-			$('#email').parent().removeClass();
-			$('#email').parent().addClass("form_error");
-			$('#email').siblings("span").text('Sorry... Email address contains illegal characters');
+			$("#email").parent().removeClass();
+			$("#email").parent().addClass("form_error");
+			$("#email").siblings("span").text("Sorry... Email address contains illegal characters");
 		}else{
 			email_state = true;
-			$('#email').parent().removeClass();
-			$('#email').parent().addClass("form_success");
-			$('#email').siblings("span").text('');
-			$('.subscribe_error').text('');
+			$("#email").parent().removeClass();
+			$("#email").parent().addClass("form_success");
+			$("#email").siblings("span").text("");
+			$(".subscribe_error").text("");
 		}
 	});
-	$('#privacy-checkbox').on('change',function(){
+	$("#privacy-checkbox").on("change",function(){
 		
-		if($(this).is(':checked')){
+		if($(this).is(":checked")){
 			privacy_state = true;
 			
 		}else{
@@ -42,43 +41,43 @@ $('document').ready(function(){
 		}
 	});
 		
-	$('#submit_subscribe').on('click',function(e){
+	$("#submit_subscribe").on("click",function(e){
 
-		var email = $('#email').val();
-		var privacy_prop = $('#privacy-checkbox').prop('checked');
+		var email = $("#email").val();
+		var privacy_prop = $("#privacy-checkbox").prop("checked");
 		
 		e.preventDefault();		
 	
-		if(email === ''){
-			$('#email').parent().removeClass();
-			$('#email').parent().addClass("form_error");
-			$('#email').siblings("span").text('Please! Fill email address field');
+		if(email === ""){
+			$("#email").parent().removeClass();
+			$("#email").parent().addClass("form_error");
+			$("#email").siblings("span").text("Please! Fill email address field");
 			return;
 		}
 		if(email_state === false){
-			$('.subscribe_error').text('Fix errors in the form first');
+			$(".subscribe_error").text("Fix errors in the form first");
 			
 		}else if(privacy_state === false){
 			
-			$('#privacy-checkbox').parent().removeClass();
-			$('#privacy-checkbox').parent().addClass("errorMsg");
-			$('#privacy-checkbox').siblings("p").append(' | You need to agree to continue.');
+			$("#privacy-checkbox").parent().removeClass();
+			$("#privacy-checkbox").parent().addClass("errorMsg");
+			$("#privacy-checkbox").siblings("p").append(" | You need to agree to continue.");
 			return;
 		}else{
 			$.ajax({
-				url: '/spexproject/includes/subscribeFormFunctions.php', 
-				type: 'POST',
+				url: "/spexproject/includes/subscribeFormFunctions.php", 
+				type: "POST",
 				data: {
-				'subscribe':1,
-				'email': email,
-				'privacy_prop':privacy_prop
+				"subscribe":1,
+				"email": email,
+				"privacy_prop":privacy_prop
 				},
 				success: function(response){
 				
-				$('#subscribe_response').append(response);
+				$("#subscribe_response").append(response);
 		
-				$('#email').val('');
-				$('.subscribe_error').text('');
+				$("#email").val("");
+				$(".subscribe_error").text("");
 				}
 			}); 
 		}	
@@ -87,24 +86,24 @@ $('document').ready(function(){
   *	Scripts to manage user comments on articles
   * Using the parent comments-container for events delegation
   */
-  $('#comments-container').on('click',['.submit_comment','.post_reply','.reply-btn','.reply-thread','.load-more'], function(e){
+  $("#comments-container").on("click",[".submit_comment",".post_reply",".reply-btn",".reply-thread",".load-more"], function(e){
 		e.preventDefault();
 		var target = e.target;
 		var comment_id = parseInt(target.id.match(/\d+/));	  
 	switch(target.className.toLowerCase()){
-		case 'submit_comment':
+		case "submit_comment":
 			submitComment();
 			break;
-		case 'reply-btn':
+		case "reply-btn":
 			showReplyForm(comment_id);
 			break;
-		case 'post_reply':
+		case "post_reply":
 			postReply(comment_id);
 			return false;
-		case 'reply-thread':
+		case "reply-thread":
 			displayReplyThread(comment_id);
 			break;
-		case 'load-more':
+		case "load-more":
 			loadMoreComments();
 			break;
 		default:
@@ -112,29 +111,29 @@ $('document').ready(function(){
 	}
   });
 	function submitComment(){
-		var user_id = $('#user_id').val();
-		var page_id = $('#page_id').val();
-		var comment = $('#comment').val();
+		var user_id = $("#user_id").val();
+		var page_id = $("#page_id").val();
+		var comment = $("#comment").val();
 		
-		$('#comment').val('');
+		$("#comment").val("");
 		
-		if(comment === ''){
+		if(comment === ""){
 			return false;
 		}
 		$.ajax({
-			url: '/spexproject/includes/comments_functions.php', 
-			type: 'POST',
+			url: "/spexproject/includes/comments_functions.php", 
+			type: "POST",
 			data: {
-			'submit_comment':1,
-			'user_id': user_id,
-			'page_id': page_id,
-			'body': comment,
+			"submit_comment":1,
+			"user_id": user_id,
+			"page_id": page_id,
+			"body": comment,
 			},
 			success: function(response){
 
-			$('#comments-area').prepend(response);
+			$("#comments-area").prepend(response);
 
-			comment = '';
+			comment = "";
 			}
 		}); 
 	}
@@ -143,39 +142,39 @@ $('document').ready(function(){
   * When user clicks reply link to add a reply under user's comment */
 	function showReplyForm(comment_id){		
 			
-		$('form#comment_reply_form_'+ comment_id).toggle(100);
+		$("form#comment_reply_form_"+ comment_id).toggle(100);
 		
-		$('#reply_btn_'+comment_id).text($('#reply_btn_'+comment_id).text() == 'Reply' ? 'Cancel' : 'Reply');	
+		$("#reply_btn_"+comment_id).text($("#reply_btn_"+comment_id).text() == "Reply" ? "Cancel" : "Reply");	
 	}
 	
 	/*Posting a reply */
 	function postReply(comment_id){
-		var reply_textarea = $('#post_reply_'+ comment_id).siblings('.reply-textarea');
-		var reply_text = $('#post_reply_'+ comment_id).siblings('#reply_textarea_'+ comment_id).val();
-		var user_id = $('#post_reply_'+ comment_id).siblings('.reply_form_user_id').val();
+		var reply_textarea = $("#post_reply_"+ comment_id).siblings(".reply-textarea");
+		var reply_text = $("#post_reply_"+ comment_id).siblings("#reply_textarea_"+ comment_id).val();
+		var user_id = $("#post_reply_"+ comment_id).siblings(".reply_form_user_id").val();
 		
-		reply_textarea.val('');
+		reply_textarea.val("");
 		
-		if(reply_text === ''){
+		if(reply_text === ""){
 			return false;
 		}
 		$.ajax({
-			url: '/spexproject/includes/comments_functions.php',
-			type: 'POST',
+			url: "/spexproject/includes/comments_functions.php",
+			type: "POST",
 			data:{
-				'post_reply':1,
-				'user_id':user_id,
-				'comment_id':comment_id,
-				'reply_text': reply_text
+				"post_reply":1,
+				"user_id":user_id,
+				"comment_id":comment_id,
+				"reply_text": reply_text
 			},
 			success: function(data){
 										
-				$('.replies_container_'+ comment_id).children('.replies_by_ajax').prepend(data);
+				$(".replies_container_"+ comment_id).children(".replies_by_ajax").prepend(data);
 				
-				$('form#comment_reply_form_'+ comment_id).hide();
-				$('#reply_btn_'+ comment_id).text('Reply');
-				$('.group.replies_container_'+ comment_id).show(100);
-				comment_id = '';
+				$("form#comment_reply_form_"+ comment_id).hide();
+				$("#reply_btn_"+ comment_id).text("Reply");
+				$(".group.replies_container_"+ comment_id).show(100);
+				comment_id = "";
 			}
 		});
 	}	
@@ -185,43 +184,43 @@ $('document').ready(function(){
 		var html1="&#9650;";
 		var html2= "&#9660;";
 		
-		$('.group.replies_container_'+ thread_reply_id).toggle(100);
+		$(".group.replies_container_"+ thread_reply_id).toggle(100);
 		
-		$('#reply_thread_'+comment_id).text($('#reply_thread_'+comment_id).text() == convertEntities(html1) ? convertEntities(html2) : convertEntities(html1));
+		$("#reply_thread_"+comment_id).text($("#reply_thread_"+comment_id).text() == convertEntities(html1) ? convertEntities(html2) : convertEntities(html1));
 	}
 	/* When user clicks Load more... */
 	function loadMoreComments(){
-		var page_id = $('.pagination').data('id');
-		var page_no = $('.load-more').data('id');
-		var no_of_comments_per_view = $('.comments-per-view').data('id');
-		var number_of_pages = $('#num-of-pages').data('id');
+		var page_id = $(".pagination").data("id");
+		var page_no = $(".load-more").data("id");
+		var no_of_comments_per_view = $(".comments-per-view").data("id");
+		var number_of_pages = $("#num-of-pages").data("id");
 		var offset = 0;
-		var limit = '';
+		var limit = "";
 		
 		if(page_no!==0){
 			offset = (page_no-1) * no_of_comments_per_view;
 		}else{
 			return false;
 		}
-		limit = 'LIMIT '+offset+', '+ no_of_comments_per_view;
+		limit = "LIMIT "+offset+", "+ no_of_comments_per_view;
 				
 		$.ajax({
-			url: '/spexproject/includes/comments_functions.php',
-			type: 'POST',
+			url: "/spexproject/includes/comments_functions.php",
+			type: "POST",
 			data:{
-				'load_more':1,
-				'page_id':page_id,
-				'limit': limit
+				"load_more":1,
+				"page_id":page_id,
+				"limit": limit
 			},
 			success: function(data){
 	
 				page_no = page_no+1;
-				$('#comments-area').append(data);
+				$("#comments-area").append(data);
 				
-				$('.load-more').data('id',page_no);
+				$(".load-more").data("id",page_no);
 				window.scrollBy(0,window.innerHeight);
 				if(page_no > number_of_pages){
-					$('.load-more').hide();
+					$(".load-more").hide();
 				}
 			}
 		});

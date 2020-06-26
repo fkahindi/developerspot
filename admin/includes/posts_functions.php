@@ -17,7 +17,6 @@ $feature_image = '';
 $post_topic ='';
 $topic_id ='';
 
-
 /*---------------
 --Post Functions
 -----------------*/
@@ -100,7 +99,6 @@ function getMostRecentPosts(){
 	}else{
 		echo 'No recent posts';
 	}
-	
 }
 /* Get posts for admins and authors based on the user logged in */
 function getAllPosts(){
@@ -172,17 +170,17 @@ function getFirstParagraphPostById($post_id){
 /*-----------------------
 	--Post Actions--
 ------------------------*/
-/* //If user clicks Save post button */
+/* If user clicks Save post button */
 if(isset($_POST['create_post'])){
 	createPost($_POST);
 } 
-/* //If user clicks Edit post */
+/* If user clicks Edit post */
 if(isset($_GET['edit-post'])){
 	$isEditingPost = true;
 	$post_id = $_GET['edit-post'];
 	editPost($post_id);
 }
-/* //If user clicks Update post button */
+/* If user clicks Update post button */
 if(isset($_POST['update_post'])){
 	updatePost($_POST);
 }
@@ -235,22 +233,22 @@ function createPost($request_values){
 	if(isset($_POST['image_caption'])){
 		$meta_caption = $_POST['image_caption'];
 	}
-	/* //Create slug by replacing spaces in title with hyphens */
+	/* Create slug by replacing spaces in title with hyphens */
 	$post_slug = makeSlug($title);
-	/* //Get image filename */
+	/* Get image filename */
 	$image_file = $_FILES['post_main_image']['name'];
 	if(!empty(getimagesize($_FILES['post_main_image']['tmp_name']))){
-		$target_file = '../resources/images/'.basename($image_file);
+		$target_file = BASE_URL .'resources/images/'.basename($image_file);
 		$imageFileType = strtolower(pathinfo($target, PATHINFO_EXTENSION));
-		/* //Check if image already exists in target folder, to ensure no image overwriting */
+		/* Check if image already exists in target folder, to ensure no image overwriting */
 		if(file_exists($target_file)){
 			array_push($errors, 'There is already an image with the same name. Try change the name and continue.');
 		}
-		/* //Check image size */
+		/* Check image size */
 		if($_FILES['post_main_image']['size']>5000000){
 			array_push($errors, 'Sorry, image is too large');
 			
-		/* // Allow only .jpg, .png and .gif file formats */
+		/* Allow only .jpg, .png and .gif file formats */
 		}else if($imageFileType != 'jpg' && $imageFileType != 'png' && 		$imageFileType != 'gif'){
 			array_push($errors,'Sorry, only JPG, PNG or GIF files are allowed');
 		}
@@ -263,24 +261,24 @@ function createPost($request_values){
 		$image_path = null;
 	}
 					
-	/* //Make sure no file is saved twice */
+	/* Make sure no file is saved twice */
 	$post_check ="SELECT * FROM `posts` WHERE post_slug='$post_slug' LIMIT 1";
 	
 	$result = mysqli_query($conn, $post_check);
 		
-	if(mysqli_num_rows($result)>0){ //another post with the name exists
+	if(mysqli_num_rows($result)>0){ /* another post with the name exists */
 		array_push($errors, 'A post with that name already exists');
 	}
 	
-	/* //If no errors in the form, insert posts */	
+	/* If no errors in the form, insert posts */	
 	if(!$errors){
 		$query = "INSERT INTO `posts` (user_id, post_title, post_slug, post_body, meta_description, published, image,image_caption, created_at, metaphoned) VALUES($user_id, '$title', '$post_slug', '$body','$meta_description', $published, '$image_path','$image_caption', now(), '$sound')";
 		
 		$result = mysqli_query($conn, $query);
-		if($result){ /* //if post created successful */
+		if($result){ /* if post created successful */
 		
 			$inserted_id = mysqli_insert_id($conn);
-			/* //Create a relationship between post and topic */
+			/* Create a relationship between post and topic */
 			$sql ="INSERT INTO `post_topic` (topic_id, post_id) VALUES ($topic_id, $inserted_id)";
 			
 			mysqli_query($conn, $sql);

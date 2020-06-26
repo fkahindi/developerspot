@@ -26,6 +26,9 @@ q:before, q:after {
 .align-right{
 	text-align:right;
 }
+.align-center{
+	text-align:center;
+}
 .hidden{
 	display:none;
 }
@@ -241,16 +244,13 @@ div[class^="group replies_container_"] {
 /********************************
 STYLING FOR SOCIAL MEDIA ICONS
 ********************************/
-.social-media{
-	padding:10px;
-}
 .fa{
-	padding: 20px;
-	font-size: 30px;
+	padding: 10px;
+	font-size: 20px;
 	width: 30px;
-	text-align: left;
+	text-align: center;
 	text-decoration: none;
-	margin: 5px 3px;
+	margin: 3px 0;
 }
 .fa:hover{
 	opacity:0.7;
@@ -260,7 +260,7 @@ STYLING FOR SOCIAL MEDIA ICONS
 	color:white;
 }
 .fa-twitter{
-	background:#55acee;
+	background:#1DA1F2;
 	color:white;
 }
 .fa-linkedin{
@@ -394,9 +394,6 @@ nav ul>span{
 /*=====================================
 MAIN SECTION
 =====================================*/
-main .special-p{
-    padding:10px;
-}
 .comment-text{
 	text-align:left;
 }
