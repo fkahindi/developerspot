@@ -1,18 +1,13 @@
 #
-Options +FollowSymlinks
-
+<IfModule mod_rewrite.c>
 RewriteEngine On
-#
-# 1. Prevent listing of files in this folder
-#
-Options  -Indexes
-#
-ErrorDocument 403 /spexproject/errors/new403.html
-ErrorDocument 404 /spexproject/errors/filenotfound.html
-# 2. Prevent processing of scripts
-#
-#Order deny,allow
-#Deny from all
 
-
-
+RewriteRule /(.*)/(.*)/$ post.html.php?id=$1&title=$2
+#RewriteCond %{SCRIPT_FILENAME} !-d
+#RewriteCond %{SCRIPT_FILENAME} !-f
+ 
+#RewriteRule ^.*$ ./index.php 
+#RewriteRule ^post/(\d+)*$ ./post.html.php?id=(\d+)*&title=$1
+#RewriteRule ^topic/(\d+)*$ ./topic-page.html.php?name=$1
+ 
+</IfModule>

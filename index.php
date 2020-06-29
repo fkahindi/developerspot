@@ -758,13 +758,10 @@ main p, main li{
 	<title>Developerspot: For front-end and back-end web development tutorials</title> 
 	</head>
 	<body>
-	<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=502152493814762&autoLogAppEvents=1" nonce="Ysx2ofWc"></script>
 		<header>
 		<?php require_once __DIR__ . '/templates/header.html.php';?>
 		  
 		</header>
-		
 		<main class="group">
 			<aside class="col-2-10 hide-in-mobile">
 				<div class="published-topics">
@@ -825,7 +822,7 @@ main p, main li{
 		<footer>
 			<?php include __DIR__ .'/templates/footer.html.php'?>
 		</footer>
-		<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
-		<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
 	</body>
+	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
+		<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
 </html>
