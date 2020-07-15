@@ -9,8 +9,8 @@
 </div>
 <div class="copyright">
 	<div>
-	<?php include __DIR__ . '/copyright.html.php';?>
+	<?php include __DIR__ . "/copyright.html.php";?>
 	</div>
-	 <div class="addthis_inline_follow_toolbox"><!-- Go to www.addthis.com/dashboard to customize your tools --></div>
+	 <?php include __DIR__ ."/process_stats.php" ?>
 </div>
 </div>

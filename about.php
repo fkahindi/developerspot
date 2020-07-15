@@ -20,8 +20,15 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 body {
-	background:#fff;
+	background:#fff;;
 	line-height: 1.3;
+    font-family:'Calibri Light', Calibri, sans-serif;
+}
+.banner-bar{font-family: Aladin;}
+h1, h2, h3,h4{
+	font-family: 'Carrois Gothic SC', sans-serif;
+	font-weight:bolder;
+    padding-top:10px;
 }
 a{text-decoration:none;}
 figcaption{text-align:left;}
@@ -65,47 +72,10 @@ footer a{font-size:.8em;}
 .banner-bar a{color:rgb(255, 255,255);}
 .login-signup a{color:rgb( 200, 200, 233);}
 main{margin:0 auto;}
-main{font-family:serif, arial;}
-header, footer{font-family:'Calibri Light', Calibri, sans-serif;}
-.banner-bar{font-family: Aladin;}
 main p{
 	line-height:1.4em;
 	text-align:justify;
 	padding:10px 0;
-}
-pre, pre code, samp{
-	display:block;
-	margin:0;
-}
-pre{
-	font-size:1.2em;
-	-moz-tab-size:1;
-	-o-tab-size:1;
-	tab-size:1;
-	overflow-x:auto;
-	padding:10px 0;
-	margin: 0;
-}
-code{
-	font-family:'Courier New',Courier;
-	font-size:1em;
-	color:#000;
-	padding:0 2px;
-}
-p code{
-	background:rgb(230,230,230);
-}
-.special-p{
-    padding:10px;
-    background:rgb(100,160,100);
-	background:rgba(100,160,100,.5);
-}
-.special-p code{
-	background:inherit;
-}
-.published-topics p,.recent-posts p{
-	padding:0;
-	text-align:left;
 }
 section{
 	padding:10px;
@@ -116,7 +86,6 @@ aside{
 	text-align:left;
 }
 hr{border:thin solid rgb(240,240,240);}
-
 .login-signup{
 	display:inline-block;
 	margin:0;
@@ -126,12 +95,6 @@ hr{border:thin solid rgb(240,240,240);}
 	position:relative;
 	display:inline-block;
 	top:10px;
-}
-h1, h2, h3,h4{
-	font-family: 'Carrois Gothic SC', sans-serif;
-	font-weight:bolder;
-	text-align:left;
-	padding-top:10px;
 }
 h1{
 	font-size:1.5em;
@@ -785,10 +748,10 @@ main p, main li{
 				
 			</aside>	
 		</main>
+		<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
+		<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
 		<footer class="group">
 			<?php include __DIR__ .'/templates/footer.html.php'?>
 		</footer>
-		<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
-		<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
 	</body>
 </html>

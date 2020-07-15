@@ -1,0 +1,61 @@
+<!--
+1. Subscribe form to hide 'notification' after successful Send
+ a) subscribe.html.php:
+ line2 Add: id="to-be-notified"
+ 
+ b) subscribeFormFunctions.php:
+ line59 Add: $("#to-be-notified").addClass("hidden");
+ 
+ c) subscribe-email-link.php:
+ line47 Add: $("#to-be-notified").addClass("hidden");
+ 
+ -----------------------------------------------------------
+ 2. Change on-page CSS on all pages (index.php, post.html.php,topic-page.html.php,about.php,policy pages):
+ a) Add at the top:
+         body {
+            background:#fff;;
+            line-height: 1.3;
+            font-family:'Calibri Light', Calibri, sans-serif;
+        }
+        .banner-bar{font-family: Aladin;}
+        .published-topics p,.recent-posts p{
+            font-family:calibri,Arial;
+        }
+        h1,h2,h3,h4{
+            font-family: 'Carrois Gothic SC', sans-serif;
+            font-weight:bolder;
+            text-align:left;
+            padding-top:10px;
+        }
+  NB: And refactor appropriately to remove unwanted/repeated/unnecessary css
+  
+  b) Add <div class="main-article"> around posts["post_body"] in post.html.php
+  
+  (i)Remove all .main ul, .main ol{} styles in on-page and in main.css
+  
+  (ii)Add the following on-page styles in post.html.php lists:
+        .main-article ul, .main-article ol{
+          padding: .5em 2em;
+        }
+        .main-article ul li, .main-article ol li{
+            text-indent:.0;
+            padding:.3em .5em;
+        }
+        
+    c) Add <section class="col-9-10 main-article"> class in all policy docs
+    
+    (i) Remove all .main ul,.main ol{} styles in on-page styles
+    
+    (ii) Remove aside ul, aside ol{} styles in on-page styles
+    
+    (ii) Add the following on-page styles in policy docs
+        .main-article ul, .main-article ol{
+          padding: .5em 2em;
+        }
+        .main-article ul li, .main-article ol li{
+            text-indent:.0;
+            padding:.3em .5em;
+        }
+   ------------------------------------------------------------
+  3) Rearrange Acredition in topic-page.html.php to be consistent with index.php page
+-->

@@ -1,13 +1,10 @@
 #
-<IfModule mod_rewrite.c>
+Options +FollowSymlinks
 RewriteEngine On
+Options  -Indexes
+#RewriteRule ^(.*)\.php$ $1.html [NC] 
+#RewriteRule ^post.html.php?(id=[d]+)&title=([w]+)$ $2.php
+#RewriteRule ^post.html.php /post.php&title=cached
+RewriteCond %{QUERY_STRING} title=(.+)
+RewriteRule ^templates/([^/]+)/(.*) /%1/post.html.php?&file=$2 [QSA]
 
-RewriteRule /(.*)/(.*)/$ post.html.php?id=$1&title=$2
-#RewriteCond %{SCRIPT_FILENAME} !-d
-#RewriteCond %{SCRIPT_FILENAME} !-f
- 
-#RewriteRule ^.*$ ./index.php 
-#RewriteRule ^post/(\d+)*$ ./post.html.php?id=(\d+)*&title=$1
-#RewriteRule ^topic/(\d+)*$ ./topic-page.html.php?name=$1
- 
-</IfModule>

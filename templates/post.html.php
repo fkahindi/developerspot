@@ -34,6 +34,25 @@ footer, header, hgroup, menu, nav, section {
 body {
 	background:#fff;
 	line-height: 1.3;
+    font-family:'Calibri Light', Calibri, sans-serif;
+}
+.banner-bar{font-family: Aladin;}
+h1,h2,h3,h4{
+	font-family: 'Carrois Gothic SC', sans-serif;
+	font-weight:bolder;
+	text-align:left;
+	padding-top:10px;
+}
+code{
+	font-family:'Courier New',Courier;
+	font-size:1em;
+	color:#000;
+}
+.special-p{
+	font-family: calibri;
+}
+.published-topics p,.recent-posts p{
+    font-family:calibri,Arial;
 }
 a{text-decoration:none;}
 table {
@@ -81,32 +100,24 @@ footer a{font-size:.8em;}
 .banner-bar a{color:rgb(255, 255,255);}
 .login-signup a{color:rgb( 200, 200, 233);}
 main{margin:0 auto;}
-main{font-family:calibri}
+
 main p{
 	line-height:1.4em;
 	text-align:justify;
 	padding:10px 0;
 }
-section{font-family:serif, arial;}
-header, footer{font-family:'Calibri Light', Calibri, sans-serif;}
-.banner-bar{font-family: Aladin;}
 pre, pre code, samp{
 	display:block;
 	margin:0;
 }
 pre{
 	font-size:1.1em;
-	-moz-tab-size:1;
-	-o-tab-size:1;
 	tab-size:1;
 	overflow-x:auto;
 	padding:10px 0;
 	margin: 0;
 }
 code{
-	font-family:'Courier New',Courier;
-	font-size:1em;
-	color:#000;
 	padding:0 2px;
 }
 p code{
@@ -118,7 +129,6 @@ p code{
 	background:rgba(100,200,255,.4);
 	border-left: 5px double red;
 	border-right: 5px double red;
-	font-family: calibri;
 }
 .special-p code{
 	background:inherit;
@@ -154,12 +164,6 @@ hr{border:thin solid rgb(240,240,240);}
 	position:relative;
 	display:inline-block;
 	top:10px;
-}
-h1,h2,h3,h4{
-	font-family: 'Carrois Gothic SC', sans-serif;
-	font-weight:bolder;
-	text-align:left;
-	padding-top:10px;
 }
 h1{
 	font-size:2em;
@@ -199,12 +203,12 @@ h5{
 	display:none;
 }
 em, i{font-style:italic;}
-main ul, ol{
-	text-indent: 10px;
-	padding-left: 1.875em;
+.main-article ul, .main-article ol{
+  padding: .5em 2em;
 }
-main ul{
-	list-style:disc;
+.main-article ul li, .main-article ol li{
+	text-indent:.0;
+	padding:.3em .5em;
 }
 .published-topics ul li{
 	font-size:.9em;
@@ -433,14 +437,18 @@ main p{
 	}	
 }
 @media only screen and (min-width:769px) and (max-width:992px){
-	.col-2-10,.col-3-10,.col-5-10{
+	.col-5-10{
 		display: inline-block;
 		vertical-align: top;
 		float:left;
 	}
-	.col-2-10{width:20%;}
-	.col-3-10{width:20%;}
-	.col-5-10{width:60%;}
+    .col-2-10,.col-3-10{
+        float:right;
+        display:block;
+    }
+	.col-2-10{width:35%;}
+	.col-3-10{width:35%;}
+	.col-5-10{width:65%;}
 	header{
 		height:4.375em;
 		margin:0;
@@ -798,9 +806,8 @@ main p, main li{
 	<meta name="description" content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>" />
 	<?php include __DIR__ .'/head.html.php';?>
 	<!-- Links for google code prettify both (.css and .js at bottom of page) files -->
-	<link rel="stylesheet" rel="preload" as="style" href="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.css" />
-	<title><?php echo htmlspecialchars_decode($posts['post_title']) ;?> | Developers Pot</title>
-	
+	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.css" media="print" onload="this.media='all'; this.onload=null;"/>
+	<title><?php echo htmlspecialchars_decode($posts['post_title']) ;?> | DevelopersPot</title>	
 </head>
 <body>
 
@@ -820,14 +827,15 @@ main p, main li{
 			<div class="post-acreditation">  
 				<?php echo isset($posts['updated_at'])? 'Updated on '. date( 'F j, Y', strtotime($posts['updated_at'])): 'Published on '. date( 'F j, Y', strtotime($posts['created_at'])) ?>
 			</div>
-			
 			<!-- Social icons -->
 				<div class="social-media">
 					<?php include __DIR__ .'/social-icons-links.php';?>
 				</div>
-			<div>				
-			<!-- The page content will be fetched from database -->
-			<?php echo htmlspecialchars_decode($posts['post_body']) ;?>
+			<div>
+                <div class="main-article">
+                <!-- The page content will be fetched from database -->
+                <?php echo htmlspecialchars_decode($posts['post_body']) ;?>
+                </div>
 				<div class="social-media">
                 <!-- Social icons -->
 					<?php include __DIR__ .'/social-icons-links.php';?>
@@ -841,7 +849,6 @@ main p, main li{
 			<?php include __DIR__ .'/../comments/comments-layout.php'; ?>
 				</div>
 			</div>
-			
 		</section><!--
 		--><aside class='col-3-10'>
 			<div class="recent-posts">
@@ -853,26 +860,24 @@ main p, main li{
 				<?php endforeach; ?>
 			</div>
 			
+			<div>   
+            
+			</div>
 		</aside><!--			
-			--><aside class="hide-in-bigger-screens">
+		--><aside class="hide-in-bigger-screens">
 				<div class="published-topics">
 				<h2 class="left">Browse Topics</h2>
 				<?php include __DIR__ . '/published_posts_by_topics.html.php';?>
 				</div>
-			</aside>
+		</aside>
 	</main>
-	<footer>
-		<?php include __DIR__ .'/footer.html.php'?>
-	</footer>
-	<!--for local server-->
 	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
-	<script src="<?php echo BASE_URL ?>resources/js/subscribe-comments-replies-scripts.js"></script>
-	
-	<div id="fb-root"></div>
-<script crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=502152493814762&autoLogAppEvents=1" nonce="O2wkZ94K"></script>
-	<!-- This is for local offline server -->
+	<script src="<?php echo BASE_URL ?>resources/js/subscribe-comments-replies-scripts.js"></script>	
 	<script>window.onload=function(){prettyPrint()}</script>
+	<footer>
+		<?php include __DIR__ .'/footer.html.php'?>
+	</footer>
 </body>
 </html>

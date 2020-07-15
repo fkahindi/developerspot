@@ -1,5 +1,5 @@
 <div class="subscribe-section">
-	<h5 class="align-left"><strong>If you would like to be notified when there is a new post via mail, subscribe below.</strong></h5>
+	<h6 class="align-left" id="to-be-notified"><strong>If you would like to be notified when there is a new post via mail, subscribe below.</strong></h6>
 	<form  method="POST" action="" id="subscribe" >
 		<div class="subscribe_error"></div>
 		<div class="group-form">

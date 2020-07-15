@@ -35,7 +35,10 @@ q:before, q:after {
 .errors ul{
 	margin-left:1em;
 }
-.banner-bar a:hover{color:rgb( 200, 200, 233);}
+.banner-bar a:hover{
+    color:rgb( 200, 200, 233);
+    cursor:pointer;
+    }
 header  ul, nav span{
 	color:rgb(200,200,200);
 }
@@ -596,10 +599,6 @@ HEADER SECTIONS
 /*=================================================
 NAVIGATION & LINKS
 ==================================================*/
-main ul, main ol{
-	text-indent: 20px;
-	padding: 10px 40px;
-}
 main table {
 	margin:30px 5px;
 }

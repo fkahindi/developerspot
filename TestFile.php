@@ -6,7 +6,7 @@
 		<meta name="author" content="your name">
 		<meta name="description" content="Briefly describe your web page her ">
 		<meta name="keywords" content="type keywords/ phrases that searchers may use to search for your contents.">
-		<title>HTML Document Structure</title>
+		<title>Masai Mara: Wonder in the Jungle</title>
 		<link rel="stylesheet" href="">
 		<style>
 			body{
@@ -33,7 +33,7 @@
 				width:32%;
 				float:left;
 				height:98%;
-				background-color:gray;
+				background-color:silver;
 				color:white;
 				margin:4px 0;
 			}
@@ -43,7 +43,7 @@
 				float:right;
 			}
 			article{
-				background-color:silver;
+				background-color:gray;
 				height:180px;
 				border:2px solid white;
 				padding-top:10px;
@@ -56,7 +56,7 @@
 	</head>
 	<body>
 		<header>
-			<h2>Header Section</h2>
+			<h1>The Wonder of the Mara</h1>
 		</header>
 		<main class="clear-fix">
 			<aside>

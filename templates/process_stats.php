@@ -1,9 +1,9 @@
 <?php
 include __DIR__ .'/../../includes_devspot/DbConnection.php';
 // Use the same-origin policy to prevent cross-site scripting (XSS) attacks
-// Remember to replace http://yourdomain.com/ with your actual domain
-if( strpos( $_SERVER['SERVER_NAME'], 'localhost/' ) !== 0 ) {
-     die( "Do not call this script manually or from an external source." );
+
+if( strpos( $_SERVER['SERVER_NAME'], 'localhost/spexproject/' ) !== 0 ) {
+     die( "" );
 }
 $views ='';
 $ips = '';
@@ -41,7 +41,7 @@ foreach( $values as $value ) {
 	preg_match( $regex, $value, $matches );
 		
 	# If the two exist
-	if( $matches[1] && $matches[2] ){
+	if($matches[1] && $matches[2]){
 		# Set the corresponding value in the array ( referrer link -> number of referrals )
 		$ref_num[$matches[2]] = intval( $matches[1] );
 	}
@@ -51,8 +51,7 @@ if( $referrer ){
 	# Add it to the array
 	$ref_num[$referrer]++;
 }
-	
-	
+		
 # Get the IPs
 $values = split( ' ', $ips );
 
@@ -98,7 +97,7 @@ $referrers = trim( $referrers );
 # Update the number of views
 $views++;
 	
-# If we did obtain information from the database
+# If information was obtain from the database
 # (the database already contains some information about this page)
 if( $flag ){
 	# Update it

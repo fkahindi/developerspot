@@ -35,6 +35,20 @@ footer, header, hgroup, menu, nav, section {
 body {
 	background:#fff;;
 	line-height: 1.3;
+    font-family:'Calibri Light', Calibri, sans-serif;
+}
+.banner-bar{font-family: Aladin;}
+.published-topics p,.recent-posts p{
+    font-family:calibri,Arial;
+}
+h1,h2,h3,h4{
+	font-family: 'Carrois Gothic SC', sans-serif;
+	font-weight:bolder;
+	text-align:left;
+	padding-top:10px;
+}
+.paragraph-snippet{
+	font-family:'Hind Vadodara',sans-serif;
 }
 a{text-decoration:none;}
 figcaption{text-align:left;}
@@ -70,6 +84,23 @@ aside{
 	padding:10px;
 	text-align:left;
 }
+.contact-me{
+    margin:3em auto;
+    padding:20px;
+    background:#E5E4E2;
+}
+.contact-me img{
+    float:right;
+    margin:10px;
+    border-radius:50%;
+}
+.contact-me p{
+    font-family:arial;
+    font-size:1.2em;
+}
+.contact-me button{
+    cursor:pointer;
+}
 hr{border:thin solid rgb(240,240,240);}
 .group:before,.group:after{
 	content:"";
@@ -94,15 +125,7 @@ main p{
 	text-align:justify;
 	padding:10px 0;
 }
-h1,h3,h4{
-	text-align:left;
-	padding-top:10px;
-}
-h2{
-	padding-top:10px;
-}
 .paragraph-snippet{
-	font-family:'Hind Vadodara',sans-serif;
 	font-size:90%;
 	line-height:1.4;
 	padding:5px;
@@ -131,17 +154,12 @@ h2{
 	display:none;
 }
 em, i{font-style:italic;}
-main{font-family:calibri,arial;}
-section,.paragraph-snippet{font-family:serif, arial;}
-header, footer{font-family:'Calibri Light', Calibri, sans-serif;}
+
 footer a{font-size:.8em;}
-.banner-bar{font-family: Aladin;}
+
 .banner-bar a{color:rgb(255, 255,255);}
 .login-signup a{color:rgb( 200, 200, 233);}
-h1, h2, h3,h4{
-	font-family: 'Carrois Gothic SC', sans-serif;
-	font-weight:bolder;
-}
+
 h1{
 	font-size:1.5em;
 	color:#071418;
@@ -393,14 +411,18 @@ main p{
 	}	
 }
 @media only screen and (min-width:769px) and (max-width:992px){
-	.col-2-10,.col-3-10,.col-5-10{
+	.col-5-10{
 		display: inline-block;
 		vertical-align: top;
 		float:left;
 	}
-	.col-2-10{width:20%;}
-	.col-3-10{width:20%;}
-	.col-5-10{width:60%;}
+    .col-2-10,.col-3-10{
+        float:right;
+        display:block;
+    }
+	.col-2-10{width:35%;}
+	.col-3-10{width:35%;}
+	.col-5-10{width:65%;}
 	header{
 		height:4.375em;
 		margin:0;
@@ -748,7 +770,8 @@ nav li{
 main p, main li{
 	font-size:1.3em;
 }
-}	
+}
+
 </style>
 	<!-- head section -->
 	<meta name="description" content="A blogging site dedicated to front-end and back-end  technologies for web development. Provides informative and practical tutorials to unlock the potential of any upcoming web developer." />
@@ -810,6 +833,12 @@ main p, main li{
 				<?php foreach($recent_posts as $latest_post): ?>
 				<p><a href="templates/post.html.php?id=<?php echo $latest_post['post_id'] ?>&title=<?php echo $latest_post['post_slug']?>"> <?php echo $latest_post['post_title'] ?></a></p>
 				<?php endforeach; ?>
+                    <div class="contact-me">
+                    <img src="resources/photos/franciskahindi-01.jpg" alt="Francis-photo" loading="lazy" width="50px" height="60px">
+                    <p>Hi,<br> I'm <em><strong>Francis Kahindi</strong></em>, I help build fast, responsive, SEO friendly websites and web apps. 
+                    <script src="<?php echo BASE_URL ?>resources/js/contact-me.js"></script> </p>
+                    
+                   </div>
 				</div>
 			</aside><!--			
 			--><aside class="hide-in-bigger-screens">
@@ -819,10 +848,10 @@ main p, main li{
 				</div>
 			</aside>
 		</main>
+		<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
+		<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
 		<footer>
 			<?php include __DIR__ .'/templates/footer.html.php'?>
 		</footer>
 	</body>
-	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
-		<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
 </html>

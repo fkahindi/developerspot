@@ -81,7 +81,7 @@
 									echo	getCommentCountByPostId($post['post_id']);
 									?>
 									</td>
-									<td><?php echo $post['views'] ?></td>
+									<td><?php echo "Compute" ?></td>
 									
 									<!--Only Admin can publish/ unpublish posts  -->
 									<?php if($_SESSION['role']== 'Admin'): ?>

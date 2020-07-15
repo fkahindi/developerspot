@@ -9,47 +9,61 @@ include __DIR__ .'/../admin/includes/admin_functions.php';
 <html lang="en">
 <head>
 <style>
-html,body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-margin: 0;
-padding: 0;
-border: 0;
-font-size: 100%;
-font: inherit;
-vertical-align: baseline;
+html,body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
 body {
-	background:#fff;
+	background:#fff;;
 	line-height: 1.3;
+    font-family:'Calibri Light', Calibri, sans-serif;
+}
+.banner-bar{font-family: Aladin;}
+.paragraph-snippet{
+	font-family:'Hind Vadodara',sans-serif;
+	font-size:90%; 
+}
+.published-topics p,.recent-posts p{
+    font-family:calibri,Arial;
+}
+h1,h2,h3,h4{
+	font-family: 'Carrois Gothic SC', sans-serif;
+	font-weight:bolder;
+	text-align:left;
+	padding-top:10px;
 }
 a{text-decoration:none;}
 figcaption{text-align:left;}
 *,*::before,*::after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-.group:before,.group:after{
-	content:"";
-	display: table;
-}
-.group:after{clear:both;} 
-.group{
-	clear:both;
-	*zoom:1;
-} 
 .nav, .copyright,.policies{
 	display:block;
 	text-align:center;
 }
-header, footer{
-	width:100%;
-	padding:0;
-}
+header, footer{width:100%;}
+header, footer{padding:0;}
 header{background:#293f50;}
+
 footer{
 	background:rgb(11, 10, 10);
 	background:rgba(11, 10, 10, 0.82);;
@@ -62,53 +76,7 @@ footer a{
 }
 footer li{display:inline-table;}
 .copyright{color:rgb(150,150,150);}
-footer a{font-size:.8em;}
-.copyright{color:rgb(150,150,150);}
-.banner-bar a{color:rgb(255, 255,255);}
-.login-signup a{color:rgb( 200, 200, 233);}
 main{margin:0 auto;}
-main{font-family:serif, arial;}
-header, footer{font-family:'Calibri Light', Calibri, sans-serif;}
-.banner-bar{font-family: Aladin;}
-main p{
-	line-height:1.4em;
-	text-align:justify;
-	padding:10px 0;
-}
-pre, pre code, samp{
-	display:block;
-	margin:0;
-}
-pre{
-	font-size:1.2em;
-	-moz-tab-size:1;
-	-o-tab-size:1;
-	tab-size:1;
-	overflow-x:auto;
-	padding:10px 0;
-	margin: 0;
-}
-code{
-	font-family:'Courier New',Courier;
-	font-size:1em;
-	color:#000;
-	padding:0 2px;
-}
-p code{
-	background:rgb(230,230,230);
-}
-.special-p{
-    padding:10px;
-    background:rgb(100,160,100);
-	background:rgba(100,160,100,.5);
-}
-.special-p code{
-	background:inherit;
-}
-.published-topics p,.recent-posts p{
-	padding:0;
-	text-align:left;
-}
 section{
 	padding:10px;
 	text-align:justify;
@@ -118,7 +86,15 @@ aside{
 	text-align:left;
 }
 hr{border:thin solid rgb(240,240,240);}
-
+.group:before,.group:after{
+	content:"";
+	display: table;
+}
+.group:after{clear:both;} 
+.group{
+	clear:both;
+	*zoom:1;
+} 
 .login-signup{
 	display:inline-block;
 	margin:0;
@@ -129,12 +105,42 @@ hr{border:thin solid rgb(240,240,240);}
 	display:inline-block;
 	top:10px;
 }
-h1, h2, h3,h4{
-	font-family: 'Carrois Gothic SC', sans-serif;
-	font-weight:bolder;
+main p{
+	text-align:justify;
+	padding:10px 0;
+}
+h1,h3,h4{
 	text-align:left;
 	padding-top:10px;
 }
+h2{
+	padding-top:10px;
+}
+.paragraph-snippet{
+	font-size:90%;
+	line-height:1.4;
+	padding:5px;
+	border:0 solid;
+	box-shadow:0 5px 5px grey; 
+}
+.post-acreditation{
+	padding-bottom:10px;
+}
+.published-topics ul{
+	list-style:none;
+	text-align:left;
+}
+.published-topics p,.recent-posts p{
+	padding:0;
+	text-align:left;
+}
+ .dropdown-menu-btn{
+	display:none;
+}
+em, i{font-style:italic;}
+footer a{font-size:.8em;}
+.banner-bar a{color:rgb(255, 255,255);}
+.login-signup a{color:rgb( 200, 200, 233);}
 h1{
 	font-size:1.5em;
 	color:#071418;
@@ -147,39 +153,6 @@ h3{
 	font-size:1.3em;
 	color:rgb(5,10,50);
 }
-h4{
-	font-size:1.2em;
-}
-h5{
-	padding:10px;
-	line-height:1.4;
-}
-.paragraph-snippet{
-	font-family:'Hind Vadodara',sans-serif;
-	font-size:90%;
-	line-height:1.4;
-	padding:5px;
-	border:0 solid;
-	box-shadow:0 5px 5px grey; 
-}
-.post-acreditation{
-	padding-bottom:10px;
-}
-.post-main-image{
-	width:80%;
-	margin:1.25em auto;
-}
-.article-post-image{
-	width:100%;
-}
-.published-topics ul{
-	list-style:none;
-	text-align:left;
-}
-#menu-checkbox-control, .dropdown-button{
-	display:none;
-}
-em, i{font-style:italic;}
 main ul, ol{
 	text-indent: 10px;
 	padding-left: 1.875em;
@@ -240,7 +213,7 @@ main ul{
 		right: 10px;
 		color:white;
 		margin-left: 50px;
-	}
+	}	
 	header{
 		position:sticky;
 		top:0;
@@ -296,6 +269,13 @@ main p{
 	text-align:left;
 	padding:10px;
 }
+.post-main-image{
+	width:60%;
+	margin:10px auto;
+}
+.article-index-image{
+	height:9.375em;
+}
 footer{
 	text-align:center;
 }
@@ -311,13 +291,17 @@ footer span{
 main p{
 	font-size:1.1em;
 }
+.post-acreditation{
+	font-size:0.725em;
 }
-@media only screen and (min-width:601px) and (max-width:768px) {
+}
+@media only screen and (min-width:601px) and (max-width:768px){
 	.hide-in-mobile{
 		display:none;
 	}
 	header{
 		height:4.375em;
+		margin:0;
 	}
 	.banner-bar,.nav-bar,.log-account-section{
 		display:block;
@@ -346,6 +330,12 @@ main p{
 	}
 	main{
 		width:90%
+	}
+	.post-main-image{
+		width:60%;
+	}
+	.article-index-image{
+		height:12.5em;
 	}
 	.login-signup{
 		position:absolute;
@@ -578,6 +568,9 @@ main p{
 		text-indent: 0;
 		padding: 0;
 	}
+	.article-index-image{
+		height:12.5em;
+	}
 	.nav, .copyright, .policies{
 		margin:0;
 		padding:10px 0;
@@ -783,8 +776,8 @@ main p, main li{
 				<?php $pub_post['author'] = getPostAuthorById($pub_post['user_id'])?>
 				<h3><a href="<?php echo BASE_URL ?>templates/post.html.php?id=<?php echo $pub_post['post_id'] ?>&title=<?php echo $pub_post['post_slug']?>"><?php echo $pub_post['post_title']?></a></h3>
 				<div class="post-acreditation">
-					By <?php echo $pub_post['author'];?><span>  
-					<?php echo isset($pub_post['updated_at'])? 'Updated on '. date( 'F j, Y', strtotime($pub_post['updated_at'])): 'Published on '. date( 'F j, Y', strtotime($pub_post['created_at'])) ?></span>
+					<span>  
+					<?php echo isset($pub_post['updated_at'])? 'Updated on '. date( 'F j, Y', strtotime($pub_post['updated_at'])): 'Published on '. date( 'F j, Y', strtotime($pub_post['created_at'])) ?>, By <?php echo $pub_post['author'];?></span>
 				</div>
 					
 				<div class="paragraph-snippet">
@@ -812,10 +805,11 @@ main p, main li{
 				</div>
 			</aside>	
 		</main>
+		<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
+		<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
 		<footer class="group">
 			<?php include __DIR__ .'/footer.html.php'?>
 		</footer>
-		<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
-		<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
+		
 	</body>
 </html>
