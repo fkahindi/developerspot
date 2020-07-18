@@ -153,6 +153,23 @@ aside{
 	padding:10px;
 	text-align:left;
 }
+.contact-me{
+    margin:3em auto;
+    padding:20px;
+    background:#E5E4E2;
+}
+.contact-me img{
+    float:right;
+    margin:10px;
+    border-radius:50%;
+}
+.contact-me p{
+    font-family:arial;
+    font-size:1.2em;
+}
+.contact-me button{
+    cursor:pointer;
+}
 hr{border:thin solid rgb(240,240,240);}
 
 .login-signup{
@@ -858,6 +875,9 @@ main p, main li{
 				<?php foreach($recent_posts as $latest_post): ?>
 				<p><a href="post.html.php?id=<?php echo $latest_post['post_id'] ?>&title=<?php echo $latest_post['post_slug']?>"> <?php echo $latest_post['post_title'] ?></a></p>
 				<?php endforeach; ?>
+                <div class="contact-me">
+                    <?php include __DIR__ . '/contact-me.html.php'?>
+                </div>
 			</div>
 			
 			<div>   

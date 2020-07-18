@@ -85,6 +85,23 @@ aside{
 	padding:10px;
 	text-align:left;
 }
+.contact-me{
+    margin:3em auto;
+    padding:20px;
+    background:#E5E4E2;
+}
+.contact-me img{
+    float:right;
+    margin:10px;
+    border-radius:50%;
+}
+.contact-me p{
+    font-family:arial;
+    font-size:1.2em;
+}
+.contact-me button{
+    cursor:pointer;
+}
 hr{border:thin solid rgb(240,240,240);}
 .group:before,.group:after{
 	content:"";
@@ -392,14 +409,18 @@ main p{
 	}	
 }
 @media only screen and (min-width:769px) and (max-width:992px){
-	.col-2-10,.col-3-10,.col-5-10{
+	.col-5-10{
 		display: inline-block;
 		vertical-align: top;
 		float:left;
 	}
-	.col-2-10{width:20%;}
-	.col-3-10{width:20%;}
-	.col-5-10{width:60%;}
+    .col-2-10,.col-3-10{
+        float:right;
+        display:block;
+    }
+	.col-2-10{width:35%;}
+	.col-3-10{width:35%;}
+	.col-5-10{width:65%;}
 	header{
 		height:4.375em;
 		margin:0;
@@ -796,6 +817,9 @@ main p, main li{
 				<?php foreach($recent_posts as $latest_post): ?>
 				<p><a href="post.html.php?id=<?php echo $latest_post['post_id'] ?>&title=<?php echo $latest_post['post_slug']?>"> <?php echo $latest_post['post_title'] ?></a></p>
 				<?php endforeach; ?>
+                <div class="contact-me">
+                    <?php include __DIR__ . '/contact-me.html.php'?>
+                </div>
 			</div>
 			</aside><!--			
 			--><aside class="hide-in-bigger-screens">

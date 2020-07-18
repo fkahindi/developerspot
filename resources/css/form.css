@@ -15,6 +15,15 @@
 	background: rgb(249,249,249);
 	line-height: 1em;
  }
+ #contact-me{
+    border: 1px solid #d6d7da;
+	border-radius: 0; 
+	background: #fff;
+	line-height: 1em;
+ }
+ #contact-me textarea{
+    width:95%;
+}
 form label, form input{
 	display:block;
 	margin-bottom:5px;
@@ -32,6 +41,9 @@ form input, form input[type="checkbox"]{
 	border: solid 1px #3E606F; 
 	border-radius: 5px;
 	padding:.6em; 
+}
+#contact-me input{
+    border-radius: 0;
 }
 form input:focus{
 	border:solid thin silver;
@@ -83,6 +95,15 @@ font-weight: bold;
 padding: 12px 15px;
 color: #ffffff;
 margin:0 auto;
+}
+#contact-me input[type="submit"]{
+    background:#E5E4E2;
+}
+.comment form input[type="submit"]{
+	border-radius:5px;
+	background:#6D7B8D;
+    color:black;
+    font-weight:bold;
 }
 .reply-textarea{
 	background:rgb(245,245,245);
@@ -167,10 +188,10 @@ form label, form input[type="submit"]{
 	font-size:1em;
 }
 @media only screen and (max-width:480px){
-.section,#create-account,#login, #recover,#reset, #upload, #subscribe{
+.section,#create-account,#login, #recover,#reset, #upload, #subscribe, #contact-me{
 	max-width: 80%;
 }
-.section,#create-account,#login, #recover,#reset, #upload, #subscribe{
+.section,#create-account,#login, #recover,#reset, #upload, #subscribe, #contact-me{
 padding: 0px 5px; 
 line-height: 16px;
 margin: 1.875em auto 1.25em auto;
@@ -199,12 +220,10 @@ form input[type="submit"]{
 .comment form input[type="submit"]{
 	width:5em;
 	height:2.5em;
-	border-radius:5px;
-	background:#6D7B8D;
 }
 .reply form input[type="submit"]{
 	width:5em;
-	height:1.875em;
+	height:2.5em;
 }
 .reply form textarea{
 	width:100%;
@@ -224,10 +243,6 @@ form input[type="submit"]{
 .form-guidelines{
 	font-size:.7em;
 }
-.comment form input[type="submit"]{
-	font-weight:bold;
-	color:black;
-}
 .form_error span{
 	font-size: 1em;
 }
@@ -236,14 +251,13 @@ form input[type="submit"]{
 }
 }
 @media only screen and (min-width:480px)and (max-width:600px){
-.section,#create-account,#login, #recover,#reset, #upload, #subscribe{
+.section,#create-account,#login, #recover,#reset, #upload, #subscribe, #contact-me{
 	max-width: 60%;
 }
-.section,#create-account,#login, #recover,#reset, #upload, #subscribe{
+.section,#create-account,#login, #recover,#reset, #upload, #subscribe, #contact-me{
 padding: 0px 5px; 
 line-height: 16px;
 margin: 1.875em auto 1.25em auto;
-
 }
 #subscribe{
 	max-width: 80%;
@@ -268,12 +282,10 @@ form input[type="submit"]{
 .comment form input[type="submit"]{
 	width:5em;
 	height:2.5em;
-	border-radius:5px;
-	background:#6D7B8D;
 }
 .reply form input[type="submit"]{
 	width:5em;
-	height:1.875em;
+	height:2.5em;
 }
 .reply form textarea{
 	width:100%;
@@ -293,10 +305,6 @@ form input[type="submit"]{
 .form-guidelines{
 	font-size:.7em;
 }
-.comment form input[type="submit"]{
-	font-weight:bold;
-	color:black;
-}
 .form_error span{
 	font-size: 1em;
 }
@@ -305,10 +313,10 @@ form input[type="submit"]{
 }
 }
 @media only screen and (min-width:600px){
-.section,#create-account,#login, #recover,#reset, #upload{
+.section,#create-account,#login, #recover,#reset, #upload, #contact-me{
 max-width: 23em; 
 }
-.section,#create-account,#login, #recover,#reset, #upload{ 
+.section,#create-account,#login, #recover,#reset, #upload, #contact-me{ 
 padding: 0 15px 15px 15px;  
 margin: 35px auto 20px auto;
 }
@@ -341,10 +349,6 @@ margin:20px auto;
 .comment form input[type="submit"]{
 	width:100px;
 	height:40px;
-	border-radius:5px;
-	background:#6D7B8D;
-	font-weight:bold;
-	color:black;
 }
 .reply form input[type="submit"]{
 	width:80px;
@@ -371,10 +375,6 @@ font-size:1em;
 }
 .form-guidelines{
 	font-size:.8em;
-}
-.comment form input[type="submit"]{
-	font-weight:bold;
-	color:black;
 }
 .form_error span{
 	font-size: 1.1em;

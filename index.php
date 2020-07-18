@@ -771,7 +771,6 @@ main p, main li{
 	font-size:1.3em;
 }
 }
-
 </style>
 	<!-- head section -->
 	<meta name="description" content="A blogging site dedicated to front-end and back-end  technologies for web development. Provides informative and practical tutorials to unlock the potential of any upcoming web developer." />
@@ -834,9 +833,7 @@ main p, main li{
 				<p><a href="templates/post.html.php?id=<?php echo $latest_post['post_id'] ?>&title=<?php echo $latest_post['post_slug']?>"> <?php echo $latest_post['post_title'] ?></a></p>
 				<?php endforeach; ?>
                     <div class="contact-me">
-                    <img src="resources/photos/franciskahindi-01.jpg" alt="Francis-photo" loading="lazy" width="50px" height="60px">
-                    <p>Hi,<br> I'm <em><strong>Francis Kahindi</strong></em>, I help build fast, responsive, SEO friendly websites and web apps. 
-                    <script src="<?php echo BASE_URL ?>resources/js/contact-me.js"></script> </p>
+                      <?php include __DIR__ . '/templates/contact-me.html.php'?>
                     
                    </div>
 				</div>

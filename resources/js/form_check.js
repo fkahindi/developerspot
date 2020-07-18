@@ -1,6 +1,7 @@
 $("document").ready(function(){
 	var username_state = false;
 	var email_state = false;
+    var name_state = false;
 	var privacy_state = false;
 	$("#username").on("blur", function(){
 		var illegalChars = /\W/; /* Allow at least letters, numbers, and underscores */
@@ -27,12 +28,12 @@ $("document").ready(function(){
 				"username" : username,
 			},
 			success: function(response){
-					if (response == "taken" ) {
+					if (response === "taken" ) {
 						username_state = false;
 						$("#username").parent().removeClass();
 						$("#username").parent().addClass("form_error");
 						$("#username").siblings("span").text("Sorry... You cannot use: "+username);
-					}else if(response == 'not_taken') {
+					}else if(response ==='not_taken') {
 						username_state = true;
 						$("#username").parent().removeClass();
 						$("#username").parent().addClass("form_success");
@@ -68,12 +69,12 @@ $("document").ready(function(){
 			"email" : email,
 		},
 		success: function(response){
-				if (response == "taken" ) {
+				if (response === "taken" ) {
 					email_state = false;
 					$("#email").parent().removeClass();
 					$("#email").parent().addClass("form_error");
 					$("#email").siblings("span").text("Sorry... You cannot use " +email);
-				}else if (response == "not_taken") {
+				}else if (response === "not_taken") {
 					email_state = true;
 					$("#email").parent().removeClass();
 					$("#email").parent().addClass("form_success");
@@ -86,7 +87,6 @@ $("document").ready(function(){
  }); 
  
  $("#submit_btn").on("click", function(e){
-	 
 	 
  	if(username_state === false || email_state === false)
 	{	
@@ -106,7 +106,6 @@ $("document").ready(function(){
 			$("#email").parent().addClass("form_error");
 			$("#email").siblings("span").text("Email is required");
 		}
-		
 	}else{
 		$("#error_msg").text("");
 		$("#username").siblings("span").text("");
@@ -115,4 +114,92 @@ $("document").ready(function(){
 		return true;
 	}
  });
+ /* Cripts for contact me form */
+ $("#name").on("blur", function(){
+    var name = $("#name").val();
+    if(name === ""){
+        return;
+    }else if(!testTextField(name)){
+        name_state = false;
+        $("#name").parent().removeClass();
+        $("#name").parent().addClass("form_error");
+        $("#name").siblings("span").text("Remove illegal symbols in name");
+    }else{
+        name_state = true;
+        $("#name").parent().removeClass();
+        $("#name").parent().addClass("form_success");
+        $("#name").siblings("span").text("");
+    }
+ });
+ $("#contact_email").on("blur", function(){
+    var contactEmail = $("#contact_email").val();
+    if(contactEmail === ""){
+        return;
+    }else if(testEmailField(contactEmail)=== "invalidEmail"){
+        email_state = false;
+        $("#contact_email").parent().removeClass();
+        $("#contact_email").parent().addClass("form_error");
+        $("#contact_email").siblings("span").text("Invalid email");
+    }else if(testEmailField(contactEmail)=== "illegalEmail"){
+        email_state = false;
+        $("#contact_email").parent().removeClass();
+        $("#contact_email").parent().addClass("form_error");
+        $("#contact_email").siblings("span").text("Email contain illegal characters");
+    }else if(testEmailField(contactEmail)=== "emailOK"){
+        email_state = true;
+        $("#contact_email").parent().removeClass();
+        $("#contact_email").parent().addClass("form_success");
+        $("#contact_email").siblings("span").text("");
+    }
+ });
+ $("#contact_me_btn").on("click", function(e){
+    if(name_state === false || email_state === false)
+	{	
+		e.preventDefault();
+		var name = $("#name").val();
+		var contactEmail = $("#contact_email").val(); 
+				
+		$("#error_msg").text("Fix the errors in the form first");
+				
+		if(name === ""){
+			$("#name").parent().removeClass();
+			$("#name").parent().addClass("form_error");
+			$("#name").siblings("span").text("Name is required");
+		}
+		if(contactEmail === ""){
+			$("#contact_email").parent().removeClass();
+			$("#contact_email").parent().addClass("form_error");
+			$("#contact_email").siblings("span").text("Email is required");
+		}
+	}else{
+		$("#error_msg").text("");
+		$("#name").siblings("span").text("");
+		$("#contact_email").siblings("span").text("");
+		return true;        
+	}
+ });
+ 
+    function testEmailField(emailField){
+        var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/ ; /* Check if it's valid mail address */
+        var illegalChars = /[\(\)<>\,\;\:\\\"\[\]]/ ; /* Check for illegal characters */
+        
+        if(!emailFilter.test(emailField)){
+            return "invalidEmail";
+        }else if(emailField.match(illegalChars)){
+            return "illegalEmail";
+        }else{
+            return "emailOK";
+        }
+    }
+    function testTextField(textField){
+        var legalChars = /^[\w\s.-]+$/; /* Letters, numbers, space, peroid, hyphen and underscore */
+        var textOk = false;
+        if(textField.match(legalChars)){
+			textOk = true;
+			return textOk;
+        }else{
+            textOk = false;
+            return textOk
+        }
+    }
 });

@@ -617,6 +617,35 @@ function imageUpload(){
 		}		
 	}
 }
+function contactMe(){
+    global $errors, $valid;
+    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+    $contact_email = $_POST['contact_email'];
+    $comment = $_POST['comment'];
+    
+    if(empty($_POST['name'])){
+        $valid = false;
+        $errors['name'] = 'Please, provide your name';
+    }else{
+        $valid = true;
+    }
+    if(empty($_POST['contact_email'])){
+        $valid = false;
+        $errors['contact_email'] = 'Enter your contact email';
+    }else{
+        $contact_email = filter_var($contact_email, FILTER_SANITIZE_EMAIL);
+        if(!filter_var($contact_email, FILTER_VALIDATE_EMAIL)){
+            $valid = false;
+            $errors['contact_email'] = 'Invalid email';
+        }else{
+            $valid = true;
+        }
+    }
+    if($valid){
+        $comment = htmlspecialchars($comment, ENT_QUOTES);
+        include __DIR__ .'/contact-me-email-link.php';
+    }   
+}
 function test_input($data){
 
 $data = stripslashes($data);
