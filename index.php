@@ -42,10 +42,10 @@ body {
     font-family:calibri,Arial;
 }
 h1,h2,h3,h4{
-	font-family: 'Carrois Gothic SC', sans-serif;
+    font-family:sans-serif,arial;
 	font-weight:bolder;
 	text-align:left;
-	padding-top:10px;
+	padding-top:.9em;
 }
 .paragraph-snippet{
 	font-family:'Hind Vadodara',sans-serif;
@@ -161,15 +161,15 @@ footer a{font-size:.8em;}
 .login-signup a{color:rgb( 200, 200, 233);}
 
 h1{
-	font-size:1.5em;
+	font-size:1.3em;
 	color:#071418;
 }
 h2{
-	font-size:1.3em;
+	font-size:1.1em;
 	color:#071418;
 }
 h3{
-	font-size:1.3em;
+	font-size:1.1em;
 	color:rgb(5,10,50);
 }
 main ul, ol{
@@ -283,6 +283,9 @@ aside{
 aside ul, aside ol{
 	text-indent: 0;
 	padding: 0;
+}
+.contact-me{
+    margin:1.5em auto;
 }
 main p{
 	text-align:left;
@@ -403,6 +406,9 @@ main p{
 		text-indent: 0;
 		padding: 0;
 	}
+    .contact-me{
+    margin:1.5em auto;
+}
 	main p, li{
 		font-size:1.1em;
 	}
@@ -793,7 +799,7 @@ main p, main li{
 				</div>
 			</aside><!--
 			--><section class="col-5-10">
-				<h1 class="align-center">Web Develoment | Tutorials for Developers</h1><hr>
+				<h1 class="align-center">Web Develoment Tutorials</h1><hr>
 				<div class="social-media">
 					<?php include __DIR__ .'/templates/social-icons-links.php';?>
 				</div>
@@ -819,10 +825,6 @@ main p, main li{
 					<a href="templates/post.html.php?id=<?php echo $post_id['post_id'] ?>&title=<?php echo $post['post_slug'] ?>">Read more...</a>
 				</div><br>
 				<?php endforeach; ?>
-				<!-- Social icons -->
-				<div >
-					<?php include __DIR__ .'/templates/social-icons-links.php';?>
-				</div>
 			</section><!--			
 			--><aside class="col-3-10">
 				<!-- Sidebar content goes here-->
@@ -834,8 +836,7 @@ main p, main li{
 				<?php endforeach; ?>
                     <div class="contact-me">
                       <?php include __DIR__ . '/templates/contact-me.html.php'?>
-                    
-                   </div>
+                    </div>
 				</div>
 			</aside><!--			
 			--><aside class="hide-in-bigger-screens">

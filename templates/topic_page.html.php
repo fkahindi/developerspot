@@ -46,10 +46,10 @@ body {
     font-family:calibri,Arial;
 }
 h1,h2,h3,h4{
-	font-family: 'Carrois Gothic SC', sans-serif;
+	font-family:sans-serif,arial;
 	font-weight:bolder;
 	text-align:left;
-	padding-top:10px;
+	padding-top:1em;
 }
 a{text-decoration:none;}
 figcaption{text-align:left;}
@@ -282,6 +282,9 @@ aside ul, aside ol{
 	text-indent: 0;
 	padding: 0;
 }
+.contact-me{
+    margin:1.5em auto;
+}
 main p{
 	text-align:left;
 	padding:10px;
@@ -401,6 +404,9 @@ main p{
 		text-indent: 0;
 		padding: 0;
 	}
+    .contact-me{
+    margin:1.5em auto;
+    }
 	main p, li{
 		font-size:1.1em;
 	}

@@ -2,9 +2,9 @@
 Options +FollowSymlinks
 RewriteEngine On
 Options  -Indexes
-#RewriteRule ^(.*)\.php$ $1.html [NC] 
+RewriteRule (.*)/$ post.html.php?id=$1 
 #RewriteRule ^post.html.php?(id=[d]+)&title=([w]+)$ $2.php
 #RewriteRule ^post.html.php /post.php&title=cached
-RewriteCond %{QUERY_STRING} title=(.+)
-RewriteRule ^templates/([^/]+)/(.*) /%1/post.html.php?&file=$2 [QSA]
+#RewriteCond %{QUERY_STRING} title=(.+)
+#RewriteRule ^templates/([^/]+)/(.*) /%1/post.html.php?&file=$2 [QSA]
 

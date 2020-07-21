@@ -36,17 +36,11 @@
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;form method="POST" action=""&gt;
-		
 		&lt;input type="text" name="name"  placeholder="name ..." &gt;
-		
 		&lt;input type="email" name="email"  placeholder="Email..." &gt;
-		
 		&lt;input type="tel" name="tel" placeholder="Phone number..." &gt;
-		
 		&lt;input type="password" name="password" placeholder="Password..." &gt;
-		
 		&lt;textarea name="comment" col=30 rows=5 placeholder="Type your text here..." &gt;&lt;/textarea&gt;
-		
 		&lt;input type="submit" name="submit" value="Submit"&gt;
 	&lt;/form&gt;
 &lt;/body&gt;
@@ -92,10 +86,8 @@
 <pre class="prettyprint linenums">
 &lt;?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-	
 	//Set empty variables
 	$name=$email=$tel=$password=$comment="";
-	
 	//Collect input values into variables 
 	$name = $_POST["name"];
 	$email = $_POST["email"];
@@ -103,7 +95,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$password = $_POST["password"];
 	$comment = $_POST["comment"];
 	$errors = [ ];
-		
 	//First check that the mandatory fields are not empty
 	if(empty($_POST["name"])){
 		$errors["name"] = "Name can't be empty";
@@ -117,7 +108,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if(empty($_POST["password"])){
 		$errors["password"] = "Password cannot be blank";
 	}
-	
 	//Since variables are not empty, 
 	//remove any illegal characters by sanitizing inputs
 	$name = filter_var($name, FILTER_SANITIZE_STRING);
@@ -169,10 +159,8 @@ $comment = htmlspecialchars($comment);
 <pre class="prettyprint linenums">
 &lt;?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-	
 	//Set empty variables
 	$name=$email=$tel=$password=$comment="";
-	
 	//Collect input values into variables 
 	$name = $_POST["name"];
 	$email = $_POST["email"];
@@ -181,12 +169,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$comment = $_POST["comment"];
 	$errors = [ ];
 	$valid = true;
-	
 	//Regular expressions
 	$text_pattern = "/^(?:[a-zA-Z])[\w\s.-]{2,}$/";
 	$tel_pattern = "/^(\+\d{1,3})?[0]?[\d]{9}$/";
 	$password_pattern = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^\W_]{8,}$/";
-		
 	//First check that the mandatory fields are not empty
 	//Then sanitize and validate
 	if(empty($_POST["name"])){
@@ -234,9 +220,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		}
 	}
 	$comment = htmlspecialchars($comment);
-	
-	if($valid){
-						
+	if($valid){				
 		// output the sanitized and validated data
 		echo 'Name: '.$name .'&lt;br&gt;';
 		echo 'Email: '.$email .'&lt;br&gt;';
@@ -265,10 +249,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <pre class="prettyprint linenums">
 &lt;?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-	
 	//Set empty variables
 	$name=$email=$tel=$password=$comment="";
-	
 	//Collect input values into variables 
 	$name = $_POST["name"];
 	$email = $_POST["email"];
@@ -277,12 +259,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$comment = $_POST["comment"];
 	$errors = [ ];
 	$valid = true;
-	
 	//Regular expressions
 	$text_pattern = "/^(?:[a-zA-Z])[\w\s.-]{2,}$/";
 	$tel_pattern = "/^(\+\d{1,3})?[0]?[\d]{9}$/";
 	$password_pattern = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^\W_]{8,}$/";
-		
 	//First check that the mandatory fields are not empty
 	//Then sanitize and validate
 	if(empty($_POST["name"])){
@@ -301,7 +281,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$valid = false;
 	}else{
 		$email = filter_var($email, FILTER_SANITIZE_EMAIL);
-		
 		//Validate email field
 		$emaiil = trim($email);
 		if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -331,8 +310,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		}
 	}
 	$comment = htmlspecialchars($comment);
-	if($valid){
-						
+	if($valid){			
 		// output the sanitized and validated data
 		echo 'Name: '.$name .'&lt;br&gt;';
 		echo 'Email: '.$email .'&lt;br&gt;';
@@ -344,7 +322,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	}	
 }
 ?&gt;
-
 &lt;! DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;

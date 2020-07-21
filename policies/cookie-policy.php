@@ -25,7 +25,7 @@ body {
     font-family:calibri,Arial;
 }
 h1,h2,h3,h4{
-	font-family: 'Carrois Gothic SC', sans-serif;
+	font-family:sans-serif,arial;
 	font-weight:bolder;
 	text-align:left;
 	padding-top:10px;

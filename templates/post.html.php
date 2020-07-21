@@ -38,10 +38,11 @@ body {
 }
 .banner-bar{font-family: Aladin;}
 h1,h2,h3,h4{
-	font-family: 'Carrois Gothic SC', sans-serif;
+    font-family:sans-serif,arial;
 	font-weight:bolder;
 	text-align:left;
-	padding-top:10px;
+	padding-top:1em;
+    line-height:.9;
 }
 code{
 	font-family:'Courier New',Courier;
@@ -102,7 +103,7 @@ footer a{font-size:.8em;}
 main{margin:0 auto;}
 
 main p{
-	line-height:1.4em;
+	line-height:1.5em;
 	text-align:justify;
 	padding:10px 0;
 }
@@ -183,15 +184,15 @@ hr{border:thin solid rgb(240,240,240);}
 	top:10px;
 }
 h1{
-	font-size:2em;
+	font-size:1.3em;
 	color:#071418;
 }
 h2{
-	font-size:1.3em;
+	font-size:1.1em;
 	color:#071418;
 }
 h3{
-	font-size:1.3em;
+	font-size:1.1em;
 	color:rgb(5,10,50);
 }
 h4{
@@ -199,7 +200,7 @@ h4{
 }
 h5{
 	padding:10px;
-	line-height:1.4;
+	line-height:1.3;
 	text-align:left;
 }
 .post-acreditation{
@@ -248,6 +249,8 @@ em, i{font-style:italic;}
 	.hide-in-mobile{
 		display:none;
 	}
+    h1,h2,h3,h4{padding-left:10px}
+    .published-topics ul,.recent-posts p,.post-acreditation{padding-left:10px}
 	#dropdown-menu-btn{
 		display:block;
 		position:absolute;
@@ -331,6 +334,7 @@ aside ul, aside ol{
 	text-indent: 0;
 	padding: 0;
 }
+.contact-me{margin:1.5em auto;}
 main p{
 	text-align:left;
 	padding:10px;
@@ -446,6 +450,9 @@ main p{
 		text-indent: 0;
 		padding: 0;
 	}
+    .contact-me{
+    margin:1.5em auto;
+    }
 	main p, li{
 		font-size:1.1em;
 	}
