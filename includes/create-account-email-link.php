@@ -5,7 +5,7 @@ $output.='<p>------------------------------------------------</p>';
 
 /* **FOR ONLINE SERVER **
 
-	$output.='<p><a href="https://www.developerspot.co.ke/templates/confirm-subscription.html.php?
+	$output.='<p><a href="https://www.developerspot.co.ke/templates/set-account-password.html.php?
 key='.$token.'&email='.$email.'&action=subscribe" target="_blank">
 
 ** */
@@ -44,6 +44,7 @@ $mail->AddAddress($email_to);
 if(!$mail->Send()){
 	$email_error = 'Message could not be sent. '.$mail->ErrorInfo;
 }else{
-	$email_success = "<p>An email has been sent to ".$email.". You will need to open your  email and confirm  that you are the one creating the account.</p>";
+$_SESSION['email_success'] = "<p>An email has been sent to ".$email.". You will need to open your  email and confirm  that you are the one creating the account.</p>";
+    header('Location: ../templates/thank-you.html.php');
 }
  

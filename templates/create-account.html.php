@@ -16,7 +16,6 @@ if(isset($_POST['create-account'])){
 	<link rel="stylesheet" href="../resources/css/form.css">
 </head>
 <body>
-	<div class="successMsg"><?php echo(!empty($form_success)? $form_success:''); ?></div>
 	<div id="create-account">
 		<div class="form_image">
 			<div class="banner-bar"><h2>Developers Pot</h2></div>

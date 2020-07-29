@@ -85,10 +85,18 @@ $("document").ready(function(){
 	}
  		
  }); 
+ $("#privacy-checkbox").on("change",function(){
+		if($(this).is(":checked")){
+			privacy_state = true;
+			
+		}else{
+			privacy_state = false;
+		}
+	});
  
  $("#submit_btn").on("click", function(e){
 	 
- 	if(username_state === false || email_state === false)
+ 	if(username_state === false || email_state === false || privacy_state === false)
 	{	
 		e.preventDefault();
 		var username = $("#username").val();
@@ -106,11 +114,19 @@ $("document").ready(function(){
 			$("#email").parent().addClass("form_error");
 			$("#email").siblings("span").text("Email is required");
 		}
+        
+        if(privacy_state === false){
+            $("#privacy-checkbox").parent().removeClass();
+			$("#privacy-checkbox").parent().addClass("errorMsg");
+			$("#privacy-checkbox").siblings("p").append();
+			return;
+        }
 	}else{
 		$("#error_msg").text("");
 		$("#username").siblings("span").text("");
 		$("#email").siblings("span").text("");
-		$("#privacy-checkbox").siblings("span").text("");
+        $("#privacy-checkbox").parent().removeClass("errorMsg");
+		$("#privacy-checkbox").siblings("p").text("");
 		return true;
 	}
  });

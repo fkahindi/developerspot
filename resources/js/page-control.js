@@ -1,4 +1,5 @@
 $("document").ready(function(){
+    "use strict";
 	$("#tooltip").mouseenter(function(){
 		if($("#profile-checkbox-control").prop("checked")=== true){
 			$(".tooltip-text").hide(200);

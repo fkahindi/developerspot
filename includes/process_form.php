@@ -95,8 +95,8 @@ function createAccount(){
 				if($span<= 86400){
 					/* If link was sent in less than 24 hrs notify user */
 
-					echo 'A link was sent to '.$temp_row['email'].' address in less than 24 hours ago. Check your email inbox.';
-					
+					$_SESSION['email_success'] = 'A link was sent to '.$temp_row['email'].' address in less than 24 hours ago. Check your email inbox.';
+                    header('Location: ../templates/thank-you.html.php');
 				}else{
 					/* Update token, date and fullname (if set) then send email link */
 					$fields = ['token' => $token, 'created_at' => $created_at];

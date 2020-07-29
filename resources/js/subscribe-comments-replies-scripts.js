@@ -1,4 +1,5 @@
 $("document").ready(function(){
+     "use strict";
 	var email_state = false;
 	var privacy_state = false;
 	/**
