@@ -12,8 +12,8 @@ if(isset($_POST['create-account'])){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Create Account</title>
-	<link rel="stylesheet" href="../resources/css/form.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css"/>
+    <title>Create Account</title>
 </head>
 <body>
 	<div id="create-account">
@@ -37,7 +37,7 @@ if(isset($_POST['create-account'])){
 		</div>
 		<div class="group-form">
 			<label for="privacy">
-			<input type="checkbox" name="privacy" value="privacy" id="privacy-checkbox"><span class="red"> &#42;</span> Yes, I have read and agree with the <a href="<?php echo BASE_URL ?>policies/privacy-policy.php">privacy policy</a></label>
+			<input type="checkbox" name="privacy" value="privacy" id="privacy-checkbox"><span class="red"> &#42;</span> Yes, I have read and agree with the <a target="blank" href="<?php echo BASE_URL ?>policies/privacy-policy.php">privacy policy</a></label>
 			<span class="errorMsg"> <?php echo(!empty($errors['privacy']) ? $errors['privacy'] : ''); ?> </span>
 		</div>
 		<input name="create-account" type="submit" id="submit_btn" class="button" value="Create Account">

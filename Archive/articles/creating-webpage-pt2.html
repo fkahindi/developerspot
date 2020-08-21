@@ -1,22 +1,27 @@
-<h1>Creating a Webpage Part2</h1>
-<!--It shows how HTML tables, forms, lists and semantic sections can be laid out and formatted on a webpage.  -->
-<p>This is a second part of the series <em>Creating a Webpage</em>. In the fist part, <a href="">Creating a webpage Part1</a> we looked at how to structure a web document for both semantic and presentation purposes. In this post we are going to add features to that skeleton we created last time.<p>
-<p>At the end of this tutorial you would have covered:</p>
+<h1>Creating a Webpage: Designing a Responsive page</h1>
+<!--How to design a responsive web page and responsive navigation menus using CSS, media queries, unordered lists... -->
+<p>This is a second part of the series <em>Creating a Webpage</em>. In the fist part, we learned <a href="post.html.php?id=5">how to structure an HTML document</a> using both semantic and presentation HTML elements. In this post we are going to add a navigation menu to the structure and make it a <span class="key">responsive webpage</span>. We will use <span class="key">Cascading Style Sheets (CSS)</span> to accomplish that.<p>
+<p>At the end of this tutorial you should be able to create:</p>
 <ul>
-	<li>How to create <em>Ordered list</em></li>
-	<li>How to create <em>Unordered list</em></li>
-	<li>How to create a <em>table</em></li>
-	<li>How to create a<em>form</em></li>
+	<li>a <em>responsive navigation menu</em></li>
+	<li> <em>laying out a responsive webpage</em></li>
 </ul>
-<p>We will put those components on the webpage and style them with CSS. In the end you will have several new HTML tags into your arsenal. Before we dive in, some important info about HTML elements.</p>
-<h3>Block-level Vs Inline Elements</h3>
-<p>HTML elements can be categorized as either <em>block-level</em> or <em>inline</em> elements. <strong>Block-level</strong> element occupy the entire width of the parent container. By default browsers display block elements in a new line as a block. Examples of block-level elements are  <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;h1&gt; ... &lt;h6&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code> and many others.</p>
-<p>On the other hand  <strong>inline-level</strong> elements only occupies space bounded by the tags and don't break the flow of the content they are placed in. By default they don't start on a new line. Examples of <em>inline-level</em> elements are <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;button&gt;</code> and so on.</p>
-<h4>The Paragraph <code>&lt;p&gt;</code> Element</h4>
+<p>In the process you will learn how to  </p>
+<ol>
+    <li>use <code>&lt;ul&gt;</code>, unordered lists.</li>
+    <li>use CSS <code>class</code>, <code>id</code> and <code>element</code> selectors to target document objects for styling.</li>
+    <li>use CSS <code>@media</code> queries for responsive web design.</li>
+</ol>
+<p class="special-p">A <em>responsive web page </em>is designed to look good in all devices: desktops, laptops and phones. Such a page adjusts automatically, to fit the screen width it is being viewed.</p>
+<p>We will be dropping in new HTML tags along the way that will become part of your arsenal. But before we dive in, some important info about HTML elements.</p>
+<h3>Block-level vs Inline Elements</h3>
+<p>HTML elements can be categorized as either <em>block-level</em> or <em>inline</em> elements. A <strong><span class="key">block-level element</span></strong> occupies the entire width of the parent container. By default browsers display block elements in a new line as a block. Examples of block-level elements are  <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;h1&gt;</code>,...,<code>&lt;h6&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code> and many others.</p>
+<p>On the other hand, an <strong><span class="key">inline-level element</span></strong> only occupies the space bounded by the tags and does not break the flow of the content they are placed in. By default they don't start on a new line. Examples of <em>inline-level</em> elements are <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;button&gt;</code> and so on.</p>
+<h3>The Paragraph <code>&lt;p&gt;</code> Element</h3>
 <p>Paragraphs in a web document are created by enclosing the text in <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code> tags. The <code>&lt;p&gt;</code> is both a semantic and presentational markup. As I have already said, it is also a block element. Most likely you will use alot of this element in your web projects.</p>
-<h4>The Content Division <code>&lt;div&gt;</code> Element</h4>
-<p>The <code>&lt;div&gt;</code> is a container for flow of content. It does not inherently represent anything other than grouping content so that it can be styled together. It has no semantic value. Use <code>&lt;div&gt;</code> when no other sectioning semantic element is appropriate to use. Normally, attributes such as <code>class</code> or <code>id</code> are used in the opennnig <code>&lt;div&gt;</code> tag to target the <code>&lt;div&gt;</code> section for styling.</p>
-<p>To learn various HTML elements and styling techniques I am going to create a fictitious static booking site for the famous <strong>Masai Mara</strong> game reserve. It is a challenge to me and I hope in the end you would have learnt alot on what goes on in developing a website.</p>
+<h3>The Content Division <code>&lt;div&gt;</code> Element</h3>
+<p>The <code>&lt;div&gt;</code> is a container for flow of content. It does not inherently represent anything other than grouping content so that it can be styled together. It has no semantic value. Use <code>&lt;div&gt;</code> when no other sectioning semantic element is appropriate to use. Normally, selectors such as <code>class</code> or <code>id</code> are used in the opennnig <code>&lt;div&gt;</code> tag to target the <code>&lt;div&gt;</code> section for styling.</p>
+<p>To learn various HTML elements and styling techniques I am going to create a fictitious static reservation page for the famous <strong>Masai Mara</strong> game reserve. It is a challenge I'm taking, hoping in the end you would have learned alot on what goes on in developing a website.</p>
 <p>At the moment this is what we finally had from the previous post:</p>
 <pre class="prettyprint linenums">
 &lt; !DOCTYPE html&gt;
@@ -28,7 +33,6 @@
 		&lt;meta name="description" content="Briefly describe your web page her "&gt;
 		&lt;meta name="keywords" content="type keywords/ phrases that searchers may use to search for your contents."&gt;
 		&lt;title&gt;HTML Document Structure&lt;/title&gt;
-		&lt;link rel="stylesheet" href=""&gt;
 	&lt;/head&gt;
 	&lt;body&gt;
 		&lt;header&gt;
@@ -71,15 +75,405 @@
 	&lt;/body&gt;
 &lt;/html&gt;
 </pre>
-<p>In you installed a web server on your local machine create a project folder called <code>mara-project</code> in the root <code>htdocs</code>, for apache server or <code>www</code> for windows IIS server. If you have not yet installed a web server in your computer, don't freak, just create the folder in a place you can easily access, such as root <code>c:\</code></p>
-<p>Open your text editor and paste the above code. Then save it as <code>index.html</code> in the <code>mara-project</code> folder. </p>
-<p>You can view the page by typing <code>localhost/mara-project</code> on the address bar of your browser. If you don't have a web server open the <code>mara-project</code> folder and right-click the file <code>index.html</code>. Choose <strong>Open with...</strong> and select the browser you are using. You will notice the page does not look pretty.</p>
-<p>Let's work on the <strong>header section</strong> first:</p>
+<p>If you installed a web server on your local machine, create a project folder called <code>mara-project</code> in the root <code>htdocs</code>, for apache server or <code>www</code> for windows IIS server. If you have not yet installed a web server in your computer, don't freak. Just create the folder in a place you can easily access, such as root <code>c:\</code></p>
+<p>Copy and paste the code above in your text editor. Then save it as <code>index.html</code> in the <code>mara-project</code> folder. </p>
+<p>You can view the page by typing <code>localhost/mara-project</code> on the address bar of your browser. If you don't have a web server, open the <code>mara-project</code> folder and right-click the file <code>index.html</code>. Choose <strong>Open with...</strong> and select the browser you are using.</p>
+<p>You will notice the page does not look pretty. Let's work on it. We make changes on the <strong>head</strong> and <strong>header</strong> sections first.</p>
 <ol>
-  <li><b>Replace</b> the title<i>HTML Document Structure</i> with <i>Masai Mara: Wonder in the Jungle </i></li>
-  <li><b>Replace</b> <code>&lt;h2&gt;Header Section&lt;/h2&gt;</code> in the <code>&lt;header&gt;</code> section with <code>&lt;h1&gt;The Wonder of the Mara&lt;/h1&gt;</code> </li>
+  <li>Replace the <b>title</b>, <i>HTML Document Structure</i> with <i><b>Mara Resort: A Jewel in the Jungle </b></i> in the <code>&lt;head&gt;</code> section.</li>
+  <li>Move the entire <code>aside</code> section from the upper part of <code>main</code> to just before the <code>&lt;/main&gt;</code> closing tag</li>
+  <li>Remove the <code>section </code> tags on the <code>header </code> and in its place copy and paste the following code</li>
+<pre class="prettyprint linenums">
+&lt;h1&gt;The Mara Resort&lt;/h1&gt;
+&lt;p class="slogan"&gt;The Jewel of the Jungle&lt;/p&gt;
+&lt;div&gt;
+    &lt;p&gt;
+    The greater Mara ecosystem encompasses areas known as the Maasai Mara National Reserve, the Mara Triangle, and several Maasai Conservancies, including Koiyaki, Lemek, Ol Chorro Oirowua, Mara North, Olkinyei, Siana, Maji Moto, Naikara, Ol Derkesi, Kerinkani, Oloirien and Kimintet.
+    &lt;/p&gt; 
+&lt;/div&gt;
+</pre>
+  <li>For menu navigation links, copy and paste the following code.</li>
 </ol>
-
-<h3>Creating Unordered List</h3>
-<p>Unordered list is created using <code>&lt;ul&gt;</code> element. Between the <code>&lt;ul&gt;</code> and <code>&lt;/ul&gt;</code> tags are nested <code>&lt;li&gt;</code> and <code>&lt;/li&gt;</code> tags. <code>&lt;li&gt;</code> stands for <em>list item</em> which enclose the items to be listed. </p>
-
+<pre class="prettyprint linenums">
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;Home&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;Safaris&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;Camping&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+</pre>
+<P>The above immediate code creates unordered list <code>&lt;ul&gt;</code>. The <code>&lt;li&gt;</code> stands for <i>list item.</i> <code>&lt;a&gt;</code> is an anchor tag used to create links to other pages. The openning anchor tag always has an <code>href=""</code> attribute whose value is the <em>URL</em> the browser will jump to when clicked.</p>
+<p>We will style the <code>&lt;header&gt;</code> section in a moment. Modify the <i>articles</i> content of the <code>&lt;main&gt;</code> section as follows: </P>
+<ol>
+    <li>The first article's <code>&lt;h2&gt;</code> heading will be <i><b>A Day in the Jungle</b></i> </li>
+    <li>The second article's <code>&lt;h2&gt;</code> heading will be <i><b>Prestine Campsite</b></i></li>
+    <li>Copy the following text and paste below the heading of the first article. </li>
+<pre class="prettyprint">
+&lt;p&gt;
+    Day-trips and excursions often add a special dimension to your intinery, elevating it from a memorable holiday to the trip of a lifetime. They are often very popular, so they are best booked in advance with Expert Africa before you depart on your trip.
+&lt;/p&gt;
+</pre>
+    <li>Copy and paste the following text below the second article's heading.</li>
+<pre class="prettyprint">
+&lt;p&gt;
+    Masai Mara National Reserve is an area of preseerved savannah wilderness in southwestern Kenya, along the Tanzanian border. Its animals include lions, cheetahs, elephants, zebras and hippos. The landscape has grassy plains and rolling hills, and is crossed by Mara and Telek rivers. 
+&lt;/p&gt;
+</pre>
+    <li>Copy the entire <code>nav</code> section on the <code>header</code> and paste it in <code>footer</code> section.</li>
+    <li>Delete the other <code>h1</code> heading in the <code>section</code> area of the <code>main</code>. </li>
+    <li>Below the <code>nav</code> tags in the <code>footer</code> type: <br> <code>&lt;p&gt;&copy;Mara Resort (2020)&lt;/p&gt;</code></li>
+</ol>
+<p>If you have followed the steps above correctly, your code you should now look like the one below.</p>
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html>
+&lt;html lang="en"&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; 
+		&lt;meta name="author" content="your name"&gt;
+		&lt;meta name="description" content="Briefly describe your web page her "&gt;
+		&lt;meta name="keywords" content="type keywords/ phrases that searchers may use to search for your contents."&gt;
+		&lt;title&gt;Mara Resort: A Jewel in the Jungle&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;header&gt;
+			&lt;h1&gt;The Mara Resort&lt;/h1&gt;
+			&lt;p class="slogan"&gt;The Jewel of the Jungle&lt;/p&gt;
+            &lt;div&gt;
+                &lt;p&gt;The greater Mara ecosystem encompasses areas known as the Maasai Mara National Reserve, the Mara Triangle, and several Maasai Conservancies, including Koiyaki, Lemek, Ol Chorro Oirowua, Mara North, Olkinyei, Siana, Maji Moto, Naikara, Ol Derkesi, Kerinkani, Oloirien and Kimintet.
+                &lt;/p&gt;
+            &lt;/div&gt;
+			&lt;nav&gt;
+				&lt;ul&gt;
+                    &lt;li&gt;
+                        &lt;a href="#"&gt;Home&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a href="#"&gt;Safaris&lt;/a&gt;
+                    &lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;Camping&lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+			&lt;/nav&gt;
+		&lt;/header&gt;
+		&lt;main&gt;
+			&lt;section&gt;
+				&lt;article&gt;
+					&lt;h2&gt;A Day in the Jungle&lt;/h2&gt;
+					&lt;p&gt;Day-trips and excursions often add a special dimension to your intinery, elevating it from a memorable holiday to the trip of a lifetime. They are often very popular, so they are best booked in advance with Expert Africa before you depart on your trip.&lt;/p&gt;
+					
+				&lt;/article&gt;
+				&lt;article&gt;
+					&lt;h2&gt;Prestine Campsite &lt;/h2&gt;
+					&lt;p&gt;Masai Mara National Reserve is an area of preseerved savannah wilderness in southwestern Kenya, along the Tanzanian border. Its animals include lions, cheetahs, elephants, zebras and hippos. The landscape has grassy plains and rolling hills, and is crossed by Mara and Telek rivers. &lt;/p&gt;
+				&lt;/article&gt;
+			&lt;/section&gt;
+            &lt;aside&gt;
+                &lt;h2&gt;Side bar&lt;/h2&gt;   
+                Side bar content will appear on the side
+				of the main content on a multi-column layout 
+				of a big screen device...
+			&lt;/aside&gt;
+		&lt;/main&gt;	
+		&lt;footer&gt;
+			&lt;nav&gt;
+				&lt;ul&gt;
+                    &lt;li&gt;
+                        &lt;a href="#"&gt;Home&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a href="#"&gt;Safaris&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a href="#"&gt;Camping&lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+			&lt;/nav&gt;
+			&lt;p class="copyright"&gt;&copy;Mara Resort (2020)&lt;/p&gt;
+		&lt;/footer&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>Now we are going to style the page and also make it responsive. Style rules can simply be placed on the head section or in an external files.</p>
+<p class="special-p">There are three places style rules can be placed:<br> 1. <i>Inline styles</i> within elements. They are discouraged because it makes it harder to debug the HTML document.<br> 2. <i>Head styles</i> these are styles placed within the <code>head </code> section of the document. <i>Head styles</i> are good and leads to faster page loading but not ideal when the rules are many or need to be used in more than one page.<br> 3. <i>External styles</i>, are styles placed in an external file or files. They are ideal because one single file can be used across multiple pages or entire website.<br>
+</p>
+<p>We will place our styles on the <code>&lt;head&gt;</code> section of the document. But before that, do the following:</p>
+<ol>
+    <li>Type <code>class="slogan"</code> in the openning <code>&lt;p&gt;</code> tag of the <i>The Jewel of the Jungle</i> text.</li>
+    <li>Add a <code>class="group"</code> in the openning <code>&lt;main&gt;</code>,  <code>&lt;section&gt;</code> and <code>&lt;aside&gt;</code> tags.</li>
+    <li>Add <code>class="copyright"</code> in the <code>&lt;p&gt;</code> tag with copyright information.</li>
+</ol>
+<p>We will now define our style rules within <code>style</code> ... <code>/style</code> tags just below the <code>title</code> tags of the <code>head</code> section of the document.</p>
+<pre class="prettyprint linenums">
+&lt;title&gt;Mara Resort: A Jewel in the Jungle&lt;/title&gt;
+&lt;style&gt;
+    All styles will go here... 
+&lt;/style&gt;
+</pre>
+<h2>Styling A Webpage</h2>
+<p>You style web elements by targeting them with selectors, then define rules on how they should be presented on the browser. Let's start by targeting the <code>body </code> of the page. The <code>body</code> defines the visible area of the web page. We are going to style it thus:</p>
+<pre class="prettyprint linenums">
+&lt;style&gt;
+body {
+    font-family: sans-serif, Helvetica;
+    font-size:16px;
+    color: #333;
+    background-color: #C2B280;
+    margin: 0; 
+}
+&lt;/style&gt;
+</pre>
+<p>The above styles sets the default font-type to <i>sans-serif</i>, with an alternative <i>Helvetica</i> font if the first font is not available. Base font-size is set to 16 pixels. Primary text color is set to a shade of black and Background color to sand but represented in hexadecimal numbers. Margin is set to 0 all round.</p> 
+<p>Refresh the page and see how the browser has applied the style rules.</p>
+<p>Next we are going to set the width of the <code>header</code>, <code>footer</code> and <code>main</code> sections to <code>100%</code>, <code>margin</code> and <code>padding</code> set to <code>0</code>.</p>
+<pre class="prettyprint linenums">
+header, footer, main {
+  width: 100%;
+  margin: 0;
+  padding: 0; 
+}
+</pre>
+<p>This makes these sections to cover the entire width all the time, irrespective of device screen width.</p>
+<p>We also want the <code>section</code>, <code>article</code> and <code>aside</code> sections to be displayed as inline blocks. So, we define them thus: </p>
+<pre class="prettyprint linenums">
+aside, section, article {
+  display: inline-block;
+   box-sizing:border-box;
+}
+</pre>
+<p><code>display:inline-block</code> makes targeted block elements display as inline elements. That is, they can be displayed side by side if the browser window width can accomodate that layout. </p>
+<h3>CSS Box Model</h3>
+<p>By default the CSS treats block elements as a rectangular box with height and width. The <b><span class="key">Box Model</span></b> makes the <code>margin</code>, <code>border</code>, <code>padding</code> and the <i>content</i> of a block element add to its total width and height. See the below illustration.</p> 
+<figure class="align-left"> 
+	<img src="../resources/images/css-box-model.png" loading="lazy" alt="CSS box model" width="90%" height="90%"/>
+	<figcaption class="align-left">CSS box model of a block element</figcaption>
+</figure>
+<p>For instance, setting a <code>div</code> width to <code>width:100px</code>, <code>border-width:3px</code>, <code>margin:10px</code> and <code>padding:5px</code> makes the div occupy a space of total width 118px.</p>
+<p>Using <code>box-sizing:border-box</code> alters the box model of the element so that padding and border width and height values do not add to the width or height of the element. Instead, they constrain the content of the element itself. See the figure below.</p>
+<figure class="align-left"> 
+	<img src="../resources/images/css-border-box-styling.png" loading="lazy" alt="CSS border box styling model" width="90%" height="90%"/>
+	<figcaption class="align-left">CSS border box styling</figcaption>
+</figure>
+<p>That means, if I set the <code>div</code> to <code>width:100px</code>, <code>border-width:3px</code>, <code>margin:10px</code> and <code>padding:5px</code>, my <code>div</code>  will need a space with width 110px to display properly without scrolling. </p>
+<h3>Media Queries</h3>
+<p>Next we want the page to display the a two-column layout with unequal width  on big screens such as tablets in landscape, laptops and desktops . The smaller column to occupy 40% of the screen and the bigger column 60%. In smaller devices like phones the width of the page will just be one column. </p> 
+<p>Now to accomplish what we are saying, we use <span class="key">media queries</span>. In this case our media query rule will be <code>@media (min-width:900px){ }</code>. This rule will query the browser screen width at the time of page rendering and whether it is 900px. If the width of the browser is 900px and above the browser will apply the rules defined within the braces <code>{ }</code>. One of the rules we have defined in the braces is the <code>float</code> property. The values of <code>float</code> property can be <code>none</code>, <code>left</code> or <code>right</code>.</p>
+<p> Here we want the smaller column to be displayed on the left and the bigger column on the right. This is how the rules will look like: </p>
+<pre class="prettyprint linenums">
+aside {
+  width: 100%;
+  float: none; 
+}
+@media (min-width: 900px) {
+    aside {
+        width: 40%;
+        float: left;
+        margin: 0;
+        padding: 10px; 
+    } 
+}
+section {
+    width: 100%; 
+}
+@media (min-width: 900px) {
+    section {
+        width: 60%;
+        float: right;
+        margin: 0;
+        padding: 10px; 
+    } 
+}
+</pre>
+<p>One of the problem with using <code>float</code> property is that it shifts the target element out of the natural flow of the page content. The non-floated elements moves in to occupy the space left by a floated element, causing overlaps. If you refresh the page now, you will see that the sections are floated but the footer is not at bottom as it should be.</p>
+<p>To solve that problem we use <code>clear</code> property. We define a class <code>.group</code> to target the floated sections. This is what we mean: </p>
+<pre class="prettyprint linenums">
+.group:before {
+    content: '';
+    display: table; 
+}
+.group:after {
+    content: '';
+    display: table;
+    clear: both; 
+}
+</pre>
+<p>So what's going on? The <code>.group</code> class is selecting the HTML <code>main</code>, <code>section</code> and <code>aside</code> elements we had earlier marked with <code>class="group"</code>. The <code>:before</code> and <code>:after</code> are pseudo selectors. Here we are inserting and empty content before and after the targeted element and display it in tabular format. But we are also clearing both the left and right content <i>after</i> the target element.</p> 
+<p class="special-p">Possible values of <code>clear</code> property are <code>left</code>; which clears elements on the left of the floated element, <code>right</code>; clears right elements and <code>both</code>, which clears elements on the left and right of the floated element.</p>
+<p>If you refresh the page now, the footer would have gone to its rightful place. </p>
+<h3>Styling Navigation Menu</h3>
+<p>Now it's time to style the navigation links. First we select the <code>&lt;nav&gt;</code> element. Then make the text white with <code>color:#fff</code> and aligned at the center with a line height of 2em. We then select the <code>&lt;ul&gt;</code> within the <code>&lt;nav&gt;</code> element and remove the bullet markers from the <code>&lt;ul&gt;</code>.</p> 
+<p>Next, instead of displaying the list vertically, we want to it displayed horizontally. We do that by using <code>display:inline-block</code>. We also add some padding and line height for <code>li</code> elements. The styles should look like the ones below. </p>
+<pre class="prettyprint linenums">
+nav {
+  color: #fff;
+  text-align: center;
+  height: 2em; 
+}
+nav ul {
+    list-style: none;
+    padding: .5em 0;
+    line-height: 1; 
+}
+nav ul li {
+        display: inline-block;
+        padding: 0 1em; 
+}
+</pre>
+<p>Refresh the browser and see how the page looks like.</p>
+<p>Next we style the <code>&lt;a&gt;</code> element. We remove the default underline and change the color of the anchor to white by using <code>text-decoration:none</code> and <code>color:#fff</code> respectively. We also want when the menu item is hovered the color of the item change to shade of black and font weight to bold.  This is how the styles are defined.</p>
+<pre class="prettyprint linenums">
+a {
+  text-decoration: none;
+  color: #fff; 
+}
+a:hover {
+    text-weight: bold;
+    color: #0a140a; 
+}
+</pre>
+<p>We will now style the <code>h1</code> heading with font-family, color, size, text-align and padding. I chose font-family <i>aclonica</i>. You might not have it in your system but you can chose the one you prefer. </p>
+<pre class="prettyprint linenums">
+h1{
+    color: #000;
+    font-family: aclonica;
+    font-size: 2em;
+    text-align: center;
+    padding-top: .5em;
+    padding-bottom: 0; 
+}
+</pre>
+<p>We do the same for the text <i>Jewel of the Jungle</i>.</p>
+<pre class="prettyprint linenums">
+.slogan{
+    font-family: Allura;
+    font-size: 2em;
+    text-align: center;
+    padding: 0; 
+}
+</pre>
+<p>The styles above are targeting the paragraph with the  <code>class="slogan"</code> in the document.</p>
+<p class="special-p">When chosing fonts for a webpage, it is recommended to use safe web fonts. These are fonts that are common in many client systems. However, sometimes you might want to use a unique font in your webpage and want your to viewers get the same experience whether their systems have the font or not. In such cases you need to ship the font(s) with the CSS file using <code>@font-face</code> rule, then specify the path where it's located in your server. But that's for another day.</p>
+<p>Lastly, we change the background color of the <code>nav</code> on the header and footer. Then center the copyright  information using the <code>.copyright</code> class. The styles are given below.</p>
+<pre class="prettyprint linenums">
+header nav {
+  background-color: #4E9258; 
+}
+footer nav {
+  background-color: #387C44; 
+}
+.copyright {
+  text-align: center; 
+}
+</pre>
+<p>You can refresh the page and see how it looks now.</p> 
+<p>All the styles we have used are given below. </p>
+<pre class="prettyprint linenums">
+body {
+    font-family: sans-serif, Helvetica;
+    font-size:16px;
+    color: #333;
+    background-color: #C2B280;
+    margin: 0; 
+}
+header, footer, main {
+    width: 100%;
+    margin: 0;
+    padding: 0; 
+}
+aside, section, article {
+    display: inline-block;
+    box-sizing:border-box;
+}
+aside {
+    width: 100%;
+    float: none; 
+}
+@media (min-width: 900px) {
+    aside {
+        width: 40%;
+        float: left;
+        margin: 0;
+        padding: 10px; 
+    } 
+}
+section {
+    width: 100%; 
+}
+@media (min-width: 900px) {
+    section {
+        width: 60%;
+        float: right;
+        margin: 0;
+        padding: 10px; 
+    } 
+}
+.group:before {
+    content: '';
+    display: table; 
+}
+.group:after {
+    content: '';
+    display: table;
+    clear: both; 
+}
+nav {
+    color: #fff;
+    text-align: center;
+    height: 2em; 
+}
+nav ul {
+    list-style: none;
+    padding: .5em 0;
+    line-height: 1; 
+}
+nav ul li {
+    display: inline-block;
+    padding: 0 1em; 
+}
+a {
+    text-decoration: none;
+    color: #fff; 
+}
+a:hover {
+    text-weight: bold;
+    color: #0a140a; 
+}
+h1 {
+    color: #000;
+    font-family: aclonica;
+    font-size: 2em;
+    text-align: center;
+    padding-top: .5em;
+    padding-bottom: 0; 
+}
+.slogan{
+  font-family: Allura;
+  font-size: 2em;
+  text-align: center;
+  padding: 0; 
+}
+header nav {
+    background-color: #4E9258; 
+}
+footer nav {
+    background-color: #387C44; 
+}
+.copyright {
+    text-align: center; 
+}
+</pre>
+<p>If all went well, your webpage should look like the one below, when viewed on a bigger screen.</p> 
+<figure class="align-left"> 
+	<img src="../resources/images/responsive-webpage.png" loading="lazy" alt="Responsive web page" width="90%" height="90%"/>
+	<figcaption class="align-left">A responsive web page</figcaption>
+</figure>
+<p>Since it is also responsive, if you minimize the browser screen to a smaller width, the page should react accordingly.</p>
+<p>The page is now taking good shape. In the next post, we will design a reservation form at the resort. We will also style the rest of the text.</p>
+<h2>Conclusion</h2>
+<p>If you are new to HTML and CSS you might need to practise more on the areas you have already learned. HTML elements are quite straight forward but style rules need alot of  practise and experimenting to master. I suggest you use developer resources such as <a href="https://developer.mozilla.org/en-US/">Mozilla MDN</a> and <a href="https://www.w3schools.com/">w3shools.com</a> as your companion.</p>
+<p>In case of any questions or want anything made clear, create an account and put them in the comments below. If the material has helped you, share it with your friends. Happy coding!</p>

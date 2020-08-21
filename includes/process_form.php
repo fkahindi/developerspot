@@ -102,6 +102,7 @@ function createAccount(){
 					$fields = ['token' => $token, 'created_at' => $created_at];
 					$update_usersToken = $users_tempTable->updateRecords($fields,$email);
 					require_once __DIR__ .'/create-account-email-link.php';
+                    header('Location: ../templates/thank-you.html.php');
 				} 	
 			}else{
 				$fields = [
@@ -111,9 +112,9 @@ function createAccount(){
 				'created_at' => $created_at
 				];				
 				require_once __DIR__ .'/create-account-email-link.php';	
-				if(isset($email_success)){
+				if(isset($_SESSION['email_success'])){
 					$insert_tempRecord = $users_tempTable ->insertRecord($fields);
-					$form_success = $email_success;
+                    header('Location: ../templates/thank-you.html.php');
 				}else{
 					$form_error = $email_error;
 				}

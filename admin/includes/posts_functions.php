@@ -342,9 +342,12 @@ function updatePost($request_values){
 		}
 	}
 	
-		$image_file = $_FILES['post_main_image']['name'];
-		if(!empty(getimagesize($_FILES['post_main_image']['tmp_name']))){
-			$target_file = '../resources/images/'.basename($image_file);
+		$image_file_name = $_FILES['post_main_image']['name'];
+        $image_size = $_FILES['post_main_image']['size'];
+        $image_temp_name = $_FILES['post_main_image']['tmp_name'];
+        $file_size_limit = 5000000;
+		if(!empty(getimagesize($image_temp_name))){
+			$target_file = '../resources/images/'.basename($image_file_name);
 			$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 		
 			/* //Check image size */

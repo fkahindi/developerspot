@@ -124,6 +124,9 @@ code{
 p code{
 	background:rgb(230,230,230);
 }
+li code{
+    background:rgb(230,230,230);
+}
 .special-p{
     padding:10px;
     background:rgb(100,200,250);

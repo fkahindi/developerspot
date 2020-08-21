@@ -22,7 +22,7 @@ if(isset($_POST['set-account-password'])){
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Set Account Password</title>
-	<link rel="stylesheet" href="../resources/css/form.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css"/>
 </head>
 <body>
 	<div id="error_msg"></div>

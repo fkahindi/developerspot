@@ -1,0 +1,85 @@
+<h1>Creating a Webpage Part2: Creating a Navigation Menu</h1>
+<!--This post illustrates how to design HTML tables, contact forms, ordered and unordered lists and laying out semantic HTML sections. -->
+<p>This is a second part of the series <em>Creating a Webpage</em>. In the fist part, <a href="">Creating a webpage Part1</a> we looked at how to structure a web document for both semantic and presentation purposes. In this post we are going to add features to that skeleton we created last time.<p>
+<p>At the end of this tutorial you should be able to create:</p>
+<ul>
+	<li>an  <em>Ordered list</em></li>
+	<li>an <em>Unordered list</em></li>
+	<li>an HTML <em>table</em></li>
+	<li>a contact <em>form</em></li>
+</ul>
+<p>We will put those components on the webpage and style them with CSS. In the end you will have several new HTML tags into your arsenal. Before we dive in, some important info about HTML elements.</p>
+<h3>Block-level Vs Inline Elements</h3>
+<p>HTML elements can be categorized as either <em>block-level</em> or <em>inline</em> elements. <strong>Block-level</strong> elements occupy the entire width of the parent container. By default browsers display block elements in a new line as a block. Examples of block-level elements are  <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;h1&gt; ... &lt;h6&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code> and many others.</p>
+<p>On the other hand  <strong>inline-level</strong> elements only occupies space bounded by the tags and don't break the flow of the content they are placed in. By default they don't start on a new line. Examples of <em>inline-level</em> elements are <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;button&gt;</code> and so on.</p>
+<h4>The Paragraph <code>&lt;p&gt;</code> Element</h4>
+<p>Paragraphs in a web document are created by enclosing the text in <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code> tags. The <code>&lt;p&gt;</code> is both a semantic and presentational markup. As I have already said, it is also a block element. Most likely you will use alot of this element in your web projects.</p>
+<h4>The Content Division <code>&lt;div&gt;</code> Element</h4>
+<p>The <code>&lt;div&gt;</code> is a container for flow of content. It does not inherently represent anything other than grouping content so that it can be styled together. It has no semantic value. Use <code>&lt;div&gt;</code> when no other sectioning semantic element is appropriate to use. Normally, attributes such as <code>class</code> or <code>id</code> are used in the opennnig <code>&lt;div&gt;</code> tag to target the <code>&lt;div&gt;</code> section for styling.</p>
+<p>To learn various HTML elements and styling techniques I am going to create a fictitious static booking site for the famous <strong>Masai Mara</strong> game reserve. It is a challenge to me and I hope in the end you would have learnt alot on what goes on in developing a website.</p>
+<p>At the moment this is what we finally had from the previous post:</p>
+<pre class="prettyprint linenums">
+&lt; !DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; 
+		&lt;meta name="author" content="your name"&gt;
+		&lt;meta name="description" content="Briefly describe your web page her "&gt;
+		&lt;meta name="keywords" content="type keywords/ phrases that searchers may use to search for your contents."&gt;
+		&lt;title&gt;HTML Document Structure&lt;/title&gt;
+		&lt;link rel="stylesheet" href=""&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;header&gt;
+			&lt;section&gt;
+				&lt;!--Logo or company company name can be place here --&gt;
+			&lt;/section&gt;
+			&lt;nav&gt; 
+				&lt;!--Menu navigation links go here --&gt;
+			&lt;/nav&gt;
+		&lt;/header&gt;
+		&lt;main&gt;
+			&lt;aside&gt;
+			 &lt;!--Content that will appear on the sides
+				of the main content on a multi-column layout 
+				of a big screen device.
+			--&gt;
+			&lt;/aside&gt;
+			&lt;section&gt;
+				&lt;h1&gt;The Document Structure&lt;/h1&gt;
+				&lt;article&gt;
+					&lt;h2&gt;First Article &lt;/h2&gt;
+					&lt;!--
+					..Article1 content here... 
+					--&gt;
+				&lt;/article&gt;
+				&lt;article&gt;
+					&lt;h2&gt;Second Article &lt;/h2&gt;
+					&lt;!--
+					..Article2 content here... 
+					--&gt;
+				&lt;/article&gt;
+			&lt;/section&gt;
+		&lt;/main&gt;	
+		&lt;footer&gt;
+			&lt;nav&gt;
+				&lt;!--navigation links --&gt;
+			&lt;/nav&gt;
+			&lt;!-- copyright info, company address, social media icons --&gt;
+		&lt;/footer&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>In you installed a web server on your local machine create a project folder called <code>mara-project</code> in the root <code>htdocs</code>, for apache server or <code>www</code> for windows IIS server. If you have not yet installed a web server in your computer, don't freak, just create the folder in a place you can easily access, such as root <code>c:\</code></p>
+<p>Open your text editor and paste the above code. Then save it as <code>index.html</code> in the <code>mara-project</code> folder. </p>
+<p>You can view the page by typing <code>localhost/mara-project</code> on the address bar of your browser. If you don't have a web server open the <code>mara-project</code> folder and right-click the file <code>index.html</code>. Choose <strong>Open with...</strong> and select the browser you are using. You will notice the page does not look pretty.</p>
+<p>Let's work on the <strong>header section</strong> first:</p>
+<ol>
+  <li><b>Replace</b> the title<i>HTML Document Structure</i> with <i>Masai Mara: Wonder in the Jungle </i></li>
+  <li><b>Replace</b> <code>&lt;h2&gt;Header Section&lt;/h2&gt;</code> in the <code>&lt;header&gt;</code> section with <code>&lt;h1&gt;The Wonder of the Mara&lt;/h1&gt;</code> </li>
+</ol>
+
+<h3>Creating Unordered List</h3>
+<p>Unordered list is created using <code>&lt;ul&gt;</code> element. Between the <code>&lt;ul&gt;</code> and <code>&lt;/ul&gt;</code> tags are nested <code>&lt;li&gt;</code> and <code>&lt;/li&gt;</code> tags. <code>&lt;li&gt;</code> stands for <em>list item</em> which enclose the items to be listed. </p>
+

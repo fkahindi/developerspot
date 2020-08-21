@@ -45,6 +45,5 @@ if(!$mail->Send()){
 	$email_error = 'Message could not be sent. '.$mail->ErrorInfo;
 }else{
 $_SESSION['email_success'] = "<p>An email has been sent to ".$email.". You will need to open your  email and confirm  that you are the one creating the account.</p>";
-    header('Location: ../templates/thank-you.html.php');
 }
  
