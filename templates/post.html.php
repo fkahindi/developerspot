@@ -18,6 +18,10 @@ if(!isset($_SESSION)){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- head section -->
+<title><?php echo htmlspecialchars_decode($posts['post_title']) ;?> | DevelopersPot</title>
+	<meta name="description" content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>" />
+	<?php include_once __DIR__ .'/head.html.php';?>
 <style>
 html,body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 margin: 0;
@@ -207,7 +211,7 @@ h5{
 	text-align:left;
 }
 .post-acreditation{
-	padding-bottom:10px;
+	padding:10px 0;
 }
 .post-main-image{
 	width:80%;
@@ -829,12 +833,9 @@ main p, main li{
 }
 }
 </style>
-	<!-- head section -->
-	<meta name="description" content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>" />
-	<?php include __DIR__ .'/head.html.php';?>
-	<!-- Links for google code prettify both (.css and .js at bottom of page) files -->
-	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.css" media="print" onload="this.media='all'; this.onload=null;"/>
-	<title><?php echo htmlspecialchars_decode($posts['post_title']) ;?> | DevelopersPot</title>	
+    <?php include_once __DIR__ .'/head-resources.html.php'; ?>
+	<!-- Links for google code prettify .js at bottom of page files -->
+	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.css" media="print" onload="this.media='all'; this.onload=null;"/>	
 </head>
 <body>
 

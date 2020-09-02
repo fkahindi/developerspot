@@ -236,26 +236,27 @@ function createPost($request_values){
 	/* Create slug by replacing spaces in title with hyphens */
 	$post_slug = makeSlug($title);
 	/* Get image filename */
-	$image_file = $_FILES['post_main_image']['name'];
-	if(!empty(getimagesize($_FILES['post_main_image']['tmp_name']))){
-		$target_file = BASE_URL .'resources/images/'.basename($image_file);
-		$imageFileType = strtolower(pathinfo($target, PATHINFO_EXTENSION));
-		/* Check if image already exists in target folder, to ensure no image overwriting */
-		if(file_exists($target_file)){
-			array_push($errors, 'There is already an image with the same name. Try change the name and continue.');
-		}
+    $image_file_name = $_FILES['post_main_image']['name'];
+    $image_file_temp_name = $_FILES['post_main_image']['tmp_name'];
+    $image_file_size = $_FILES['post_main_image']['size'];
+    $file_ext_type = ['jpg','png','gif'];
+    
+	if(!empty(getimagesize($image_file_temp_name))){
+		$target_file = '../resources/images/'.basename($image_file_name);
+		$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+		
 		/* Check image size */
-		if($_FILES['post_main_image']['size']>5000000){
+		if($image_file_size>500000){
 			array_push($errors, 'Sorry, image is too large');
 			
 		/* Allow only .jpg, .png and .gif file formats */
-		}else if($imageFileType != 'jpg' && $imageFileType != 'png' && 		$imageFileType != 'gif'){
+		}else if(!in_array($imageFileType,$file_ext_type)){
 			array_push($errors,'Sorry, only JPG, PNG or GIF files are allowed');
 		}
-		if(!move_uploaded_file($_FILES['post-main-image']['tmp_name'], $target_file)){
+		if(!move_uploaded_file($image_file_temp_name, $target_file)){
 			array_push($errors, 'Post image could not be uploaded, if problem persists try publishing without the image.');
 		}else{
-			$image_path = BASE_URL ."resources/images/".basename($image_file);
+			$image_path = BASE_URL ."resources/images/".basename($image_file_name);
 		}
 	}else{
 		$image_path = null;
@@ -341,32 +342,40 @@ function updatePost($request_values){
 			$sound .= metaphone($word).' ';
 		}
 	}
-	
-		$image_file_name = $_FILES['post_main_image']['name'];
-        $image_size = $_FILES['post_main_image']['size'];
-        $image_temp_name = $_FILES['post_main_image']['tmp_name'];
-        $file_size_limit = 5000000;
-		if(!empty(getimagesize($image_temp_name))){
-			$target_file = '../resources/images/'.basename($image_file_name);
-			$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-		
-			/* //Check image size */
-			if($_FILES['post_main_image']['size']>5000000){
-				array_push($errors, 'Sorry, image is too large');
-				
-				/* // Allow only .jpg, .png and .gif file formats */
-			}else if($imageFileType != 'jpg' && $imageFileType != 'png' && 		$imageFileType != 'gif'){
-				array_push($errors,'Sorry, only JPG, PNG or GIF files are allowed');
-			}
-			if(!move_uploaded_file($_FILES['post_main_image']['tmp_name'],$target_file)){
-				array_push($errors, 'Post image could not be uploaded, if problem persists try publishing without the image.');
-			}else{
-				$image_path = BASE_URL .'resources/images/'.basename($image_file);
-			}
-		}else{
-		$image_path = null;
-		}
-	
+	//include __DIR__ .'/../../classes/ImageLoad.php';
+    $image_file_name = $_FILES['post_main_image']['name'];
+    $image_file_temp_name = $_FILES['post_main_image']['tmp_name'];
+    $image_file_size = $_FILES['post_main_image']['size'];
+    $file_size_limit = 500000;
+    $file_ext_type = ['jpg','png','gif'];
+    $target_file = '../resources/images/'.basename($image_file_name);
+    
+    //$upload_file = new ImageLoad();
+    //$upload_file->isImageThere($image_file_temp_name,$target_file);
+    
+    
+    if(!empty(getimagesize($image_file_temp_name))){
+        $target_file = '../resources/images/'.basename($image_file_name);
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    
+       //Check image size
+        if($image_file_size>500000){
+            array_push($errors, 'Sorry, image is too large');
+            
+        // Allow only .jpg, .png and .gif file formats 
+        }
+        if(!in_array($imageFileType,$file_ext_type)){
+            array_push($errors,'Sorry, only JPG, PNG or GIF files are allowed');
+        }
+        if(!move_uploaded_file($image_file_temp_name,$target_file)){
+            array_push($errors, 'Post image could not be uploaded, if problem persists try publishing without the image.');
+        }else{
+            $image_path = BASE_URL .'resources/images/'.basename($image_file_name);
+        }
+    }else{
+    $image_path = null;
+    }	
+            
 	/* //Udate if there are no errors */
 	if(!$errors){
 		$query = "UPDATE `posts` SET post_title='$title', post_slug='$post_slug', post_body='$body', meta_description='$meta_description', published=$published, image='$image_path',image_caption='$image_caption', updated_at=now(), metaphoned='$sound' WHERE post_id=$post_id";

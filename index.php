@@ -8,6 +8,13 @@ include __DIR__ .'/admin/includes/admin_functions.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- head section -->
+<title>Developerspot: Frontend and Server side web development </title> 
+	<meta name="description" content="A blogging site dedicated to front-end and back-end  technologies for web development. Provides informative and practical tutorials to unlock the potential of any upcoming web developer." />
+	
+	<?php include_once __DIR__ .'/templates/head.html.php'; ?>
+	<!--// head section -->
+	
 <style>
 html,body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -133,10 +140,10 @@ main p{
 	box-shadow:0 5px 5px grey; 
 }
 .post-acreditation{
-	padding-bottom:10px;
+	padding:10px auto;
 }
 .post-main-image{
-	width:80%;
+	max-width:350px;
 	margin:1.25em auto;
 }
 .article-index-image,.article-post-image{
@@ -292,7 +299,7 @@ main p{
 	padding:10px;
 }
 .post-main-image{
-	width:60%;
+	max-width:250px;
 	margin:10px auto;
 }
 .article-index-image{
@@ -351,11 +358,11 @@ main p{
 		width:100%
 	}
 	main{
-		width:90%
+		width:80%
 	}
-	.post-main-image{
-		width:60%;
-	}
+    .post-main-image{
+	max-width:300px;
+    }
 	.article-index-image{
 		height:12.5em;
 	}
@@ -778,13 +785,7 @@ main p, main li{
 }
 }
 </style>
-	<!-- head section -->
-	<meta name="description" content="A blogging site dedicated to front-end and back-end  technologies for web development. Provides informative and practical tutorials to unlock the potential of any upcoming web developer." />
-	
-	<?php require_once __DIR__ .'/templates/head.html.php'; ?>
-	<!--// head section -->
-	<title>Developerspot: For front-end and back-end web development tutorials</title> 
-	</head>
+ <?php include_once __DIR__ .'/templates/head-resources.html.php'; ?>
 	<body>
 		<header>
 		<?php require_once __DIR__ . '/templates/header.html.php';?>

@@ -8,6 +8,10 @@ include __DIR__ .'/../admin/includes/admin_functions.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- head section -->
+    <title><?=$menu_topic['topic_name'] ?> | For Web Development</title>
+	<meta name="description" content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>" />
+	<?php require_once __DIR__ .'/head.html.php'; ?>
 <style>
 html,body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -775,12 +779,8 @@ main p, main li{
 	font-size:1.3em;
 }
 }
-</style>
-	<!-- head section -->
-	<meta name="description" content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>" />
-	<?php require_once __DIR__ .'/head.html.php'; ?>
-	
-	<title><?=$menu_topic['topic_name'] ?></title> 
+</style>	 
+    <?php include_once __DIR__ .'/head-resources.html.php'; ?>
 	</head>
 	<body>
 		<header>

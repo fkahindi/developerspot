@@ -2,6 +2,9 @@
 <!DOCTYPE html><html lang="en">
 <!-- head section -->
 <head>
+<title>Cookie Policy Description and Importance</title>
+    <meta name="description" content="This cookie policy describes what cookies are and how website operator uses them at the developerspot website and any of its products or services" />
+	<?php require_once __DIR__ .'/../templates/head.html.php'; ?>
 <style>
 html,body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 margin: 0;
@@ -651,13 +654,12 @@ main p, main li{
 }
 }
 </style>
-<link rel="stylesheet" type="text/css" href="../resources/css/main.css">
-<meta charset="UTF-8">
+<?php include_once __DIR__ .'/../templates/head-resources.html.php'; ?>
 </head>
 <body>
 <header>
 	<?php include __DIR__ .'/../templates/header.html.php';?>
-		<title>Privacy policy</title> 
+		 
 </header>
 <main class="group">
 <section class="col-9-10 main-article">

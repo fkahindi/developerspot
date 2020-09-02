@@ -2,6 +2,9 @@
 <!DOCTYPE html><html lang="en">
 <!-- head section -->
 <head>
+<title>Privacy policy of Your Rights and Protection</title>
+<meta name="description" content="This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of your information when you use the Service and tells you about your privacy rights and how the law protects You" />
+	<?php require_once __DIR__ .'/../templates/head.html.php'; ?>
 <style>
 html,body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 margin: 0;
@@ -651,17 +654,15 @@ main p, main li{
 }
 }
 </style>
-<link rel="stylesheet" type="text/css" href="../resources/css/main.css">
-<meta charset="UTF-8">
+<?php include_once __DIR__ .'/../templates/head-resources.html.php'; ?>
 </head>
 <body>
 <header>
-	<?php include __DIR__ .'/../templates/header.html.php';?>
-		<title>Privacy policy</title> 
+	<?php include __DIR__ .'/../templates/header.html.php';?>	 
 </header>
 <main class="group">
 <section class="col-9-10 main-article">
-<h1>Privacy Policy</h1><p>Last updated: March 02, 2020</p><p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p><p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy is maintained by the <a href="https://www.freeprivacypolicy.com/free-privacy-policy-generator">Free Privacy Policy Generator</a></p><h1>Interpretation and Definitions</h1><h2>Interpretation</h2><p>The words of which the initial letter is capitalized have meanings defined under the following conditions.</p><p>The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+<h1>Privacy Policy</h1><p>Last updated: March 02, 2020</p><p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p><p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy is maintained by the <a href="https://www.freeprivacypolicy.com/free-privacy-policy-generator">Free Privacy Policy Generator</a></p><h2>Interpretation and Definitions</h2><h3>Interpretation</h3><p>The words of which the initial letter is capitalized have meanings defined under the following conditions.</p><p>The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
 <h2>Definitions</h2>
 <p>For the purposes of this Privacy Policy:</p>
 <ul> 
