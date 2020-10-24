@@ -32,37 +32,21 @@ $("document").ready(function(){
 			$(".subscribe_error").text("");
 		}
 	});
-	$("#privacy-checkbox").on("change",function(){
-		
-		if($(this).is(":checked")){
-			privacy_state = true;
 			
-		}else{
-			privacy_state = false;
-		}
-	});
-		
 	$("#submit_subscribe").on("click",function(e){
 
 		var email = $("#email").val();
-		var privacy_prop = $("#privacy-checkbox").prop("checked");
-		
+			
 		e.preventDefault();		
 	
 		if(email === ""){
 			$("#email").parent().removeClass();
 			$("#email").parent().addClass("form_error");
-			$("#email").siblings("span").text("Please! Fill email address field");
+			$("#email").siblings("span").text("Please! Enter your email");
 			return;
 		}
 		if(email_state === false){
-			$(".subscribe_error").text("Fix errors in the form first");
-			
-		}else if(privacy_state === false){
-			
-			$("#privacy-checkbox").parent().removeClass();
-			$("#privacy-checkbox").parent().addClass("errorMsg");
-			$("#privacy-checkbox").siblings("p").append(" | You need to agree to continue.");
+			$(".subscribe_error").text("Fix email errors first");
 			return;
 		}else{
 			$.ajax({
@@ -70,8 +54,7 @@ $("document").ready(function(){
 				type: "POST",
 				data: {
 				"subscribe":1,
-				"email": email,
-				"privacy_prop":privacy_prop
+				"email": email
 				},
 				success: function(response){
 				

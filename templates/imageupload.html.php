@@ -26,7 +26,7 @@ if(isset($_POST['image-upload'])){
 		<span class="errorMsg"><?php echo (!empty($errors['fileToUpload'])? $errors['fileToUpload'] :'');?></span>
 		</div>
 		<input type="submit" value="Upload Image" name="image-upload" class="button" id="image-upload-btn">
-		<p><ul><li>Only images of size less than 2MB with .jpg, jpeg, .png or .gif formats are allowed.</li></ul> </p>
+		<p><ul><li>Only images of size less than 0.5 MB with .jpg, jpeg, .png or .gif formats are allowed.</li></ul> </p>
 		</form>
 	</div>
 </body>

@@ -30,12 +30,6 @@ if(isset($_POST['subscribe'])){
 			$valid = true;
 		}
 	}
-	if(empty($_POST['privacy_prop'])){
-		$valid = false;
-		$errors['privacy']='You need to agree with the privacy policy';
-	}else{
-		$valid = true;
-	}
 	
 	if($valid){
 		
@@ -56,7 +50,6 @@ if(isset($_POST['subscribe'])){
 				/* //If an hour has not elapsed since record update notify user. */                
 				echo '<script>
                 $("#subscribe").addClass("hidden");
-                $("#to-be-notified").addClass("hidden");
                 </script>';
 				echo '<div class="successMsg">A link was sent to your email in less than 1 hour ago. Check your email inbox.</div>';
 			}else{
