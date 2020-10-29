@@ -95,7 +95,14 @@ i {
   display: none; }
 
 .banner-bar {
-  font-family: Aladin; }
+  float: left;
+  display: block;
+  margin: 0;
+  padding-top: .6em;
+  padding-left: 1em;
+  font-family: Aladin;
+  text-align: left;
+  font-size: 1.4em; }
   .banner-bar a {
     color: white; }
     .banner-bar a:hover {
@@ -103,55 +110,15 @@ i {
       cursor: pointer; }
   @media (max-width: 599px) {
     .banner-bar {
-      display: block;
-      height: 30px;
-      padding: 0;
-      width: 100%;
-      margin: 0;
-      text-align: left;
+      width: 50%;
       padding-top: 0.5em;
-      padding-left: 30%;
-      font-size: 1.4em; } }
+      padding-left: 30%; } }
   @media (min-width: 600px) {
     .banner-bar {
-      display: block;
-      margin: 0;
-      padding: 0;
-      font-size: 1.3em;
-      float: left;
-      width: 23%;
-      padding-top: .6em;
-      padding-left: 1em; } }
+      width: 25%; } }
   @media (min-width: 768px) {
     .banner-bar {
-      display: block;
-      margin: 0;
-      padding: 0;
-      font-size: 1.8em;
-      float: left;
-      width: 25%;
-      padding-top: .2em;
-      padding-left: 1em; } }
-  @media (min-width: 992px) {
-    .banner-bar {
-      display: block;
-      margin: 0;
-      padding: 0;
-      font-size: 1.8em;
-      float: left;
-      width: 20%;
-      padding-top: .2em;
-      padding-left: 1em; } }
-  @media (min-width: 1200px) {
-    .banner-bar {
-      display: block;
-      margin: 0;
-      padding: 0;
-      font-size: 2.2em;
-      float: left;
-      width: 25%;
-      padding-top: .2em;
-      padding-left: 1.5em; } }
+      font-size: 1.8em; } }
 
 header {
   background-color: #293f50; }
@@ -160,164 +127,72 @@ header {
       position: sticky;
       top: 0;
       width: 100%;
-      height: 3.75em; } }
+      height: 3.75em;
+      z-index: 0; } }
   @media (min-width: 600px) {
     header {
-      height: 4.375em;
-      margin: 0; } }
+      height: 4.375em; } }
   @media (min-width: 768px) {
     header {
-      height: 4.375em;
-      margin: 0; } }
+      height: 5.375em; } }
   @media (min-width: 992px) {
     header {
-      height: 6.25em;
-      margin: 0; } }
-  @media (min-width: 1200px) {
-    header {
-      height: 7.5em;
-      margin: 0; } }
+      height: 6.375em; } }
   header ul {
     color: #c8c8c8; }
 
-@media (min-width: 600px) {
-  .nav-bar {
-    font-size: 1.1em; } }
-@media (min-width: 768px) {
-  .nav-bar {
-    float: left;
-    width: 55%;
-    padding-top: 1.65em;
-    display: block;
-    margin: 0;
-    padding: 0; } }
-@media (min-width: 1200px) {
-  .nav-bar {
-    display: block;
-    margin: 0;
-    padding: 0;
-    font-size: 1.2em;
-    float: left;
-    width: 59%;
-    padding-top: 1.25em; } }
-@media (min-width: 992px) {
-  .nav-bar {
-    display: block;
-    margin: 0;
-    padding: 0;
-    float: left;
-    width: 50%;
-    padding-top: 2em; } }
-@media (min-width: 1200px) {
-  .nav-bar {
-    display: block;
-    margin: 0;
-    padding: 0;
-    float: left;
-    width: 55%;
-    padding-top: 2.5em; } }
-
-.nav {
+.nav-bar {
   display: block;
-  text-align: center; }
+  margin: 0;
+  padding: 0; }
+  @media (min-width: 600px) {
+    .nav-bar {
+      float: left;
+      width: 55%;
+      padding-top: 1em; } }
   @media (min-width: 768px) {
-    .nav {
-      margin: 0;
-      padding: 0;
-      width: 35%;
-      float: right; } }
-  @media (min-width: 992px) {
-    .nav {
-      width: 35%;
-      float: right;
-      margin: 0;
-      padding: 10px 0; } }
-  @media (min-width: 1200px) {
-    .nav {
-      display: block;
-      margin: 0;
-      padding-top: 10px;
-      width: 35%;
-      float: right; } }
+    .nav-bar {
+      padding-top: 1.65em; } }
 
+@media (max-width: 599px) {
+  nav {
+    font-size: 1em; } }
 @media (min-width: 600px) {
   nav {
+    font-size: 1em;
     text-align: center;
     margin: 0;
     padding: 5px 0; } }
-@media (min-width: 768px) {
-  nav {
-    margin: 0;
-    text-align: left;
-    padding-top: 0;
-    padding-bottom: 5px;
-    font-size: 1.3em; } }
-@media (min-width: 992px) {
-  nav {
-    margin: 0;
-    text-align: left;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    font-size: 90%; } }
-@media (min-width: 1200px) {
-  nav {
-    margin: 0 auto;
-    text-align: left;
-    padding-top: 10px;
-    padding-bottom: 10px; } }
 nav span {
   color: #c8c8c8; }
-@media (min-width: 768px) {
-  nav li {
-    display: inline-block;
-    padding: 0; } }
-@media (min-width: 992px) {
-  nav li {
-    display: inline-block; } }
-@media (min-width: 1200px) {
-  nav li {
-    display: inline-block; } }
-nav a {
-  font-variant: small-caps;
-  color: white; }
-  @media (max-width: 599px) {
-    nav a {
-      font-variant: normal; } }
 nav ul {
   list-style: none; }
   @media (min-width: 600px) {
     nav ul {
       text-align: center; } }
-  @media (min-width: 768px) {
-    nav ul {
-      text-align: center; } }
-  @media (min-width: 992px) {
-    nav ul {
-      text-align: center; } }
-  @media (min-width: 1200px) {
-    nav ul {
-      text-align: center; } }
   @media (min-width: 600px) {
     nav ul li {
-      display: inline-block;
-      padding: 0; } }
+      display: inline-block; } }
+  @media (min-width: 768px) {
+    nav ul li {
+      padding: 5px; } }
   nav ul li a {
-    padding: 15px 10px;
+    font-variant: small-caps;
+    padding: 8px 2px;
     color: #fafafa; }
     @media (min-width: 600px) {
       nav ul li a {
-        padding: 8px 2px;
-        font-size: 70%; } }
+        font-size: 1.2em; } }
     @media (min-width: 768px) {
       nav ul li a {
-        font-size: 80%;
-        padding: 8px 2px; } }
+        font-size: 1.3em; } }
     @media (min-width: 992px) {
       nav ul li a {
-        padding: 10px 2px; } }
+        font-size: 1.4em; } }
     nav ul li a:hover {
       background-color: #334F5C;
-      color: #c8c8e9; }
+      color: #c8c8e9;
+      cursor: pointer; }
       @media (max-width: 599px) {
         nav ul li a:hover {
           background: #232332; } }
@@ -325,91 +200,41 @@ nav ul {
     nav ul > span {
       display: none; } }
 
-.log-account-section span {
-  color: white; }
-@media (max-width: 599px) {
-  .log-account-section {
-    display: block;
-    height: 30px;
-    padding: 0;
-    width: 100%;
-    text-align: right;
-    padding-right: 15%; } }
-@media (min-width: 600px) {
-  .log-account-section {
-    display: block;
-    margin: 0;
-    padding: 0;
-    float: right;
-    width: 18%;
-    text-align: right;
-    padding-top: .5em;
-    float: right;
-    width: 20%;
-    text-align: right;
-    padding-top: .4em; } }
-@media (min-width: 768px) {
-  .log-account-section {
-    display: block;
-    margin: 0;
-    padding: 0; } }
-@media (min-width: 992px) {
-  .log-account-section {
-    display: block;
-    margin: 0;
-    padding: 0;
-    float: right;
-    width: 30%;
-    text-align: right;
-    padding-top: .4em; } }
-@media (min-width: 1200px) {
-  .log-account-section {
-    display: block;
-    margin: 0;
-    padding: 0;
-    float: right;
-    width: 20%;
-    text-align: right;
-    padding-top: .5em; } }
+.log-account-section {
+  float: right; }
+  .log-account-section span {
+    color: white; }
+  @media (max-width: 599px) {
+    .log-account-section {
+      display: block;
+      height: 60px;
+      width: 30%;
+      text-align: right;
+      padding-right: 15%; } }
+  @media (min-width: 600px) {
+    .log-account-section {
+      display: block;
+      width: 20%;
+      margin: 0;
+      padding: 0;
+      padding-top: .5em;
+      text-align: right; } }
 
 .login-signup {
   display: inline-block;
   margin: 0;
-  width: 100%; }
+  width: 100%;
+  padding: 1em;
+  font-size: 1em; }
   @media (max-width: 599px) {
     .login-signup {
-      right: 1.875em;
-      font-size: .9em; } }
+      position: absolute;
+      right: 1.875em; } }
   @media (min-width: 600px) {
     .login-signup {
       position: absolute;
-      right: 1.5625em;
-      z-index: 1;
-      padding: 10px 5px;
-      font-size: .9em; } }
-  @media (min-width: 768px) {
-    .login-signup {
-      position: absolute;
       right: 1.875em;
       z-index: 1;
-      padding: 10px 5px;
-      padding-top: 10px;
-      font-size: 1.1em; } }
-  @media (min-width: 992px) {
-    .login-signup {
-      position: absolute;
-      right: 2.1875em;
-      z-index: 1;
-      padding: 10px 5px;
-      padding-top: 10px;
-      font-size: 1.2em; } }
-  @media (min-width: 1200px) {
-    .login-signup {
-      position: absolute;
-      right: 2.5em;
-      z-index: 1;
-      padding: 10px 5px;
-      padding-top: 10px;
       font-size: 1.2em; } }
   .login-signup a {
     color: #c8c8e9; }
@@ -422,65 +247,18 @@ nav ul {
 
 @media (max-width: 599px) {
   .account-photo-box {
-    width: 25%;
-    height: 1.875em;
-    position: absolute;
-    top: 0;
-    right: 1.875em;
-    text-align: right;
-    padding: 5px 5px; } }
+    float: right;
+    width: 40%;
+    height: 1.875em; } }
 @media (min-width: 600px) {
   .account-photo-box {
     float: right;
-    width: 30%;
     height: 2.1875em;
     position: absolute;
-    top: 5px;
-    right: 1.5625em;
-    z-index: 0;
-    display: inline-block;
-    margin-right: 0;
-    padding: 5px;
-    text-align: right; } }
-@media (min-width: 768px) {
-  .account-photo-box {
-    display: inline-block;
-    float: right;
-    margin-right: 0;
-    padding: 5px;
-    text-align: right;
-    width: 25%;
-    height: 2.1875em;
-    position: absolute;
-    top: 5px;
-    right: 1.875em;
-    z-index: 0; } }
-@media (min-width: 992px) {
-  .account-photo-box {
-    width: 20%;
-    height: 2.1875em;
-    position: absolute;
-    top: 5px;
-    right: 2.1875em;
-    z-index: 0;
-    display: inline-block;
-    float: right;
-    margin-right: 0;
-    padding: 5px;
-    text-align: right; } }
-@media (min-width: 1200px) {
-  .account-photo-box {
-    width: 18%;
-    height: 2.1875em;
-    position: absolute;
-    top: 5px;
-    right: 2.5em;
-    z-index: 0;
-    display: inline-block;
-    float: right;
-    margin-right: 0;
-    padding: 5px;
-    text-align: right; } }
+    right: 2.875em; } }
+.account-photo-box:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1; }
 
 .image-photo {
   border: 3px solid #2b5959;
@@ -499,14 +277,6 @@ nav ul {
     .image-photo {
       height: 3em;
       width: 3em; } }
-  @media (min-width: 992px) {
-    .image-photo {
-      height: 3em;
-      width: 3em; } }
-  @media (min-width: 1200px) {
-    .image-photo {
-      height: 3em;
-      width: 3em; } }
 
 .tooltip {
   position: relative;
@@ -514,15 +284,13 @@ nav ul {
   top: 10px; }
   .tooltip .tooltip-text {
     visibility: hidden;
-    width: 8.75em;
     background: #23233c;
     color: #fff;
     padding: 5px 0;
     border-radius: 6px;
     position: absolute;
     z-index: 1;
-    left: 40%;
-    margin-left: -80px;
+    right: 0;
     opacity: 0;
     transition: opacity 0.3s; }
     .tooltip .tooltip-text p {
@@ -533,26 +301,6 @@ nav ul {
       color: #c8c8e9; }
       .tooltip .tooltip-text p:first-of-type {
         color: #f0f0f0; }
-    @media (max-width: 599px) {
-      .tooltip .tooltip-text {
-        left: 60%;
-        margin-left: -5.5em; } }
-    @media (min-width: 600px) {
-      .tooltip .tooltip-text {
-        left: 50%;
-        margin-left: -2.1em; } }
-    @media (min-width: 768px) {
-      .tooltip .tooltip-text {
-        margin-left: -1.9em; } }
-    @media (min-width: 992px) {
-      .tooltip .tooltip-text {
-        margin-left: -1em; } }
-    @media (min-width: 1200px) {
-      .tooltip .tooltip-text {
-        margin-left: -1em; } }
-  .tooltip:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1; }
 
 #profile-checkbox-control {
   display: none; }
@@ -561,6 +309,34 @@ nav ul {
     text-align: left; }
   #profile-checkbox-control:checked ~ .tooltip-text {
     visibility: hidden; }
+
+.account-display-settings {
+  display: none;
+  min-width: 9.625em;
+  position: relative;
+  top: 0;
+  background: #23233c;
+  color: #fff;
+  border-radius: 5px;
+  z-index: 1; }
+  @media (max-width: 599px) {
+    .account-display-settings {
+      position: absolute;
+      top: 2em;
+      right: 0; } }
+  .account-display-settings ul {
+    list-style: none; }
+    .account-display-settings ul li {
+      padding: 2px 10px;
+      border-bottom: thin groove gray; }
+      .account-display-settings ul li:last-child {
+        border-bottom: none; }
+  .account-display-settings a {
+    font-size: 1em;
+    text-align: left;
+    color: #c8c8e9; }
+    .account-display-settings a:hover {
+      color: #fff; }
 
 #dropdown-menu-btn {
   display: none; }
@@ -585,7 +361,6 @@ nav ul {
     position: absolute;
     top: 3.75em;
     left: 0;
-    display: none;
     height: 100%;
     width: 100%;
     background: #23233c;
@@ -622,9 +397,6 @@ footer {
   @media (max-width: 599px) {
     footer {
       text-align: center; } }
-  @media (min-width: 768px) {
-    footer {
-      padding: 5px; } }
   footer a {
     font-variant: small-caps;
     text-decoration: none;
@@ -646,6 +418,17 @@ footer {
         padding-top: 5px;
         padding-bottom: 10px; } }
 
+.nav {
+  display: block;
+  text-align: center;
+  margin: 0;
+  padding: 0; }
+  @media (min-width: 768px) {
+    .nav {
+      width: 35%;
+      float: right;
+      padding: 10px 0; } }
+
 .copyright {
   display: block;
   text-align: center;
@@ -655,20 +438,7 @@ footer {
       width: 25%;
       float: left;
       margin: 0;
-      padding: 0; } }
-  @media (min-width: 992px) {
-    .copyright {
-      width: 25%;
-      float: left;
-      margin: 0;
       padding: 10px 0; } }
-  @media (min-width: 1200px) {
-    .copyright {
-      display: block;
-      margin: 0;
-      padding-top: 10px;
-      width: 25%;
-      float: left; } }
 
 .policies {
   display: block;
@@ -679,89 +449,7 @@ footer {
       text-align: center;
       width: 40%;
       margin: 0;
-      padding: 0; } }
-  @media (min-width: 992px) {
-    .policies {
-      float: right;
-      text-align: center;
-      width: 40%;
-      margin: 0;
       padding: 10px 0; } }
-  @media (min-width: 1200px) {
-    .policies {
-      display: block;
-      margin: 0;
-      padding-top: 10px;
-      float: right;
-      text-align: center;
-      width: 40%; } }
-
-.account-display-settings {
-  display: none;
-  min-width: 10.625em;
-  position: relative;
-  top: 0;
-  right: -50%;
-  background: #23233c;
-  color: #fff;
-  border-radius: 5px;
-  z-index: 1; }
-  .account-display-settings ul {
-    list-style: none; }
-    .account-display-settings ul li {
-      border-bottom: thin groove gray; }
-      .account-display-settings ul li:last-child {
-        border-bottom: none; }
-  .account-display-settings a {
-    font-size: 1em;
-    text-align: left;
-    color: #c8c8e9; }
-    .account-display-settings a:hover {
-      color: #fff; }
-  @media (max-width: 599px) {
-    .account-display-settings {
-      position: relative;
-      top: 2px;
-      right: 2.8125em; }
-      .account-display-settings ul li {
-        padding: 2px 0 2px 20px; } }
-  @media (min-width: 600px) {
-    .account-display-settings {
-      position: relative;
-      top: 2px;
-      right: 0;
-      left: 15%;
-      font-size: .8em; }
-      .account-display-settings ul li {
-        padding: 2px 0 2px 20px;
-        font-size: 1.2em; } }
-  @media (min-width: 768px) {
-    .account-display-settings {
-      position: relative;
-      top: 0;
-      right: 0;
-      font-size: .9em; }
-      .account-display-settings ul li {
-        padding: 2px 0px 2px 20px;
-        font-size: 1.2em; } }
-  @media (min-width: 992px) {
-    .account-display-settings {
-      position: relative;
-      top: 0;
-      right: 0;
-      font-size: .9em; }
-      .account-display-settings ul li {
-        padding: 2px 0px 2px 20px;
-        font-size: 1.2em; } }
-  @media (min-width: 1200px) {
-    .account-display-settings {
-      position: relative;
-      top: 0;
-      right: 0;
-      font-size: .8em; }
-      .account-display-settings ul li {
-        padding: 2px 0px 2px 20px;
-        font-size: 1.3em; } }
 
 .meta-description {
   display: none; }

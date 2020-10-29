@@ -8,7 +8,7 @@
   src: url("webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Aladin-Regular.ttf") format("opentype"), url("../fonts/Aladin-Regular.ttf") format("truetype");
   /* Safari, Android, iOS */ }
 #subscribe input {
-  display: inline-black;
+  display: inline-block;
   width: auto;
   font-size: 1em;
   padding: .6em; }
@@ -18,8 +18,9 @@
   padding: .6em;
   cursor: pointer;
   font-size: 1em;
-  background-color: #008080;
-  color: #ffffff; }
+  background-color: #075594;
+  color: #ffffff;
+  border: none; }
 
 .red {
   color: red; }

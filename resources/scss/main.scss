@@ -122,7 +122,14 @@ i {
 }
 
 .banner-bar {
+    float: left;
+    display: block;
+    margin: 0;
+    padding-top: .6em;
+    padding-left: 1em;
     font-family: Aladin;
+    text-align: left;
+    font-size: 1.4em;
     a {
         color: rgb(255, 255, 255);
         &:hover {
@@ -131,55 +138,15 @@ i {
         }
     }
     @include for-phone-only {
-        display: block;
-        height: 30px;
-        padding: 0;
-        width: 100%;
-        margin: 0;
-        text-align: left;
+        width: 50%;
         padding-top: 0.5em;
         padding-left: 30%;
-        font-size: 1.4em;
     }
     @include for-tablet-portrait-up {
-        display: block;
-        margin: 0;
-        padding: 0;
-        font-size: 1.3em;
-        float: left;
-        width: 23%;
-        padding-top: .6em;
-        padding-left: 1em;
+        width: 25%;
     }
     @include for-tablet-landscape-up {
-        display: block;
-        margin: 0;
-        padding: 0;
         font-size: 1.8em;
-        float: left;
-        width: 25%;
-        padding-top: .2em;
-        padding-left: 1em;
-    }
-    @include for-desktop-up {
-        display: block;
-        margin: 0;
-        padding: 0;
-        font-size: 1.8em;
-        float: left;
-        width: 20%;
-        padding-top: .2em;
-        padding-left: 1em;
-    }
-    @include for-big-desktop-up {
-        display: block;
-        margin: 0;
-        padding: 0;
-        font-size: 2.2em;
-        float: left;
-        width: 25%;
-        padding-top: .2em;
-        padding-left: 1.5em;
     }
 }
 
@@ -190,22 +157,16 @@ header {
         top: 0;
         width: 100%;
         height: 3.75em;
+        z-index: 0;
     }
     @include for-tablet-portrait-up {
         height: 4.375em;
-        margin: 0;
     }
     @include for-tablet-landscape-up {
-        height: 4.375em;
-        margin: 0;
+        height: 5.375em;
     }
     @include for-desktop-up {
-        height: 6.25em;
-        margin: 0;
-    }
-    @include for-big-desktop-up {
-        height: 7.5em;
-        margin: 0;
+        height: 6.375em;
     }
     ul {
         color: rgb(200, 200, 200);
@@ -213,155 +174,64 @@ header {
 }
 
 .nav-bar {
-    @include for-tablet-portrait-up {
-        font-size: 1.1em;
-    }
-    @include for-tablet-landscape-up {
-        float: left;
-        width: 55%;
-        padding-top: 1.65em;
-        display: block;
-        margin: 0;
-        padding: 0;
-    }
-    @include for-big-desktop-up {
-        display: block;
-        margin: 0;
-        padding: 0;
-        font-size: 1.2em;
-        float: left;
-        width: 59%;
-        padding-top: 1.25em;
-    }
-    @include for-desktop-up {
-        display: block;
-        margin: 0;
-        padding: 0;
-        float: left;
-        width: 50%;
-        padding-top: 2em;
-    }
-    @include for-big-desktop-up {
-        display: block;
-        margin: 0;
-        padding: 0;
-        float: left;
-        width: 55%;
-        padding-top: 2.5em;
-    }
-}
-
-.nav {
     display: block;
-    text-align: center;
+    margin: 0;
+    padding: 0;
+    @include for-tablet-portrait-up {
+        float: left;
+        width: 55%;
+        padding-top: 1em;
+    }
     @include for-tablet-landscape-up {
-        margin: 0;
-        padding: 0;
-        width: 35%;
-        float: right;
-    }
-    @include for-desktop-up {
-        width: 35%;
-        float: right;
-        margin: 0;
-        padding: 10px 0;
-    }
-    @include for-big-desktop-up {
-        display: block;
-        margin: 0;
-        padding-top: 10px;
-        width: 35%;
-        float: right;
+        padding-top: 1.65em;
     }
 }
 
 nav {
+    @include for-phone-only {
+        font-size: 1em;
+    }
     @include for-tablet-portrait-up {
+        font-size: 1em;
         text-align: center;
         margin: 0;
         padding: 5px 0;
     }
-    @include for-tablet-landscape-up {
-        margin: 0;
-        text-align: left;
-        padding-top: 0;
-        padding-bottom: 5px;
-        font-size: 1.3em;
-    }
-    @include for-desktop-up {
-        margin: 0;
-        text-align: left;
-        padding-top: 10px;
-        padding-bottom: 5px;
-        font-size: 90%;
-    }
-    @include for-big-desktop-up {
-        margin: 0 auto;
-        text-align: left;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
     span {
         color: rgb(200, 200, 200);
-    }
-    li {
-        @include for-tablet-landscape-up {
-            display: inline-block;
-            padding: 0;
-        }
-        @include for-desktop-up {
-            display: inline-block;
-        }
-        @include for-big-desktop-up {
-            display: inline-block;
-        }
-    }
-    a {
-        font-variant: small-caps;
-        color: rgb(255, 255, 255);
-        @include for-phone-only {
-            font-variant: normal;
-        }
     }
     ul {
         list-style: none;
         @include for-tablet-portrait-up {
             text-align: center;
         }
-        @include for-tablet-landscape-up {
-            text-align: center;
-        }
-        @include for-desktop-up {
-            text-align: center;
-        }
-        @include for-big-desktop-up {
-            text-align: center;
-        }
         li {
             @include for-tablet-portrait-up {
                 display: inline-block;
-                padding: 0;
+            }
+            @include for-tablet-landscape-up {
+                padding: 5px;
             }
             a {
-                padding: 15px 10px;
+                font-variant: small-caps;
+                padding: 8px 2px;
                 color: rgb(250, 250, 250);
                 @include for-tablet-portrait-up {
-                    padding: 8px 2px;
-                    font-size: 70%;
+                    font-size: 1.2em;
                 }
                 @include for-tablet-landscape-up {
-                    font-size: 80%;
-                    padding: 8px 2px;
+                    font-size: 1.3em;
                 }
                 @include for-desktop-up {
-                    padding: 10px 2px;
+                    font-size: 1.4em;
                 }
                 &:hover {
+                    background-color: #334F5C;
+                    color: rgb( 200, 200, 233);
+                    cursor: pointer;
                     @include for-phone-only {
                         background: rgb(35, 35, 50);
                     }
-                    background-color: #334F5C;
-                    color: rgb( 200, 200, 233);
                 }
             }
         }
@@ -374,52 +244,24 @@ nav {
 }
 
 .log-account-section {
+    float: right;
     span {
         color: rgb(256, 256, 256);
     }
     @include for-phone-only {
         display: block;
-        height: 30px;
-        padding: 0;
-        width: 100%;
+        height: 60px;
+        width: 30%;
         text-align: right;
         padding-right: 15%;
     }
     @include for-tablet-portrait-up {
         display: block;
-        margin: 0;
-        padding: 0;
-        float: right;
-        width: 18%;
-        text-align: right;
-        padding-top: .5em;
-        float: right;
         width: 20%;
-        text-align: right;
-        padding-top: .4em;
-    }
-    @include for-tablet-landscape-up {
-        display: block;
         margin: 0;
         padding: 0;
-    }
-    @include for-desktop-up {
-        display: block;
-        margin: 0;
-        padding: 0;
-        float: right;
-        width: 30%;
-        text-align: right;
-        padding-top: .4em;
-    }
-    @include for-big-desktop-up {
-        display: block;
-        margin: 0;
-        padding: 0;
-        float: right;
-        width: 20%;
-        text-align: right;
         padding-top: .5em;
+        text-align: right;
     }
 }
 
@@ -427,39 +269,16 @@ nav {
     display: inline-block;
     margin: 0;
     width: 100%;
+    padding: 1em;
+    font-size: 1em;
     @include for-phone-only {
+        position: absolute;
         right: 1.875em;
-        font-size: .9em;
     }
     @include for-tablet-portrait-up {
         position: absolute;
-        right: 1.5625em;
-        z-index: 1;
-        padding: 10px 5px;
-        font-size: .9em;
-    }
-    @include for-tablet-landscape-up {
-        position: absolute;
         right: 1.875em;
         z-index: 1;
-        padding: 10px 5px;
-        padding-top: 10px;
-        font-size: 1.1em;
-    }
-    @include for-desktop-up {
-        position: absolute;
-        right: 2.1875em;
-        z-index: 1;
-        padding: 10px 5px;
-        padding-top: 10px;
-        font-size: 1.2em;
-    }
-    @include for-big-desktop-up {
-        position: absolute;
-        right: 2.5em;
-        z-index: 1;
-        padding: 10px 5px;
-        padding-top: 10px;
         font-size: 1.2em;
     }
     a {
@@ -477,65 +296,21 @@ nav {
 
 .account-photo-box {
     @include for-phone-only {
-        width: 25%;
+        float: right;
+        width: 40%;
         height: 1.875em;
-        position: absolute;
-        top: 0;
-        right: 1.875em;
-        text-align: right;
-        padding: 5px 5px;
     }
     @include for-tablet-portrait-up {
         float: right;
-        width: 30%;
         height: 2.1875em;
         position: absolute;
-        top: 5px;
-        right: 1.5625em;
-        z-index: 0;
-        display: inline-block;
-        margin-right: 0;
-        padding: 5px;
-        text-align: right;
+        right: 2.875em;
     }
-    @include for-tablet-landscape-up {
-        display: inline-block;
-        float: right;
-        margin-right: 0;
-        padding: 5px;
-        text-align: right;
-        width: 25%;
-        height: 2.1875em;
-        position: absolute;
-        top: 5px;
-        right: 1.875em;
-        z-index: 0;
-    }
-    @include for-desktop-up {
-        width: 20%;
-        height: 2.1875em;
-        position: absolute;
-        top: 5px;
-        right: 2.1875em;
-        z-index: 0;
-        display: inline-block;
-        float: right;
-        margin-right: 0;
-        padding: 5px;
-        text-align: right;
-    }
-    @include for-big-desktop-up {
-        width: 18%;
-        height: 2.1875em;
-        position: absolute;
-        top: 5px;
-        right: 2.5em;
-        z-index: 0;
-        display: inline-block;
-        float: right;
-        margin-right: 0;
-        padding: 5px;
-        text-align: right;
+    &:hover {
+        .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
     }
 }
 
@@ -557,14 +332,6 @@ nav {
         height: 3em;
         width: 3em;
     }
-    @include for-desktop-up {
-        height: 3em;
-        width: 3em;
-    }
-    @include for-big-desktop-up {
-        height: 3em;
-        width: 3em;
-    }
 }
 
 .tooltip {
@@ -573,15 +340,13 @@ nav {
     top: 10px;
     .tooltip-text {
         visibility: hidden;
-        width: 8.75em;
         background: rgb( 35, 35, 60);
         color: #fff;
         padding: 5px 0;
         border-radius: 6px;
         position: absolute;
         z-index: 1;
-        left: 40%;
-        margin-left: -80px;
+        right: 0;
         opacity: 0;
         transition: opacity 0.3s;
         p {
@@ -594,35 +359,7 @@ nav {
                 color: rgb(240, 240, 240);
             }
         }
-        @include for-phone-only {
-            left: 60%;
-            margin-left: -5.5em;
-        }
-        @include for-tablet-portrait-up {
-            left: 50%;
-            margin-left: -2.1em;
-        }
-        @include for-tablet-landscape-up {
-            margin-left: -1.9em;
-        }
-        @include for-desktop-up {
-            margin-left: -1em;
-        }
-        @include for-big-desktop-up {
-            margin-left: -1em;
-        }
     }
-    &:hover {
-        .tooltip-text {
-            visibility: visible;
-            opacity: 1;
-        }
-    }
-    @include for-phone-only {}
-    @include for-tablet-portrait-up {}
-    @include for-tablet-landscape-up {}
-    @include for-desktop-up {}
-    @include for-big-desktop-up {}
 }
 
 #profile-checkbox-control {
@@ -640,11 +377,40 @@ nav {
             }
         }
     }
-    @include for-phone-only {}
-    @include for-tablet-portrait-up {}
-    @include for-tablet-landscape-up {}
-    @include for-desktop-up {}
-    @include for-big-desktop-up {}
+}
+
+.account-display-settings {
+    display: none;
+    min-width: 9.625em;
+    position: relative;
+    top: 0;
+    background: rgb( 35, 35, 60);
+    color: #fff;
+    border-radius: 5px;
+    z-index: 1;
+    @include for-phone-only {
+        position: absolute;
+        top: 2em;
+        right: 0;
+    }
+    ul {
+        list-style: none;
+        li {
+            padding: 2px 10px;
+            border-bottom: thin groove gray;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+    a {
+        font-size: 1em;
+        text-align: left;
+        color: rgb( 200, 200, 233);
+        &:hover {
+            color: #fff;
+        }
+    }
 }
 
 #dropdown-menu-btn {
@@ -664,10 +430,6 @@ nav {
             background-color: rgb( 35, 35, 60);
         }
     }
-    @include for-tablet-portrait-up {}
-    @include for-tablet-landscape-up {}
-    @include for-desktop-up {}
-    @include for-big-desktop-up {}
 }
 
 .dropdown-content {
@@ -676,7 +438,6 @@ nav {
         position: absolute;
         top: 3.75em;
         left: 0;
-        display: none;
         height: 100%;
         width: 100%;
         background: rgb( 35, 35, 60);
@@ -697,10 +458,6 @@ nav {
             padding: 5px 10px;
         }
     }
-    @include for-tablet-portrait-up {}
-    @include for-tablet-landscape-up {}
-    @include for-desktop-up {}
-    @include for-big-desktop-up {}
 }
 
 .closebtn {
@@ -713,10 +470,6 @@ nav {
         color: white;
         margin-left: 50px;
     }
-    @include for-tablet-portrait-up {}
-    @include for-tablet-landscape-up {}
-    @include for-desktop-up {}
-    @include for-big-desktop-up {}
 }
 
 footer {
@@ -727,12 +480,6 @@ footer {
     @include for-phone-only {
         text-align: center;
     }
-    @include for-tablet-portrait-up {}
-    @include for-tablet-landscape-up {
-        padding: 5px;
-    }
-    @include for-desktop-up {}
-    @include for-big-desktop-up {}
     a {
         font-variant: small-caps;
         text-decoration: none;
@@ -763,6 +510,18 @@ footer {
     }
 }
 
+.nav {
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    @include for-tablet-landscape-up {
+        width: 35%;
+        float: right;
+        padding: 10px 0;
+    }
+}
+
 .copyright {
     display: block;
     text-align: center;
@@ -771,20 +530,7 @@ footer {
         width: 25%;
         float: left;
         margin: 0;
-        padding: 0;
-    }
-    @include for-desktop-up {
-        width: 25%;
-        float: left;
-        margin: 0;
         padding: 10px 0;
-    }
-    @include for-big-desktop-up {
-        display: block;
-        margin: 0;
-        padding-top: 10px;
-        width: 25%;
-        float: left;
     }
 }
 
@@ -796,110 +542,7 @@ footer {
         text-align: center;
         width: 40%;
         margin: 0;
-        padding: 0;
-    }
-    @include for-desktop-up {
-        float: right;
-        text-align: center;
-        width: 40%;
-        margin: 0;
         padding: 10px 0;
-    }
-    @include for-big-desktop-up {
-        display: block;
-        margin: 0;
-        padding-top: 10px;
-        float: right;
-        text-align: center;
-        width: 40%;
-    }
-}
-
-.account-display-settings {
-    ul {
-        list-style: none;
-        li {
-            border-bottom: thin groove gray;
-            &:last-child {
-                border-bottom: none;
-            }
-        }
-    }
-    display: none;
-    min-width: 10.625em;
-    position: relative;
-    top: 0;
-    right: -50%;
-    background: rgb( 35, 35, 60);
-    color: #fff;
-    border-radius: 5px;
-    z-index: 1;
-    a {
-        font-size: 1em;
-        text-align: left;
-        color: rgb( 200, 200, 233);
-        &:hover {
-            color: #fff;
-        }
-    }
-    @include for-phone-only {
-        position: relative;
-        top: 2px;
-        right: 2.8125em;
-        ul {
-            li {
-                padding: 2px 0 2px 20px;
-            }
-        }
-    }
-    @include for-tablet-portrait-up {
-        position: relative;
-        top: 2px;
-        right: 0;
-        left: 15%;
-        font-size: .8em;
-        ul {
-            li {
-                padding: 2px 0 2px 20px;
-                font-size: 1.2em;
-            }
-        }
-    }
-    @include for-tablet-landscape-up {
-        position: relative;
-        top: 0;
-        right: 0;
-        font-size: .9em;
-        ul {
-            li {
-                padding: 2px 0px 2px 20px;
-                font-size: 1.2em;
-            }
-        }
-    }
-    @include for-desktop-up {
-        position: relative;
-        top: 0;
-        right: 0;
-        font-size: .9em;
-        ul {
-            li {
-                padding: 2px 0px 2px 20px;
-                font-size: 1.2em;
-            }
-        }
-    }
-    @include for-big-desktop-up {
-        position: relative;
-        top: 0;
-        right: 0;
-        font-size: .8em;
-        ul {
-            li {
-                padding: 2px 0px 2px 20px;
-                font-size: 1.3em;
-            }
-        }
     }
 }
 

@@ -14,15 +14,15 @@
     font-family: arial;
     color: #333333;
     @include for-phone-only {
-        max-width: 80%;
+        max-width: 320px;
         padding: 0px 5px;
         line-height: 16px;
         margin: 1.875em auto 1.25em auto;
         margin: .9375em auto;
         padding: .6em;
     }
-    @include for-tablet-landscape-up {
-        max-width: 60%;
+    @include for-tablet-portrait-up {
+        max-width: 320px;
         padding: 0px 5px;
         line-height: 16px;
         margin: 1.875em auto 1.25em auto;
@@ -48,7 +48,7 @@ form {
     input {
         display: block;
         margin-bottom: 5px;
-        width: 90%;
+        width: 93%;
         border: solid 1px #3E606F;
         border-radius: 5px;
         padding: .6em;
@@ -93,175 +93,25 @@ form {
     }
     @include for-phone-only {
         input[type="submit"] {
-            width: 95%;
+            width: 98%;
         }
     }
-    @include for-tablet-landscape-up {
+    @include for-tablet-portrait-up {
         input[type="submit"] {
-            width: 95%;
-        }
-    }
-    @include for-tablet-landscape-up {
-        input[type="submit"] {
-            width: 90%;
-        }
-        input {
-            font-size: 1em;
+            width: 98%;
         }
     }
 }
 
-#create-account {
-    border: 1px solid #d6d7da;
-    border-radius: 5px;
-    background: rgb(249, 249, 249);
-    line-height: 1em;
-    font-family: arial;
-    color: #333333;
-    +.section {
-        a {
-            text-decoration: none;
-            color: #2B65EC;
-            &:hover {
-                text-decoration: underline;
-                color: #2B65EC;
-            }
-        }
-    }
-    ul {
-        padding-left: 10px;
-    }
-    @include for-phone-only {
-        max-width: 80%;
-        padding: 0px 5px;
-        line-height: 16px;
-        margin: 1.875em auto 1.25em auto;
-    }
-    @include for-tablet-landscape-up {
-        max-width: 60%;
-        padding: 0px 5px;
-        line-height: 16px;
-        margin: 1.875em auto 1.25em auto;
-    }
-    @include for-tablet-landscape-up {
-        max-width: 23em;
-        padding: 0 15px 15px 15px;
-        margin: 35px auto 20px auto;
-    }
-}
-
-#login {
-    border: 1px solid #d6d7da;
-    border-radius: 5px;
-    background: rgb(249, 249, 249);
-    line-height: 1em;
-    font-family: arial;
-    color: #333333;
-    +.section {
-        a {
-            text-decoration: none;
-            color: #2B65EC;
-            &:hover {
-                text-decoration: underline;
-                color: #2B65EC;
-            }
-        }
-    }
-    @include for-phone-only {
-        max-width: 80%;
-        padding: 0px 5px;
-        line-height: 16px;
-        margin: 1.875em auto 1.25em auto;
-    }
-    @include for-tablet-landscape-up {
-        max-width: 60%;
-        padding: 0px 5px;
-        line-height: 16px;
-        margin: 1.875em auto 1.25em auto;
-    }
-    @include for-tablet-landscape-up {
-        max-width: 23em;
-        padding: 0 15px 15px 15px;
-        margin: 35px auto 20px auto;
-    }
-}
-
-#recover {
-    border: 1px solid #d6d7da;
-    border-radius: 5px;
-    background: rgb(249, 249, 249);
-    line-height: 1em;
-    font-family: arial;
-    color: #333333;
-    +.section {
-        a {
-            text-decoration: none;
-            color: #2B65EC;
-            &:hover {
-                text-decoration: underline;
-                color: #2B65EC;
-            }
-        }
-    }
-    @include for-phone-only {
-        max-width: 80%;
-        padding: 0px 5px;
-        line-height: 16px;
-        margin: 1.875em auto 1.25em auto;
-    }
-    @include for-tablet-landscape-up {
-        max-width: 60%;
-        padding: 0px 5px;
-        line-height: 16px;
-        margin: 1.875em auto 1.25em auto;
-    }
-    @include for-tablet-landscape-up {
-        max-width: 23em;
-        padding: 0 15px 15px 15px;
-        margin: 35px auto 20px auto;
-    }
-}
-
-#reset {
-    border: 1px solid #d6d7da;
-    border-radius: 5px;
-    background: rgb(249, 249, 249);
-    line-height: 1em;
-    font-family: arial;
-    color: #333333;
-    +.section {
-        a {
-            text-decoration: none;
-            color: #2B65EC;
-            &:hover {
-                text-decoration: underline;
-                color: #2B65EC;
-            }
-        }
-    }
-    ul {
-        padding-left: 10px;
-    }
-    @include for-phone-only {
-        max-width: 80%;
-        padding: 0px 5px;
-        line-height: 16px;
-        margin: 1.875em auto 1.25em auto;
-    }
-    @include for-tablet-landscape-up {
-        max-width: 60%;
-        padding: 0px 5px;
-        line-height: 16px;
-        margin: 1.875em auto 1.25em auto;
-    }
-    @include for-tablet-landscape-up {
-        max-width: 23em;
-        padding: 0 15px 15px 15px;
-        margin: 35px auto 20px auto;
-    }
-}
-
+#create-account,
+#login,
+#recover,
+#reset,
 #upload {
+    max-width: 320px;
+    padding: 0px 5px;
+    line-height: 16px;
+    margin: 1.875em auto 1.25em auto;
     border: 1px solid #d6d7da;
     border-radius: 5px;
     background: rgb(249, 249, 249);
@@ -281,42 +131,18 @@ form {
     ul {
         padding-left: 10px;
     }
-    @include for-phone-only {
-        max-width: 80%;
-        padding: 0px 5px;
-        line-height: 16px;
-        margin: 1.875em auto 1.25em auto;
-    }
-    @include for-tablet-landscape-up {
-        max-width: 60%;
-        padding: 0px 5px;
-        line-height: 16px;
-        margin: 1.875em auto 1.25em auto;
-    }
     @include for-tablet-landscape-up {
         max-width: 23em;
         padding: 0 15px 15px 15px;
         margin: 35px auto 20px auto;
-    }
-}
-
-#subscribe {
-    #email,
-    #submit_subscribe {
-        display: inline-black;
-        width: auto;
-    }
-    a {
-        text-decoration: none;
-        color: #2B65EC;
-        &:hover {
-            text-decoration: underline;
-            color: #2B65EC;
-        }
     }
 }
 
 #contact-me {
+    max-width: 320px;
+    padding: 0px 5px;
+    line-height: 16px;
+    margin: 1.875em auto 1.25em auto;
     border: 1px solid #d6d7da;
     border-radius: 0;
     background: #fff;
@@ -330,18 +156,6 @@ form {
     input[type="submit"] {
         background: #E5E4E2;
     }
-    @include for-phone-only {
-        max-width: 80%;
-        padding: 0px 5px;
-        line-height: 16px;
-        margin: 1.875em auto 1.25em auto;
-    }
-    @include for-tablet-landscape-up {
-        max-width: 60%;
-        padding: 0px 5px;
-        line-height: 16px;
-        margin: 1.875em auto 1.25em auto;
-    }
     @include for-tablet-landscape-up {
         max-width: 23em;
         padding: 0 15px 15px 15px;
@@ -350,8 +164,8 @@ form {
 }
 
 .button {
-    background-color: #008080;
-    border: ridge thin #43BFC7;
+    background-color: #075594;
+    border: ridge thin #075594;
     font-weight: bold;
     padding: 12px 15px;
     color: #ffffff;
@@ -360,56 +174,27 @@ form {
 
 .comment {
     form {
+        textarea {
+            border: thin solid #6D7B8D;
+            border-radius: 10px;
+            width: 90%;
+        }
         input[type="submit"] {
-            border-radius: 5px;
-            background: #6D7B8D;
-            color: black;
+            display: block;
+            border-radius: 10px;
+            background-color: #075594;
+            color: white;
             font-weight: bold;
-        }
-    }
-    @include for-phone-only {
-        form {
-            textarea {
-                width: 90%;
-                border: thin solid #6D7B8D;
-                border-radius: 5px;
-            }
-            input[type="submit"] {
-                width: 5em;
-                height: 2.5em;
-            }
-        }
-    }
-    @include for-tablet-landscape-up {
-        form {
-            textarea {
-                width: 90%;
-                border: thin solid #6D7B8D;
-                border-radius: 5px;
-            }
-            input[type="submit"] {
-                width: 5em;
-                height: 2.5em;
-            }
-        }
-    }
-    @include for-tablet-landscape-up {
-        form {
-            textarea {
-                border: thin solid #6D7B8D;
-                border-radius: 10px;
-            }
-            input[type="submit"] {
-                width: 100px;
-                height: 40px;
-            }
+            width: 5em;
+            height: 2.5em;
+            cursor: pointer;
         }
     }
 }
 
 .reply-textarea {
     background: rgb(245, 245, 245);
-    border-radius: 5px;
+    border-radius: 10px;
     @include for-tablet-landscape-up {
         margin-left: 5%;
     }
@@ -418,50 +203,41 @@ form {
 .reply {
     form {
         input[type="submit"] {
-            border-radius: 5px;
-            background: #6D7B8D;
+            display: block;
+            border-radius: 10px;
+            background-color: #075594;
             font-weight: bold;
-            color: black;
+            color: white;
             margin-right: 10%;
-        }
-    }
-    @include for-phone-only {
-        form {
-            input[type="submit"] {
+            cursor: pointer;
+            @include for-phone-only {
                 width: 5em;
                 height: 2.5em;
             }
-            textarea {
-                width: 100%;
-            }
-        }
-        .reply-text {
-            margin-left: 1%;
-        }
-    }
-    @include for-tablet-landscape-up {
-        form {
-            input[type="submit"] {
+            @include for-tablet-portrait-up {
                 width: 5em;
                 height: 2.5em;
             }
-            textarea {
-                width: 100%;
-            }
-        }
-        .reply-text {
-            margin-left: 1%;
-        }
-    }
-    @include for-tablet-landscape-up {
-        form {
-            input[type="submit"] {
+            @include for-tablet-landscape-up {
                 width: 80px;
                 height: 35px;
                 margin-left: 70%;
             }
-            textarea {
+        }
+        textarea {
+            @include for-phone-only {
+                width: 100%;
+            }
+            @include for-tablet-portrait-up {
                 width: 90%;
+            }
+        }
+        .reply-text {
+            @include for-phone-only {
+                margin-left: 1%;
+            }
+            @include for-tablet-portrait-up {
+                margin-left: 1%;
             }
         }
     }
@@ -505,6 +281,8 @@ form {
 .form_error {
     span {
         width: 80%;
+        height: 20px;
+        font-size: 1em;
         margin: 3px 0;
         color: #D83D5A;
     }
@@ -513,52 +291,18 @@ form {
         background: rgb(256, 256, 0);
         background: rgba(256, 256, 0, 0.3);
     }
-    @include for-phone-only {
-        span {
-            height: 20px;
-            font-size: 1em;
-        }
-    }
-    @include for-tablet-landscape-up {
-        span {
-            height: 20px;
-            font-size: 1em;
-        }
-    }
-    @include for-tablet-landscape-up {
-        span {
-            height: 30px;
-            font-size: 1.1em;
-        }
-    }
 }
 
 .form_success {
     span {
         width: 80%;
+        height: 20px;
+        font-size: 1em;
         margin: 3px 0;
         color: green;
     }
     input {
         border: 1px solid green;
-    }
-    @include for-phone-only {
-        span {
-            height: 20px;
-            font-size: 1em;
-        }
-    }
-    @include for-tablet-landscape-up {
-        span {
-            height: 20px;
-            font-size: 1em;
-        }
-    }
-    @include for-tablet-landscape-up {
-        span {
-            height: 30px;
-            font-size: 1.1em;
-        }
     }
 }
 
@@ -567,15 +311,7 @@ form {
     padding: .5em;
     background: rgb(256, 256, 0);
     background: rgba(256, 256, 0, 0.2);
-    @include for-phone-only {
-        font-size: .7em;
-    }
-    @include for-tablet-landscape-up {
-        font-size: .7em;
-    }
-    @include for-tablet-landscape-up {
-        font-size: .8em;
-    }
+    font-size: .7em;
 }
 
 .right-align {
