@@ -3,3 +3,12 @@ credentials.php
 DbCredentials.php
 TestFile.php
 to-be-updated-online.html
+*.css.map
+*.min.js
+PHPMailer/
+google-code-prettify/
+photos/
+images/
+Archive/
+!Archive/articles/
+.sass-cache/
