@@ -4,6 +4,7 @@ DbCredentials.php
 TestFile.php
 to-be-updated-online.html
 *.css.map
+*.min.css.map
 *.min.js
 PHPMailer/
 google-code-prettify/
