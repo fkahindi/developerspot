@@ -146,17 +146,17 @@ form .form_image {
   border-radius: 0;
   background: #fff;
   line-height: 1em; }
+  @media (min-width: 768px) {
+    #contact-me {
+      max-width: 23em;
+      padding: 0 15px 15px 15px;
+      margin: 35px auto 20px auto; } }
   #contact-me textarea {
     width: 95%; }
   #contact-me input {
     border-radius: 0; }
   #contact-me input[type="submit"] {
     background: #E5E4E2; }
-  @media (min-width: 768px) {
-    #contact-me {
-      max-width: 23em;
-      padding: 0 15px 15px 15px;
-      margin: 35px auto 20px auto; } }
 
 .button {
   background-color: #075594;
@@ -166,18 +166,19 @@ form .form_image {
   color: #ffffff;
   margin: 0 auto; }
 
-.comment form textarea {
+.comment textarea {
   border: thin solid #6D7B8D;
   border-radius: 10px;
   width: 90%; }
-.comment form input[type="submit"] {
+.comment input[type="submit"] {
+  width: 5em;
+  height: 2.5em;
   display: block;
+  padding: 0.625em;
   border-radius: 10px;
   background-color: #075594;
   color: white;
   font-weight: bold;
-  width: 5em;
-  height: 2.5em;
   cursor: pointer; }
 
 .reply-textarea {
@@ -187,7 +188,7 @@ form .form_image {
     .reply-textarea {
       margin-left: 5%; } }
 
-.reply form input[type="submit"] {
+.reply input[type="submit"] {
   display: block;
   border-radius: 10px;
   background-color: #075594;
@@ -196,29 +197,29 @@ form .form_image {
   margin-right: 10%;
   cursor: pointer; }
   @media (max-width: 599px) {
-    .reply form input[type="submit"] {
+    .reply input[type="submit"] {
       width: 5em;
       height: 2.5em; } }
   @media (min-width: 600px) {
-    .reply form input[type="submit"] {
+    .reply input[type="submit"] {
       width: 5em;
       height: 2.5em; } }
   @media (min-width: 768px) {
-    .reply form input[type="submit"] {
+    .reply input[type="submit"] {
       width: 80px;
       height: 35px;
       margin-left: 70%; } }
 @media (max-width: 599px) {
-  .reply form textarea {
+  .reply textarea {
     width: 100%; } }
 @media (min-width: 600px) {
-  .reply form textarea {
+  .reply textarea {
     width: 90%; } }
 @media (max-width: 599px) {
-  .reply form .reply-text {
+  .reply .reply-text {
     margin-left: 1%; } }
 @media (min-width: 600px) {
-  .reply form .reply-text {
+  .reply .reply-text {
     margin-left: 1%; } }
 
 .red {
