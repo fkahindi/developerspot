@@ -147,6 +147,11 @@ form {
     border-radius: 0;
     background: #fff;
     line-height: 1em;
+    @include for-tablet-landscape-up {
+        max-width: 23em;
+        padding: 0 15px 15px 15px;
+        margin: 35px auto 20px auto;
+    }
     textarea {
         width: 95%;
     }
@@ -155,11 +160,6 @@ form {
     }
     input[type="submit"] {
         background: #E5E4E2;
-    }
-    @include for-tablet-landscape-up {
-        max-width: 23em;
-        padding: 0 15px 15px 15px;
-        margin: 35px auto 20px auto;
     }
 }
 
@@ -173,22 +173,21 @@ form {
 }
 
 .comment {
-    form {
-        textarea {
-            border: thin solid #6D7B8D;
-            border-radius: 10px;
-            width: 90%;
-        }
-        input[type="submit"] {
-            display: block;
-            border-radius: 10px;
-            background-color: #075594;
-            color: white;
-            font-weight: bold;
-            width: 5em;
-            height: 2.5em;
-            cursor: pointer;
-        }
+    textarea {
+        border: thin solid #6D7B8D;
+        border-radius: 10px;
+        width: 90%;
+    }
+    input[type="submit"] {
+        width: 5em;
+        height: 2.5em;
+        display: block;
+        padding: 0.625em;
+        border-radius: 10px;
+        background-color: #075594;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
     }
 }
 
@@ -201,44 +200,42 @@ form {
 }
 
 .reply {
-    form {
-        input[type="submit"] {
-            display: block;
-            border-radius: 10px;
-            background-color: #075594;
-            font-weight: bold;
-            color: white;
-            margin-right: 10%;
-            cursor: pointer;
-            @include for-phone-only {
-                width: 5em;
-                height: 2.5em;
-            }
-            @include for-tablet-portrait-up {
-                width: 5em;
-                height: 2.5em;
-            }
-            @include for-tablet-landscape-up {
-                width: 80px;
-                height: 35px;
-                margin-left: 70%;
-            }
+    input[type="submit"] {
+        display: block;
+        border-radius: 10px;
+        background-color: #075594;
+        font-weight: bold;
+        color: white;
+        margin-right: 10%;
+        cursor: pointer;
+        @include for-phone-only {
+            width: 5em;
+            height: 2.5em;
         }
-        textarea {
-            @include for-phone-only {
-                width: 100%;
-            }
-            @include for-tablet-portrait-up {
-                width: 90%;
-            }
+        @include for-tablet-portrait-up {
+            width: 5em;
+            height: 2.5em;
         }
-        .reply-text {
-            @include for-phone-only {
-                margin-left: 1%;
-            }
-            @include for-tablet-portrait-up {
-                margin-left: 1%;
-            }
+        @include for-tablet-landscape-up {
+            width: 80px;
+            height: 35px;
+            margin-left: 70%;
+        }
+    }
+    textarea {
+        @include for-phone-only {
+            width: 100%;
+        }
+        @include for-tablet-portrait-up {
+            width: 90%;
+        }
+    }
+    .reply-text {
+        @include for-phone-only {
+            margin-left: 1%;
+        }
+        @include for-tablet-portrait-up {
+            margin-left: 1%;
         }
     }
 }

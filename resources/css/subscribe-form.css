@@ -12,7 +12,7 @@
   width: auto;
   font-size: 1em;
   padding: .6em; }
-  #subscribe input:focus {
+  #subscribe input:active {
     border: solid thin silver; }
 #subscribe input[type="submit"] {
   padding: .6em;

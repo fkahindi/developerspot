@@ -44,6 +44,5 @@ $mail->AddAddress($email_to);
 if(!$mail->Send()){
 	$email_error = '<div class="errorMsg"> Message could not be sent. Mailer Error: '. $mail->ErrorInfo .'</div>';
 }else{
-	echo '<script>$("#subscribe").addClass("hidden");$("#to-be-notified").addClass("hidden");</script>';
-	$emil_success = '<div class="successMsg">An email has been sent to your email box with instructions to confirm your subscription.</div>';
+	echo '<script>$("#subscribe").addClass("hidden");</script>';$emil_success = '<div class="successMsg">An email has been sent to your email box with instructions to confirm your subscription.</div>';
 	}
