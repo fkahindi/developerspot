@@ -39,21 +39,11 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
-.paragraph-snippet{
-	font-family:'Hind Vadodara',sans-serif;
-	font-size:90%;
-	line-height:1.4;
-	padding:5px;
-	border:0 solid;
-	box-shadow:0 5px 5px grey; 
-}
-
 </style>
  <?php include_once __DIR__ .'/templates/head-resources.html.php'; ?>
 	<body>
 		<header>
 		<?php require_once __DIR__ . '/templates/header.html.php';?>
-		  
 		</header>
 		<main class="group">
 			<aside class="col-2-10 hide-in-mobile">

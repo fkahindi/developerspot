@@ -6,7 +6,7 @@
 		<!--Navigation bar follows-->
 	<div class="nav-bar">
 		<div id="dropdown-menu-btn">&#9776;</div>
-		<nav class="dropdown-content">
+		<nav class="nav-content">
 		<?php require_once __DIR__ .'/nav.html.php'; ?>	
 		</nav>
 	</div>

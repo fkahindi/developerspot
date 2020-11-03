@@ -166,62 +166,6 @@ form .form_image {
   color: #ffffff;
   margin: 0 auto; }
 
-.comment textarea {
-  border: thin solid #6D7B8D;
-  border-radius: 10px;
-  width: 90%; }
-.comment input[type="submit"] {
-  width: 5em;
-  height: 2.5em;
-  display: block;
-  padding: 0.625em;
-  border-radius: 10px;
-  background-color: #075594;
-  color: white;
-  font-weight: bold;
-  cursor: pointer; }
-
-.reply-textarea {
-  background: whitesmoke;
-  border-radius: 10px; }
-  @media (min-width: 768px) {
-    .reply-textarea {
-      margin-left: 5%; } }
-
-.reply input[type="submit"] {
-  display: block;
-  border-radius: 10px;
-  background-color: #075594;
-  font-weight: bold;
-  color: white;
-  margin-right: 10%;
-  cursor: pointer; }
-  @media (max-width: 599px) {
-    .reply input[type="submit"] {
-      width: 5em;
-      height: 2.5em; } }
-  @media (min-width: 600px) {
-    .reply input[type="submit"] {
-      width: 5em;
-      height: 2.5em; } }
-  @media (min-width: 768px) {
-    .reply input[type="submit"] {
-      width: 80px;
-      height: 35px;
-      margin-left: 70%; } }
-@media (max-width: 599px) {
-  .reply textarea {
-    width: 100%; } }
-@media (min-width: 600px) {
-  .reply textarea {
-    width: 90%; } }
-@media (max-width: 599px) {
-  .reply .reply-text {
-    margin-left: 1%; } }
-@media (min-width: 600px) {
-  .reply .reply-text {
-    margin-left: 1%; } }
-
 .red {
   color: red; }
 

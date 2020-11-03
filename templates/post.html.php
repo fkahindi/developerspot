@@ -35,37 +35,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
-pre, pre code, samp{
-	display:block;
-	margin:0;
-}
-pre{
-	font-size:1.1em;
-	tab-size:1;
-	overflow-x:auto;
-	padding:10px 0;
-	margin: 0;
-}
-code{
-	font-family:'Courier New',Courier;
-	font-size:1em;
-	color:#000;
-	padding:0 2px;
-}
-p code,li code{
-	background:rgb(230,230,230);
-}
-.special-p{
-	padding:10px;
-	font-family: calibri;
-    background:rgb(100,200,250);
-	background:rgba(100,200,255,.4);
-	border-left: 5px double red;
-	border-right: 5px double red;
-}
-.special-p code{
-	background:inherit;
-}
+
 </style>
     <?php include_once __DIR__ .'/head-resources.html.php'; ?>
 	<!-- Links for google code prettify .js at bottom of page files -->
