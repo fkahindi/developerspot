@@ -21,7 +21,7 @@ $("document").ready(function() {
     });
     /* Monitor browser window size and display normal menu if size is greater than 600px */
     window.onresize = function() {
-            if (document.documentElement.clientWidth < 600 || window.innerWidth < 617) {
+            if (document.documentElement.clientWidth < 599 || window.innerWidth < 617) {
                 $(".nav-content").hide();
                 $("#dropdown-menu-btn").show();
             } else {

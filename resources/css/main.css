@@ -155,6 +155,23 @@ header {
     .nav-bar {
       padding-top: 1.65em; } }
 
+#dropdown-menu-btn {
+  display: none; }
+  @media (max-width: 599px) {
+    #dropdown-menu-btn {
+      font-size: 1.625em;
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 50px;
+      text-align: right;
+      padding: 10px 15px;
+      color: white;
+      border: none; }
+      #dropdown-menu-btn:hover {
+        cursor: pointer;
+        background-color: #23233c; } }
+
 .nav-content span {
   color: #c8c8c8; }
 @media (max-width: 599px) {
@@ -214,7 +231,6 @@ header {
   display: none; }
   @media (max-width: 599px) {
     .closebtn {
-      font-size: 1.75em;
       position: absolute;
       top: 0;
       right: 10px;
@@ -243,7 +259,7 @@ header {
 .login-signup {
   display: inline-block;
   margin: 0;
-  width: 100%;
+  width: 10%;
   padding: 1em;
   font-size: 1em; }
   @media (max-width: 599px) {
@@ -356,23 +372,6 @@ header {
     color: #c8c8e9; }
     .account-display-settings a:hover {
       color: #fff; }
-
-#dropdown-menu-btn {
-  display: none; }
-  @media (max-width: 599px) {
-    #dropdown-menu-btn {
-      font-size: 1.625em;
-      display: block;
-      position: absolute;
-      top: 0;
-      width: 50px;
-      text-align: right;
-      padding: 10px 15px;
-      color: white;
-      border: none; }
-      #dropdown-menu-btn:hover {
-        cursor: pointer;
-        background-color: #23233c; } }
 
 footer {
   width: 100%;

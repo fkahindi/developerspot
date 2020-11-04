@@ -187,6 +187,25 @@ header {
     }
 }
 
+#dropdown-menu-btn {
+    display: none;
+    @include for-phone-only {
+        font-size: 1.625em;
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 50px;
+        text-align: right;
+        padding: 10px 15px;
+        color: white;
+        border: none;
+        &:hover {
+            cursor: pointer;
+            background-color: rgb( 35, 35, 60);
+        }
+    }
+}
+
 .nav-content {
     span {
         color: rgb(200, 200, 200);
@@ -255,7 +274,6 @@ header {
 .closebtn {
     display: none;
     @include for-phone-only {
-        font-size: 1.75em;
         position: absolute;
         top: 0;
         right: 10px;
@@ -288,7 +306,7 @@ header {
 .login-signup {
     display: inline-block;
     margin: 0;
-    width: 100%;
+    width: 10%;
     padding: 1em;
     font-size: 1em;
     @include for-phone-only {
@@ -428,25 +446,6 @@ header {
         color: rgb( 200, 200, 233);
         &:hover {
             color: #fff;
-        }
-    }
-}
-
-#dropdown-menu-btn {
-    display: none;
-    @include for-phone-only {
-        font-size: 1.625em;
-        display: block;
-        position: absolute;
-        top: 0;
-        width: 50px;
-        text-align: right;
-        padding: 10px 15px;
-        color: white;
-        border: none;
-        &:hover {
-            cursor: pointer;
-            background-color: rgb( 35, 35, 60);
         }
     }
 }
