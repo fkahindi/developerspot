@@ -615,11 +615,6 @@ main {
         padding: 5px;
         margin: 0 auto;
     }
-    @include for-big-desktop-up {
-        width: 90%;
-        margin: 0 auto;
-        margin: 30px 5px;
-    }
     table {
         th {
             font-weight: bold;
@@ -790,7 +785,7 @@ aside {
     text-align: left;
     @include for-phone-only {
         width: 100%;
-        padding: 5px;
+        padding: 1em;
         text-align: left;
     }
     @include for-tablet-portrait-up {
@@ -800,16 +795,11 @@ aside {
     @include for-tablet-landscape-up {
         display: inline-block;
         padding-left: 1.25em;
+        padding-top: 2.25em;
         text-align: left;
     }
     @include for-desktop-up {
-        display: inline-block;
-        padding-left: 10px;
-        text-align: left;
-    }
-    @include for-big-desktop-up {
-        padding-left: 0;
-        text-align: left;
+        padding-top: 5.25em;
     }
     ul,
     ol {

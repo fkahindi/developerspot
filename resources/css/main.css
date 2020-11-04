@@ -509,11 +509,6 @@ main {
       width: 95%;
       padding: 5px;
       margin: 0 auto; } }
-  @media (min-width: 1200px) {
-    main {
-      width: 90%;
-      margin: 0 auto;
-      margin: 30px 5px; } }
   main table th {
     font-weight: bold;
     background: #c8e6c8; }
@@ -654,7 +649,7 @@ aside {
   @media (max-width: 599px) {
     aside {
       width: 100%;
-      padding: 5px;
+      padding: 1em;
       text-align: left; } }
   @media (min-width: 600px) {
     aside {
@@ -664,16 +659,11 @@ aside {
     aside {
       display: inline-block;
       padding-left: 1.25em;
+      padding-top: 2.25em;
       text-align: left; } }
   @media (min-width: 992px) {
     aside {
-      display: inline-block;
-      padding-left: 10px;
-      text-align: left; } }
-  @media (min-width: 1200px) {
-    aside {
-      padding-left: 0;
-      text-align: left; } }
+      padding-top: 5.25em; } }
   @media (max-width: 599px) {
     aside ul,
     aside ol {
