@@ -10,14 +10,16 @@ if(!isset($_SESSION)){
 		<div class="comments-section group" >
 			<div class="hide-comment-id">
 				<?php echo $comment['comment_id']; ?>
-				<?php $num_replies = getRepliesCountByCommentId($comment['comment_id']) ; ?>
+				<?php $numOfReplies = new CommentsClass($pdo);?>
+				<?php $num_replies=$numOfReplies->getRepliesCountByCommentId($comment['comment_id']) ; ?>
 			</div>
 			<div class="profile-photo"> 
-				<img src="<?php echo getUserById($comment['user_id'])['profile_photo']; ?>" alt="" width=30px height=30px>
+			<?php $getUser = new CommentsClass($pdo);?>
+				<img src="<?php echo $getUser->getUserById($comment['user_id'])['profile_photo']; ?>" alt="" width=30px height=30px>
 			</div>
 			<div class="comments-detail">
 				<div class="user-info">
-					<span class="username"><?php echo getUserById($comment['user_id'])['username']; ?></span>
+					<span class="username"><?php echo $getUser->getUserById($comment['user_id'])['username']; ?></span>
 					<span class="created-date"><?php echo date('F j, Y  \a\t H:i', strtotime($comment['created_at'])); ?></span>
 				</div>
 				<div class="comment-text">
@@ -41,17 +43,18 @@ if(!isset($_SESSION)){
 						<!--Display reply by AJAX here -->
 					</div>
 					<!-- Get all replies by comment_id and display them below -->
-					<?php $replies = getRepliesByCommentId($comment['comment_id']) ?>
+					<?php $getReplies = new CommentsClass($pdo);?>
+					<?php $replies = $getReplies->getRepliesByCommentId($comment['comment_id']) ?>
 					<?php if(isset($replies)): ?>
 						<?php foreach($replies as $reply): ?>
 							<!--Reply -->
 							<div class="group">
 								<div class="replies-profile-photo">
-									<img src="<?php echo getUserById($reply['user_id'])['profile_photo']; ?>" alt="" width=30px height=30px>
+									<img src="<?php echo $getUser->getUserById($reply['user_id'])['profile_photo']; ?>" alt="" width=30px height=30px>
 								</div>
 								<div class="replies-detail">
 									<div class="user-info">
-										<span class="username"><?php echo getUserById($reply['user_id'])['username']; ?></span>
+										<span class="username"><?php echo $getUser->getUserById($reply['user_id'])['username']; ?></span>
 										<span class="created-date"><?php echo date('F j, Y \a\t H:i', strtotime($reply['created_at'])); ?></span>
 									</div>
 									<div class="reply-text">

@@ -1,70 +1,7 @@
 <?php
 require_once __DIR__ .'/../../includes_devspot/DatabaseConnection.php';
+require_once __DIR__ .'/../classes/CommentsClass.php';
 
-/* Get post by post_id represented by page_id */
-
-function getAllPostComments($page_id, $limit=''){
-	global $pdo;
-	
-	/*Get a section of comments related to a particular post and display them on the page of the post  */
-	$query = "SELECT * FROM `comments` WHERE `post_id` = :page_id ORDER BY created_at DESC ".$limit;
-	
-	$stmt = $pdo->prepare($query);
-	$stmt->bindValue(':page_id',$page_id);
-	
-	$stmt->execute();
-			
-	return $stmt->fetchAll();
-}
-
-/* //Get number of comments in a page */
-function getCommentCountByPostId($id){
-	global $pdo;
-	$query = "SELECT COUNT(*) AS total FROM comments WHERE post_id= :id";
-	
-	$sql = $pdo->prepare($query);
-	
-	$sql->execute([':id'=>$id]);
-	
-	$total = $sql->fetchColumn();
-	return $total;
-		
-}
-/* //Get users by id */
-function getUserById($id){
-	global $pdo;
-	$query = "SELECT user_id, username, profile_photo FROM `users` WHERE user_id= :id";
-	
-	$sql=$pdo->prepare($query);
-	$sql->bindValue(':id', $id);
-	
-	$sql->execute();
-	
-	return $sql->fetch();
-}
-/* //Getting replies by comment_id */
-function getRepliesByCommentId($id){
-	global $pdo;
-	$sql = "SELECT * FROM `replies` WHERE comment_id = :id ORDER BY created_at DESC";
-	
-	$query=$pdo->prepare($sql);
-	$query->bindValue(':id', $id);
-	
-	$query->execute();
-	
-	return $query->fetchAll();
-	
-}
-/* //Get number of replies in a comment */
-function getRepliesCountByCommentId($id){
-	global $pdo;
-	$query ="SELECT COUNT(*) AS number FROM `replies` WHERE comment_id=:id";
-	
-	$sql = $pdo->prepare($query);
-	$sql->execute([':id'=>$id]);
-	$number = $sql->fetchColumn();
-	return $number;
-}
 /* //Receives values from jQuery for posting comments */	
 if(isset($_POST['submit_comment']) && $_POST['body']!==""){
 	$user_id = $_POST['user_id']; 
@@ -128,7 +65,7 @@ if(isset($_POST['load_more'])){
 	
 	$page_id = $_POST['page_id'];
 	$limit = $_POST['limit'];
-	
-	$comments = getAllPostComments($page_id, $limit);
+	$getComments = new CommentsClass($pdo);
+	$comments = $getComments->getAllPostComments($page_id, $limit);
 	include __DIR__ .'/../comments/comments_display_main_block.php';
 }
