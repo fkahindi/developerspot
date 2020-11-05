@@ -133,7 +133,7 @@ function setAccountPassword(){
 	
 	$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 	$token = filter_var($_POST['token'], FILTER_SANITIZE_STRING);
-	$username =filter_var($_Post['username'], FILTER_SANITIZE_STRING);
+	$username =filter_var($_POST['username'], FILTER_SANITIZE_STRING);
 	$password = $_POST['password'];
 	$confirm_password = $_POST['confirm_password'];
 		
@@ -645,7 +645,7 @@ function contactMe(){
     if($valid){
         $comment = htmlspecialchars($comment, ENT_QUOTES);
         include __DIR__ .'/contact-me-email-link.php';
-    }   
+    }  
 }
 function test_input($data){
 $data = stripslashes($data);
