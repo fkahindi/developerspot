@@ -78,7 +78,8 @@
 									</a>
 									</td>
 									<td><?php
-									echo	getCommentCountByPostId($post['post_id']);
+										$getComments = new CommentsClass($pdo);
+										echo $getComments->getCommentCountByPostId($post['post_id']);
 									?>
 									</td>
 									<td><?php echo "Compute" ?></td>
@@ -113,10 +114,6 @@
 		</div>
 	</div>
 </body>
-<!--
-<script src="js/jquery-3.4.0.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
--->
 <script src="js/tooltip-call.js"></script>
 <script>
 $('document').ready(function(){
