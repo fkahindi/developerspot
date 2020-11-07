@@ -6,11 +6,11 @@ class ImageLoad
     public $image_file_type='';
     public $file_size_limit=0; 
     
-    public function __construct(){
-        $target_file=$this->target_file;
-        $image_temp_name=$this->image_temp_name;
-        $image_file_type=$this->image_file_type;
-        $file_size_limit=$this->file_size_limit;
+    public function __construct($target_file){
+        $this->target_file=$target_file;
+        $this->image_temp_name=$image_temp_name;
+        $this->image_file_type=$image_file_type;
+        $this->file_size_limit=$file_size_limit;
     }
     public function isImageThere($image_temp_name, $file_path){
         if(!empty(getimagesize($image_temp_name))){
