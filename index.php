@@ -48,13 +48,14 @@ footer, header, hgroup, menu, nav, section {
 		<main class="group">
 			<aside class="col-2-10 hide-in-mobile">
 				<div class="published-topics">
-				<h2>Topics</h2>
+				<h3>Topics</h3>
 					
 				<?php include __DIR__ . '/templates/published_posts_by_topics.html.php';?>										
 				</div>
 			</aside><!--
-			--><section class="col-5-10">
-				<h1 class="align-center">Web Develoment Tutorials</h1><hr>
+			--><section class="col-5-10">				
+				<h1 class="align-center">Web Development</h1><hr>
+				
 				<div class="social-media">
 					<?php include __DIR__ .'/templates/social-icons-links.php';?>
 				</div>
@@ -62,7 +63,7 @@ footer, header, hgroup, menu, nav, section {
 				<?php $post = getPostById($post_id['post_id']) ?>
 				<?php $post['author'] = getPostAuthorById($post['user_id'])?>
 				<div>
-					<h3><a href="templates/post.html.php?id=<?php echo $post_id['post_id'] ?>&title=<?php echo $post['post_slug'] ?>"> <?php echo htmlspecialchars_decode($post['post_title']) ?></a></h3>
+					<h2><a href="templates/post.html.php?id=<?php echo $post_id['post_id'] ?>&title=<?php echo $post['post_slug'] ?>"> <?php echo htmlspecialchars_decode($post['post_title']) ?></a></h2>
 				</div>
 				<div class="post-acreditation">
 					<span>  
@@ -84,8 +85,8 @@ footer, header, hgroup, menu, nav, section {
 			--><aside class="col-3-10">
 				<!-- Sidebar content goes here-->
 				<div class="recent-posts">
-				<h2 class="left">Recent posts</h2>
-				<?php $recent_posts = getMostRecentPosts(); ?>
+				<h3 class="left">Recent posts</h3>
+				<?php $recent_posts = getMostRecentPosts(3); ?>
 				<?php foreach($recent_posts as $latest_post): ?>
 				<p><a href="templates/post.html.php?id=<?php echo $latest_post['post_id'] ?>&title=<?php echo $latest_post['post_slug']?>"> <?php echo $latest_post['post_title'] ?></a></p>
 				<?php endforeach; ?>

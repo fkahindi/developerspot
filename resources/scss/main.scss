@@ -1118,6 +1118,9 @@ h4 {
 h1 {
     font-size: 1.3em;
     color: #071418;
+    a {
+        color: #071418;
+    }
     @include for-phone-only {
         padding-left: 10px;
     }
@@ -1126,6 +1129,9 @@ h1 {
 h2 {
     font-size: 1.1em;
     color: #071418;
+    a {
+        color: #071418;
+    }
     @include for-phone-only {
         padding-left: 10px;
     }

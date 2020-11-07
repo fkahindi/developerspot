@@ -88,10 +88,11 @@ function getTopicByName($topic_name){
 	$menu_topic = mysqli_fetch_assoc($result);
 	return $menu_topic;
 }
+
 /* Get the first three most recent posts */
-function getMostRecentPosts(){
+function getMostRecentPosts($limit){
 	global $conn;
-	$sql = "SELECT * FROM `posts` WHERE published=1 ORDER BY created_at DESC LIMIT 3";
+	$sql = "SELECT * FROM `posts` WHERE published=1 ORDER BY created_at DESC LIMIT $limit";
 	$result = mysqli_query($conn, $sql);
 	if($result){
 		$recent_posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
