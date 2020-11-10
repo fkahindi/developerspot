@@ -3,6 +3,7 @@ credentials.php
 DbCredentials.php
 TestFile.php
 to-be-updated-online.html
+admin/tests.php
 *.css.map
 *.min.css.map
 *.min.js
