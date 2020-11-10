@@ -7,7 +7,7 @@ if(file_exists($target_file)){
     array_push($errors, 'There is already an image with the same name. Try change the name and continue.');
 }
 /* Check image size */
-if($_FILES['post_main_image']['size']>5000000){
+if($_FILES['post_main_image']['size']>500000){
     array_push($errors, 'Sorry, image is too large');
     
 /* Allow only .jpg, .png and .gif file formats */

@@ -15,16 +15,12 @@
 	<title><?php echo  $_SESSION['role'] ?> | Create Post</title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<!--Fetch all posts that apply to the user  -->
 	<?php $topics = getAllTopics(); ?>
 </head>
 <body>
 	<?php include __DIR__ .'/components/navbar.php'; ?>
 	<div class="container border mt-3">
-		
 		<div class="row my-5">
 		<div class="text text-right text-success"><?php include __DIR__ .'/includes/messages.php'?></div>
 			<!--Row with 3 equal columns-->
@@ -58,14 +54,12 @@
 						<div class="form-group form-group-lg">
 							<input type="file" name="post_main_image" placeholder="Select image">
 							<p><ul><li>Only images sizes of less than 0.5 Mb with formats .jpg, .png and .gif are allowed.</li></ul> </p>
-						
 						</div>
 						<div class="form-group form-group-lg">
 							<input type="text" name="image_caption" value="<?php echo $image_caption; ?>" class="form-control" placeholder="Type image caption">
 						</div>
 						<div class="form-group form-group-lg">
 							<textarea name="body" id="body" col="30" row="50" class="form-control" placeholder="Article body goes here..."><?php echo $body; ?></textarea>
-							
 						</div>
 						<div class="form-group form-group-lg">
 							<input type="text" name="meta_description" value="<?php echo $meta_description; ?>" class="form-control" placeholder="Meta description">

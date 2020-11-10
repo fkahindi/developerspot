@@ -494,7 +494,7 @@ function resetPassword(){
 			$expDateTimestamp = strtotime($row['expDate']);
 			$curDateTimestamp = strtotime($curDate);
 			
-			if(($curDateTimestamp - $expDateTimestamp)<=82400){
+			if(($curDateTimestamp - $expDateTimestamp)<=3600){
 													
 				$deleteToken = new DatabaseTable($pdo,'password_reset_temp', 'email');
 				$deleteToken->deleteRecords($email);

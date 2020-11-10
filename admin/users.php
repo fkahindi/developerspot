@@ -2,18 +2,15 @@
 if(!isset($_SESSION)){
 	session_start();
 }
-
 include __DIR__ . '/includes/admin_login_status.php';
 	
 if($_SESSION['role'] !== 'Admin'){
 	header('Location: ../index.php');
 }
-?>
-<?php  
 include __DIR__ .'/includes/admin_functions.php';
 include __DIR__ .'/includes/posts_functions.php';
 
-/* //Get all admin and author users */
+/* Get all admin and author users */
 $admins = getAdminUsers();
 $roles = ['Admin', 'Author', 'User'];
 ?>
@@ -21,7 +18,6 @@ $roles = ['Admin', 'Author', 'User'];
 <html lang="en">
 <title>Admin | Edit User</title>	
 <?php include __DIR__ . '/components/head.php';?>
-	
 </head>
 <body>
 	<?php include __DIR__ .'/components/navbar.php'; ?>

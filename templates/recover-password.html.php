@@ -4,7 +4,6 @@ if(isset($_POST['recover_password'])){
 	recoverPassword();	
 }
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>

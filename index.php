@@ -9,12 +9,11 @@ include __DIR__ .'/admin/includes/admin_functions.php';
 <html lang="en">
 <head>
 <!-- head section -->
-<title>Developerspot: Frontend and Server side web development </title> 
+<title>Developerspot: Web tutorials for developers </title> 
 	<meta name="description" content="A blogging site dedicated to front-end and back-end  technologies for web development. Provides informative and practical tutorials to unlock the potential of any upcoming web developer." />
 	
 	<?php include_once __DIR__ .'/templates/head.html.php'; ?>
 	<!--// head section -->
-	
 <style>
 html,body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -54,7 +53,7 @@ footer, header, hgroup, menu, nav, section {
 				</div>
 			</aside><!--
 			--><section class="col-5-10">				
-				<h1 class="align-center">Web Development</h1><hr>
+				<h1 class="align-center">Web Tutorials for Developers</h1><hr>
 				
 				<div class="social-media">
 					<?php include __DIR__ .'/templates/social-icons-links.php';?>
@@ -104,6 +103,10 @@ footer, header, hgroup, menu, nav, section {
 		</main>
 		<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 		<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
+        <!--  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://www.developerspot.co.ke/resources/js/page-control.js"></script>
+        -->
 		<footer>
 			<?php include __DIR__ .'/templates/footer.html.php'?>
 		</footer>

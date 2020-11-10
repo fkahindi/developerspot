@@ -24,9 +24,7 @@ changePassword();
 			<div class="banner-bar"><h2>Developers Pot</h2></div>
 			<p class="form-p">Fields marked with <span class="red"> &#42;</span> are mandatory. </p>
 			<h3>Change Password</h3>
-		</div>
-	
-	
+		</div>	
 		<form method="POST" action="">
 			<div class="group-form">
 				<label for="old_password">Old Password:<span class="red"> &#42;</span></label>

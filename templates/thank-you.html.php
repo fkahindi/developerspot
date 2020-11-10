@@ -9,7 +9,6 @@ if(!isset($_SESSION)){
 <title>Email | Message Success</title>
 </head>
 <body>
-
 <?php if(!empty($_SESSION['email_success'])):?>
 <div class="successMsg"><?php echo $_SESSION['email_success']; ?></div>
 <p> <a href="login.html.php"> Continue</a></p>

@@ -77,7 +77,7 @@ footer, header, hgroup, menu, nav, section {
 			<div class="recent-posts">
 			<!-- Sidebar items go here -->
 				<h2 class="left">Recent posts</h2>
-				<?php $recent_posts = getMostRecentPosts(); ?>
+				<?php $recent_posts = getMostRecentPosts(3); ?>
 				<?php foreach($recent_posts as $latest_post): ?>
 				<p><a href="post.html.php?id=<?php echo $latest_post['post_id'] ?>&title=<?php echo $latest_post['post_slug']?>"> <?php echo $latest_post['post_title'] ?></a></p>
 				<?php endforeach; ?>

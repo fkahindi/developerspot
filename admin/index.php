@@ -1,5 +1,4 @@
-<?php 
-	
+<?php 	
 if($_SESSION['role'] !== 'Admin'){
 	header('Location: ../index.php');
 }else{

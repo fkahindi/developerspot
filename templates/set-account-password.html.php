@@ -33,7 +33,6 @@ if(isset($_POST['set-account-password'])){
 				<h3>Set Account Password</h3>
 		</div>					
 		<form method="POST" name ="set-password" action="">
-		
 			<input type="hidden" name="action" value="set">
 			<div class="group-form">
 			<label for="password">Password:<span class="red"> &#42;</span></label>
@@ -44,13 +43,11 @@ if(isset($_POST['set-account-password'])){
 					<li>May contain letters, numbers, underscore, hyphen or dot.</li>
 				</ul>
 			</div>
-			
 			<div class="group-form">
 			<label for="confirm_password">Confirm Password:<span class="red"> &#42;</span></label>
 			 <input type="password" id="confirm_password" name="confirm_password" value="<?php echo(empty($confirm_password)? '': $confirm_password); ?>" maxlength="51" autocomplete="off" >
 			<span class="errorMsg"><?php echo (!empty($errors['confirm_password'])? $errors['confirm_password'] :'');?></span>
 			</div>
-			
 			<input type="hidden" name="email" value="<?php echo $email; ?>">
 			<input type="hidden" name="token" value="<?php echo $token; ?>">
 			<input type="hidden" name="username" value="<?php echo $username; ?>">

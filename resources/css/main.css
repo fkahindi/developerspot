@@ -596,6 +596,7 @@ samp {
   margin: 0; }
 
 pre {
+  font-family: 'Courier New', Courier;
   font-size: 1.1em;
   tab-size: 1;
   overflow-x: auto;
@@ -913,7 +914,7 @@ h4 {
   line-height: .9; }
 
 h1 {
-  font-size: 1.3em;
+  font-size: 1.325em;
   color: #071418; }
   h1 a {
     color: #071418; }
@@ -922,7 +923,7 @@ h1 {
       padding-left: 10px; } }
 
 h2 {
-  font-size: 1.1em;
+  font-size: 1.225em;
   color: #071418; }
   h2 a {
     color: #071418; }
@@ -931,7 +932,7 @@ h2 {
       padding-left: 10px; } }
 
 h3 {
-  font-size: 1.1em;
+  font-size: 1.175em;
   color: #050a32; }
   h3 a {
     color: #050a32; }
@@ -940,7 +941,7 @@ h3 {
       padding-left: 10px; } }
 
 h4 {
-  font-size: 1.2em; }
+  font-size: 1.125em; }
   @media (max-width: 599px) {
     h4 {
       padding-left: 10px; } }

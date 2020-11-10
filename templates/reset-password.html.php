@@ -7,15 +7,12 @@ if(isset($_GET['email']) && isset($_GET['key'])){
 	$email=$_GET['email'];
 	$token=$_GET['key'];	
 }
-	
-
 if(!empty($email) && !empty($token)){
 include __DIR__ .'/../includes/process_form.php';
 if(isset($_POST['reset_password'])){	
 	resetPassword();	
 }
-?>
-	
+?>	
 <!doctype html>
 <html lang="en">
 <head>
@@ -44,13 +41,11 @@ if(isset($_POST['reset_password'])){
 					<li>May contain letters, numbers, underscore, hyphen or dot.</li>
 				</ul>
 			</div>
-			
 			<div class="group-form">
 			<label for="confirm_new_password">Confirm New Password:<span class="red"> &#42;</span></label>
 			 <input type="password" id="confirm_password" name="confirm_new_password" value="<?php echo(empty($confirm_new_password)? '': $confirm_new_password); ?>" maxlength="51" autocomplete="off" >
 			<span class="errorMsg"><?php echo (!empty($errors['confirm_new_password'])? $errors['confirm_new_password'] :'');?></span>
 			</div>
-			
 			<input type="hidden" name="email" value="<?php echo $email; ?>">
 			<input type="hidden" name="token" value="<?php echo $token; ?>">
 					

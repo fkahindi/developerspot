@@ -1,7 +1,7 @@
 <?php
 class DatabaseTable
 {
-	/* //Setting class properties (or variables) */
+	/* Setting class properties (or variables) */
 	
 	private $pdo;
 	private $table;

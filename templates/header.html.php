@@ -1,7 +1,7 @@
 <div class="group">
 	<!-- Banner bar follows-->
 	<div class="banner-bar">
-		<a href="<?php echo BASE_URL ?>index.php">Developers Pot</a>
+		<a href="<?php echo BASE_URL ?>index.php">DevelopersPot</a>
 	</div>
 		<!--Navigation bar follows-->
 	<div class="nav-bar">

@@ -727,6 +727,7 @@ samp {
 }
 
 pre {
+    font-family: 'Courier New', Courier;
     font-size: 1.1em;
     tab-size: 1;
     overflow-x: auto;
@@ -1116,7 +1117,7 @@ h4 {
 }
 
 h1 {
-    font-size: 1.3em;
+    font-size: 1.325em;
     color: #071418;
     a {
         color: #071418;
@@ -1127,7 +1128,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.1em;
+    font-size: 1.225em;
     color: #071418;
     a {
         color: #071418;
@@ -1138,7 +1139,7 @@ h2 {
 }
 
 h3 {
-    font-size: 1.1em;
+    font-size: 1.175em;
     color: rgb(5, 10, 50);
     a {
         color: rgb(5, 10, 50);
@@ -1149,7 +1150,7 @@ h3 {
 }
 
 h4 {
-    font-size: 1.2em;
+    font-size: 1.125em;
     @include for-phone-only {
         padding-left: 10px;
     }

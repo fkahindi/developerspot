@@ -14,7 +14,7 @@ $output.='<p><a href="localhost/spexproject/templates/confirm-subscription.html.
 key='.$token.'&email='.$email.'&action=subscribe" target="_blank">
 Confirm email subscription</a></p>';		
 $output.='<p>------------------------------------------------</p>';
-$output.='<p>The link will expire after 1 day for security reasons. Please, if the link does not work, copy and paste it on a new tab on your browser.
+$output.='<p>The link will expire after 1 day for security reasons.
 </p>';
 $output.='<p>If you did not request this subscription, no action is needed, you will not be subscribed.</p>';   	
 $output.='<p>Thanks,</p>';
@@ -44,5 +44,5 @@ $mail->AddAddress($email_to);
 if(!$mail->Send()){
 	$email_error = '<div class="errorMsg"> Message could not be sent. Mailer Error: '. $mail->ErrorInfo .'</div>';
 }else{
-	echo '<script>$("#subscribe").addClass("hidden");</script>';$emil_success = '<div class="successMsg">An email has been sent to your email box with instructions to confirm your subscription.</div>';
+	echo '<script>$("#subscribe").addClass("hidden");</script>';$emil_success = '<div class="successMsg"><h4>An email has been sent to your email box with instructions to confirm your subscription.</h4></div>';
 	}
