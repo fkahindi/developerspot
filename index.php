@@ -9,10 +9,15 @@ include __DIR__ .'/admin/includes/admin_functions.php';
 <html lang="en">
 <head>
 <!-- head section -->
-<title>Developerspot: Web tutorials for developers </title> 
-	<meta name="description" content="A blogging site dedicated to front-end and back-end  technologies for web development. Provides informative and practical tutorials to unlock the potential of any upcoming web developer." />
+<title>Developerspot: web development tutorials for building web apps and sites </title> 
+	<meta name="description" content="Developerspot is about web development, focused on front-end and back-end  web technologies. Tutorials provide informative and practical steps to building web apps and sites." />
 	
 	<?php include_once __DIR__ .'/templates/head.html.php'; ?>
+	<meta property="og:url" content="https://www.developerspot.co.ke/post.html.php" />
+    <meta property="og:title" content="Developerspot: web development tutorials for building web apps and sites" />
+	<meta property="og:description" content="Developerspot is about web development, focused on front-end and back-end  web technologies. Tutorials provide informative and practical steps to building web apps and sites." />
+	<meta property="og:image" content="https://www.developerspot.co.ke/resources/icons/devpot-favicon.png" />
+	<meta property="fb:app_id" content="" />
 	<!--// head section -->
 <style>
 html,body, div, span, applet, object, iframe,
@@ -41,19 +46,22 @@ footer, header, hgroup, menu, nav, section {
 </style>
  <?php include_once __DIR__ .'/templates/head-resources.html.php'; ?>
 	<body>
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=502152493814762&autoLogAppEvents=1" nonce="LT56TiFM"></script>
+	
 		<header>
 		<?php require_once __DIR__ . '/templates/header.html.php';?>
 		</header>
 		<main class="group">
 			<aside class="col-2-10 hide-in-mobile">
 				<div class="published-topics">
-				<h3>Topics</h3>
+				<h2>Topics</h2>
 					
 				<?php include __DIR__ . '/templates/published_posts_by_topics.html.php';?>										
 				</div>
 			</aside><!--
 			--><section class="col-5-10">				
-				<h1 class="align-center">Web Tutorials for Developers</h1><hr>
+				<h1 class="align-center">Web Tutorials for Web Developers</h1><hr>
 				
 				<div class="social-media">
 					<?php include __DIR__ .'/templates/social-icons-links.php';?>
@@ -62,7 +70,7 @@ footer, header, hgroup, menu, nav, section {
 				<?php $post = getPostById($post_id['post_id']) ?>
 				<?php $post['author'] = getPostAuthorById($post['user_id'])?>
 				<div>
-					<h2><a href="templates/post.html.php?id=<?php echo $post_id['post_id'] ?>&title=<?php echo $post['post_slug'] ?>"> <?php echo htmlspecialchars_decode($post['post_title']) ?></a></h2>
+					<h3><a href="templates/post.html.php?id=<?php echo $post_id['post_id'] ?>&title=<?php echo $post['post_slug'] ?>"> <?php echo htmlspecialchars_decode($post['post_title']) ?></a></h3>
 				</div>
 				<div class="post-acreditation">
 					<span>  
@@ -84,7 +92,7 @@ footer, header, hgroup, menu, nav, section {
 			--><aside class="col-3-10">
 				<!-- Sidebar content goes here-->
 				<div class="recent-posts">
-				<h3 class="left">Recent posts</h3>
+				<h2 class="left">Recent posts</h2>
 				<?php $recent_posts = getMostRecentPosts(3); ?>
 				<?php foreach($recent_posts as $latest_post): ?>
 				<p><a href="templates/post.html.php?id=<?php echo $latest_post['post_id'] ?>&title=<?php echo $latest_post['post_slug']?>"> <?php echo $latest_post['post_title'] ?></a></p>
@@ -101,12 +109,13 @@ footer, header, hgroup, menu, nav, section {
 				</div>
 			</aside>
 		</main>
+		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 		<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 		<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
         <!--  
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://www.developerspot.co.ke/resources/js/page-control.js"></script>
-        -->
+		-->
 		<footer>
 			<?php include __DIR__ .'/templates/footer.html.php'?>
 		</footer>

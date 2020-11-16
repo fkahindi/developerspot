@@ -1,31 +1,18 @@
 #
-#Options +FollowSymlinks
-#RewriteEngine On
-#Options  -Indexes
+Options +FollowSymlinks
+RewriteEngine On
+Options  -Indexes
 #RewriteRule (.*)/$ post.html.php?id=$1 
 #RewriteRule ^post.html.php?(id=[d]+)&title=([w]+)$ $2.php
 #RewriteRule ^post.html.php /post.php&title=cached
 #RewriteCond %{QUERY_STRING} title=(.+)
 #RewriteRule ^templates/([^/]+)/(.*) /%1/post.html.php?&file=$2 [QSA]
 
-<IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
-    </IfModule>
+## Rewrites /blog.php?id=243 as /epic-blog-post
+#RewriteRule ^epic-blog-post$ blog.php?id=epic-blog-post [L]
+#RewriteCond %{THE_REQUEST} ^[A-Z][3,9] /blog.php?id=243 HTTP/
+#RewriteRule ^blog.php$ https://www.example.com/epic-blog-post? [R=301,L]
 
-    RewriteEngine On
-
-    # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-
-    # Redirect Trailing Slashes If Not A Folder...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
-
-    # Send Requests To Front Controller...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
-</IfModule>
+#RewriteRule ^&title=([w]+)$ post.html.php?id=([d]+) [L]
+#RewriteCond %{THE_REQUEST} ^[A-Z][3,9] /post.html.php?id=([d]+) HTTP/
+#RewriteRule ^post.html.php$ localhost/spexproject/&title=([w]+)? [R=301,L]
