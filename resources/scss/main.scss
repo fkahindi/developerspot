@@ -276,9 +276,7 @@ header {
     @include for-phone-only {
         position: absolute;
         top: 0;
-        right: 10px;
-        color: white;
-        margin-left: 50px;
+        right: 15px;
     }
 }
 
@@ -691,10 +689,9 @@ main {
 
 .post-acreditation {
     color: gray;
-    font-size: 0.725em;
+    font-size: 1em;
     padding: 10px 0;
     @include for-phone-only {
-        font-size: 0.725em;
         padding-left: 10px;
     }
 }

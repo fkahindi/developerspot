@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Aladin';
-  font-display: swap;
   src: url("../fonts/Aladin-Regular.ttf");
   /* IE9 Compat Modes */
   /* IE6-IE8 */
   /* Modern Browsers */
   src: url("webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Aladin-Regular.ttf") format("opentype"), url("../fonts/Aladin-Regular.ttf") format("truetype");
+  font-display: swap;
   /* Safari, Android, iOS */ }
 .banner-bar {
   text-align: left;
@@ -99,6 +99,7 @@ form .form_image {
 #upload {
   max-width: 320px;
   padding: 0px 5px;
+  line-height: 16px;
   margin: 1.875em auto 1.25em auto;
   border: 1px solid #d6d7da;
   border-radius: 5px;

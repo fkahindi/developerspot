@@ -233,9 +233,7 @@ header {
     .closebtn {
       position: absolute;
       top: 0;
-      right: 10px;
-      color: white;
-      margin-left: 50px; } }
+      right: 15px; } }
 
 .log-account-section {
   display: block;
@@ -566,11 +564,10 @@ main {
 
 .post-acreditation {
   color: gray;
-  font-size: 0.725em;
+  font-size: 1em;
   padding: 10px 0; }
   @media (max-width: 599px) {
     .post-acreditation {
-      font-size: 0.725em;
       padding-left: 10px; } }
 
 .paragraph-snippet {

@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Aladin';
-  font-display: swap;
   src: url("../fonts/Aladin-Regular.ttf");
   /* IE9 Compat Modes */
   /* IE6-IE8 */
   /* Modern Browsers */
   src: url("webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Aladin-Regular.ttf") format("opentype"), url("../fonts/Aladin-Regular.ttf") format("truetype");
+  font-display: swap;
   /* Safari, Android, iOS */ }
 #subscribe input {
   display: inline-block;
