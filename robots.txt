@@ -4,5 +4,5 @@ Disallow: /classes/
 Disallow: /comments/
 Disallow: /includes/
 Disallow: /PHPMailer/
-
+Disallow: /policies/
 Sitemap: https://www.developerspot.co.ke/sitemap.xml
