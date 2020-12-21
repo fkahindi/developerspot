@@ -451,8 +451,7 @@ header {
 footer {
     width: 100%;
     padding: 0;
-    background: rgb(11, 10, 10);
-    background: rgba(11, 10, 10, 0.82);
+    background: rgb(8, 5, 5);
     @include for-phone-only {
         text-align: center;
     }

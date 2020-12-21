@@ -374,8 +374,7 @@ header {
 footer {
   width: 100%;
   padding: 0;
-  background: #0b0a0a;
-  background: rgba(11, 10, 10, 0.82); }
+  background: #080505; }
   @media (max-width: 599px) {
     footer {
       text-align: center; } }
