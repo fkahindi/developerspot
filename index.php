@@ -13,11 +13,7 @@ include __DIR__ .'/admin/includes/admin_functions.php';
 	<meta name="description" content="Developerspot is about web development, focused on front-end and back-end  web technologies. Tutorials provide informative and practical steps to building web apps and sites." />
 	
 	<?php include_once __DIR__ .'/templates/head.html.php'; ?>
-	<meta property="og:url" content="https://www.developerspot.co.ke/post.html.php" />
-    <meta property="og:title" content="Developerspot: web development tutorials for building web apps and sites" />
-	<meta property="og:description" content="Developerspot is about web development, focused on front-end and back-end  web technologies. Tutorials provide informative and practical steps to building web apps and sites." />
-	<meta property="og:image" content="https://www.developerspot.co.ke/resources/icons/devpot-favicon.png" />
-	<meta property="fb:app_id" content="" />
+	
 	<!--// head section -->
 <style>
 html,body, div, span, applet, object, iframe,
@@ -44,11 +40,9 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 </style>
+    
  <?php include_once __DIR__ .'/templates/head-resources.html.php'; ?>
-	<body>
-		<div id="fb-root"></div>
-		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=502152493814762&autoLogAppEvents=1" nonce="LT56TiFM"></script>
-	
+	<body>	
 		<header>
 		<?php require_once __DIR__ . '/templates/header.html.php';?>
 		</header>
@@ -64,7 +58,24 @@ footer, header, hgroup, menu, nav, section {
 				<h1 class="align-center">Web Tutorials for Web Developers</h1><hr>
 				
 				<div class="social-media">
-					<?php include __DIR__ .'/templates/social-icons-links.php';?>
+					<!--Facebook button-->
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.developerspot.co.ke&amp;src=sdkpreparse" class="fa fa-facebook" data-layout="button" data-href="https://www.developerspot.co.ke" ></a>
+                     <!--Twitter button-->
+                    <a target="_blank" href="http://twitter.com/share?text=Developerspot: web development tutorials for building web apps and sites&url=https://www.developerspot.co.ke&hashtags=webdevelopment">
+                            <span id="twitter" class="fa fa-twitter">
+                            </span>
+                        </a>
+                    <!--Linkedin button-->
+                    <span><a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.developerspot.co.ke&title=&summary=&source=" class="fa fa-linkedin"></a></span>
+                    <!--Pinterest button-->
+                    <span><a target="_blank" class="fa fa-pinterest" href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonPin" data-pin-save="true" data-pin-custom="true">
+                    </a></span>
+                    <!--
+<a target="_blank" data-pin-do="buttonBookmark" href="https://www.pinterest.com/pin/create/button/?url=https://www.developerspot.co.ke&title=&media=&description=" data-pin-custom="true" count-layout="horizontal" data-pin-url="" class="fa fa-pinterest"></a></span>
+                    -->
+                    <!--WhataApp button-->
+                    <span><a target="_blank" class="fa fa-whatsapp"
+                    href="https://api.whatsapp.com/send?&text=https://www.developerspot.co.ke" data-action="share/whatsapp/share"></a></span>
 				</div>
 				<?php foreach($published_post_ids as $post_id): ?>
 				<?php $post = getPostById($post_id['post_id']) ?>
@@ -112,10 +123,14 @@ footer, header, hgroup, menu, nav, section {
 		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 		<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 		<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
+        <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"
+        ></script>
         <!--  
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://www.developerspot.co.ke/resources/js/page-control.js"></script>
 		-->
+        
+
 		<footer>
 			<?php include __DIR__ .'/templates/footer.html.php'?>
 		</footer>

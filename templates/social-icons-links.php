@@ -1,14 +1,24 @@
+<?php
+$uri = $_SERVER['REQUEST_URI'];
+//echo $uri; // Outputs: URI
+ 
+$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+ 
+$url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+ // Outputs: Full URL
+ 
+//$query = $_SERVER['QUERY_STRING'];
+//echo $query; // Outputs: Query String
+?>
 <!--Facebook button-->
-<div class="fb-share-button" data-href="https://www.developerspot.co.ke" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.developerspot.co.ke%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"></a></div>
-<!--
-<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.developerspot.co.ke/post.html.php%2F&amp;src=sdkpreparse" class="fa fa-facebook" data-layout="button" data-href="https://www.developerspot.co.ke/post.html.php" ></a>
---> 
-<!--Twitter button-->
-<a target="_blank" href="https://twitter.com/intent/tweet?text=" data-url="https://www.developerspot.co.ke" data-via="DeveloperspotKe" class="twitter-share-button fa fa-twitter" ></a>
+<a target="_blank" class="fa fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url;?>"  data-layout="button" data-href="<?php echo $url;?>" ></a>
+ <!--Twitter button-->
+<a target="_blank" class="fa fa-twitter" href="https://twitter.com/share?url=<?php echo $url;?>&amp;via=developerspotKE&amp;text=<?php echo $posts['post_title'] ?>&amp;hashtags=webdevelopment,webdesign" >
+</a>
 <!--Linkedin button-->
-<span><a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.developerspot.co.ke&title=&summary=&source=" class="fa fa-linkedin"></a></span>
+<span><a target="_blank" class="fa fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url;?>&title=<?php echo $posts['post_title'] ?>&source=developerspot.co.ke" ></a></span>
 <!--Pinterest button-->
-<span><a target="_blank" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=https://www.developerspot.co.ke/post.html.php?id=&title=&media=&description=" data-pin-custom="true" data-pin-url="" class="fa fa-pinterest"></a></span>
+<span><a target="_blank" class="fa fa-pinterest" href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonPin" data-pin-save="true" data-pin-custom="true"></a></span>
 <!--WhataApp button-->
 <span><a target="_blank" class="fa fa-whatsapp"
-	href="https://api.whatsapp.com/send?phone=254733941442&text=https://www.developerspot.co.ke" target="_blank"></a></span>
+href="https://api.whatsapp.com/send?&text=<?php echo $posts['post_title'] ?> <?php echo $url;?>" data-action="share/whatsapp/share"></a></span>

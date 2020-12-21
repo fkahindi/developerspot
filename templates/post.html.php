@@ -24,11 +24,6 @@ if(!isset($_SESSION)){
 <title><?php echo htmlspecialchars_decode($posts['post_title']) ;?> | DevelopersPot</title>
 	<meta name="description" content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>" />
 	<?php include_once __DIR__ .'/head.html.php';?>
-	<meta property="og:url" content="https://www.developerspot.co.ke/post.html.php?id=<?php echo $page_id ?>" />
-    <meta property="og:title" content="<?php echo $posts['post_title'] ?>" />
-	<meta property="og:description" content="<?php echo htmlspecialchars_decode($posts['meta_description']) ?>" />
-	<meta property="og:image" content="<?php echo $posts['image'] ?>" />
-	<meta property="fb:app_id" content="developerspot" />
 <style>
 html,body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 margin: 0;
@@ -49,8 +44,6 @@ footer, header, hgroup, menu, nav, section {
 	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.css" media="print" onload="this.media='all'; this.onload=null;"/>	
 </head>
 <body>
-	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=502152493814762&autoLogAppEvents=1" nonce="LT56TiFM"></script>
-	
 	<header>
 		<?php include __DIR__ .'/header.html.php';?>
 	</header>
@@ -110,12 +103,14 @@ footer, header, hgroup, menu, nav, section {
 				</div>
 		</aside>
 	</main>
-	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 	`<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/subscribe-comments-replies-scripts.js"></script>	
 	<script>window.onload=function(){prettyPrint()}</script>
+    <script type="text/javascript"
+    src="//assets.pinterest.com/js/pinit.js"
+    ></script>
 	 <!-- Online server
     
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
