@@ -14,7 +14,7 @@ $output.='<p><a href="localhost/spexproject/templates/confirm-subscription.html.
 key='.$token.'&email='.$email.'&action=subscribe" target="_blank">
 Confirm email subscription</a></p>';		
 $output.='<p>------------------------------------------------</p>';
-$output.='<p>The link will expire after 1 day for security reasons.
+$output.='<p>The link will expire after 1 hour for security reasons.
 </p>';
 $output.='<p>If you did not request this subscription, no action is needed, you will not be subscribed.</p>';   	
 $output.='<p>Thanks,</p>';
