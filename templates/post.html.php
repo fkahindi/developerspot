@@ -6,6 +6,11 @@ if(!isset($_SESSION)){
 	include __DIR__ .'/../admin/includes/admin_functions.php';
 	if(isset($_GET['id'])){
 		$posts = getPostById($_GET['id']);
+		if(empty($posts)){
+			header("Location:../index.php");
+		}
+	}else{
+		header("Location:../index.php");
 	}
 	/* Get page id for this post */ 
 	$page_id = $posts['post_id'];

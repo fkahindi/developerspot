@@ -1,9 +1,19 @@
 <?php 
-session_start(); 
+if(!isset($_SESSION)){
+	session_start();
+} 
 include __DIR__ .'/../admin/includes/posts_functions.php';
 include __DIR__ .'/../admin/includes/admin_functions.php';
-	
+if(isset($_GET['name'])){
 	$menu_topic = getTopicByName($_GET['name']);
+	if(empty($menu_topic)){
+		header("Location:../index.php");
+	}
+}else{
+	header("Location:../index.php");
+}
+	
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
