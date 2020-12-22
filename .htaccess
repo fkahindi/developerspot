@@ -1,18 +1,11 @@
+Options All -Indexes +FollowSymLinks
+RewriteEngine on
+ErrorDocument 403 errors/403.html
+ErrorDocument 404 errors/404.html
 #
-Options +FollowSymlinks
-RewriteEngine On
-Options  -Indexes
-#RewriteRule (.*)/$ post.html.php?id=$1 
-#RewriteRule ^post.html.php?(id=[d]+)&title=([w]+)$ $2.php
-#RewriteRule ^post.html.php /post.php&title=cached
-#RewriteCond %{QUERY_STRING} title=(.+)
-#RewriteRule ^templates/([^/]+)/(.*) /%1/post.html.php?&file=$2 [QSA]
-
-## Rewrites /blog.php?id=243 as /epic-blog-post
-#RewriteRule ^epic-blog-post$ blog.php?id=epic-blog-post [L]
-#RewriteCond %{THE_REQUEST} ^[A-Z][3,9] /blog.php?id=243 HTTP/
-#RewriteRule ^blog.php$ https://www.example.com/epic-blog-post? [R=301,L]
-
-#RewriteRule ^&title=([w]+)$ post.html.php?id=([d]+) [L]
-#RewriteCond %{THE_REQUEST} ^[A-Z][3,9] /post.html.php?id=([d]+) HTTP/
-#RewriteRule ^post.html.php$ localhost/spexproject/&title=([w]+)? [R=301,L]
+#RewriteCond %{SCRIPT_FILENAME} !-d
+#RewriteCond %{SCRIPT_FILENAME} !-f
+#RewriteRule . /index.php [L]
+#
+RewriteRule posts/(.*)/(.*)\.html$ post.html.php?id=$1&title=$2 [NC,L]
+RewriteRule topic/(.*)\.html topic_page.html.php?name=$1 [NC,L]
