@@ -159,12 +159,15 @@ form .form_image {
     background: #E5E4E2; }
 
 .button {
-  background-color: #075594;
-  border: ridge thin #075594;
+  background-color: #064874;
+  border: solid thin #064874;
   font-weight: bold;
   padding: 12px 15px;
   color: #ffffff;
   margin: 0 auto; }
+  .button:hover {
+    background-color: #075594;
+    border-color: #075594; }
 
 .red {
   color: red; }

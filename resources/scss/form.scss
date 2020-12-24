@@ -164,12 +164,16 @@ form {
 }
 
 .button {
-    background-color: #075594;
-    border: ridge thin #075594;
+    background-color: rgb(6, 72, 116);
+    border: solid thin rgb(6, 72, 116);
     font-weight: bold;
     padding: 12px 15px;
     color: #ffffff;
     margin: 0 auto;
+    &:hover {
+        background-color: #075594;
+        border-color: #075594;
+    }
 }
 
 .red {
