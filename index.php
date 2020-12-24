@@ -70,9 +70,6 @@ footer, header, hgroup, menu, nav, section {
                     <!--Pinterest button-->
                     <span><a target="_blank" class="fa fa-pinterest" href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonPin" data-pin-save="true" data-pin-custom="true">
                     </a></span>
-                    <!--
-<a target="_blank" data-pin-do="buttonBookmark" href="https://www.pinterest.com/pin/create/button/?url=https://www.developerspot.co.ke&title=&media=&description=" data-pin-custom="true" count-layout="horizontal" data-pin-url="" class="fa fa-pinterest"></a></span>
-                    -->
                     <!--WhataApp button-->
                     <span><a target="_blank" class="fa fa-whatsapp"
                     href="https://api.whatsapp.com/send?&text=https://www.developerspot.co.ke" data-action="share/whatsapp/share"></a></span>
