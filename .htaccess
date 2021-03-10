@@ -7,5 +7,5 @@ ErrorDocument 404 errors/404.html
 #RewriteCond %{SCRIPT_FILENAME} !-f
 #RewriteRule . /index.php [L]
 #
-RewriteRule posts/(.*)/(.*)\.html$ post.html.php?id=$1&title=$2 [NC,L]
-RewriteRule topic/(.*)\.html topic_page.html.php?name=$1 [NC,L]
+RewriteRule ^posts/(.*)/(.*)$ templates/post.html.php?id=$1&title=$2 [NC,L]
+RewriteRule ^topic/(.*)$ templates/topic_page.html.php?name=$1 [NC,L]

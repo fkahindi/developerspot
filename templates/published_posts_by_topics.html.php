@@ -7,7 +7,7 @@
 	 <?php $published_posts = getPublishedPostsByTopic($topic_id)?>
      
 	 <?php foreach($published_posts as $pub_post):?>
-		<a href="<?php echo BASE_URL ?>templates/post.html.php?id=<?php echo $pub_post['post_id'] ?>&title=<?php echo $pub_post['post_slug']?>"><?php echo $pub_post['post_title']?></a>
+		<a href="<?php echo BASE_URL ?>posts/<?php echo $pub_post['post_id'] ?>/<?php echo $pub_post['post_slug']?>"><?php echo $pub_post['post_title']?></a>
 	 <?php endforeach ?></li></ul></li></ul></details>
  <?php endforeach ?>
  

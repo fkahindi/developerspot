@@ -50,7 +50,6 @@ footer, header, hgroup, menu, nav, section {
 			<aside class="col-2-10 hide-in-mobile">
 				<div class="published-topics">
 				<h2>Topics</h2>
-					
 				<?php include __DIR__ . '/templates/published_posts_by_topics.html.php';?>										
 				</div>
 			</aside><!--
@@ -78,7 +77,7 @@ footer, header, hgroup, menu, nav, section {
 				<?php $post = getPostById($post_id['post_id']) ?>
 				<?php $post['author'] = getPostAuthorById($post['user_id'])?>
 				<div>
-					<h3><a href="templates/post.html.php?id=<?php echo $post_id['post_id'] ?>&title=<?php echo $post['post_slug'] ?>"> <?php echo htmlspecialchars_decode($post['post_title']) ?></a></h3>
+					<h3><a href="posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>"> <?php echo htmlspecialchars_decode($post['post_title']) ?></a></h3>
 				</div>
 				<div class="post-acreditation">
 					<span>  
@@ -86,14 +85,14 @@ footer, header, hgroup, menu, nav, section {
 				</div>
 				<div class="post-main-image">
 				<figure>
-				<a href="templates/post.html.php?id=<?php echo $post_id['post_id'] ?>&title=<?php echo $post['post_slug'] ?>">
+				<a href="posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>">
 				<?php echo (!empty($post['image'])? '<img src="'.$post['image'].'" loading="lazy" alt="'.(!empty($post['image_caption'])? $post['image_caption']:'').'" class="article-index-image">':'')?></a>
 					<figcaption><?php echo (!empty($post['image_caption'])? $post['image_caption']:'' ); ?></figcaption>
 				</figure>
 				</div>
 				<div class="paragraph-snippet">
 					<?php echo getFirstParagraphPostById($post_id['post_id']) ?>
-					<a href="templates/post.html.php?id=<?php echo $post_id['post_id'] ?>&title=<?php echo $post['post_slug'] ?>">Read more...</a>
+					<a href="posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>">Read more...</a>
 				</div><br>
 				<?php endforeach; ?>
 			</section><!--			
@@ -101,10 +100,7 @@ footer, header, hgroup, menu, nav, section {
 				<!-- Sidebar content goes here-->
 				<div class="recent-posts">
 				<h2 class="left">Recent posts</h2>
-				<?php $recent_posts = getMostRecentPosts(3); ?>
-				<?php foreach($recent_posts as $latest_post): ?>
-				<p><a href="templates/post.html.php?id=<?php echo $latest_post['post_id'] ?>&title=<?php echo $latest_post['post_slug']?>"> <?php echo $latest_post['post_title'] ?></a></p>
-				<?php endforeach; ?>
+				<?php include __DIR__ .'/templates/recent_published_posts.html.php'?>
                     <div class="contact-me">
                       <?php include __DIR__ . '/templates/contact-me.html.php'?>
                     </div>
