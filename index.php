@@ -77,7 +77,7 @@ footer, header, hgroup, menu, nav, section {
 				<?php $post = getPostById($post_id['post_id']) ?>
 				<?php $post['author'] = getPostAuthorById($post['user_id'])?>
 				<div>
-					<h3><a href="posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>"> <?php echo htmlspecialchars_decode($post['post_title']) ?></a></h3>
+					<h3><a href="<?php echo BASE_URL ?>posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>"> <?php echo htmlspecialchars_decode($post['post_title']) ?></a></h3>
 				</div>
 				<div class="post-acreditation">
 					<span>  
@@ -85,14 +85,14 @@ footer, header, hgroup, menu, nav, section {
 				</div>
 				<div class="post-main-image">
 				<figure>
-				<a href="posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>">
-				<?php echo (!empty($post['image'])? '<img src="'.$post['image'].'" loading="lazy" alt="'.(!empty($post['image_caption'])? $post['image_caption']:'').'" class="article-index-image">':'')?></a>
+				<a href="<?php echo BASE_URL ?>posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>">
+				<?php echo (!empty($post['image'])? '<img src="'.$post['image'].'" loading="lazy" width="100%" alt="'.(!empty($post['image_caption'])? $post['image_caption']:'').'" class="article-index-image">':'')?></a>
 					<figcaption><?php echo (!empty($post['image_caption'])? $post['image_caption']:'' ); ?></figcaption>
 				</figure>
 				</div>
 				<div class="paragraph-snippet">
 					<?php echo getFirstParagraphPostById($post_id['post_id']) ?>
-					<a href="posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>">Read more...</a>
+					<a href="<?php echo BASE_URL ?>posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>">Read more...</a>
 				</div><br>
 				<?php endforeach; ?>
 			</section><!--			

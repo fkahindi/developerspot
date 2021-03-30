@@ -105,7 +105,7 @@ footer, header, hgroup, menu, nav, section {
 				</div>
 		</aside>
 	</main>
-	`<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
+	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/subscribe-comments-replies-scripts.js"></script>	
