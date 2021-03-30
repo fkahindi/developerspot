@@ -1,26 +1,112 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://www.developerspot.co.ke</loc></url>
-<url><loc>https://www.developerspot.co.ke//policies/cookie-policy.php</loc></url>
-<url><loc>https://www.developerspot.co.ke//policies/terms-conditions.php</loc></url>
-<url><loc>https://www.developerspot.co.ke//policies/privacy-policy.php</loc></url>
-<url><loc>https://www.developerspot.co.ke/about.php</loc></url>
-<url><loc>https://www.developerspot.co.ke/templates/topic_page.html.php?name=php</loc></url>
-<url><loc>https://www.developerspot.co.ke/templates/topic_page.html.php?name=html</loc></url>
-<url><loc>https://www.developerspot.co.ke/index.php</loc></url>
-<url><loc>https://www.developerspot.co.ke/templates/post.html.php?id=4%26title=server-side-form-sanitization</loc></url>
-<url><loc>https://www.developerspot.co.ke/templates/post.html.php?id=6%26title=creating-a-webpage-designing-a-responsive-page</loc></url>
-<url><loc>https://www.developerspot.co.ke/templates/post.html.php?id=5%26title=creating-a-webpage-html-document-structure</loc></url>
-<url><loc>https://www.developerspot.co.ke/templates/post.html.php?id=1%26title=html5-form-validation</loc></url>
-<url><loc>https://www.developerspot.co.ke/templates/contact-me-form.html.php</loc></url>
-<url><loc>https://www.developerspot.co.ke/templates/login.html.php</loc></url>
-<url><loc>https://www.developerspot.co.ke/cdn-cgi/l/email-protection</loc></url>
-<url><loc>https://www.developerspot.co.ke/%3ca%20href=</loc></url>
-<url><loc>http://developerspot.co.ke/</loc></url>
-<url><loc>https://www.developerspot.co.ke/cookie-policy.php</loc></url>
-<url><loc>https://www.developerspot.co.ke/</loc></url>
-<url><loc>https://www.developerspot.co.ke/post.html.php?id=4%26title=server-side-form-sanitization</loc></url>
-<url><loc>https://www.developerspot.co.ke/post.html.php?id=5%26title=creating-a-webpage-html-document-structure</loc></url>
-<url><loc>https://www.developerspot.co.ke/post.html.php?id=6%26title=creating-a-webpage-designing-a-responsive-page</loc></url>
-<url><loc>https://www.developerspot.co.ke/templates/create-account.html.php</loc></url>
-<url><loc>https://www.developerspot.co.ke/policies/privacy-policy.php</loc></url>
-<url><loc>https://www.developerspot.co.ke/templates/recover-password.html.php</loc></url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://www.developerspot.co.ke/</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/index.php</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/topic/html</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/topic/javascript</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/topic/php</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/about.php</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/templates/login.html.php</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/1/html5-form-validation</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/5/creating-a-webpage-html-document-structure</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/6/creating-a-webpage-designing-a-responsive-page</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/7/creating-a-webpage-designing-a-web-form</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/2/regular-expressions-in-javascript</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/3/form-validation-in-javascript</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/4/server-side-form-sanitization</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/templates/contact-me-form.html.php</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/policies/privacy-policy.php</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/policies/terms-conditions.php</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/policies/cookie-policy.php</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/templates/recover-password.html.php</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/templates/create-account.html.php</loc>
+  <lastmod>2021-03-11T15:44:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>
