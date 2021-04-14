@@ -1,6 +1,6 @@
 <h1>Creating a Webpage: Designing a Responsive page</h1>
 <!--How to design a responsive web page and responsive navigation menus using CSS, media queries, unordered lists... -->
-<p>This is a second part of a series <em>Creating a Webpage</em>. In the fist part, we learned how to <em>structure an HTML document</em> using both semantic and presentation HTML elements. In that post we defined these elements and why we are using them. If you did not go through it, you can check it here, <a href="post.html.php?id=5">how to structure a web page</a>.</p> 
+<p>This is a second part of a series <em>Creating a Webpage</em>. In the fist part, we learned how to <em>structure an HTML document</em> using both semantic and presentation HTML elements. In that post we defined these elements and why we are using them. If you did not go through it, you can check it here, <a href="posts/5/creating-a-webpage-html-document-structure">how to structure a web page</a>.</p> 
 <p>In this post we are going to add a navigation menu to the structure and make it a <span class="key">responsive webpage</span>. We will use <span class="key">Cascading Style Sheets (CSS)</span> to accomplish that.<p>
 <p>At the end of this tutorial you should be able to create:</p>
 <ul>
@@ -251,13 +251,13 @@ aside, section, article {
 <h3>CSS Box Model</h3>
 <p>By default, CSS treats a block element as a rectangular box, with height and width. The <b><span class="key">Box Model</span></b> makes the <code>margin</code>, <code>border</code>, <code>padding</code> and the <i>content</i> of a block element add to its total width and height. See the illustration below.</p> 
 <figure class="align-left"> 
-	<img src="../resources/images/css-box-model.png" loading="lazy" alt="CSS box model" width="90%" height="90%"/>
+	<img src="/spexproject/resources/images/css-box-model.png" loading="lazy" alt="CSS box model" width="90%" height="90%"/>
 	<figcaption class="align-left">CSS box model of a block element</figcaption>
 </figure>
 <p>For instance, setting a <code>div</code> width to <code>width: 100px</code>, <code>border-width: 3px</code>, <code>margin: 10px</code> and <code>padding: 5px</code> makes the div occupy a total width of 118px.</p>
 <p>When <code>box-sizing: border-box</code> is used, the box model of the element changes so that padding and border width and height values no longer adds to the width or height of the element. Instead, they constrain the content of the element itself. See the figure below.</p>
 <figure class="align-left"> 
-	<img src="../resources/images/css-border-box-styling.png" loading="lazy" alt="CSS border box styling model" width="90%" height="90%"/>
+	<img src="/spexproject/resources/images/css-border-box-styling.png" loading="lazy" alt="CSS border box styling model" width="90%" height="90%"/>
 	<figcaption class="align-left">CSS border box styling</figcaption>
 </figure>
 <p>That means, if the <code>&lt;div&gt;</code> is set to <code>width: 100px</code>, <code>border-width: 3px</code>, <code>margin: 10px</code> and <code>padding: 5px</code>, the <code>&lt;div&gt;</code>  will need a window width of 110px to display properly without scrolling. </p>
@@ -474,7 +474,7 @@ footer nav {
 </pre>
 <p>If all went well, your webpage should look like the one below, when viewed on a wider screen, 900px and above.</p> 
 <figure class="align-left"> 
-	<img src="../resources/images/responsive-webpage.png" loading="lazy" alt="Responsive web page" width="90%" height="90%"/>
+	<img src="/spexproject/resources/images/responsive-webpage.png" loading="lazy" alt="Responsive web page" width="90%" height="90%"/>
 	<figcaption class="align-left">A responsive web page</figcaption>
 </figure>
 <p>Since it is also responsive, if you minimize the browser screen to a smaller width, the page should react accordingly.</p>
