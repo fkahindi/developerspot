@@ -37,7 +37,7 @@ if(isset($_POST['contact-me'])){
 		</div>
 		<div class="group-form">
             <label for="comment">Type message below:</label>
-			<textarea name="comment" id="comment" cols="40" rows="8" maxlength="500" placeholder="Type your message here..." ></textarea>
+			<textarea name="comment" id="comment" cols="40" rows="8" maxlength="1000" placeholder="Type your message here..." ></textarea>
             
 		</div>
 		<input name="contact-me" type="submit" id="contact_me_btn" value="Submit">
