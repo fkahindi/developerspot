@@ -15,7 +15,7 @@ if(!isset($_SESSION)){
 			</div>
 			<div class="profile-photo"> 
 			<?php $getUser = new CommentsClass($pdo);?>
-				<img src="<?php echo $getUser->getUserById($comment['user_id'])['profile_photo']; ?>" alt="" width=30px height=30px>
+				<img src="<?php echo $getUser->getUserById($comment['user_id'])['profile_photo']; ?>" alt="User photo" width=30px height=30px>
 			</div>
 			<div class="comments-detail">
 				<div class="user-info">
@@ -50,7 +50,7 @@ if(!isset($_SESSION)){
 							<!--Reply -->
 							<div class="group">
 								<div class="replies-profile-photo">
-									<img src="<?php echo $getUser->getUserById($reply['user_id'])['profile_photo']; ?>" alt="" width=30px height=30px>
+									<img src="<?php echo $getUser->getUserById($reply['user_id'])['profile_photo']; ?>" alt="User photo" width=30px height=30px>
 								</div>
 								<div class="replies-detail">
 									<div class="user-info">
