@@ -7,6 +7,7 @@ admin/tests.php
 *.css.map
 *.min.css.map
 *.min.js
+*.code-workspace
 PHPMailer/
 google-code-prettify/
 photos/
@@ -15,3 +16,4 @@ Archive/
 !Archive/articles/
 .sass-cache/
 resources/font-awesome-4.7.0/
+twitter_login_php/
