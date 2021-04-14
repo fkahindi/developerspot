@@ -10,16 +10,17 @@ if(isset($_POST['recover_password'])){
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Recover Password </title>
+    <meta name="description" content="Helps user recover forgotten password.">
 	<link rel="stylesheet" href="../resources/css/form.css">
 </head>
 <body>
 	<div id="recover">
 		<div class="form_image">
-			<div class="banner-bar"><h2>Developers Pot</h2></div>
+			<div class="banner-bar"><h2>DevelopersPot</h2></div>
 			<?php ?>
 			<div id="error_msg"><?php echo(!empty($email_error)? $email_error :'');?></div>
 			<p class="form-p">Please fill out this form to recover your password.</p>
-			<h3>Recover Password</h3>
+			<h1>Recover Password</h1>
 		</div>
 		<form method="POST" action="">
 			<label for="email">Enter your email address:</label>
@@ -28,6 +29,9 @@ if(isset($_POST['recover_password'])){
 			 
 			<input type="submit" name="recover_password" class="button" value="Submit"> 
 		</form>
+	</div>
+    <div class="section">
+		<p class="centered"><a href="<?php echo BASE_URL ?>templates/login.html.php">Let me try again</a></p>
 	</div>
 </body>
 </html>

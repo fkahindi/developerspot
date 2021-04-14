@@ -12,15 +12,17 @@ if(isset($_POST['create-account'])){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css"/>
     <title>Create Account</title>
+    <meta name="description" content="Create user account with developerspot to access specified system resources.">
+    <link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css"/>
+    
 </head>
 <body>
 	<div id="create-account">
 		<div class="form_image">
-			<div class="banner-bar"><h2>Developers Pot</h2></div>
+			<div class="banner-bar"><h2>DevelopersPot</h2></div>
 			<div id="error_msg"><?php echo(!empty($form_error)? $form_error :'');?></div>
-			<h3>Create Account </h3>
+			<h1>Create Account </h1>
 			<p>Fields marked with <span class="red"> &#42;</span> are mandatory. </p>
 		</div>
 	<form  method="POST" action="" id="signup_form" >	

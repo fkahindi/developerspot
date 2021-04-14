@@ -22,15 +22,16 @@ if(isset($_POST['set-account-password'])){
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Set Account Password</title>
+    <meta name="description" content="Sets password for the account being created.">
     <link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css"/>
 </head>
 <body>
 	<div id="error_msg"></div>
 	<div id="reset">
 		<div class="form_image">
-				<div class="banner-bar"><h2>Developers Pot</h2></div>
+				<div class="banner-bar"><h2>DevelopersPot</h2></div>
 				<p class="form-p">Fields marked with <span class="red"> &#42;</span> are mandatory</p>
-				<h3>Set Account Password</h3>
+				<h1>Set Account Password</h1>
 		</div>					
 		<form method="POST" name ="set-password" action="">
 			<input type="hidden" name="action" value="set">

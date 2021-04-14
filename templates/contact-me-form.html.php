@@ -12,15 +12,16 @@ if(isset($_POST['contact-me'])){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Contact-Me</title>
+	<title>Contact Me</title>
+    <meta name="description" content="Use form to contact me.">
 	<link rel="stylesheet" href="../resources/css/form.css" >
 </head>
 <body>
 	<div id="contact-me">
 		<div class="form_image">
-			<div class="banner-bar"><h2>Developers Pot</h2></div>
+			<div class="banner-bar"><h2>DevelopersPot</h2></div>
 			<div id="error_msg"><?php echo(!empty($form_error)? $form_error :'');?></div>
-			<h3>Contact Me </h3>
+			<h1>Contact Me </h1>
 			<p>Fields marked with <span class="red"> &#42;</span> are mandatory. </p>
 		</div>
 	<form  method="POST" action="" id="signup_form" >	
@@ -43,6 +44,9 @@ if(isset($_POST['contact-me'])){
 		<input name="contact-me" type="submit" id="contact_me_btn" value="Submit">
 		
 	</form>
+    <div class="section">
+		<p class="centered"><a href="<?php echo BASE_URL ?>index.php">Take me to Home page</a></p>
+	</div>
 </div>
 	<!-- Scripts -->
 	<script src="<?php echo BASE_URL ?>resources/js/jquery-1.7.2.min.js"></script>
