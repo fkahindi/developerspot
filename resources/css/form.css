@@ -7,6 +7,12 @@
   src: url("webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Aladin-Regular.ttf") format("opentype"), url("../fonts/Aladin-Regular.ttf") format("truetype");
   font-display: swap;
   /* Safari, Android, iOS */ }
+h1 {
+  font-size: 1.1em; }
+
+h2 {
+  font-size: 1em; }
+
 .banner-bar {
   text-align: left;
   font-family: Aladin;

@@ -1,11 +1,16 @@
 @import "partials/layout.scss";
 @import "partials/visuals";
+h1{
+    font-size:1.1em;
+}
+h2{
+    font-size:1em
+}
 .banner-bar {
     text-align: left;
     font-family: Aladin;
     color: #000;
 }
-
 .section {
     border: 1px solid #d6d7da;
     border-radius: 5px;
