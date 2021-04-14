@@ -7,5 +7,21 @@ ErrorDocument 404 errors/404.html
 #RewriteCond %{SCRIPT_FILENAME} !-f
 #RewriteRule . /index.php [L]
 #
+#### For Online Server ####
+#
+#RewriteCond %{HTTPS} !=on
+# This checks to make sure the connection is not already HTTPS
+
+#RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+
+# This rule will redirect users from their original location, to the same location but using HTTPS.
+# i.e.  http://www.example.com/foo/ to https://www.example.com/foo/
+# The leading slash is made optional so that this will work either in httpd.conf
+# or .htaccess context
+#
+# ###########################
+#
 RewriteRule ^posts/(.*)/(.*)$ templates/post.html.php?id=$1&title=$2 [NC,L]
 RewriteRule ^topic/(.*)$ templates/topic_page.html.php?name=$1 [NC,L]
+
+#RewriteRule ^common/(.*)$ templates/$1 [NC,L]
