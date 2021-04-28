@@ -60,7 +60,7 @@
 .reply-textarea {
   background: whitesmoke;
   border-radius: 10px; }
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     .reply-textarea {
       margin-left: 5%; } }
 
@@ -80,7 +80,7 @@
     .reply input[type="submit"] {
       width: 5em;
       height: 2.5em; } }
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     .reply input[type="submit"] {
       width: 80px;
       height: 35px;

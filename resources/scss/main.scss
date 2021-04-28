@@ -1,7 +1,7 @@
 @import "partials/layout";
 body {
     background: #fff;
-    line-height: 1.3;
+    //line-height: 1.3;
     font-family: 'Calibri Light', Calibri, sans-serif;
 }
 
@@ -15,19 +15,24 @@ figcaption {
     box-sizing: border-box;
 }
 
-.group:before,
-.group:after {
-    content: "";
-    display: table;
-}
-
-.group:after {
-    clear: both;
-}
-
 .group {
-    clear: both;
-    *zoom: 1;
+    &:before {
+        content: '';
+        display: table;
+    }
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+.flex-wrapper {
+    @include flex-wrapper;
+}
+
+.grid-wrapper {
+    @include grid-wrapper;
 }
 
 a {
@@ -88,21 +93,9 @@ q {
     }
 }
 
-.social-media {
-    text-align: center;
-}
-
 em,
 i {
     font-style: italic;
-}
-
-.float-right {
-    float: right;
-}
-
-.float-left {
-    float: left;
 }
 
 .align-left {
@@ -121,70 +114,155 @@ i {
     display: none;
 }
 
+
+/* ------------------------- */
+
+
+/* Page Layout manenos */
+
 header {
-    background-color: #293f50;
-    @include for-phone-only {
-        position: sticky;
-        top: 0;
-        width: 100%;
-        height: 3.75em;
-        z-index: 0;
-    }
-    @include for-tablet-portrait-up {
-        height: 4.375em;
-    }
+    grid-column: 1/span 5;
+    grid-row: 1;
+    border-bottom: solid thin rgb(207, 199, 199);
+    //background: rgb(224, 224, 151);
     @include for-tablet-landscape-up {
-        height: 5.375em;
+        padding-bottom: 0.5em;
     }
-    @include for-desktop-up {
-        height: 6.375em;
+    //position: sticky;
+    //top: 0;
+}
+
+main {
+    grid-column: 1/span 5;
+    grid-row: 2;
+    margin: 0 auto;
+    @include for-tablet-portrait-up {}
+    @include for-desktop-up {}
+}
+
+footer {
+    grid-column: 1/span 5;
+    grid-row: 3;
+    padding: 0.5em;
+}
+
+
+/* ------------------------- */
+
+// Header elements layout
+header {
+    .social-media {
+        display: none;
+        @include for-tablet-landscape-up {
+            display: inline-block;
+            grid-column: 5/span 1;
+            grid-row: 1;
+            //background-color: lightgreen;
+            //text-align: center;
+        }
     }
 }
 
 .banner-bar {
-    float: left;
-    display: block;
-    margin: 0;
-    padding-top: .6em;
-    padding-left: 1em;
-    font-family: Aladin;
-    text-align: left;
-    font-size: 1.4em;
-    a {
-        color: rgb(255, 255, 255);
-        &:hover {
-            color: rgb( 200, 200, 233);
-            cursor: pointer;
-        }
-    }
-    @include for-phone-only {
-        width: 60%;
-        padding-top: 0.5em;
-        padding-left: 30%;
-    }
-    @include for-tablet-portrait-up {
-        width: 25%;
-    }
+    grid-column: 2/span 3;
+    grid-row: 1/span 2;
+    //background: orange;
     @include for-tablet-landscape-up {
-        font-size: 1.8em;
+        grid-column: 1/span 2;
+        grid-row: 1/span 2;
     }
 }
 
 .nav-bar {
-    display: block;
-    margin: 0;
-    padding: 0;
-    @include for-phone-only {
-        width: 10%;
+    grid-column: 1/span 1;
+    grid-row: 1/span 2;
+    z-index: 1;
+    //background: lightgreen;
+    @include for-tablet-landscape-up {
+        grid-column: 3/span 2;
+        grid-row: 1/span 2;
     }
-    @include for-tablet-portrait-up {
-        float: left;
-        width: 55%;
-        padding-top: 1em;
+}
+
+.log-account-section {
+    grid-column: 5/span 1;
+    grid-row: 2;
+    text-align: center;
+    //background-color: lightgreen;
+    @include for-tablet-landscape-up {
+        //grid-column: 5/span 1;
+        //grid-row: 1;
+    }
+}
+
+// Footer elements layout
+footer {
+    .social-media {
+        grid-column: 1/span 5;
+        grid-row: 1;
+        display: inline-block;
+        @include for-tablet-landscape-up {
+            grid-column: 1/span 2;
+            grid-row: 1;
+            text-align: center;
+            word-spacing: 0.5em;
+        }
+    }
+}
+
+.nav {
+    display: none;
+    @include for-tablet-landscape-up {
+        display: inline-block;
+        grid-column: 4/span 2;
+        grid-row: 1/span 3;
+        z-index: 1;
+        word-spacing: 1em;
+    }
+}
+
+.policies {
+    grid-column: 1/span 5;
+    grid-row: 2;
+    line-height: 1.5;
+    @include for-tablet-landscape-up {
+        grid-column: 3/span 1;
+        grid-row: 1/span 3;
+        //background: slategrey;
+    }
+}
+
+.copyright {
+    grid-column: 1/span 5;
+    grid-row: 3;
+    @include for-tablet-landscape-up {
+        grid-column: 1/span 2;
+        grid-row: 3;
+    }
+}
+
+.banner-bar {
+    font-family: Aladin;
+    text-align: center;
+    font-size: 1.4em;
+    a {
+        color: rgb(0, 0, 0);
+        &:hover {
+            color: rgb( 20, 20, 20);
+            cursor: pointer;
+        }
+    }
+    @include for-phone-only {
+        padding-top: 0.5em;
     }
     @include for-tablet-landscape-up {
-        padding-top: 1.65em;
+        font-size: 1.6em;
     }
+}
+
+.nav-bar {
+    margin: 0;
+    padding: 0;
 }
 
 #dropdown-menu-btn {
@@ -197,7 +275,7 @@ header {
         width: 50px;
         text-align: right;
         padding: 10px 15px;
-        color: white;
+        color: black;
         border: none;
         &:hover {
             cursor: pointer;
@@ -232,26 +310,25 @@ header {
             text-align: center;
         }
         >span {
-            @include for-phone-only {
-                display: none;
+            display: none;
+            @include for-tablet-landscape-up {
+                display: inline-block;
             }
         }
     }
     li {
+        font-size: 1em;
         @include for-phone-only {
             background: rgb( 35, 35, 60);
-            font-size: 1em;
             padding: 5px 10px;
         }
         @include for-tablet-portrait-up {
             display: inline-block;
-            font-size: 1.2em;
         }
         @include for-tablet-landscape-up {
             padding: 5px;
         }
         &:hover {
-            background-color: #334F5C;
             cursor: pointer;
             @include for-phone-only {
                 background: rgb(35, 35, 50);
@@ -261,12 +338,12 @@ header {
     a {
         font-variant: small-caps;
         padding: 8px 2px;
-        color: white;
+        font-size: 1em;
+        color: rgb(0, 0, 0);
         @include for-phone-only {
             text-decoration: none;
             display: block;
             text-align: left;
-            font-size: 1em;
         }
     }
 }
@@ -282,42 +359,42 @@ header {
 
 .log-account-section {
     display: block;
-    float: right;
+    //float: right;
     span {
         color: rgb(256, 256, 256);
     }
     @include for-phone-only {
-        height: 60px;
-        width: 30%;
+        //height: 60px;
+        //width: 30%;
         text-align: right;
-        padding-right: 15%;
+        //padding-right: 15%;
     }
     @include for-tablet-portrait-up {
-        width: 20%;
+        //width: 20%;
         margin: 0;
         padding: 0;
-        padding-top: .5em;
-        text-align: right;
+        //padding-top: .5em;
+        //text-align: right;
     }
 }
 
 .login-signup {
     display: inline-block;
     margin: 0;
-    width: 10%;
-    padding: 1em;
-    font-size: 1em;
+    //width: 10%;
+    //padding: 1em;
+    //font-size: 1em;
     @include for-phone-only {
-        position: absolute;
-        right: 1.875em;
+        // position: absolute;
+        //right: 1.875em;
     }
     @include for-tablet-portrait-up {
-        position: absolute;
-        right: 1.875em;
-        font-size: 1.2em;
+        //position: absolute;
+        //right: 1.875em;
+        //font-size: 1.2em;
     }
     a {
-        color: rgb( 200, 200, 233);
+        color: black;
         &:hover {
             text-decoration: underline;
             font-weight: bold;
@@ -331,12 +408,12 @@ header {
 
 .account-photo-box {
     @include for-phone-only {
-        float: right;
+        //float: right;
         width: 40%;
         height: 1.875em;
     }
     @include for-tablet-portrait-up {
-        float: right;
+        //float: right;
         height: 2.1875em;
         position: absolute;
         right: 2.875em;
@@ -376,7 +453,7 @@ header {
     .tooltip-text {
         visibility: hidden;
         background: rgb( 35, 35, 60);
-        color: #fff;
+        color: #000;
         padding: 5px 0;
         border-radius: 6px;
         position: absolute;
@@ -420,7 +497,7 @@ header {
     position: relative;
     top: 0;
     background: rgb( 35, 35, 60);
-    color: #fff;
+    color: #000;
     border-radius: 5px;
     z-index: 1;
     @include for-phone-only {
@@ -443,14 +520,12 @@ header {
         text-align: left;
         color: rgb( 200, 200, 233);
         &:hover {
-            color: #fff;
+            color: #000;
         }
     }
 }
 
 footer {
-    width: 100%;
-    padding: 0;
     background: rgb(0, 0, 0);
     @include for-phone-only {
         text-align: center;
@@ -465,9 +540,6 @@ footer {
     }
     span {
         color: silver;
-        @include for-phone-only {
-            float: none;
-        }
         &:first-child {
             @include for-phone-only {
                 padding-bottom: 5px;
@@ -486,15 +558,9 @@ footer {
 }
 
 .nav {
-    display: block;
     text-align: center;
     margin: 0;
     padding: 0;
-    @include for-tablet-landscape-up {
-        width: 35%;
-        float: right;
-        padding: 10px 0;
-    }
 }
 
 .copyright {
@@ -502,10 +568,10 @@ footer {
     text-align: center;
     color: rgb(150, 150, 150);
     @include for-tablet-landscape-up {
-        width: 25%;
-        float: left;
+        //width: 25%;
+        //float: left;
         margin: 0;
-        padding: 10px 0;
+        //padding: 10px 0;
     }
 }
 
@@ -513,11 +579,11 @@ footer {
     display: block;
     text-align: center;
     @include for-tablet-landscape-up {
-        float: right;
-        text-align: center;
-        width: 40%;
+        // float: right;
+        //text-align: center;
+        //width: 40%;
         margin: 0;
-        padding: 10px 0;
+        //padding: 10px 0;
     }
 }
 
@@ -540,77 +606,7 @@ footer {
     }
 }
 
-[class*="col-"] {
-    @include for-phone-only {
-        width: 100%
-    }
-    @include for-tablet-portrait-up {
-        width: 100%;
-    }
-}
-
-.col-5-10 {
-    @include for-tablet-landscape-up {
-        display: inline-block;
-        vertical-align: top;
-        float: left;
-    }
-}
-
-.col-2-10,
-.col-3-10 {
-    @include for-tablet-landscape-up {
-        float: right;
-        display: block;
-    }
-}
-
-.col-2-10 {
-    @include for-tablet-landscape-up {
-        width: 35%;
-    }
-    @include for-desktop-up {
-        width: 20%;
-        display: inline-block;
-        vertical-align: top;
-        float: left;
-    }
-}
-
-.col-3-10 {
-    @include for-tablet-landscape-up {
-        width: 35%;
-    }
-    @include for-desktop-up {
-        width: 30%;
-        display: inline-block;
-        vertical-align: top;
-        float: left;
-    }
-}
-
-.col-5-10 {
-    @include for-tablet-landscape-up {
-        width: 65%;
-    }
-    @include for-desktop-up {
-        width: 50%;
-        display: inline-block;
-        vertical-align: top;
-        float: left;
-    }
-}
-
 main {
-    margin: 0 auto;
-    @include for-tablet-portrait-up {
-        width: 100%;
-    }
-    @include for-desktop-up {
-        width: 95%;
-        padding: 5px;
-        margin: 0 auto;
-    }
     table {
         th {
             font-weight: bold;
@@ -978,39 +974,23 @@ div[class^="group replies_container_"] {
 }
 
 .fa {
-    padding: 10px;
-    font-size: 20px;
-    width: 30px;
+    padding: 3px;
+    //font-size: 20px;
+    //width: 30px;
     text-align: center;
     text-decoration: none;
-    margin: 3px 0;
+    margin: 3px;
+    border-radius: 50%;
     &:hover {
         opacity: 0.7;
     }
 }
 
-.fa-facebook {
-    background: #3b5998;
-    color: white;
-}
-
-.fa-twitter {
-    background: #1DA1F2;
-    color: white;
-}
-
-.fa-linkedin {
-    background: #007bb5;
-    color: white;
-}
-
-.fa-pinterest {
-    background: #cb2027;
-    color: white;
-}
-
-.fa-whatsapp {
-    background: #00b489;
+.fa-facebook,
+.fa-twitter,
+.fa-pinterest,
+.fa-instagram {
+    background: transparent;
     color: white;
 }
 

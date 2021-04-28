@@ -41,7 +41,7 @@ h2 {
       margin: 1.875em auto 1.25em auto;
       margin: .9375em auto;
       padding: .6em; } }
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     .section {
       max-width: 23em;
       padding: 0 15px 15px 15px;
@@ -133,7 +133,7 @@ form .form_image {
   #reset ul,
   #upload ul {
     padding-left: 10px; }
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     #create-account,
     #login,
     #recover,
@@ -152,7 +152,7 @@ form .form_image {
   border-radius: 0;
   background: #fff;
   line-height: 1em; }
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     #contact-me {
       max-width: 23em;
       padding: 0 15px 15px 15px;
@@ -230,7 +230,7 @@ form .form_image {
   background: rgba(255, 255, 0, 0.2);
   font-size: .7em; }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .right-align {
     position: relative;
     left: 35%;
