@@ -5,15 +5,18 @@
     display: -ms-inline-grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: minmax(2em, auto);
-    grid-gap: 0;
+    row-gap: 0;
     justify-content: center;
+    @include for-tablet-landscape-up {
+        row-gap: 1em;
+    }
 }
 
 @mixin flex-wrapper {
     display: flex;
     flex-flow: column;
     justify-content: center;
-    @include for-tablet-portrait-up {
+    @include for-tablet-portrait-down {
         flex-flow: row wrap;
         //justify-content: space-evenly safe;
         align-items: center;
@@ -27,8 +30,8 @@
     }
 }
 
-@mixin for-tablet-portrait-up {
-    @media (min-width: 600px) {
+@mixin for-tablet-portrait-down {
+    @media (max-width: 768px) {
         @content;
     }
 }

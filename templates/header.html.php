@@ -6,13 +6,14 @@
 	<!--Navigation bar follows-->
 <div class="nav-bar flex-wrapper">
 	<div id="dropdown-menu-btn">&#9776;</div>
+	<div id="closebtn">&times;</div>
 	<nav class="nav-content">
 	<?php require_once __DIR__ .'/nav.html.php'; ?>	
 	</nav>
 </div>
 	<!--Login and Search bars follows -->
-<div class="log-account-section flex-wrapper">
-	<div class="group flex-wrapper">
+<div class="log-account-section">
+	<div class="flex-wrapper">
 		<div class="login-signup">
 		<?php echo (!isset($_SESSION['loggedin']) || $_SESSION['loggedin']=== false)? 
 		'<a href="'.BASE_URL .'templates/login.html.php">Login </a>&nbsp;'

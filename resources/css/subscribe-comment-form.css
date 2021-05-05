@@ -76,7 +76,7 @@
     .reply input[type="submit"] {
       width: 5em;
       height: 2.5em; } }
-  @media (min-width: 600px) {
+  @media (max-width: 768px) {
     .reply input[type="submit"] {
       width: 5em;
       height: 2.5em; } }
@@ -88,13 +88,13 @@
 @media (max-width: 599px) {
   .reply textarea {
     width: 100%; } }
-@media (min-width: 600px) {
+@media (max-width: 768px) {
   .reply textarea {
     width: 90%; } }
 @media (max-width: 599px) {
   .reply .reply-text {
     margin-left: 1%; } }
-@media (min-width: 600px) {
+@media (max-width: 768px) {
   .reply .reply-text {
     margin-left: 1%; } }
 

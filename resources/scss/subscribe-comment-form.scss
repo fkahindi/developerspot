@@ -85,7 +85,7 @@
             width: 5em;
             height: 2.5em;
         }
-        @include for-tablet-portrait-up {
+        @include for-tablet-portrait-down {
             width: 5em;
             height: 2.5em;
         }
@@ -99,7 +99,7 @@
         @include for-phone-only {
             width: 100%;
         }
-        @include for-tablet-portrait-up {
+        @include for-tablet-portrait-down {
             width: 90%;
         }
     }
@@ -107,7 +107,7 @@
         @include for-phone-only {
             margin-left: 1%;
         }
-        @include for-tablet-portrait-up {
+        @include for-tablet-portrait-down {
             margin-left: 1%;
         }
     }

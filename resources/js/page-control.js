@@ -13,19 +13,24 @@ $("document").ready(function() {
     /*Drop down menu for mobile devices */
     $("#dropdown-menu-btn").on("click", function() {
         $("#dropdown-menu-btn").hide();
+        $("#closebtn").show();
         $(".nav-content").show(100);
     });
-    $(".closebtn").on("click", function() {
+    $("#closebtn").on("click", function() {
+        $("#closebtn").hide();
         $("#dropdown-menu-btn").show();
         $(".nav-content").hide(100);
     });
     /* Monitor browser window size and display normal menu if size is greater than 600px */
     window.onresize = function() {
-            if (document.documentElement.clientWidth < 599 || window.innerWidth < 617) {
+            if (window.innerWidth < 769) {
                 $(".nav-content").hide();
+                $("#closebtn").hide();
                 $("#dropdown-menu-btn").show();
             } else {
                 $(".nav-content").show();
+                $("#closebtn").hide();
+
             }
         }
         /* Function to generate keywords from the current article and puts them in the keyswords meta tag at the head. */

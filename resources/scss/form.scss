@@ -29,7 +29,7 @@ h2 {
         margin: .9375em auto;
         padding: .6em;
     }
-    @include for-tablet-portrait-up {
+    @include for-tablet-portrait-down {
         max-width: 320px;
         padding: 0px 5px;
         line-height: 16px;
@@ -104,7 +104,7 @@ form {
             width: 98%;
         }
     }
-    @include for-tablet-portrait-up {
+    @include for-tablet-portrait-down {
         input[type="submit"] {
             width: 98%;
         }
