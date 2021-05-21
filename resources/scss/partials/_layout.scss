@@ -1,18 +1,17 @@
 //Layout using a mixture of grid and flex with media queries
 @mixin grid-wrapper {
-    display: inline-grid;
-    display: -moz-inline-grid;
-    display: -ms-inline-grid;
+    display: grid;
+    display: -ms-grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: minmax(2em, auto);
     row-gap: 0;
     justify-content: center;
-    @include for-tablet-landscape-up {
-        row-gap: 1em;
-    }
 }
 
 @mixin flex-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -21,6 +20,46 @@
         //justify-content: space-evenly safe;
         align-items: center;
     }
+}
+
+@mixin col-1-10 {
+    width: 10%;
+}
+
+@mixin col-2-10 {
+    width: 20%;
+}
+
+@mixin col-3-10 {
+    width: 30%;
+}
+
+@mixin col-4-10 {
+    width: 40%;
+}
+
+@mixin col-5-10 {
+    width: 50%;
+}
+
+@mixin col-6-10 {
+    width: 60%;
+}
+
+@mixin col-7-10 {
+    width: 70%;
+}
+
+@mixin col-8-10 {
+    width: 80%;
+}
+
+@mixin col-9-10 {
+    width: 90%;
+}
+
+@mixin col-10-10 {
+    width: 100%;
 }
 
 //Media queries setup in mixins

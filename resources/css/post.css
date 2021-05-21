@@ -1,0 +1,202 @@
+/* ||Main article section */
+main table th,
+main table td {
+  border: thin solid #c8c8c8; }
+main table tbody tr:nth-child(even) {
+  background: #f0f0f2; }
+main table th {
+  font-weight: bold;
+  background: #c8e6c8; }
+main table td:first-child {
+  font-family: 'Courier New', courier;
+  font-weight: bold; }
+main p {
+  padding: 10px 0;
+  line-height: 1.5em;
+  text-align: justify; }
+  @media (max-width: 768px) {
+    main p {
+      padding: 10px;
+      text-align: left;
+      font-size: 1.1em; } }
+  @media (min-width: 769px) {
+    main p {
+      font-size: 1em; } }
+  @media (min-width: 992px) {
+    main p {
+      font-size: 1.2em; } }
+  @media (min-width: 1200px) {
+    main p {
+      font-size: 1.3em; } }
+@media (min-width: 769px) {
+  main li {
+    font-size: 1em; } }
+@media (min-width: 992px) {
+  main li {
+    font-size: 1.2em; } }
+@media (min-width: 1200px) {
+  main li {
+    font-size: 1.3em; } }
+
+.main-article ul,
+.main-article ol {
+  padding: .5em 2em; }
+  .main-article ul li,
+  .main-article ol li {
+    padding: .3em .5em;
+    text-indent: 0; }
+
+.subscribe-section {
+  width: 100%;
+  margin: 1em auto;
+  padding: 1em;
+  background-color: #E5E4E2;
+  color: #333333; }
+
+/* ||Pre Code section */
+@media (max-width: 768px) {
+  pre {
+    padding-left: 0; } }
+@media (min-width: 769px) {
+  pre {
+    padding-left: 1em; } }
+@media (min-width: 992px) {
+  pre {
+    padding-left: 1em; } }
+
+pre,
+pre code,
+samp {
+  display: block;
+  margin: 0; }
+
+pre {
+  overflow-x: auto;
+  padding: 10px 0;
+  tab-size: 1; }
+
+code {
+  padding: 0 2px;
+  color: #000; }
+
+pre,
+code {
+  font-family: 'Courier New', Courier;
+  font-size: 1em; }
+
+p code,
+li code {
+  background: #e6e6e6; }
+
+.special-p code {
+  background: inherit; }
+
+.special-p {
+  padding: 10px;
+  font-family: calibri;
+  background: #64c8fa;
+  background: rgba(100, 200, 255, 0.4);
+  border-left: 5px double red;
+  border-right: 5px double red; }
+
+@media print {
+  pre {
+    overflow-x: visible;
+    white-space: pre-wrap; } }
+/* ||Comments section */
+.comments-container hr {
+  margin: 0;
+  border: thin solid silver; }
+.comments-container p {
+  font-size: 100%; }
+
+.comments-section {
+  margin-top: 10px;
+  font-family: "Times New Roman";
+  font-size: 100%; }
+  .comments-section .hide-comment-id {
+    display: none; }
+  .comments-section .profile-photo {
+    float: left;
+    width: 10%;
+    margin-top: 5px; }
+  .comments-section .comments-detail {
+    float: right;
+    width: 90%;
+    margin-top: 5px;
+    padding-left: 5px; }
+    .comments-section .comments-detail a {
+      margin: 0 10px;
+      font-family: Arial; }
+  .comments-section .comment-text {
+    padding-top: 0;
+    line-height: 1.2; }
+    @media (max-width: 599px) {
+      .comments-section .comment-text {
+        text-align: left; } }
+
+.replies-profile-photo {
+  float: left;
+  margin-left: 30px; }
+  @media (max-width: 599px) {
+    .replies-profile-photo {
+      margin-left: 10px; } }
+
+.replies-detail {
+  float: right;
+  width: 85%;
+  margin-top: 5px;
+  padding: 5px 10px;
+  text-align: left;
+  line-height: 1.2;
+  background: gainsboro;
+  border-radius: 0 10px/ 10px 20px; }
+  .replies-detail .reply-text {
+    text-align: left;
+    padding: 3px 0 5px 0; }
+  .replies-detail .user-info {
+    font-size: 90%; }
+
+.reply-btn {
+  color: black; }
+  @media (max-width: 599px) {
+    .reply-btn {
+      margin-left: 5px;
+      font-size: 0.9em; } }
+
+.user-info .created-date {
+  padding-left: 5px;
+  font-style: italic; }
+.user-info .username {
+  font-family: sans-serif;
+  color: #323232;
+  font-weight: bold;
+  font-size: 90%; }
+
+.reply {
+  width: 100%; }
+  @media (max-width: 599px) {
+    .reply {
+      margin-left: 5px; } }
+
+@media (min-width: 769px) {
+  .reply-thread {
+    font-size: 0.9em; } }
+
+.reply-form {
+  margin: 5px;
+  display: none; }
+  @media (max-width: 599px) {
+    .reply-form {
+      margin-left: 5px; } }
+
+div[class^="group replies_container_"] {
+  display: none; }
+
+.pagination .load-prev {
+  display: none; }
+
+details > summary {
+  cursor: pointer; }
+
+/*# sourceMappingURL=post.css.map */

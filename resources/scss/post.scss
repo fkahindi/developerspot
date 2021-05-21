@@ -1,0 +1,271 @@
+@import "partials/layout";
+
+/* ||Main article section */
+
+main {
+    table {
+        th,
+        td {
+            border: thin solid rgb(200, 200, 200);
+        }
+        tbody {
+            tr {
+                &:nth-child(even) {
+                    background: #f0f0f2;
+                }
+            }
+        }
+        th {
+            font-weight: bold;
+            background: rgb(200, 230, 200);
+        }
+        td {
+            &:first-child {
+                font-family: 'Courier New', courier;
+                font-weight: bold;
+            }
+        }
+    }
+    p {
+        padding: 10px 0;
+        line-height: 1.5em;
+        text-align: justify;
+        @include for-tablet-portrait-down {
+            padding: 10px;
+            text-align: left;
+            font-size: 1.1em;
+        }
+        @include for-tablet-landscape-up {
+            font-size: 1em;
+        }
+        @include for-desktop-up {
+            font-size: 1.2em;
+        }
+        @include for-big-desktop-up {
+            font-size: 1.3em;
+        }
+    }
+    li {
+        @include for-tablet-landscape-up {
+            font-size: 1em;
+        }
+        @include for-desktop-up {
+            font-size: 1.2em;
+        }
+        @include for-big-desktop-up {
+            font-size: 1.3em;
+        }
+    }
+}
+
+.main-article {
+    ul,
+    ol {
+        padding: .5em 2em;
+        li {
+            padding: .3em .5em;
+            text-indent: 0;
+        }
+    }
+}
+
+.subscribe-section {
+    width: 100%;
+    margin: 1em auto;
+    padding: 1em;
+    background-color: #E5E4E2;
+    color: #333333;
+}
+
+
+/* ||Pre Code section */
+
+pre {
+    @include for-tablet-portrait-down {
+        padding-left: 0;
+    }
+    @include for-tablet-landscape-up {
+        padding-left: 1em;
+    }
+    @include for-desktop-up {
+        padding-left: 1em;
+    }
+    @include for-big-desktop-up {}
+}
+
+pre,
+pre code,
+samp {
+    display: block;
+    margin: 0;
+}
+
+pre {
+    overflow-x: auto;
+    padding: 10px 0;
+    tab-size: 1;
+}
+
+code {
+    padding: 0 2px;
+    color: #000;
+}
+
+pre,
+code {
+    font-family: 'Courier New', Courier;
+    font-size: 1em;
+}
+
+p code,
+li code {
+    background: rgb(230, 230, 230);
+}
+
+.special-p code {
+    background: inherit;
+}
+
+.special-p {
+    padding: 10px;
+    font-family: calibri;
+    background: rgb(100, 200, 250);
+    background: rgba(100, 200, 255, .4);
+    border-left: 5px double red;
+    border-right: 5px double red;
+}
+
+@media print {
+    pre {
+        overflow-x: visible;
+        white-space: pre-wrap;
+    }
+}
+
+
+/* ||Comments section */
+
+.comments-container {
+    hr {
+        margin: 0;
+        border: thin solid silver;
+    }
+    p {
+        font-size: 100%;
+    }
+}
+
+.comments-section {
+    margin-top: 10px;
+    font-family: "Times New Roman";
+    font-size: 100%;
+    .hide-comment-id {
+        display: none;
+    }
+    .profile-photo {
+        float: left;
+        width: 10%;
+        margin-top: 5px;
+    }
+    .comments-detail {
+        float: right;
+        width: 90%;
+        margin-top: 5px;
+        padding-left: 5px;
+        a {
+            margin: 0 10px;
+            font-family: Arial;
+        }
+    }
+    .comment-text {
+        padding-top: 0;
+        line-height: 1.2;
+        @include for-phone-only {
+            text-align: left;
+        }
+    }
+}
+
+.replies-profile-photo {
+    float: left;
+    margin-left: 30px;
+    @include for-phone-only {
+        margin-left: 10px;
+    }
+}
+
+.replies-detail {
+    float: right;
+    width: 85%;
+    margin-top: 5px;
+    padding: 5px 10px;
+    text-align: left;
+    line-height: 1.2;
+    background: rgb(220, 220, 220);
+    border-radius: 0 10px/ 10px 20px;
+    .reply-text {
+        text-align: left;
+        padding: 3px 0 5px 0;
+    }
+    .user-info {
+        font-size: 90%;
+    }
+}
+
+.reply-btn {
+    color: black;
+    @include for-phone-only {
+        margin-left: 5px;
+        font-size: 0.9em;
+    }
+}
+
+.user-info {
+    .created-date {
+        padding-left: 5px;
+        font-style: italic;
+    }
+    .username {
+        font-family: sans-serif;
+        color: rgb(50, 50, 50);
+        font-weight: bold;
+        font-size: 90%;
+    }
+}
+
+.reply {
+    width: 100%;
+    @include for-phone-only {
+        margin-left: 5px;
+    }
+}
+
+.reply-thread {
+    @include for-tablet-landscape-up {
+        font-size: 0.9em;
+    }
+}
+
+.reply-form {
+    margin: 5px;
+    display: none;
+    @include for-phone-only {
+        margin-left: 5px;
+    }
+}
+
+div[class^="group replies_container_"] {
+    display: none;
+}
+
+.pagination {
+    .load-prev {
+        display: none;
+    }
+}
+
+details {
+    &>summary {
+        cursor: pointer;
+    }
+}
