@@ -56,7 +56,7 @@ footer, header, hgroup, menu, nav, section {
       },
       "datePublished" : "2020-11-19",
       "image" : "https://www.developerspot.co.ke/resources/images/reservation-form.png",
-      "articleSection" : "Web forms are common on webpages. They are a means of interacting with web users and help in collecting views or information from them. In this installment we are going to create a web form for placing reservation at our in progress Mara Resort webpage. At the end of t...",
+      "articleSection" : "Web forms are common on web pages. They are a means of interacting with web users and help in collecting views or information from them. In this installment we are going to create a web form for placing reservation at our in progress Mara Resort webpage. At the end of t...",
       "url" : "https://www.developerspot.co.ke/posts/7/creating-a-webpage-designing-a-web-form",
       "publisher" : {
         "@type" : "Organization",
@@ -103,77 +103,68 @@ footer, header, hgroup, menu, nav, section {
         <?php include __DIR__ .'/templates/social-icons-links.php';?>
       </header>
       <main class="">
-        <section class="introduction">
-        
+        <section class="section-one">
           <div class="welcome"> 
           <h1>Bulding Websites</h1>      
-            <p>There is an overwhelming choice of technologies available today that can help anyone build a website. Yes, from the tech-suvvy to the greenhorn. A choice can be to use a content management system (CMS), where you select templates as it writes the code for you behind the scenes or build everything from scratch. To build a website from ground up invloves choosing a programming or scripting language and its associated libraries or frameworks.It's important to note, however, that whichever choice you make, has pros and cons.</p> 
-            <p>For instance, using a CMS or framework forces you cede some control. You can only get what the framework or CMS offers, with less effort, nonetheless. Building from scratch requires much effort, skill and time, but you will be in control of what you want to achieve. Here at Developerspot, we help build websites. </p>
+            <p>There is an overwhelming choice of technologies available to help anyone build a website. You don't have to be a tech-suvvy to do it. However, to be build a professional website you need to know the fundamentals. From the choice of a programming or scripting language, to associated libraries and frameworks. Building a secure, efficient website requires planning, skill and time. Here at Developerspot, we help build websites. </p>
           </div>
         </section>
-        <section class="">  
+        <section class="section-two">  
           <div class="html-css">
             <h2>HTML and CSS</h2>
-            <p>HTML and CSS are two fundumental building blocks of websites. HTML (Hypertext Markup Language) marks up elements the browser should display on the webpage. CSS (Cascading Style Sheet) are style rules that define how the browser should present the marked up elements on the webpage. While HTML is about the content, CSS is about the presentation of the  content. </p>
+            <p>HTML and CSS are two fundumental building blocks of web pages. HTML (Hypertext Markup Language) is used in marking up, <em>what</em> elements the browser should display on the web page. CSS (Cascading Style Sheet) defines style rules on <em>how</em> the browser should display the marked up elements. While HTML is focuses on the content to be displayed on the web page, CSS is about the presentation of the  content. </p>
+            <a href="<?php echo BASE_URL ?>topic/html"><button>Visit tutorials</button></a>
+          </div>
+          <div class="browse-topics">
+          <h3>Browse Topics</h3>
+            <?php include __DIR__ . '/templates/published_posts_by_topics.html.php';?>				
+          </div>
+        </section>
+        <section class="section-three">
+          <div class="card">
+            <h3 class="card-title">Web development services</h3>
+            <picture>
+              <source type="image/webp" media="(max-width: 599px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm@2x.webp 2x">
+              <source type="image/webp" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.webp 2x">
+              <source type="image/webp" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.webp 2x">
+              <source type="image/jpg" media="(max-width: 599px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm@2x.jpg 2x">
+              <source type="image/jpg" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.jpg 2x">
+              <source type="image/jpg" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.jpg 2x">    
+              <img src="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01.jpg" alt="profile-image" loading="lazy" width="75" height="80" />
+            </picture>
+            <p>Hey, I'm Francis Disii, a web developer and blogger. I help people build efficient, light-weight SEO friendly websites. On this site I also blog about how to be a web developer. You need a website developed for you? Reach out!</p>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-linkedin"></a>
+            <a href="#" class="fa fa-facebook"></a>
+            <button><a href="<?php echo BASE_URL ?>templates/contact-me-form.html.php">Contact</a></button>
           </div>
           <div class=php-mysql>
             <h2>PHP and MySQL</h2>
-            <p>PHP and MysQL are two backend technologies that power many dynamic websites. PHP is a server programming language. Using PHP you can handle all requests to the server and avail only  what the user is supposed to have. MySQL on the other hand, is a server database management system. It can be used to store large amount of data resources be it products on an e-commerce site to user information on a user management system. PHP and MySql integrates well and developers use the two to serve dynamic webpages.  </p>
+            <p>PHP and MysQL are backend technologies that power many dynamic websites. PHP is a server programming language. Using PHP you can program a web server on how it should handle user requests.</p> 
+            <p>MySQL on the other hand, is a server-based relational database management system. You cam use it to store large amount of data resources, from product items on an e-commerce site to user profiles on a user management system. PHP and MySql integrates well and developers use the two to serve dynamic web pages.  </p>
+            <a href="<?php echo BASE_URL ?>topic/php"><button>Visit tutorials</button></a>
           </div>
-        </section>   
-            <div class="card">
-              <h3 class="card-title">Web development services</h3>
-              <picture>
-                <source type="image/webp" media="(max-width: 599px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm@2x.webp 2x">
-                <source type="image/webp" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.webp 2x">
-                <source type="image/webp" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.webp 2x">
-                <source type="image/jpg" media="(max-width: 599px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm@2x.jpg 2x">
-                <source type="image/jpg" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.jpg 2x">
-                <source type="image/jpg" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.jpg 2x">    
-                <img src="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01.jpg" alt="profile-image" loading="lazy" width="75" height="80" />
-              </picture>
-              <p>Hey, I'm Francis Disii, a web developer and blogger. I help people build efficient, light-weight SEO friendly websites. On this site I also blog about how to be a web developer. You need a website developed for you? Reach out!
-              </p>
-              <a href="#" class="fa fa-twitter"></a>
-              <a href="#" class="fa fa-linkedin"></a>
-              <a href="#" class="fa fa-facebook"></a>
-              <button><a href="<?php echo BASE_URL ?>templates/contact-me-form.html.php">Contact</a></button>
-            </div>
-        <section class="posts-block">				
+        </section>
+        <section class="section-four">
+          <div class="javascript">
+          <h2>JavaScript</h2>
+          <p>JavaScript is an essential part of front end web development. It has been widely used as a scripting language to add interactivity to web pages. Over the years, it has evolved  to a full-fledged programming language for both front end  and back end environments. You can use the language in its purest form or in form of a library. There are also JavaScript based frameworks that hasten application development.   </p>
+          <a href="<?php echo BASE_URL ?>topic/javascript"><button>Visit tutorials</button></a>
+        </div>
+          </section>     
+        <section class="section-five">				
           <?php foreach($published_post_ids as $post_id): ?>
             
             <?php $post = getPostById($post_id['post_id']) ?>
-            <?php $post['author'] = getPostAuthorById($post['user_id'])?>
-            <div class="posts-snippets ">
+                        
+            <div class="posts-snippets ">         
+              <?php echo (!empty($post['image'])? '<img src="'.$post['image'].'" loading="lazy" width="100" alt="'.(!empty($post['image_caption'])? $post['image_caption']:'').'" class="post-thumb-nail">':'')?>
               <h4><a href="<?php echo BASE_URL ?>posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>"> <?php echo htmlspecialchars_decode($post['post_title']) ?></a></h4>
-              <!--
-              <div class="post-acreditation">
-                  <?php// echo isset($post['updated_at'])? 'Updated on '. date( 'F j, Y', strtotime($post['updated_at'])): 'Published on '. date( 'F j, Y', strtotime($post['created_at'])) ?>, By <?php echo $post['author'];?>
-              </div>
-              -->
-            
-              <?php echo (!empty($post['image'])? '<img src="'.$post['image'].'" loading="lazy" width="100" alt="'.(!empty($post['image_caption'])? $post['image_caption']:'').'" class="">':'')?>
               <p> <?php echo getFirstParagraphPostById($post_id['post_id']) ?>
-              <a href="<?php echo BASE_URL ?>posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>">Read more...</a></p>
-            </div><hr><br> 
-          <?php endforeach; ?>
+              <a href="<?php echo BASE_URL ?>posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>"><i>Read more...</i></a></p>
+            </div>
+          <?php endforeach ?>
         </section>
-        <aside class="col-2-10">
-          <!-- Sidebar content goes here-->
-          <div class="recent-posts">
-          <h2 class="left">Recent posts</h2>
-          <?php include __DIR__ .'/templates/recent_published_posts.html.php'?>
-                      <div class="contact-me">
-                        <?php include __DIR__ . '/templates/contact-me.html.php'?>
-                      </div>
-          </div>
-        </aside>
-        <aside class="col-2-10">
-          <div>
-          <h2 class="left">Browse Topics</h2>
-            <?php include __DIR__ . '/templates/published_posts_by_topics.html.php';?>				
-          </div>
-        </aside>
       </main>
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       <script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>

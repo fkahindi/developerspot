@@ -45,6 +45,8 @@ footer, header, hgroup, menu, nav, section {
 
 </style>
     <?php include_once __DIR__ .'/head-resources.html.php'; ?>
+	<link rel="preload" href="<?php echo BASE_URL ?>resources/css/post.css" as="style">
+	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/post.css" />
 	<!-- Links for google code prettify .js at bottom of page files -->
 	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.css" media="print" onload="this.media='all'; this.onload=null;"/>
     
@@ -73,59 +75,30 @@ footer, header, hgroup, menu, nav, section {
 <body>
 	<header>
 		<?php include __DIR__ .'/header.html.php';?>
+		<?php include __DIR__ .'/social-icons-links.php';?>
 	</header>
 	<main class="group">
-		<aside class="col-2-10 hide-in-mobile">
-				<div>
-				<h2>Topics</h2>
-				<?php include __DIR__ . '/published_posts_by_topics.html.php';?>
-				</div>
-		</aside><!--
-		--><section class='col-5-10'>
+		<section class="section-two main-article">
 			<!-- The title will be fetched from database -->
 			<h1><?php echo ucwords(htmlspecialchars_decode($posts['post_title'])) ;?></h1>
 			<div class="post-acreditation">  
 				<?php echo isset($posts['updated_at'])? 'Updated on '. date( 'F j, Y', strtotime($posts['updated_at'])): 'Published on '. date( 'F j, Y', strtotime($posts['created_at'])) ?>
 			</div>
-			<!-- Social icons -->
-				<div class="social-media">
-					<?php include __DIR__ .'/social-icons-links.php';?>
-				</div>
+
+			<div class="article-body">
+			<!-- The page content will be fetched from database -->
+			<?php echo htmlspecialchars_decode($posts['post_body']) ;?>
+			</div>			
 			<div>
-                <div class="main-article">
-                <!-- The page content will be fetched from database -->
-                <?php echo htmlspecialchars_decode($posts['post_body']) ;?>
-                </div>
-				<div class="social-media">
-                <!-- Social icons -->
-					<?php include __DIR__ .'/social-icons-links.php';?>
-				</div>
-				<div>
-				<!-- Call to subscribe for notification -->
-				<?php  include __DIR__.'/subscribe.html.php';?>
-				</div>
-				<div>
+			<!-- Call to subscribe for notification -->
+			<?php  include __DIR__.'/subscribe.html.php';?>
+			</div>
+			<div>
 			<!--Comments sections  -->
 			<?php include __DIR__ .'/../comments/comments-layout.php'; ?>
-				</div>
 			</div>
-		</section><!--
-		--><aside class='col-3-10'>
-			<div class="recent-posts">
-			<!-- Sidebar items go here -->
-				<h2 class="left">Recent posts</h2>
-				<?php include __DIR__ .'/recent_published_posts.html.php'?>
-                <div class="contact-me">
-                    <?php include __DIR__ . '/contact-me.html.php'?>
-                </div>
-			</div>
-		</aside><!--			
-		--><aside class="hide-in-bigger-screens">
-				<div class="published-topics">
-				<h2 class="left">Browse Topics</h2>
-				<?php include __DIR__ . '/published_posts_by_topics.html.php';?>
-				</div>
-		</aside>
+			
+		</section>
 	</main>
 	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.js"></script>

@@ -23,6 +23,24 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
+.main-article {
+  margin: 1em auto;
+  padding: 1em 0.5em;
+  background-color: transparent; }
+  @media (max-width: 768px) {
+    .main-article {
+      width: 90%; } }
+  @media (max-width: 599px) {
+    .main-article {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0.5em; } }
+  @media (min-width: 769px) {
+    .main-article {
+      width: 70%; } }
+  @media (min-width: 992px) {
+    .main-article {
+      width: 60%; } }
 
 </style>	 
     <?php include_once __DIR__ .'/templates/head-resources.html.php'; ?>
@@ -33,10 +51,7 @@ footer, header, hgroup, menu, nav, section {
 		<?php require_once __DIR__ . '/templates/header.html.php';?>
 		</header>
 		<main class="group">
-			<aside class="col-2-10 hide-in-mobile">
-				
-			</aside><!--
-			--><section class="col-5-10">
+			<section class="main-article">
 				<h1>About Us</h1><hr>
 				<div>	
 					<p><em>Developing something that others find useful is great. But even greater is when what you are passionate about is helping others to be great.</em></p>
@@ -44,15 +59,7 @@ footer, header, hgroup, menu, nav, section {
 					<p>The comment system at the end of each post is a means to interact, share experiences and solve real problems. Creating a developers ecosystem where the experienced and novice form a symbiotic relationship for the betterment of the community is hard, but we encourage it. Signing up is being part of the ecosystem.</p>
 				</div>
 				
-			</section><!--			
-			--><aside class="col-3-10">
-				<!-- Sidebar content goes here-->
-				
-				</div>
-			</aside><!--			
-			--><aside class="hide-in-bigger-screens">
-				
-			</aside>	
+			</section>	
 		</main>
 		<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 		<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>

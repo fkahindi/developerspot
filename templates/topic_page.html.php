@@ -43,6 +43,27 @@ if(isset($_GET['name'])){
             footer, header, hgroup, menu, nav, section {
               display: block;
             }
+			.main-article {
+				margin: 1em auto;
+				padding: 1em 0.5em;
+				background-color: transparent; }
+				@media (max-width: 768px) {
+					.main-article {
+					width: 90%; } }
+				@media (max-width: 599px) {
+					.main-article {
+					width: 100%;
+					margin: 0 auto;
+					padding: 0.5em; } }
+				@media (min-width: 769px) {
+					.main-article {
+					width: 70%; } }
+				@media (min-width: 992px) {
+					.main-article {
+					width: 60%; } }
+
+
+
         </style>
         <?php include_once __DIR__ .'/head-resources.html.php'; ?>
 	</head>
@@ -51,45 +72,25 @@ if(isset($_GET['name'])){
 		<?php require_once __DIR__ . '/header.html.php';?>
 		</header>
 		<main class="group">
-			<aside class="col-2-10 hide-in-mobile">
-				<div class="published-topics">
-				<h2 class="left">Topics</h2>
-				<?php include __DIR__ . '/published_posts_by_topics.html.php';?>
-				</div>
-			</aside><!--
-			--><section class="col-5-10">
-				<h1><?=$menu_topic['topic_name'] ?></h1><hr>
+			<section class="main-article">
+				<h1><?=$menu_topic['topic_name'] ?></h1>
 				<?php $topic_id = $menu_topic['topic_id'] ?>
 				<?php $published_posts = getPublishedPostsByTopic($topic_id)?>
+
 				<?php foreach($published_posts as $pub_post):?>
 				<?php $pub_post['author'] = getPostAuthorById($pub_post['user_id'])?>
+				<?php echo (!empty($pub_post['image'])? '<img src="'.$pub_post['image'].'" loading="lazy" width="100" alt="'.(!empty($pub_post['image_caption'])? $pub_post['image_caption']:'').'" class="post-thumb-nail">':'')?>
 				<h3><a href="<?php echo BASE_URL ?>posts/<?php echo $pub_post['post_id'] ?>/<?php echo $pub_post['post_slug']?>"><?php echo $pub_post['post_title']?></a></h3>
 				<div class="post-acreditation">
 					By <?php echo $pub_post['author'];?><span>  
 					<?php echo isset($pub_post['updated_at'])? 'Updated on '. date( 'F j, Y', strtotime($pub_post['updated_at'])): 'Published on '. date( 'F j, Y', strtotime($pub_post['created_at'])) ?></span>
 				</div>
-				<div class="paragraph-snippet">
+				<div class="">
 					<?php echo getFirstParagraphPostById($pub_post['post_id']) ?>
 					<a href="<?php echo BASE_URL ?>posts/<?php echo $pub_post['post_id'] ?>/<?php echo $pub_post['post_slug'] ?>">Read more...</a>
-				</div><br>
+				</div>
 				<?php endforeach ?>
-			</section><!--			
-			--><aside class="col-3-10">
-				<!-- Sidebar content goes here-->
-				<div class="recent-posts">
-    				<h2 class="left">Recent posts</h2>
-        				<?php include __DIR__ .'/recent_published_posts.html.php'?>
-    				<div class="contact-me">
-                        <?php include __DIR__ . '/contact-me.html.php'?>
-                    </div>
-				</div>
-			</aside><!--			
-			--><aside class="hide-in-bigger-screens">
-				<div class="published-topics">
-				<h2 class="left">Browse Topics</h2>
-					<?php include __DIR__ . '/published_posts_by_topics.html.php';?>				
-				</div>
-			</aside>	
+			</section>	
 		</main>
         <script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
         <script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
