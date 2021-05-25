@@ -6,11 +6,21 @@
 body {
     font-family: Calibri, Tahoma, sans-serif, Arial;
     line-height: 1.5em;
-    background-color: rgb(250, 249, 218);
 }
 
 a {
     text-decoration: none;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+button {
+    min-width: 100px;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
     &:hover {
         cursor: pointer;
     }
@@ -123,52 +133,66 @@ h4 {
     font-family: Tahoma, Arial, sans-serif;
     font-weight: bold;
     text-align: left;
-    padding: 1em 0;
-    //color: rgb(37, 121, 190);
+    letter-spacing: 0.05em;
+    padding: 0.5em 0;
+    @include for-tablet-portrait-down {
+        letter-spacing: 0;
+    }
+}
+
+h5,
+h6 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: left;
 }
 
 h1 {
-    font-size: 1.3em;
-    padding: 24px 0;
     @include for-tablet-portrait-down {
-        font-size: 1em;
-        padding: 12px 0;
+        font-size: 1.5rem;
+        line-height: 1.2em;
+    }
+    @include for-tablet-landscape-up {
+        font-size: 1.75rem;
+        line-height: 1.25em;
+    }
+    @include for-desktop-up {
+        font-size: 2.5rem;
+        //padding: 24px 0;
+        line-height: 1.5em;
     }
 }
 
 h2 {
-    font-size: 1.2em;
+    font-size: 1.75rem;
     @include for-tablet-portrait-down {
-        font-size: 1em;
+        font-size: 1.3rem;
+        padding: 8px 0;
     }
 }
 
 h3 {
-    font-size: 1.1em;
+    font-size: 1.5rem;
     @include for-tablet-portrait-down {
-        font-size: 0.9em;
+        font-size: 1.2rem;
+        padding: 6px 0;
     }
 }
 
 h4 {
-    font-size: 1em;
-    @include for-tablet-portrait-down {
-        font-size: 0.8em;
-    }
+    font-size: 1rem;
 }
 
 h5 {
-    font-size: 0.9;
+    font-size: 0.9rem;
     @include for-tablet-portrait-down {
-        font-size: 0.7em;
+        font-size: 0.8rem;
+        padding: 6px 0;
     }
 }
 
 h6 {
-    font-size: 0.8em;
-    @include for-tablet-portrait-down {
-        font-size: 0.6em;
-    }
+    font-size: 0.8rem;
 }
 
 p {
@@ -194,7 +218,7 @@ header {
     position: sticky;
     top: 0;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
-    background-color: rgb(250, 249, 218);
+    background-color: rgb(250, 250, 249);
     @include for-phone-only {
         height: 3.75em;
     }
@@ -332,40 +356,6 @@ header {
 
 .nav-content {
     font-family: Tahoma;
-    ul {
-        list-style: none;
-        >span {
-            display: none;
-            @include for-tablet-landscape-up {
-                display: inline-block;
-            }
-        }
-    }
-    li {
-        font-size: 1em;
-        @include for-tablet-landscape-up {
-            display: inline-block;
-            padding: 0 10px;
-        }
-        @include for-tablet-portrait-down {
-            background-color: #f0f0f0;
-            padding: 5px 10px;
-        }
-    }
-    a {
-        //font-variant: small-caps;
-        //font-weight: 600;
-        color: black;
-        padding: 8px 2px;
-        font-size: 0.9em;
-        @include for-tablet-portrait-down {
-            display: block;
-            text-align: left;
-        }
-        &:hover {
-            color: darkgray;
-        }
-    }
     @include for-tablet-portrait-down {
         display: none;
         position: absolute;
@@ -380,6 +370,36 @@ header {
         text-align: center;
         margin: 0;
         padding: 5px 0;
+    }
+    ul {
+        list-style: none;
+        >span {
+            display: none;
+            @include for-tablet-landscape-up {
+                display: inline-block;
+            }
+        }
+    }
+    li {
+        @include for-tablet-landscape-up {
+            display: inline-block;
+            padding: 0 10px;
+        }
+        @include for-tablet-portrait-down {
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+        }
+    }
+    a {
+        padding: 8px 2px;
+        font-size: 0.9em;
+        @include for-tablet-portrait-down {
+            display: block;
+            text-align: left;
+        }
+        &:hover {
+            color: darkgray;
+        }
     }
 }
 
@@ -528,7 +548,6 @@ footer {
         }
     }
     a {
-        font-variant: small-caps;
         color: rgb(200, 200, 200);
         &:hover {
             color: rgb(240, 240, 240);
@@ -553,12 +572,17 @@ footer {
 }
 
 .nav {
+    display: inline-block;
     margin: 0;
     padding: 0;
     @include for-tablet-landscape-up {
+        min-width: 25%;
         text-align: right;
         padding-right: 10%;
         word-spacing: 1em;
+    }
+    a {
+        font-size: 0.8em;
     }
 }
 
@@ -567,8 +591,8 @@ footer {
     text-align: center;
     color: rgb(150, 150, 150);
     @include for-tablet-landscape-up {
-        display: inline-block;
-        width: 25%;
+        //display: inline-block;
+        min-width: 25%;
         margin: 0;
     }
 }
@@ -578,36 +602,17 @@ footer {
     padding: 10px;
     text-align: center;
     @include for-tablet-landscape-up {
+        min-width: 45%;
         margin: 0;
+    }
+    a {
+        font-variant: small-caps;
+        //font-size: 1em;
     }
 }
 
 
 /* || MAIN LAYOUT */
-
-[class*="col-"] {
-    @include for-tablet-portrait-down {
-        width: 100%;
-    }
-}
-
-.col-2-10,
-.col-3-10,
-.col-5-10 {
-    @include for-tablet-landscape-up {
-        display: inline-block;
-        vertical-align: top;
-    }
-}
-
-.col-5-10 {
-    @include for-tablet-landscape-up {
-        width: 65%;
-    }
-    @include for-desktop-up {
-        width: 50%;
-    }
-}
 
 main {
     li {
@@ -620,43 +625,6 @@ main {
         @include for-big-desktop-up {
             font-size: 1.3em;
         }
-    }
-}
-
-aside {
-    padding: 10px;
-    text-align: left;
-    @include for-tablet-portrait-down {
-        width: 100%;
-        padding: 1em;
-        text-align: left;
-    }
-    @include for-tablet-landscape-up {
-        display: inline-block;
-        padding-left: 1.25em;
-        padding-top: 2.25em;
-        text-align: left;
-    }
-    @include for-desktop-up {
-        padding-top: 5.25em;
-    }
-    ul,
-    ol {
-        text-indent: 0;
-        padding: 0;
-        @include for-tablet-landscape-up {
-            text-indent: 0;
-            padding: 0;
-        }
-        @include for-desktop-up {
-            text-indent: 0;
-            padding: 0;
-        }
-        @include for-big-desktop-up {
-            text-indent: 0;
-            padding: 0;
-        }
-        @include for-big-desktop-up {}
     }
 }
 
@@ -699,7 +667,6 @@ aside {
     .banner-bar {
         grid-column: 2/span 3;
         grid-row: 1/span 2;
-        //background-color: darkslategrey;
         @include for-tablet-landscape-up {
             grid-column: 1/span 2;
             grid-row: 1/span 1;
@@ -709,7 +676,6 @@ aside {
         grid-column: 1/span 1;
         grid-row: 1/span 2;
         z-index: 1;
-        //background-color: firebrick;
         @include for-tablet-landscape-up {
             grid-column: 3/span 2;
             grid-row: 2/span 1;
@@ -772,21 +738,60 @@ aside {
 
 section {
     display: block;
+    width: 100%;
     padding: 3em 0;
+    @include for-tablet-portrait-down {
+        padding: 2em 0;
+    }
 }
 
-.introduction {
-    width: 80%;
+.section-one {
     margin: 0 auto;
-    margin-top: 3em;
-    border-radius: 50%;
-    background-color: burlywood;
+    background-color: #02203a;
+    color: #fff;
+    @include for-phone-only {
+        padding-top: 1em;
+    }
+}
+
+.section-two {
+    background-color: #f3f0d9;
+    button {
+        background-color: #02203a;
+        color: #f3f0d9;
+    }
+}
+
+.section-three {
+    background-color: #175a49;
+    color: white;
+    button {
+        background-color: #f3f0d9;
+        color: black;
+    }
+}
+
+.section-four {
+    background-color: rgb(242, 245, 201);
+    button {
+        background-color: black;
+        color: rgb(250, 250, 250);
+    }
+}
+
+.section-five {
+    background-color: rgb(250, 250, 250);
+    div {
+        &:not(:last-child) {
+            border-bottom: solid thin gray;
+        }
+    }
 }
 
 .welcome {
     width: 60%;
     margin: 0 auto;
-    padding: 32px;
+    padding: 16px;
     p {
         text-align: center;
         padding: 10px;
@@ -800,18 +805,74 @@ section {
 }
 
 .html-css,
-.php-mysql {
+.php-mysql,
+.javascript,
+.browse-topics,
+.card {
     display: inline-block;
-    width: 45%;
-    margin: 0 2.4%;
-    padding: 20px;
+    margin: 0 2%;
+    padding: 10px;
+    vertical-align: top;
+    @include for-tablet-portrait-down {
+        display: block;
+        margin: 0 auto;
+        // padding: 10px;
+    }
+    @include for-desktop-up {
+        margin: 0 4.5%;
+        padding: 20px;
+    }
+}
+
+.html-css {
+    width: 60%;
+}
+
+.php-mysql {
+    width: 90%;
+}
+
+.javascript {
+    width: 60%;
+}
+
+.html-css,
+.php-mysql,
+.javascript {
+    @include for-phone-only {
+        width: 100%;
+    }
+    @include for-tablet-portrait-down {
+        width: 80%;
+    }
+    @include for-desktop-up {
+        width: 50%;
+    }
+}
+
+.browse-topics {
+    width: 30%;
+    padding-left: 5%;
+    @include for-phone-only {
+        width: 100%;
+    }
+    @include for-tablet-portrait-down {
+        width: 80%;
+    }
+    @include for-desktop-up {
+        //width: 30%;
+    }
 }
 
 .card {
-    width: 300px;
-    background-color: white;
-    margin: 0 auto;
+    max-width: 300px;
+    background-color: rgb(213, 231, 245);
+    color: black;
+    margin: 0 5%;
     padding: 1em;
+    @include for-phone-only {
+        margin: 0 auto;
+    }
 }
 
 .card-title {
@@ -822,92 +883,64 @@ section {
 .card {
     img {
         float: left;
+        padding: 0.5em;
     }
     button {
         display: block;
         border: none;
         outline: 0;
         width: 100%;
+        margin-top: 1em;
+        padding: 8px 0;
         background-color: #000;
         color: #fff;
-        font-size: 1.2em;
-        padding: 8px 0;
+        font-size: 1em;
         text-align: center;
-        cursor: pointer;
+        //cursor: pointer;
         &:hover {
             opacity: 0.9;
         }
         a {
-            text-decoration: none;
-            font-size: 1.2em;
+            // text-decoration: none;
+            //font-size: 1.2em;
             color: #fff;
-            &:hover {
-                opacity: 0.7;
-            }
         }
     }
 }
 
-.posts-block {
-    //display: block;
-    width: 60%;
-    margin: 0 auto;
-}
-
 .posts-snippets {
-    //display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1em;
+    h4 {
+        line-height: 1;
+        //padding-top: 1em;
+    }
+    p {
+        line-height: 1;
+        //font-size: 1em;
+    }
+    a {
+        color: black;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    @include for-phone-only {
+        width: 100%;
+    }
+    @include for-tablet-portrait-down {
+        //width: 90%;
+    }
+    @include for-desktop-up {
+        width: 60%;
+    }
 }
 
 .post-thumb-nail {
     display: block;
     float: left;
-    //padding: 1em;
-}
-
-.article-post-image {
-    //width: 100%;
-}
-
-.post-acreditation {
-    padding: 10px 0;
-    color: gray;
-    font-size: 1em;
-    @include for-tablet-portrait-down {
-        padding-left: 10px;
-    }
-}
-
-.contact-me {
-    margin: 3em auto;
-    padding: 20px;
-    background-color: #E5E4E2;
-    @include for-tablet-portrait-down {
-        margin: 1.5em auto;
-    }
-    @include for-tablet-landscape-up {
-        margin: 1.5em auto;
-    }
-    img {
-        float: right;
-        margin: 10px;
-        border-radius: 50%;
-    }
-    p {
-        font-family: arial;
-        font-size: 1.2em;
-    }
-    button {
-        &:hover {
-            cursor: pointer;
-        }
-    }
-}
-
-button {
-    border: none;
-    padding: 3px 10px;
-    // border-radius: 45%;
-    background: silver;
+    padding: 1em;
 }
 
 .recent-posts {
