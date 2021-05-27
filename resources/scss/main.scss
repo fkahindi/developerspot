@@ -158,7 +158,6 @@ h1 {
     }
     @include for-desktop-up {
         font-size: 2.5rem;
-        //padding: 24px 0;
         line-height: 1.5em;
     }
 }
@@ -200,8 +199,9 @@ p {
     line-height: 1.5;
     text-align: justify;
     @include for-tablet-portrait-down {
-        padding: 10px;
+        padding: 10px 0;
         text-align: left;
+        font-size: 1.1em;
     }
     @include for-tablet-landscape-up {
         font-size: 1.2em;
@@ -283,8 +283,7 @@ header {
 .banner-bar {
     display: inline-block;
     margin: 0;
-    padding: 0.5em 34px;
-    font-family: Aladin;
+    padding: 1em 34px;
     text-align: center;
     @include for-tablet-portrait-down {
         min-width: 70%;
@@ -299,6 +298,10 @@ header {
         height: 2em;
         font-size: 1.6em;
     }
+}
+
+.banner {
+    font-family: Aladin;
 }
 
 
@@ -373,11 +376,8 @@ header {
     }
     ul {
         list-style: none;
-        >span {
-            display: none;
-            @include for-tablet-landscape-up {
-                display: inline-block;
-            }
+        @include for-tablet-landscape-up {
+            display: inline-block;
         }
     }
     li {
@@ -628,6 +628,283 @@ main {
     }
 }
 
+section {
+    display: block;
+    width: 100%;
+    padding: 2.5em 0;
+    @include for-tablet-portrait-down {
+        padding: 2em 0;
+    }
+    @include for-phone-only {
+        padding: 1em 0;
+    }
+}
+
+.section-one {
+    margin: 0 auto;
+    background-color: #02203a;
+    color: #fff;
+    @include for-phone-only {
+        padding-top: 1em;
+    }
+}
+
+.section-two {
+    background-color: #f3f0d9;
+    button {
+        background-color: #02203a;
+        color: #f3f0d9;
+    }
+}
+
+.section-three {
+    background-color: #175a49;
+    color: white;
+    button {
+        background-color: #f3f0d9;
+        color: black;
+    }
+}
+
+.section-four {
+    background-color: rgb(242, 245, 201);
+    button {
+        background-color: black;
+        color: rgb(250, 250, 250);
+    }
+}
+
+.section-five {
+    background-color: rgb(250, 250, 250);
+}
+
+.border-not-last-child-div {
+    div {
+        &:not(:last-child) {
+            border-bottom: solid thin gray;
+        }
+    }
+}
+
+.welcome {
+    width: 60%;
+    margin: 0 auto;
+    padding: 0 16px;
+    p {
+        font-family: Helvetica, sans-serif;
+        text-align: center;
+        padding: 10px;
+        font-size: 1.2em;
+        //font-weight: bold;
+        @include for-tablet-portrait-down {
+            font-size: 1.2em;
+            font-weight: normal;
+            text-align: left;
+        }
+    }
+    h1 {
+        text-align: center;
+        @include for-phone-only {
+            text-align: left;
+            padding: 10px;
+        }
+    }
+    @include for-tablet-portrait-down {
+        width: 100%;
+    }
+    @include for-tablet-landscape-up {
+        width: 80%;
+    }
+    @include for-desktop-up {
+        width: 60%;
+    }
+}
+
+.html-css,
+.php-mysql,
+.javascript,
+.browse-topics,
+.card {
+    display: inline-block;
+    margin: 0 2%;
+    padding: 10px;
+    vertical-align: top;
+    @include for-tablet-portrait-down {
+        display: block;
+        margin: 0 auto;
+    }
+    @include for-desktop-up {
+        margin: 0 4.5%;
+        padding: 20px;
+    }
+}
+
+.html-css {
+    width: 60%;
+}
+
+.php-mysql,
+.javascript {
+    width: 80%;
+}
+
+.html-css,
+.php-mysql,
+.javascript {
+    @include for-tablet-portrait-down {
+        width: 80%;
+    }
+    @include for-phone-only {
+        width: 100%;
+    }
+    @include for-tablet-landscape-up {
+        //width:60%;
+    }
+    @include for-desktop-up {
+        width: 50%;
+    }
+}
+
+.browse-topics {
+    width: 30%;
+    padding-left: 5%;
+    @include for-phone-only {
+        width: 100%;
+    }
+    @include for-tablet-portrait-down {
+        width: 80%;
+    }
+    @include for-desktop-up {
+        //width: 30%;
+    }
+}
+
+.card {
+    width: 300px;
+    background-color: rgb(213, 231, 245);
+    color: black;
+    margin: 0 5%;
+    padding: 1em;
+    @include for-phone-only {
+        margin: 0 auto;
+    }
+}
+
+.card-title {
+    text-align: center;
+    padding: 1em 0;
+}
+
+.card {
+    img {
+        float: left;
+        padding: 0.5em;
+    }
+    button {
+        display: block;
+        border: none;
+        outline: 0;
+        width: 100%;
+        margin-top: 1em;
+        padding: 8px 0;
+        background-color: #000;
+        color: #fff;
+        font-size: 1em;
+        text-align: center;
+        //cursor: pointer;
+        &:hover {
+            opacity: 0.9;
+        }
+        a {
+            // text-decoration: none;
+            //font-size: 1.2em;
+            color: #fff;
+        }
+    }
+}
+
+.posts-section {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1em;
+    @include for-phone-only {
+        width: 100%;
+    }
+    @include for-tablet-portrait-down {
+        //width: 90%;
+    }
+    @include for-desktop-up {
+        width: 60%;
+    }
+}
+
+.posts-snippets {
+    padding-top: 32px;
+    h4 {
+        line-height: 1;
+    }
+    p {
+        line-height: 1;
+    }
+    a {
+        color: black;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.post-thumb-nail {
+    display: block;
+    float: left;
+    padding: 1em;
+}
+
+.published-topics {
+    p {
+        padding: 0;
+        text-align: left;
+    }
+    a {
+        display: block;
+        padding: 0;
+        text-align: left;
+        color: #616D7E;
+        &:hover {
+            text-decoration: underline;
+            color: #2B3856;
+            padding-left: 5px;
+        }
+    }
+    summary {
+        font-size: 1em;
+        color: rgb(5, 10, 50);
+    }
+    ul {
+        display: inline-block;
+        list-style: none;
+        text-align: left;
+        @include for-phone-only {
+            padding-left: 10px
+        }
+        li {
+            font-size: .9em;
+            color: rgb(5, 10, 50);
+        }
+        ul {
+            li {
+                @include for-desktop-up {
+                    font-size: .9em;
+                }
+            }
+        }
+    }
+}
+
+hr {
+    border: thin solid rgb(240, 240, 240);
+}
+
 
 /* ||Layout for GRID Supporting browsers */
 
@@ -734,275 +1011,4 @@ main {
             z-index: 1;
         }
     }
-}
-
-section {
-    display: block;
-    width: 100%;
-    padding: 3em 0;
-    @include for-tablet-portrait-down {
-        padding: 2em 0;
-    }
-}
-
-.section-one {
-    margin: 0 auto;
-    background-color: #02203a;
-    color: #fff;
-    @include for-phone-only {
-        padding-top: 1em;
-    }
-}
-
-.section-two {
-    background-color: #f3f0d9;
-    button {
-        background-color: #02203a;
-        color: #f3f0d9;
-    }
-}
-
-.section-three {
-    background-color: #175a49;
-    color: white;
-    button {
-        background-color: #f3f0d9;
-        color: black;
-    }
-}
-
-.section-four {
-    background-color: rgb(242, 245, 201);
-    button {
-        background-color: black;
-        color: rgb(250, 250, 250);
-    }
-}
-
-.section-five {
-    background-color: rgb(250, 250, 250);
-    div {
-        &:not(:last-child) {
-            border-bottom: solid thin gray;
-        }
-    }
-}
-
-.welcome {
-    width: 60%;
-    margin: 0 auto;
-    padding: 16px;
-    p {
-        text-align: center;
-        padding: 10px;
-    }
-    h1 {
-        text-align: center;
-    }
-    @include for-tablet-portrait-down {
-        width: 100%;
-    }
-}
-
-.html-css,
-.php-mysql,
-.javascript,
-.browse-topics,
-.card {
-    display: inline-block;
-    margin: 0 2%;
-    padding: 10px;
-    vertical-align: top;
-    @include for-tablet-portrait-down {
-        display: block;
-        margin: 0 auto;
-        // padding: 10px;
-    }
-    @include for-desktop-up {
-        margin: 0 4.5%;
-        padding: 20px;
-    }
-}
-
-.html-css {
-    width: 60%;
-}
-
-.php-mysql {
-    width: 90%;
-}
-
-.javascript {
-    width: 60%;
-}
-
-.html-css,
-.php-mysql,
-.javascript {
-    @include for-phone-only {
-        width: 100%;
-    }
-    @include for-tablet-portrait-down {
-        width: 80%;
-    }
-    @include for-desktop-up {
-        width: 50%;
-    }
-}
-
-.browse-topics {
-    width: 30%;
-    padding-left: 5%;
-    @include for-phone-only {
-        width: 100%;
-    }
-    @include for-tablet-portrait-down {
-        width: 80%;
-    }
-    @include for-desktop-up {
-        //width: 30%;
-    }
-}
-
-.card {
-    max-width: 300px;
-    background-color: rgb(213, 231, 245);
-    color: black;
-    margin: 0 5%;
-    padding: 1em;
-    @include for-phone-only {
-        margin: 0 auto;
-    }
-}
-
-.card-title {
-    text-align: center;
-    padding: 1em 0;
-}
-
-.card {
-    img {
-        float: left;
-        padding: 0.5em;
-    }
-    button {
-        display: block;
-        border: none;
-        outline: 0;
-        width: 100%;
-        margin-top: 1em;
-        padding: 8px 0;
-        background-color: #000;
-        color: #fff;
-        font-size: 1em;
-        text-align: center;
-        //cursor: pointer;
-        &:hover {
-            opacity: 0.9;
-        }
-        a {
-            // text-decoration: none;
-            //font-size: 1.2em;
-            color: #fff;
-        }
-    }
-}
-
-.posts-snippets {
-    width: 80%;
-    margin: 0 auto;
-    padding: 1em;
-    h4 {
-        line-height: 1;
-        //padding-top: 1em;
-    }
-    p {
-        line-height: 1;
-        //font-size: 1em;
-    }
-    a {
-        color: black;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-    @include for-phone-only {
-        width: 100%;
-    }
-    @include for-tablet-portrait-down {
-        //width: 90%;
-    }
-    @include for-desktop-up {
-        width: 60%;
-    }
-}
-
-.post-thumb-nail {
-    display: block;
-    float: left;
-    padding: 1em;
-}
-
-.recent-posts {
-    @include for-phone-only {
-        padding-left: 10px;
-    }
-    a {
-        color: #616D7E;
-        &:hover {
-            text-decoration: underline;
-            color: #2B3856;
-            padding-left: 5px;
-        }
-    }
-    p {
-        padding: 0;
-        text-align: left;
-        font-size: .9em;
-    }
-}
-
-.published-topics {
-    p {
-        padding: 0;
-        text-align: left;
-    }
-    a {
-        display: block;
-        padding: 0;
-        text-align: left;
-        color: #616D7E;
-        &:hover {
-            text-decoration: underline;
-            color: #2B3856;
-            padding-left: 5px;
-        }
-    }
-    summary {
-        font-size: 1em;
-        color: rgb(5, 10, 50);
-    }
-    ul {
-        display: inline-block;
-        list-style: none;
-        text-align: left;
-        @include for-phone-only {
-            padding-left: 10px
-        }
-        li {
-            font-size: .9em;
-            color: rgb(5, 10, 50);
-        }
-        ul {
-            li {
-                @include for-desktop-up {
-                    font-size: .9em;
-                }
-            }
-        }
-    }
-}
-
-hr {
-    border: thin solid rgb(240, 240, 240);
 }

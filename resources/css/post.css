@@ -50,7 +50,6 @@ main p {
   @media (max-width: 768px) {
     main p {
       padding: 10px;
-      text-align: left;
       font-size: 1.1em; } }
   @media (min-width: 769px) {
     main p {

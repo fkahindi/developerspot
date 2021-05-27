@@ -22,46 +22,6 @@
     }
 }
 
-@mixin col-1-10 {
-    width: 10%;
-}
-
-@mixin col-2-10 {
-    width: 20%;
-}
-
-@mixin col-3-10 {
-    width: 30%;
-}
-
-@mixin col-4-10 {
-    width: 40%;
-}
-
-@mixin col-5-10 {
-    width: 50%;
-}
-
-@mixin col-6-10 {
-    width: 60%;
-}
-
-@mixin col-7-10 {
-    width: 70%;
-}
-
-@mixin col-8-10 {
-    width: 80%;
-}
-
-@mixin col-9-10 {
-    width: 90%;
-}
-
-@mixin col-10-10 {
-    width: 100%;
-}
-
 //Media queries setup in mixins
 @mixin for-phone-only {
     @media (max-width: 599px) {

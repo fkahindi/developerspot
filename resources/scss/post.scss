@@ -70,7 +70,6 @@ main {
         text-align: justify;
         @include for-tablet-portrait-down {
             padding: 10px;
-            text-align: left;
             font-size: 1.1em;
         }
         @include for-tablet-landscape-up {
