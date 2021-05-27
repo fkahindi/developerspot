@@ -1,6 +1,6 @@
 <!-- Banner bar follows-->
 <div class="banner-bar flex-wrapper">
-	<a href="<?php echo BASE_URL ?>index.php">DevelopersPot</a>
+	<a href="<?php echo BASE_URL ?>index.php" class="banner">DevelopersPot</a>
 </div>
 <!--Navigation bar follows-->
 <div class="nav-bar flex-wrapper">

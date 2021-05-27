@@ -14,7 +14,7 @@ if(isset($_POST['contact-me'])){
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Contact Me</title>
     <meta name="description" content="Use form to contact me.">
-	<link rel="stylesheet" href="../resources/css/form.css" >
+	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css" >
 </head>
 <body>
 	<div id="contact-me">
