@@ -42,7 +42,7 @@ span.codedirection { unicode-bidi:bidi-override; direction: rtl; }
 <?php include_once __DIR__ .'/../templates/head-resources.html.php'; ?>
 </head>
 <body>
-<header>
+<header class="grid-wrapper">
 	<?php include __DIR__ .'/../templates/header.html.php';?> 
 </header>
 <main class="group">

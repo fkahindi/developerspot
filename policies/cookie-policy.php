@@ -37,11 +37,11 @@ span.codedirection { unicode-bidi:bidi-override; direction: rtl; }
   @media (min-width: 992px) {
     .main-article {
       width: 60%; } }
-</style>
-<?php include_once __DIR__ .'/../templates/head-resources.html.php'; ?>
+  </style>
+  <?php include_once __DIR__ .'/../templates/head-resources.html.php'; ?>
 </head>
 <body>
-<header>
+<header class="grid-wrapper">
 	<?php include __DIR__ .'/../templates/header.html.php';?>
 		 
 </header>
