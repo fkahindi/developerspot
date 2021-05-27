@@ -11,8 +11,9 @@ $published_post_ids = getAllPublishedPostIds();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+        <title>Developerspot blog | Building websites</title>
 	    <meta name="description" content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>">
-	    <title>Developerspot blog | Building websites</title>
+        <meta name="keywords" content=""/>
     	<?php require_once __DIR__ .'/templates/head.html.php'; ?>
         <style>
             html,body, div, span, applet, object, iframe,
@@ -43,12 +44,14 @@ $published_post_ids = getAllPublishedPostIds();
         <?php include_once __DIR__ .'/templates/head-resources.html.php'; ?>
 	</head>
 	<body>
-		<header>
+		<header class="grid-wrapper">
 		<?php require_once __DIR__ . '/templates/header.html.php';?>
         <?php include __DIR__ .'/templates/social-icons-links.php';?>
 		</header>
 		<main class="group">
-			<section class="section-five">
+			<section class="posts-section border-not-last-child-div">
+                <h1>Tutorials </h1>
+                
                 <?php foreach($published_post_ids as $post_id): ?>
                 
                     <?php $post = getPostById($post_id['post_id']) ?>

@@ -16,8 +16,9 @@ if(isset($_GET['name'])){
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	    <meta name="description" content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>">
-	    <title><?=$menu_topic['topic_name'] ?> | For Web Development</title>
+		<title><?=$menu_topic['topic_name'] ?> | For Web Development</title>
+	    <meta name="description" content="<?php echo (isset($menu_topic['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>">
+		<meta name="keywords" content="<?php echo (isset($menu_topic['meta_keywords'])? htmlspecialchars_decode($posts['meta_keywords']):''); ?>" />
     	<?php require_once __DIR__ .'/head.html.php'; ?>
         <style>
             html,body, div, span, applet, object, iframe,
@@ -43,49 +44,32 @@ if(isset($_GET['name'])){
             footer, header, hgroup, menu, nav, section {
               display: block;
             }
-			.main-article {
-				margin: 1em auto;
-				padding: 1em 0.5em;
-				background-color: transparent; }
-				@media (max-width: 768px) {
-					.main-article {
-					width: 90%; } }
-				@media (max-width: 599px) {
-					.main-article {
-					width: 100%;
-					margin: 0 auto;
-					padding: 0.5em; } }
-				@media (min-width: 769px) {
-					.main-article {
-					width: 70%; } }
-				@media (min-width: 992px) {
-					.main-article {
-					width: 60%; } }
-
-
-
+			
         </style>
         <?php include_once __DIR__ .'/head-resources.html.php'; ?>
 	</head>
 	<body>
-		<header>
+		<header class="grid-wrapper">
 		<?php require_once __DIR__ . '/header.html.php';?>
+		<?php include __DIR__ .'/social-icons-links.php';?>
 		</header>
 		<main class="group">
-			<section class="main-article">
-				<h1><?=$menu_topic['topic_name'] ?></h1>
+			<section class="posts-section border-not-last-child-div">
+				<h1><?=$menu_topic['topic_name'] ?></h1><hr>
+				<p><?=$menu_topic['topic_intro'] ?></p>
 				<?php $topic_id = $menu_topic['topic_id'] ?>
 				<?php $published_posts = getPublishedPostsByTopic($topic_id)?>
 
 				<?php foreach($published_posts as $pub_post):?>
 				<?php $pub_post['author'] = getPostAuthorById($pub_post['user_id'])?>
+				<div class="posts-snippets">
 				<?php echo (!empty($pub_post['image'])? '<img src="'.$pub_post['image'].'" loading="lazy" width="100" alt="'.(!empty($pub_post['image_caption'])? $pub_post['image_caption']:'').'" class="post-thumb-nail">':'')?>
-				<h3><a href="<?php echo BASE_URL ?>posts/<?php echo $pub_post['post_id'] ?>/<?php echo $pub_post['post_slug']?>"><?php echo $pub_post['post_title']?></a></h3>
-				<div class="post-acreditation">
-					By <?php echo $pub_post['author'];?><span>  
+				<h4><a href="<?php echo BASE_URL ?>posts/<?php echo $pub_post['post_id'] ?>/<?php echo $pub_post['post_slug']?>"><?php echo $pub_post['post_title']?></a></h4>
+				
+					<span class="post-acreditation">  
 					<?php echo isset($pub_post['updated_at'])? 'Updated on '. date( 'F j, Y', strtotime($pub_post['updated_at'])): 'Published on '. date( 'F j, Y', strtotime($pub_post['created_at'])) ?></span>
-				</div>
-				<div class="">
+				
+				
 					<?php echo getFirstParagraphPostById($pub_post['post_id']) ?>
 					<a href="<?php echo BASE_URL ?>posts/<?php echo $pub_post['post_id'] ?>/<?php echo $pub_post['post_slug'] ?>">Read more...</a>
 				</div>

@@ -28,6 +28,8 @@ if(!isset($_SESSION)){
 <!-- head section -->
 <title><?php echo htmlspecialchars_decode($posts['post_title']) ;?> | DevelopersPot</title>
 	<meta name="description" content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>" />
+	<meta name="keywords" content="<?php echo (isset($posts['meta_keywords'])? htmlspecialchars_decode($posts['meta_keywords']):''); ?>" />
+
 	<?php include_once __DIR__ .'/head.html.php';?>
 <style>
 html,body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -73,7 +75,7 @@ footer, header, hgroup, menu, nav, section {
 </script>
 </head>
 <body>
-	<header>
+	<header class="grid-wrapper">
 		<?php include __DIR__ .'/header.html.php';?>
 		<?php include __DIR__ .'/social-icons-links.php';?>
 	</header>
