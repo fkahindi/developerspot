@@ -49,20 +49,30 @@
 						<input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
 						<?php endif ?> 
 						<div class="form-group form-group-lg">
-							<input type="text" name="title" value="<?php echo $title; ?>" class="form-control" placeholder="Title">
+							<label for="title">Post Title:</label>
+							 <input type="text" name="title" value="<?php echo $title; ?>" class="form-control" placeholder="Title">
+							
 						</div>
 						<div class="form-group form-group-lg">
+							<label for="post_main_image">Image:</label>
 							<input type="file" name="post_main_image" placeholder="Select image">
 							<p><ul><li>Only images sizes of less than 0.5 Mb with formats .jpg, .png and .gif are allowed.</li></ul> </p>
 						</div>
 						<div class="form-group form-group-lg">
+							<label for="image_caption">Image Caption:</label>
 							<input type="text" name="image_caption" value="<?php echo $image_caption; ?>" class="form-control" placeholder="Type image caption">
 						</div>
 						<div class="form-group form-group-lg">
+							<label for="body">Article Body:</label>
 							<textarea name="body" id="body" col="30" row="50" class="form-control" placeholder="Article body goes here..."><?php echo $body; ?></textarea>
 						</div>
 						<div class="form-group form-group-lg">
+							<label for="meta_description">Meta Description:</label>
 							<input type="text" name="meta_description" value="<?php echo $meta_description; ?>" class="form-control" placeholder="Meta description">
+						</div>
+						<div class="form-group form-group-lg">
+							<label for="meta_keywords">Meta Keywords:</label>
+							<input type="text" name="meta_keywords" value="<?php echo $meta_keywords; ?>" class="form-control" placeholder="Meta keywords">
 						</div>
 						<div>
 							<select name="topic_id" class="form-control">

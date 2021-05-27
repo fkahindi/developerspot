@@ -53,7 +53,20 @@
 						<input type="hidden" name="topic_id" value="<?php echo $_GET['edit-topic']; ?>">
 						<?php endif ?> 
 						<div class="form-group">
-						<input type="text" name="topic_name" value="<?php echo $topic_name; ?>" class="form-control" placeholder="Topic">
+							<label for="topic_name">Topic:</label>
+							<input type="text" name="topic_name" value="<?php echo $topic_name; ?>" class="form-control" placeholder="Topic">
+						</div>
+						<div class="form-group">
+							<label for="topic_intro">Topic Introduction:</label>
+							<textarea name="topic_intro" col="30" row="50" class="form-control" placeholder="Insert introductory paragraph here..."><?php echo $topic_intro; ?></textarea>
+						</div>
+						<div class="form-group">
+							<label for="meta_description">Meta Description:</label>
+							<input type="text" name="meta_description" value="<?php echo $meta_description; ?>" class="form-control" placeholder="Topic">
+						</div>
+						<div class="form-group">
+							<label for="meta_keywords">Meta Keywords:</label>
+							<input type="text" name="meta_keywords" value="<?php echo $meta_keywords; ?>" class="form-control" placeholder="Topic">
 						</div>								
 						<!--If editing topic, display the update button instead of create button -->
 						<div>
