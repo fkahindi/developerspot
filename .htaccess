@@ -23,5 +23,6 @@ ErrorDocument 404 errors/404.html
 #
 RewriteRule ^posts/(.*)/(.*)$ templates/post.html.php?id=$1&title=$2 [NC,L]
 RewriteRule ^topic/(.*)$ templates/topic_page.html.php?name=$1 [NC,L]
+RewriteRule ^contact.php$ templates/contact-me-form.html.php [NC,L]
 
 #RewriteRule ^common/(.*)$ templates/$1 [NC,L]
