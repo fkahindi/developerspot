@@ -32,43 +32,40 @@ h3 {
     h3 {
       font-size: 1.2rem; } }
 
-main table th,
-main table td {
-  border: thin solid #c8c8c8; }
-main table tbody tr:nth-child(even) {
-  background: #f0f0f2; }
-main table th {
-  font-weight: bold;
-  background: #c8e6c8; }
-main table td:first-child {
-  font-family: 'Courier New', courier;
-  font-weight: bold; }
-main p {
-  padding: 10px 0;
-  line-height: 1.5em;
-  text-align: justify; }
-  @media (max-width: 768px) {
-    main p {
-      padding: 10px;
-      font-size: 1.1em; } }
+main {
+  padding: 16px; }
+  main table th,
+  main table td {
+    border: thin solid #c8c8c8; }
+  main table tbody tr:nth-child(even) {
+    background: #f0f0f2; }
+  main table th {
+    font-weight: bold;
+    background: #c8e6c8; }
+  main table td:first-child {
+    font-family: 'Courier New', courier;
+    font-weight: bold; }
+  main p {
+    line-height: 1.5em;
+    text-align: justify; }
+    @media (max-width: 768px) {
+      main p {
+        font-size: 1.1em; } }
+    @media (min-width: 769px) {
+      main p {
+        font-size: 1.2em; } }
+    @media (min-width: 1200px) {
+      main p {
+        font-size: 1.3em; } }
   @media (min-width: 769px) {
-    main p {
+    main li {
       font-size: 1em; } }
   @media (min-width: 992px) {
-    main p {
+    main li {
       font-size: 1.2em; } }
   @media (min-width: 1200px) {
-    main p {
+    main li {
       font-size: 1.3em; } }
-@media (min-width: 769px) {
-  main li {
-    font-size: 1em; } }
-@media (min-width: 992px) {
-  main li {
-    font-size: 1.2em; } }
-@media (min-width: 1200px) {
-  main li {
-    font-size: 1.3em; } }
 
 .main-article {
   margin: 1em auto;
@@ -131,7 +128,7 @@ samp {
 
 pre {
   overflow-x: auto;
-  padding: 10px 0;
+  padding: 10px;
   tab-size: 1; }
 
 code {

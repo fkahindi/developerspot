@@ -200,8 +200,10 @@ p {
     text-align: justify;
     @include for-tablet-portrait-down {
         padding: 10px 0;
-        text-align: left;
         font-size: 1.1em;
+    }
+    @include for-phone-only {
+        text-align: left;
     }
     @include for-tablet-landscape-up {
         font-size: 1.2em;
@@ -690,15 +692,21 @@ section {
     width: 60%;
     margin: 0 auto;
     padding: 0 16px;
+    @include for-tablet-portrait-down {
+        width: 100%;
+    }
+    @include for-tablet-landscape-up {
+        width: 80%;
+    }
+    @include for-desktop-up {
+        width: 60%;
+    }
     p {
         font-family: Helvetica, sans-serif;
         text-align: center;
-        padding: 10px;
         font-size: 1.2em;
-        //font-weight: bold;
         @include for-tablet-portrait-down {
-            font-size: 1.2em;
-            font-weight: normal;
+            font-size: 1.1em;
             text-align: left;
         }
     }
@@ -709,15 +717,6 @@ section {
             padding: 10px;
         }
     }
-    @include for-tablet-portrait-down {
-        width: 100%;
-    }
-    @include for-tablet-landscape-up {
-        width: 80%;
-    }
-    @include for-desktop-up {
-        width: 60%;
-    }
 }
 
 .html-css,
@@ -726,30 +725,53 @@ section {
 .browse-topics,
 .card {
     display: inline-block;
-    margin: 0 2%;
-    padding: 10px;
     vertical-align: top;
     @include for-tablet-portrait-down {
         display: block;
         margin: 0 auto;
     }
+    @include for-phone-only {
+        padding: 0 16px;
+    }
+}
+
+.html-css {
+    @include for-tablet-portrait-down {
+        width: 80%;
+    }
+    @include for-phone-only {
+        width: 100%;
+    }
+    @include for-tablet-landscape-up {
+        width: 60%;
+        margin: 0;
+        padding-left: 5%;
+    }
     @include for-desktop-up {
+        width: 50%;
         margin: 0 4.5%;
         padding: 20px;
     }
 }
 
-.html-css {
-    width: 60%;
+.php-mysql {
+    @include for-tablet-portrait-down {
+        width: 80%;
+    }
+    @include for-phone-only {
+        width: 100%;
+    }
+    @include for-tablet-landscape-up {
+        width: 50%;
+        padding-right: 16px;
+    }
+    @include for-desktop-up {
+        width: 50%;
+        margin: 0 4.5%;
+        padding: 20px;
+    }
 }
 
-.php-mysql,
-.javascript {
-    width: 80%;
-}
-
-.html-css,
-.php-mysql,
 .javascript {
     @include for-tablet-portrait-down {
         width: 80%;
@@ -758,24 +780,32 @@ section {
         width: 100%;
     }
     @include for-tablet-landscape-up {
-        //width:60%;
+        width: 70%;
+        padding-left: 5%;
     }
     @include for-desktop-up {
         width: 50%;
+        margin: 0 4.5%;
+        padding: 20px;
     }
 }
 
 .browse-topics {
-    width: 30%;
-    padding-left: 5%;
-    @include for-phone-only {
-        width: 100%;
-    }
     @include for-tablet-portrait-down {
         width: 80%;
+        padding-left: 0;
     }
-    @include for-desktop-up {
-        //width: 30%;
+    @include for-phone-only {
+        width: 100%;
+        padding-left: 16px;
+    }
+    @include for-tablet-landscape-up {
+        width: 35%;
+        margin: 0;
+        padding-left: 5%;
+    }
+    @include for-big-desktop-up {
+        width: 30%;
     }
 }
 
@@ -785,8 +815,8 @@ section {
     color: black;
     margin: 0 5%;
     padding: 1em;
-    @include for-phone-only {
-        margin: 0 auto;
+    @include for-tablet-portrait-down {
+        margin: 2em auto;
     }
 }
 
@@ -796,9 +826,10 @@ section {
 }
 
 .card {
-    img {
+    picture {
         float: left;
         padding: 0.5em;
+        background-color: transparent;
     }
     button {
         display: block;
@@ -811,15 +842,19 @@ section {
         color: #fff;
         font-size: 1em;
         text-align: center;
-        //cursor: pointer;
         &:hover {
             opacity: 0.9;
         }
         a {
-            // text-decoration: none;
-            //font-size: 1.2em;
             color: #fff;
         }
+    }
+}
+
+.contact-media-links {
+    text-align: center;
+    a {
+        color: black;
     }
 }
 
@@ -829,9 +864,6 @@ section {
     padding: 1em;
     @include for-phone-only {
         width: 100%;
-    }
-    @include for-tablet-portrait-down {
-        //width: 90%;
     }
     @include for-desktop-up {
         width: 60%;
