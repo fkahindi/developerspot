@@ -16,10 +16,18 @@ if(isset($_GET['name'])){
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+	<?php require_once __DIR__ .'/head.html.php'; ?>
 		<title><?=$menu_topic['topic_name'] ?> | For Web Development</title>
-	    <meta name="description" content="<?php echo (isset($menu_topic['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>">
-		<meta name="keywords" content="<?php echo (isset($menu_topic['meta_keywords'])? htmlspecialchars_decode($posts['meta_keywords']):''); ?>" />
-    	<?php require_once __DIR__ .'/head.html.php'; ?>
+	    <meta name="description" content="<?php echo (isset($menu_topic['topic_description'])? htmlspecialchars_decode($menu_topic['topic_description']):''); ?>">
+		<meta name="keywords" content="<?php echo (isset($menu_topic['topic_keywords'])? htmlspecialchars_decode($menu_topic['topic_keywords']):''); ?>" />
+    	<!-- Facebook OG metas -->
+		<meta property="og:url"                content="<?php echo $url;?>" />
+		<meta property="og:type"               content="article" />
+		<meta property="og:title"              content="<?=$menu_topic['topic_name'] ?>" />
+		<meta property="og:description"        content="<?php echo (isset($menu_topic['topic_description'])? htmlspecialchars_decode($menu_topic['topic_description']):''); ?>" />
+		<meta property="og:image"              content="" />
+		<meta property="fb:app_id"				content="502152493814762"/>
+ 
         <style>
             html,body, div, span, applet, object, iframe,
             h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -78,6 +86,16 @@ if(isset($_GET['name'])){
 		</main>
         <script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
         <script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
+		<script>
+      /* Facabook */
+        document.getElementById('shareBtn').onclick = function() {
+          FB.ui({
+            display: 'popup',
+            method: 'share',
+            href="<?php echo $url;?>",
+          }, function(response){});
+        }
+      </script>
 		<footer class="group">
 			<?php include __DIR__ .'/footer.html.php'?>
 		</footer>

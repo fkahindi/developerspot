@@ -9,13 +9,17 @@ include __DIR__ .'/admin/includes/admin_functions.php';
 <html lang="en">
 <head>
   <!-- head section -->
+  <?php include_once __DIR__ .'/templates/head.html.php'; ?>
   <title>Developerspot: Building dynamic and interactive websites </title> 
-    <meta name="description" content="Building dynamic, interactive websites powered by PHP and MySql" />
+    <meta name="description" content="Building dynamic, interactive websites powered by PHP" />
     <meta name="keywords" content="build website, programming, language, scripting, server,front end, PHP, MySql, HTML, CSS, JavaScript, websites, web pages."/>
-    
-    <?php include_once __DIR__ .'/templates/head.html.php'; ?>
-    
-    <!--// head section -->
+    <!-- Facebook OG metas -->
+    <meta property="og:url"                content="<?php echo $url;?>" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="Developerspot: Building dynamic and interactive websites" />
+    <meta property="og:description"        content="Building dynamic, interactive websites powered by PHP and MySql" />
+    <meta property="og:image"              content="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01.jpg" />
+    <meta property="fb:app_id"				content="502152493814762"/>
   <style>
   html,body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -105,9 +109,10 @@ include __DIR__ .'/admin/includes/admin_functions.php';
       <main class="class="grid-wrapper">
         <section class="section-one">
           <div class="welcome"> 
-          <h1>Bulding Websites</h1>      
+          <h1>Bulding Websites</h1> 
+            
             <p>There is an overwhelming choice of technologies available to help anyone build a website. You may not have to be a tech-suvvy to build one. Infact, there are a number of Content Management Systems out there that can help you build one in minutes. However, to be build a secure, efficient, professional  website you need a grasp of the fundamentals.</p> 
-            <p>Take for example this blog site, for it to be functinal as it is, it involves various components interacting seemlesly to deliver the content. Of course HTML and CSS are the brick and mortar of web design, but there are some JavaScript, some JQuery and Ajax added there. Then at the back end, powered by PHP and MySql. I'm not saying these are the only technologies one can use to be build a website, but at least they are the ones I used here. At Developerspot we focus on these. </p>
+            <p>Take for example this blog site, for it to be functional as it is, it involves various components interacting seemlesly to deliver the content. Of course HTML and CSS are the brick and mortar of web design, but there are some JavaScript, some JQuery and Ajax added there. Then at the back end, powered by PHP and MySql. I'm not saying these are the only technologies one can use to be build a website, but at least they are the ones I used here. At Developerspot we focus on these. </p>
           </div>
         </section>
         <section class="section-two">  
@@ -131,12 +136,15 @@ include __DIR__ .'/admin/includes/admin_functions.php';
               <source type="image/jpg" media="(max-width: 599px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm@2x.jpg 2x">
               <source type="image/jpg" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.jpg 2x">
               <source type="image/jpg" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.jpg 2x">    
-              <img src="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01.jpg" alt="profile-image" loading="lazy" width="75" height="80" />
+              <img src="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01.jpg" alt="profile-image" loading="lazy" width="75" height="80" data-pin-nopin="0" />
             </picture>
             <p>Hey, I'm Francis Disii, a web developer and blogger. I help people build efficient, light-weight SEO friendly websites. On this site I also blog about how to be a web developer. You need a website developed for you? Reach out!</p>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-linkedin"></a>
-            <a href="#" class="fa fa-facebook"></a>
+            <div class="contact-media-links">
+              <a href="http://twitter.com/developespotke" target="_blank" class="fa fa-twitter"></a>
+              <a href="https://www.linkedin.com/in/francis-kahindi-43871440" class="fa fa-linkedin" target="_blank"></a>
+              <a href="https://web.facebook.com/developerspotKe" target="_blank" class="fa fa-facebook"></a>
+            </div >
+            
             <button><a href="<?php echo BASE_URL ?>templates/contact-me-form.html.php">Contact</a></button>
           </div>
           <div class=php-mysql>
@@ -170,7 +178,8 @@ include __DIR__ .'/admin/includes/admin_functions.php';
           </div>	
         </section>
       </main>
-      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+      
       <script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
       <script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
           <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"
@@ -179,8 +188,35 @@ include __DIR__ .'/admin/includes/admin_functions.php';
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
           <script src="https://www.developerspot.co.ke/resources/js/page-control.js"></script>
       -->
-          
+      <script>window.twttr = (function(d, s, id) {
+        /* Twitter */
+       /*  var js, fjs = d.getElementsByTagName(s)[0],
+          t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
 
+        t._e = [];
+        t.ready = function(f) {
+          t._e.push(f);
+        };
+
+        return t;
+      }(document, "script", "twitter-wjs")); */
+      </script>
+
+      <script>
+      /* Facabook */
+        document.getElementById('shareBtn').onclick = function() {
+          FB.ui({
+            display: 'popup',
+            method: 'share',
+            href="<?php echo $url;?>",
+          }, function(response){});
+        }
+      </script>
       <footer class="grid-wrapper">
         <?php include __DIR__ .'/templates/social-icons-links.php';?>
         <?php include __DIR__ .'/templates/footer.html.php'?>

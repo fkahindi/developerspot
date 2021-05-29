@@ -26,11 +26,17 @@ if(!isset($_SESSION)){
 <html lang="en">
 <head>
 <!-- head section -->
-<title><?php echo htmlspecialchars_decode($posts['post_title']) ;?> | DevelopersPot</title>
+	<?php include_once __DIR__ .'/head.html.php';?>
+	<title><?php echo htmlspecialchars_decode($posts['post_title']) ;?> | DevelopersPot</title>
 	<meta name="description" content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>" />
 	<meta name="keywords" content="<?php echo (isset($posts['meta_keywords'])? htmlspecialchars_decode($posts['meta_keywords']):''); ?>" />
-
-	<?php include_once __DIR__ .'/head.html.php';?>
+	<!-- Facebook OG metas -->
+    <meta property="og:url"                content="<?php echo $url;?>" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="<?php echo htmlspecialchars_decode($posts['post_title']) ;?>" />
+    <meta property="og:description"        content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>" />
+    <meta property="og:image"              content="<?php echo (!empty($posts['image'])? '<img src="'.$post['image'].'" loading="lazy" alt="'.(!empty($post['image_caption'])? $post['image_caption']:'').'>':'')?>" />
+	<meta property="fb:app_id"				content="502152493814762"/>	
 <style>
 html,body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 margin: 0;
@@ -110,6 +116,16 @@ footer, header, hgroup, menu, nav, section {
     <script type="text/javascript"
     src="//assets.pinterest.com/js/pinit.js"
     ></script>
+	<script>
+      /* Facabook */
+        document.getElementById('shareBtn').onclick = function() {
+          FB.ui({
+            display: 'popup',
+            method: 'share',
+            href="<?php echo $url;?>",
+          }, function(response){});
+        }
+      </script>
 	 <!-- Online server
     
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
