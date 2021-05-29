@@ -6,7 +6,7 @@ $getUser = new CommentsClass($pdo);
 ?>
 <div class="comments-section group" >
 	<div class="hide-comment-id"><?php echo $comment['comment_id']; ?></div>
-	<div class="profile-photo"> <img src="<?php echo $getUser->getUserById($comment['user_id'])['profile_photo']; ?>" alt="" width=30px height=30px></div>
+	<div class="profile-photo"> <img src="<?php echo $getUser->getUserById($comment['user_id'])['profile_photo']; ?>" alt="" width=30px height=30px data-pin-nopin="0"/></div>
 	<div class="comments-detail ">
 		<div class="user-info">
 			<span class="username"><?php echo $getUser->getUserById($comment['user_id'])['username']; ?></span>

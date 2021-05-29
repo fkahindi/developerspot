@@ -20,7 +20,7 @@
 			<div class="account-photo-box tooltip ">
 				<label for="profile-checkbox-control" id="tooltip">
 				<?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']== true):?> 
-				<span>  <img src="<?php echo $_SESSION['profile_photo'] ?>" alt="" width="30px" height="30px" class="image-photo"></span></label>
+				<span>  <img src="<?php echo $_SESSION['profile_photo'] ?>" alt="" width="30px" height="30px" data-pin-nopin="1" class="image-photo"></span></label>
 			
 				<div class="tooltip-text">
 					<p><strong>Account:</strong></p> 

@@ -1,7 +1,7 @@
 	<div class="group">
 		<div class="replies-profile-photo">
 			<?php $getUser = new CommentsClass($pdo); ?>
-			<img src="<?php echo $getUser->getUserById($reply['user_id'])['profile_photo']; ?>" alt="" width=30px height=30px>
+			<img src="<?php echo $getUser->getUserById($reply['user_id'])['profile_photo']; ?>" alt="" width=30px height=30px data-pin-nopin="0"/>
 		</div>
 		<div class="replies-detail">
 			<div class="user-info">
