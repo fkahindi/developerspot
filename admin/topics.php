@@ -61,12 +61,12 @@
 							<textarea name="topic_intro" col="30" row="50" class="form-control" placeholder="Insert introductory paragraph here..."><?php echo $topic_intro; ?></textarea>
 						</div>
 						<div class="form-group">
-							<label for="meta_description">Meta Description:</label>
-							<input type="text" name="meta_description" value="<?php echo $meta_description; ?>" class="form-control" placeholder="Topic">
+							<label for="topic_description">Meta Description:</label>
+							<input type="text" name="topic_description" value="<?php echo $topic_description; ?>" class="form-control" placeholder="Topic">
 						</div>
 						<div class="form-group">
-							<label for="meta_keywords">Meta Keywords:</label>
-							<input type="text" name="meta_keywords" value="<?php echo $meta_keywords; ?>" class="form-control" placeholder="Topic">
+							<label for="topic_keywords">Meta Keywords:</label>
+							<input type="text" name="topic_keywords" value="<?php echo $topic_keywords; ?>" class="form-control" placeholder="Topic">
 						</div>								
 						<!--If editing topic, display the update button instead of create button -->
 						<div>

@@ -17,8 +17,8 @@ $topic_id =0;
 $isEditingTopic = false;
 $topic_name = '';
 $topic_intro = '';
-$meta_description = '';
-$meta_keywords = '';
+$topic_description = '';
+$topic_keywords = '';
 
 /*-----------------------
 -- Admin user actions
@@ -233,12 +233,12 @@ function getAllTopics(){
 }
 
 function createTopic($request_values){
-	global $conn, $errors, $topic_name, $topic_intro,$meta_description,$meta_keywords;
+	global $conn, $errors, $topic_name, $topic_intro,$topic_description,$topic_keywords;
 	
 	$topic_name = esc($request_values['topic_name']);
 	$topic_intro =esc($request_values['topic_intro']);
-	$meta_description =esc($request_values['meta_description']);
-	$meta_keywords =esc($request_values['meta_keywords']);
+	$topic_description =esc($request_values['topic_description']);
+	$topic_keywords =esc($request_values['topic_keywords']);
 	/* create slug */
 	$topic_slug = makeSlug($topic_name);
 	/* Validate form  */
@@ -253,7 +253,7 @@ function createTopic($request_values){
 	}
 	/* Register topic if no errors */
 	if(count($errors) === 0){
-		$query = "INSERT INTO `topics`(topic_name, topic_slug, topic_intro, meta_descriptio,meta_keywords) VALUES ('$topic_name', '$topic_slug','$topic_intro','$meta_description','$meta_keywords')";
+		$query = "INSERT INTO `topics`(topic_name, topic_slug, topic_intro, meta_descriptio,topic_keywords) VALUES ('$topic_name', '$topic_slug','$topic_intro','$topic_description','$topic_keywords')";
 		mysqli_query($conn, $query);
 		
 		$_SESSION['message'] = 'Topic created successfully.';
@@ -267,7 +267,7 @@ function createTopic($request_values){
 *-Sets it on the form for editing
 ***********************************/
 function editTopic($topic_id){
-	global $conn, $topic_name,$topic_intro, $meta_description, $meta_keywords, $topic_id;
+	global $conn, $topic_name,$topic_intro, $topic_description, $topic_keywords, $topic_id;
 	
 	$sql = "SELECT * FROM `topics` WHERE topic_id=$topic_id LIMIT 1";
 	$result = mysqli_query($conn, $sql);
@@ -276,18 +276,18 @@ function editTopic($topic_id){
 	/* Set topic_name to be updated on the form */
 	$topic_name = $topic['topic_name'];
 	$topic_intro = $topic['topic_intro'];
-	$meta_description = $topic['meta_description'];
-	$meta_keywords = $topic['meta_keywords'];
+	$topic_description = $topic['topic_description'];
+	$topic_keywords = $topic['topic_keywords'];
 }
 
 function updateTopic($request_values){
-	global $conn, $topic_name, $topic_intro, $meta_description, $meta_keywords, $errors, $topic_id;
+	global $conn, $topic_name, $topic_intro, $topic_description, $topic_keywords, $errors, $topic_id;
 	
 	$topic_id = esc($request_values['topic_id']);
 	$topic_name = esc($request_values['topic_name']);
 	$topic_intro = esc($request_values['topic_intro']);
-	$meta_description = esc($request_values['meta_description']);
-	$meta_keywords = esc($request_values['meta_keywords']);
+	$topic_description = esc($request_values['topic_description']);
+	$topic_keywords = esc($request_values['topic_keywords']);
 	/* Create slug */
 	$topic_slug = makeSlug($topic_name);
 	
@@ -298,7 +298,7 @@ function updateTopic($request_values){
 	
 	/* Register topic if there are no errors */
 	if(count($errors) == 0){
-		$query = "UPDATE `topics` SET topic_name='$topic_name', topic_slug='$topic_slug', topic_intro='$topic_intro',meta_description='$meta_description',meta_keywords='$meta_keywords' WHERE topic_id=$topic_id";
+		$query = "UPDATE `topics` SET topic_name='$topic_name', topic_slug='$topic_slug', topic_intro='$topic_intro',topic_description='$topic_description',topic_keywords='$topic_keywords' WHERE topic_id=$topic_id";
 		mysqli_query($conn, $query);
 		
 		$_SESSION['message'] = 'Topic updated successfully.';
