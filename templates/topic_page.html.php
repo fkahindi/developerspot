@@ -55,6 +55,18 @@ if(isset($_GET['name'])){
 			
         </style>
         <?php include_once __DIR__ .'/head-resources.html.php'; ?>
+		<script type="application/ld+json">
+			{
+			"@context": "http://schema.org/",
+			"@type": "WebSite",
+			"url": "https://www.developerspot.co.ke/topic/<?=$menu_topic['topic_name'] ?>",
+			"potentialAction": {
+				"@type": "SearchAction",
+				"target": "{search_term_string}",
+				"query-input": "required name=search_term_string"
+			}
+			}
+		</script>
 	</head>
 	<body>
 		<header class="grid-wrapper">
@@ -63,15 +75,15 @@ if(isset($_GET['name'])){
 		</header>
 		<main class="group">
 			<section class="posts-section border-not-last-child-div">
-				<h1><?=$menu_topic['topic_name'] ?></h1><hr>
-				<p><?=$menu_topic['topic_intro'] ?></p>
+				<h1><?=$menu_topic['topic_name'] ?></h1>
+				<p><?=$menu_topic['topic_intro'] ?></p><hr>
 				<?php $topic_id = $menu_topic['topic_id'] ?>
 				<?php $published_posts = getPublishedPostsByTopic($topic_id)?>
 
 				<?php foreach($published_posts as $pub_post):?>
 				<?php $pub_post['author'] = getPostAuthorById($pub_post['user_id'])?>
 				<div class="posts-snippets">
-				<?php echo (!empty($pub_post['image'])? '<img src="'.$pub_post['image'].'" loading="lazy" width="100" alt="'.(!empty($pub_post['image_caption'])? $pub_post['image_caption']:'').'" class="post-thumb-nail">':'')?>
+				<?php echo (!empty($pub_post['image'])? '<img src="'.$pub_post['image'].'" loading="lazy" width="100" height="90" alt="'.(!empty($pub_post['image_caption'])? $pub_post['image_caption']:'').'" class="post-thumb-nail">':'')?>
 				<h4><a href="<?php echo BASE_URL ?>posts/<?php echo $pub_post['post_id'] ?>/<?php echo $pub_post['post_slug']?>"><?php echo $pub_post['post_title']?></a></h4>
 				
 					<span class="post-acreditation">  
@@ -96,8 +108,9 @@ if(isset($_GET['name'])){
           }, function(response){});
         }
       </script>
-		<footer class="group">
-			<?php include __DIR__ .'/footer.html.php'?>
-		</footer>
+		<footer class="grid-wrapper">
+        <?php include __DIR__ .'/social-icons-links.php';?>
+        <?php include __DIR__ .'/footer.html.php'?>
+      </footer>
 	</body>
 </html>

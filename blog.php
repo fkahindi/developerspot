@@ -12,8 +12,8 @@ $published_post_ids = getAllPublishedPostIds();
 <html lang="en">
 	<head>
         <title>Developerspot blog | Building websites</title>
-	    <meta name="description" content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>">
-        <meta name="keywords" content=""/>
+	    <meta name="description" content="On this blog are articles dealing with server-side and side client-side solutions.">
+        <meta name="keywords" content="blog, server-side, client-side, php, html, javascript, css, solutions"/>
     	<?php require_once __DIR__ .'/templates/head.html.php'; ?>
         <style>
             html,body, div, span, applet, object, iframe,
@@ -42,6 +42,18 @@ $published_post_ids = getAllPublishedPostIds();
             
         </style>
         <?php include_once __DIR__ .'/templates/head-resources.html.php'; ?>
+        <script type="application/ld+json">
+            {
+            "@context": "http://schema.org/",
+            "@type": "WebSite",
+            "url": "https://www.developerspot.co.ke/blog",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "{search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+            }
+        </script>
 	</head>
 	<body>
 		<header class="grid-wrapper">
@@ -51,25 +63,28 @@ $published_post_ids = getAllPublishedPostIds();
 		<main class="group">
 			<section class="posts-section border-not-last-child-div">
                 <h1>Tutorials </h1>
-                
+                <p>
+                    Welcome to the blog. On this blog I'm looking at both server-side and front end solutions. I have tried to be as illustrative as possible, but that's on my side, you may have your opinion. Leaving a feedback will be highly appreciated. Thanks!
+                </p><hr>
                 <?php foreach($published_post_ids as $post_id): ?>
                 
                     <?php $post = getPostById($post_id['post_id']) ?>
                     <?php $post['author'] = getPostAuthorById($post['user_id'])?>
                     
                     <div class="posts-snippets ">         
-                    <?php echo (!empty($post['image'])? '<img src="'.$post['image'].'" loading="lazy" width="100" alt="'.(!empty($post['image_caption'])? $post['image_caption']:'').'" class="post-thumb-nail">':'')?>
+                    <?php echo (!empty($post['image'])? '<img src="'.$post['image'].'" loading="lazy" width="100" height="90"alt="'.(!empty($post['image_caption'])? $post['image_caption']:'').'" class="post-thumb-nail">':'')?>
                     <h4><a href="<?php echo BASE_URL ?>posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>"> <?php echo htmlspecialchars_decode($post['post_title']) ?></a></h4>
                     <p> <?php echo getFirstParagraphPostById($post_id['post_id']) ?>
-                    <a href="<?php echo BASE_URL ?>posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>"><i>Read more...</i></a></p>
+                    <a href="<?php echo BASE_URL ?>posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>"><strong>Read more...</strong></a></p>
                     </div> 
                 <?php endforeach ?>
 			</section>
 		</main>
         <script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
         <script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
-		<footer class="group">
-			<?php include __DIR__ .'/templates/footer.html.php'?>
-		</footer>
+        <footer class="grid-wrapper">
+        <?php include __DIR__ .'/templates/social-icons-links.php';?>
+        <?php include __DIR__ .'/templates/footer.html.php'?>
+      </footer>
 	</body>
 </html>
