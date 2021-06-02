@@ -1,6 +1,5 @@
 <div class="copyright">
 	<?php include __DIR__ . "/copyright.html.php"?>
-	<?php //include __DIR__ ."/process_stats.php" ?>
 </div>
 <div class="policies">
 	<a href="<?php echo BASE_URL ?>policies/terms-conditions.php">Terms </a> <span>&#124;</span>
