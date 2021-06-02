@@ -50,6 +50,12 @@ q {
 figcaption {
   text-align: left; }
 
+strong {
+  font-weight: bold; }
+
+em {
+  font-style: italic; }
+
 .group:before {
   content: '';
   display: table; }
@@ -128,15 +134,15 @@ h6 {
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 1.2em; } }
 @media (min-width: 769px) {
   h1 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     line-height: 1.25em; } }
 @media (min-width: 992px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     line-height: 1.5em; } }
 
 h2 {
@@ -168,7 +174,7 @@ h6 {
 
 p {
   padding-bottom: 16px;
-  line-height: 1.5;
+  line-height: 1.5em;
   text-align: justify; }
   @media (max-width: 768px) {
     p {
@@ -176,7 +182,8 @@ p {
       font-size: 1.1em; } }
   @media (max-width: 599px) {
     p {
-      text-align: left; } }
+      text-align: left;
+      line-height: 1.3em; } }
   @media (min-width: 769px) {
     p {
       font-size: 1.2em; } }
@@ -399,7 +406,7 @@ header a {
     transition: opacity 0.3s; }
   .tooltip p {
     font-size: 90%;
-    line-height: 1;
+    line-height: 1em;
     text-align: left;
     padding: 3px 10px;
     color: #c8c8e9; }
@@ -447,7 +454,7 @@ header a {
 /* || Footer Section */
 footer {
   width: 100%;
-  padding: 0;
+  padding: 0.5em;
   background: black; }
   footer ul li {
     display: inline-table; }
@@ -458,12 +465,20 @@ footer {
     color: #c8c8c8; }
     footer a:hover {
       color: #f0f0f0; }
-  @media (max-width: 768px) {
-    footer .social-media {
-      text-align: left; } }
-  @media (min-width: 769px) {
-    footer .social-media {
-      text-align: center; } }
+  footer span {
+    color: gray; }
+  footer .social-media {
+    z-index: 3; }
+    @media (max-width: 768px) {
+      footer .social-media {
+        width: 100%;
+        display: block;
+        padding: 5px 10px;
+        text-align: center;
+        word-spacing: 1em; } }
+    @media (min-width: 769px) {
+      footer .social-media {
+        text-align: center; } }
   footer .fa-facebook,
   footer .fa-twitter,
   footer .fa-pinterest,
@@ -475,33 +490,46 @@ footer {
 .nav {
   display: inline-block;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  word-spacing: 1em; }
   @media (min-width: 769px) {
     .nav {
-      min-width: 25%;
+      min-width: 40%;
       text-align: right;
-      padding-right: 10%;
-      word-spacing: 1em; } }
+      padding-right: 5%; } }
   .nav a {
     font-size: 0.8em; }
 
 .copyright {
   display: inline-block;
   text-align: center;
+  padding: 0.5em;
   color: #969696; }
+  @media (max-width: 768px) {
+    .copyright {
+      width: 100%;
+      display: block;
+      padding: 5px 10px; } }
   @media (min-width: 769px) {
     .copyright {
-      min-width: 25%;
+      min-width: 20%;
       margin: 0; } }
 
 .policies {
   display: inline-block;
   padding: 10px;
-  text-align: center; }
+  word-spacing: 1em; }
+  @media (max-width: 768px) {
+    .policies {
+      width: 100%;
+      display: block;
+      padding: 5px 10px;
+      text-align: center; } }
   @media (min-width: 769px) {
     .policies {
-      min-width: 45%;
-      margin: 0; } }
+      min-width: 35%;
+      margin: 0;
+      text-align: right; } }
   .policies a {
     font-variant: small-caps; }
 
@@ -573,20 +601,20 @@ section {
   @media (min-width: 992px) {
     .welcome {
       width: 60%; } }
-  .welcome p {
-    font-family: Helvetica, sans-serif;
-    text-align: center;
-    font-size: 1.2em; }
-    @media (max-width: 768px) {
-      .welcome p {
-        font-size: 1.1em;
-        text-align: left; } }
   .welcome h1 {
     text-align: center; }
     @media (max-width: 599px) {
       .welcome h1 {
         text-align: left;
         padding: 10px; } }
+  .welcome p {
+    font-family: Helvetica, sans-serif;
+    text-align: justify;
+    font-size: 1.3em; }
+    @media (max-width: 768px) {
+      .welcome p {
+        font-size: 1.2em;
+        text-align: left; } }
 
 .html-css,
 .php-mysql,
@@ -729,19 +757,16 @@ section {
 
 .posts-snippets {
   padding-top: 32px; }
-  .posts-snippets h4 {
-    line-height: 1; }
-  .posts-snippets p {
-    line-height: 1; }
   .posts-snippets a {
-    color: black; }
+    color: #464343; }
     .posts-snippets a:hover {
-      text-decoration: underline; }
+      text-decoration: underline;
+      color: black; }
 
 .post-thumb-nail {
   display: block;
   float: left;
-  padding: 1em; }
+  padding: 0.2em 1em; }
 
 .published-topics p {
   padding: 0;
@@ -840,43 +865,43 @@ hr {
         padding: 1em 24px; } }
 
   footer .social-media {
-    grid-column: 1/span 4;
-    grid-row: 1;
-    display: inline-block; }
+    text-align: center; }
+    @media (max-width: 768px) {
+      footer .social-media {
+        grid-column: 1/span 5;
+        grid-row: 1; } }
     @media (min-width: 769px) {
       footer .social-media {
-        grid-column: 1/span 1;
+        grid-column: 1/span 2;
         grid-row: 1;
         word-spacing: 0.5em; } }
-    @media (min-width: 992px) {
-      footer .social-media {
-        grid-column: 1/span 2;
-        grid-row: 1; } }
 
-  .policies {
-    grid-column: 1/span 5;
-    grid-row: 2; }
-    @media (min-width: 769px) {
-      .policies {
-        grid-column: 2/span 2;
-        grid-row: 1/span 3; } }
-    @media (min-width: 992px) {
-      .policies {
-        grid-column: 3/span 1;
-        grid-row: 1/span 3; } }
+  @media (max-width: 768px) {
+    .policies {
+      grid-column: 1/span 5;
+      grid-row: 2;
+      text-align: center; } }
+  @media (min-width: 769px) {
+    .policies {
+      grid-column: 2/span 2;
+      grid-row: 1;
+      word-spacing: 0.5em;
+      text-align: right; } }
 
-  .copyright {
-    grid-column: 5/span 1;
-    grid-row: 1; }
-    @media (min-width: 769px) {
-      .copyright {
-        grid-column: 1/span 2;
-        grid-row: 3; } }
+  @media (max-width: 768px) {
+    .copyright {
+      grid-column: 1/span 5;
+      grid-row: 3; } }
+  @media (min-width: 769px) {
+    .copyright {
+      grid-column: 1/span 5;
+      grid-row: 2; } }
 
   @media (min-width: 769px) {
     .nav {
       grid-column: 4/span 2;
-      grid-row: 1/span 3;
-      z-index: 1; } } }
+      grid-row: 1;
+      z-index: 1;
+      text-align: center; } } }
 
 /*# sourceMappingURL=main.css.map */

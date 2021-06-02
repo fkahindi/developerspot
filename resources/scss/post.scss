@@ -2,24 +2,7 @@
 
 /* ||Main article section */
 
-h1 {
-    @include for-tablet-portrait-down {
-        font-size: 1.2rem;
-        line-height: 1.2em;
-    }
-    @include for-tablet-landscape-up {
-        font-size: 1.5rem;
-        line-height: 1.25em;
-    }
-    @include for-desktop-up {
-        font-size: 2rem;
-        //padding: 24px 0;
-        line-height: 1.5em;
-    }
-}
-
 h2 {
-    font-size: 1.75rem;
     @include for-tablet-portrait-down {
         font-size: 1.1rem;
         padding: 8px 0;
@@ -66,11 +49,9 @@ main {
         }
     }
     p {
-        //padding: 10px;
-        line-height: 1.5em;
+        line-height: 1.3em;
         text-align: justify;
         @include for-tablet-portrait-down {
-            //padding: 10px;
             font-size: 1.1em;
         }
         @include for-tablet-landscape-up {

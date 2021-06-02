@@ -65,6 +65,14 @@ figcaption {
     text-align: left;
 }
 
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
 .group {
     &:before {
         content: '';
@@ -149,15 +157,15 @@ h6 {
 
 h1 {
     @include for-tablet-portrait-down {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         line-height: 1.2em;
     }
     @include for-tablet-landscape-up {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         line-height: 1.25em;
     }
     @include for-desktop-up {
-        font-size: 2.5rem;
+        font-size: 2rem;
         line-height: 1.5em;
     }
 }
@@ -196,7 +204,7 @@ h6 {
 
 p {
     padding-bottom: 16px;
-    line-height: 1.5;
+    line-height: 1.5em;
     text-align: justify;
     @include for-tablet-portrait-down {
         padding: 10px 0;
@@ -204,6 +212,7 @@ p {
     }
     @include for-phone-only {
         text-align: left;
+        line-height: 1.3em;
     }
     @include for-tablet-landscape-up {
         font-size: 1.2em;
@@ -472,7 +481,7 @@ header {
     }
     p {
         font-size: 90%;
-        line-height: 1;
+        line-height: 1em;
         text-align: left;
         padding: 3px 10px;
         color: rgb( 200, 200, 233);
@@ -512,12 +521,12 @@ header {
     @include for-tablet-portrait-down {
         position: absolute;
         top: 2em;
-        right: -20px; //or change to 0
+        right: -20px;
     }
     @include for-tablet-landscape-up {
         position: absolute;
         top: 2em;
-        right: -40px; //or change to 0
+        right: -40px;
     }
     ul {
         list-style: none;
@@ -539,7 +548,7 @@ header {
 
 footer {
     width: 100%;
-    padding: 0;
+    padding: 0.5em;
     background: rgb(0, 0, 0);
     ul {
         li {
@@ -555,9 +564,17 @@ footer {
             color: rgb(240, 240, 240);
         }
     }
+    span {
+        color: gray;
+    }
     .social-media {
+        z-index: 3;
         @include for-tablet-portrait-down {
-            text-align: left;
+            width: 100%;
+            display: block;
+            padding: 5px 10px;
+            text-align: center;
+            word-spacing: 1em;
         }
         @include for-tablet-landscape-up {
             text-align: center;
@@ -577,11 +594,11 @@ footer {
     display: inline-block;
     margin: 0;
     padding: 0;
+    word-spacing: 1em;
     @include for-tablet-landscape-up {
-        min-width: 25%;
+        min-width: 40%;
         text-align: right;
-        padding-right: 10%;
-        word-spacing: 1em;
+        padding-right: 5%;
     }
     a {
         font-size: 0.8em;
@@ -591,10 +608,15 @@ footer {
 .copyright {
     display: inline-block;
     text-align: center;
+    padding: 0.5em;
     color: rgb(150, 150, 150);
+    @include for-tablet-portrait-down {
+        width: 100%;
+        display: block;
+        padding: 5px 10px;
+    }
     @include for-tablet-landscape-up {
-        //display: inline-block;
-        min-width: 25%;
+        min-width: 20%;
         margin: 0;
     }
 }
@@ -602,14 +624,20 @@ footer {
 .policies {
     display: inline-block;
     padding: 10px;
-    text-align: center;
+    word-spacing: 1em;
+    @include for-tablet-portrait-down {
+        width: 100%;
+        display: block;
+        padding: 5px 10px;
+        text-align: center;
+    }
     @include for-tablet-landscape-up {
-        min-width: 45%;
+        min-width: 35%;
         margin: 0;
+        text-align: right;
     }
     a {
         font-variant: small-caps;
-        //font-size: 1em;
     }
 }
 
@@ -701,20 +729,20 @@ section {
     @include for-desktop-up {
         width: 60%;
     }
-    p {
-        font-family: Helvetica, sans-serif;
-        text-align: center;
-        font-size: 1.2em;
-        @include for-tablet-portrait-down {
-            font-size: 1.1em;
-            text-align: left;
-        }
-    }
     h1 {
         text-align: center;
         @include for-phone-only {
             text-align: left;
             padding: 10px;
+        }
+    }
+    p {
+        font-family: Helvetica, sans-serif;
+        text-align: justify;
+        font-size: 1.3em;
+        @include for-tablet-portrait-down {
+            font-size: 1.2em;
+            text-align: left;
         }
     }
 }
@@ -872,16 +900,11 @@ section {
 
 .posts-snippets {
     padding-top: 32px;
-    h4 {
-        line-height: 1;
-    }
-    p {
-        line-height: 1;
-    }
     a {
-        color: black;
+        color: rgb(70, 67, 67);
         &:hover {
             text-decoration: underline;
+            color: black;
         }
     }
 }
@@ -889,7 +912,7 @@ section {
 .post-thumb-nail {
     display: block;
     float: left;
-    padding: 1em;
+    padding: 0.2em 1em;
 }
 
 .published-topics {
@@ -1002,45 +1025,47 @@ hr {
     }
     footer {
         .social-media {
-            grid-column: 1/span 4;
-            grid-row: 1;
-            display: inline-block;
-            @include for-tablet-landscape-up {
-                grid-column: 1/span 1;
+            text-align: center;
+            @include for-tablet-portrait-down {
+                grid-column: 1/span 5;
                 grid-row: 1;
-                word-spacing: 0.5em;
             }
-            @include for-desktop-up {
+            @include for-tablet-landscape-up {
                 grid-column: 1/span 2;
                 grid-row: 1;
+                word-spacing: 0.5em;
             }
         }
     }
     .policies {
-        grid-column: 1/span 5;
-        grid-row: 2;
+        @include for-tablet-portrait-down {
+            grid-column: 1/span 5;
+            grid-row: 2;
+            text-align: center;
+        }
         @include for-tablet-landscape-up {
             grid-column: 2/span 2;
-            grid-row: 1/span 3;
-        }
-        @include for-desktop-up {
-            grid-column: 3/span 1;
-            grid-row: 1/span 3;
+            grid-row: 1;
+            word-spacing: 0.5em;
+            text-align: right;
         }
     }
     .copyright {
-        grid-column: 5/span 1;
-        grid-row: 1;
-        @include for-tablet-landscape-up {
-            grid-column: 1/span 2;
+        @include for-tablet-portrait-down {
+            grid-column: 1/span 5;
             grid-row: 3;
+        }
+        @include for-tablet-landscape-up {
+            grid-column: 1/span 5;
+            grid-row: 2;
         }
     }
     .nav {
         @include for-tablet-landscape-up {
             grid-column: 4/span 2;
-            grid-row: 1/span 3;
+            grid-row: 1;
             z-index: 1;
+            text-align: center;
         }
     }
 }

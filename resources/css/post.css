@@ -1,26 +1,11 @@
 /* ||Main article section */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 1.2rem;
-    line-height: 1.2em; } }
+  h2 {
+    font-size: 1.1rem;
+    padding: 8px 0; } }
 @media (min-width: 769px) {
-  h1 {
-    font-size: 1.5rem;
-    line-height: 1.25em; } }
-@media (min-width: 992px) {
-  h1 {
-    font-size: 2rem;
-    line-height: 1.5em; } }
-
-h2 {
-  font-size: 1.75rem; }
-  @media (max-width: 768px) {
-    h2 {
-      font-size: 1.1rem;
-      padding: 8px 0; } }
-  @media (min-width: 769px) {
-    h2 {
-      font-size: 1.3rem; } }
+  h2 {
+    font-size: 1.3rem; } }
 
 h3 {
   font-size: 1.5rem; }
@@ -46,7 +31,7 @@ main {
     font-family: 'Courier New', courier;
     font-weight: bold; }
   main p {
-    line-height: 1.5em;
+    line-height: 1.3em;
     text-align: justify; }
     @media (max-width: 768px) {
       main p {
