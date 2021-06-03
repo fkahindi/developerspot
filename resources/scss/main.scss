@@ -249,6 +249,8 @@ header {
 header {
     .social-media {
         display: none;
+        font-size: 1.2em;
+        word-spacing: 0.2em;
         @include for-tablet-landscape-up {
             position: absolute;
             top: 0;
@@ -569,6 +571,7 @@ footer {
     }
     .social-media {
         z-index: 3;
+        font-size: 1.3em;
         @include for-tablet-portrait-down {
             width: 100%;
             display: block;
@@ -577,6 +580,9 @@ footer {
             word-spacing: 1em;
         }
         @include for-tablet-landscape-up {
+            text-align: left;
+        }
+        @include for-desktop-up {
             text-align: center;
         }
     }
@@ -865,10 +871,9 @@ section {
         outline: 0;
         width: 100%;
         margin-top: 1em;
-        padding: 8px 0;
         background-color: #000;
         color: #fff;
-        font-size: 1em;
+        font-size: 1.2em;
         text-align: center;
         &:hover {
             opacity: 0.9;
@@ -883,6 +888,8 @@ section {
     text-align: center;
     a {
         color: black;
+        font-size: 1.3em;
+        padding: 0.3em 12px;
     }
 }
 
@@ -1025,29 +1032,32 @@ hr {
     }
     footer {
         .social-media {
-            text-align: center;
             @include for-tablet-portrait-down {
                 grid-column: 1/span 5;
                 grid-row: 1;
+                text-align: center;
             }
             @include for-tablet-landscape-up {
                 grid-column: 1/span 2;
                 grid-row: 1;
                 word-spacing: 0.5em;
+                text-align: left;
+            }
+            @include for-desktop-up {
+                text-align: center;
             }
         }
     }
     .policies {
+        text-align: center;
         @include for-tablet-portrait-down {
             grid-column: 1/span 5;
             grid-row: 2;
-            text-align: center;
         }
         @include for-tablet-landscape-up {
-            grid-column: 2/span 2;
-            grid-row: 1;
+            grid-column: 2/span 3;
+            grid-row: 2;
             word-spacing: 0.5em;
-            text-align: right;
         }
     }
     .copyright {
@@ -1057,7 +1067,7 @@ hr {
         }
         @include for-tablet-landscape-up {
             grid-column: 1/span 5;
-            grid-row: 2;
+            grid-row: 3;
         }
     }
     .nav {

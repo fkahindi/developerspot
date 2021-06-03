@@ -211,7 +211,9 @@ header {
       height: 6.375em; } }
 
 header .social-media {
-  display: none; }
+  display: none;
+  font-size: 1.2em;
+  word-spacing: 0.2em; }
   @media (min-width: 769px) {
     header .social-media {
       position: absolute;
@@ -468,7 +470,8 @@ footer {
   footer span {
     color: gray; }
   footer .social-media {
-    z-index: 3; }
+    z-index: 3;
+    font-size: 1.3em; }
     @media (max-width: 768px) {
       footer .social-media {
         width: 100%;
@@ -477,6 +480,9 @@ footer {
         text-align: center;
         word-spacing: 1em; } }
     @media (min-width: 769px) {
+      footer .social-media {
+        text-align: left; } }
+    @media (min-width: 992px) {
       footer .social-media {
         text-align: center; } }
   footer .fa-facebook,
@@ -729,10 +735,9 @@ section {
   outline: 0;
   width: 100%;
   margin-top: 1em;
-  padding: 8px 0;
   background-color: #000;
   color: #fff;
-  font-size: 1em;
+  font-size: 1.2em;
   text-align: center; }
   .card button:hover {
     opacity: 0.9; }
@@ -742,7 +747,9 @@ section {
 .contact-media-links {
   text-align: center; }
   .contact-media-links a {
-    color: black; }
+    color: black;
+    font-size: 1.3em;
+    padding: 0.3em 12px; }
 
 .posts-section {
   width: 80%;
@@ -864,29 +871,32 @@ hr {
         grid-row: 1/span 2;
         padding: 1em 24px; } }
 
-  footer .social-media {
-    text-align: center; }
-    @media (max-width: 768px) {
-      footer .social-media {
-        grid-column: 1/span 5;
-        grid-row: 1; } }
-    @media (min-width: 769px) {
-      footer .social-media {
-        grid-column: 1/span 2;
-        grid-row: 1;
-        word-spacing: 0.5em; } }
-
   @media (max-width: 768px) {
-    .policies {
+    footer .social-media {
       grid-column: 1/span 5;
-      grid-row: 2;
+      grid-row: 1;
       text-align: center; } }
   @media (min-width: 769px) {
-    .policies {
-      grid-column: 2/span 2;
+    footer .social-media {
+      grid-column: 1/span 2;
       grid-row: 1;
       word-spacing: 0.5em;
-      text-align: right; } }
+      text-align: left; } }
+  @media (min-width: 992px) {
+    footer .social-media {
+      text-align: center; } }
+
+  .policies {
+    text-align: center; }
+    @media (max-width: 768px) {
+      .policies {
+        grid-column: 1/span 5;
+        grid-row: 2; } }
+    @media (min-width: 769px) {
+      .policies {
+        grid-column: 2/span 3;
+        grid-row: 2;
+        word-spacing: 0.5em; } }
 
   @media (max-width: 768px) {
     .copyright {
@@ -895,7 +905,7 @@ hr {
   @media (min-width: 769px) {
     .copyright {
       grid-column: 1/span 5;
-      grid-row: 2; } }
+      grid-row: 3; } }
 
   @media (min-width: 769px) {
     .nav {
