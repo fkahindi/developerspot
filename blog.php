@@ -14,6 +14,16 @@ $published_post_ids = getAllPublishedPostIds();
         <title>Developerspot blog | Building websites</title>
 	    <meta name="description" content="On this blog are articles dealing with server-side and side client-side solutions.">
         <meta name="keywords" content="blog, server-side, client-side, php, html, javascript, css, solutions"/>
+        <!-- Twitter & OG metas -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@developerspotke">
+        <meta name="twitter:creator" content="@fkahindi">
+        <meta property="og:url"                content="<?php echo $url;?>" />
+        <meta property="og:type"               content="article" />
+        <meta property="og:title"              content="Developerspot blog | Building websites" />
+        <meta property="og:description"        content="On this blog are articles dealing with server-side and side client-side solutions." />
+        <meta property="og:image"              content="<?php echo BASE_URL ?>resources/images/html-doc-structure.png" />
+        <meta property="fb:app_id"				content="502152493814762"/>
     	<?php require_once __DIR__ .'/templates/head.html.php'; ?>
         <style>
             html,body, div, span, applet, object, iframe,
