@@ -622,6 +622,11 @@ section {
         font-size: 1.2em;
         text-align: left; } }
 
+.intro-paragraph {
+  padding: 1em 16px;
+  border-style: none;
+  background-color: #f8f8f8; }
+
 .html-css,
 .php-mysql,
 .javascript,
