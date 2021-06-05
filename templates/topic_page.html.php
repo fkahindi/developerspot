@@ -24,12 +24,12 @@ if(isset($_GET['name'])){
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:site" content="@developerspotke">
 		<meta name="twitter:creator" content="@fkahindi">
-		<meta property="og:url"                content="<?php echo $url;?>" />
-		<meta property="og:type"               content="article" />
-		<meta property="og:title"              content="<?=$menu_topic['topic_name'] ?>" />
-		<meta property="og:description"        content="<?php echo (isset($menu_topic['topic_description'])? htmlspecialchars_decode($menu_topic['topic_description']):''); ?>" />
-		<meta property="og:image"              content="" />
-		<meta property="fb:app_id"				content="502152493814762"/>
+		<meta property="og:url" content="<?php echo $url;?>" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="<?=$menu_topic['topic_name'] ?> | For Web Development" />
+		<meta property="og:description" content="<?php echo (isset($menu_topic['topic_description'])? htmlspecialchars_decode($menu_topic['topic_description']):''); ?>" />
+		<meta property="og:image" content="" />
+		<meta property="fb:app_id" content="502152493814762"/>
  
         <style>
             html,body, div, span, applet, object, iframe,
@@ -96,7 +96,9 @@ if(isset($_GET['name'])){
 		<main class="group">
 			<section class="posts-section border-not-last-child-div">
 				<h1><?=$menu_topic['topic_name'] ?></h1>
-				<p><?=$menu_topic['topic_intro'] ?></p><hr>
+				<div class="intro-paragraph">
+				<p><?=$menu_topic['topic_intro'] ?></p>
+				</div>
 				<?php $topic_id = $menu_topic['topic_id'] ?>
 				<?php $published_posts = getPublishedPostsByTopic($topic_id)?>
 

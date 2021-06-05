@@ -12,19 +12,19 @@ include __DIR__ .'/admin/includes/admin_functions.php';
 <head>
   <!-- head section -->
   <?php include_once __DIR__ .'/templates/head.html.php'; ?>
-  <title>Developerspot: Building dynamic responsive webpages powered by PHP </title> 
-    <meta name="description" content="Building dynamic responsive webpages powered by PHP" />
-    <meta name="keywords" content="creating, html, webpage, form, javascript, elements, language, mysql,  designing, development, developerspot, blog, build, technologies, tutorials"/>
+  <title>Building dynamic responsive websites and web apps</title> 
+    <meta name="description" content="Building dynamic responsive webpages powered by PHP and MySQL. Core technologies focused are HTML, CSS, JavaScript and their associated libraries." />
+    <meta name="keywords" content="creating, html, webpages, form, javascript, elements, language, php, mysql,  designing, development, developerspot, blog, build,  core technologies, tutorials"/>
     <!-- Twitter & OG metas -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@developerspotke">
     <meta name="twitter:creator" content="@fkahindi">
-    <meta property="og:url"                content="<?php echo $url;?>" />
-    <meta property="og:type"               content="article" />
-    <meta property="og:title"              content="Developerspot: Building dynamic and interactive websites" />
-    <meta property="og:description"        content="Building dynamic, interactive websites powered by PHP and MySql" />
-    <meta property="og:image"              content="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01.jpg" />
-    <meta property="fb:app_id"				content="502152493814762"/>
+    <meta property="og:url" content="<?php echo $url;?>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Building dynamic responsive websites and web apps" />
+    <meta property="og:description" content="Building dynamic responsive webpages powered by PHP and MySQL. Core technologies focused are HTML, CSS, JavaScript and their associated libraries" />
+    <meta property="og:image" content="<?php echo BASE_URL ?>resources/images/responsive-webpage.png" />
+    <meta property="fb:app_id"	content="502152493814762"/>
   <style>
   html,body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
