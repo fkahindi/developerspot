@@ -11,19 +11,19 @@ $published_post_ids = getAllPublishedPostIds();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-        <title>Developerspot blog | Building websites</title>
-	    <meta name="description" content="On this blog are articles dealing with server-side and side client-side solutions.">
-        <meta name="keywords" content="blog, server-side, client-side, php, html, javascript, css, solutions"/>
+        <title>A blogging site dedicated to building websites and web apps</title>
+	    <meta name="description" content="A blogging site dedicated to building websites and web apps that are SEO friendly. The tutorials focuses on both server-side and front end solutions. ">
+        <meta name="keywords" content="websites, app, blog, server-side, front end, php, html, javascript, css, solutions"/>
         <!-- Twitter & OG metas -->
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@developerspotke">
         <meta name="twitter:creator" content="@fkahindi">
-        <meta property="og:url"                content="<?php echo $url;?>" />
-        <meta property="og:type"               content="article" />
-        <meta property="og:title"              content="Developerspot blog | Building websites" />
-        <meta property="og:description"        content="On this blog are articles dealing with server-side and side client-side solutions." />
-        <meta property="og:image"              content="<?php echo BASE_URL ?>resources/images/html-doc-structure.png" />
-        <meta property="fb:app_id"				content="502152493814762"/>
+        <meta property="og:url" content="<?php echo $url;?>" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="A blogging site dedicated to building websites and web apps" />
+        <meta property="og:description" content="A blogging site dedicated to building websites and web apps that are SEO friendly. The tutorials focuses on both server-side and front end solutions." />
+        <meta property="og:image" content="<?php echo BASE_URL ?>resources/images/html-doc-structure.png" />
+        <meta property="fb:app_id" content="502152493814762"/>
     	<?php require_once __DIR__ .'/templates/head.html.php'; ?>
         <style>
             html,body, div, span, applet, object, iframe,
@@ -73,9 +73,11 @@ $published_post_ids = getAllPublishedPostIds();
 		<main class="group">
 			<section class="posts-section border-not-last-child-div">
                 <h1>Tutorials </h1>
-                <p>
-                    Welcome to the blog. On this blog I'm looking at both server-side and front end solutions. I have tried to be as illustrative as possible, but that's on my side, you may have your opinion. Leaving a feedback will be highly appreciated. Thanks!
-                </p><hr>
+                <div class="intro-paragraph">
+                    <p>
+                        Welcome to the blog. This site is dedicated to building websites and web apps that are SEO friendly. It focuses on both server-side and front end solutions. I have tried to be as illustrative as possible, but that's on my side, you may have your opinion. Leaving a feedback will be highly appreciated. Thanks!
+                    </p>
+                </div>
                 <?php foreach($published_post_ids as $post_id): ?>
                 
                     <?php $post = getPostById($post_id['post_id']) ?>
