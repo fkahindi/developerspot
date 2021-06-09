@@ -746,7 +746,7 @@ section {
         font-family: Helvetica, sans-serif;
         text-align: justify;
         font-size: 1.3em;
-        @include for-tablet-portrait-down {
+        @include for-phone-only {
             font-size: 1.2em;
             text-align: left;
         }

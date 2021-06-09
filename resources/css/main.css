@@ -617,7 +617,7 @@ section {
     font-family: Helvetica, sans-serif;
     text-align: justify;
     font-size: 1.3em; }
-    @media (max-width: 768px) {
+    @media (max-width: 599px) {
       .welcome p {
         font-size: 1.2em;
         text-align: left; } }
