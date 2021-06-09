@@ -7,7 +7,9 @@ require_once __DIR__ .'/config.php';
 <html lang="en">
 <head>
 	<!-- head section -->
-	<title>Developerspot is more than a blogging site, it is a blogging app</title>
+	<?php include_once __DIR__ .'/templates/head.html.php'; ?>
+	<link rel="canonical" href="https://www.developerspot.co.ke/about.php">
+	<title>About Developerspot - blogging app</title>
 	<meta name="description" content="It's not just a blogging site but a blogging app, complete with an admin module for managing articles, authors and users. It has an embedded comment-reply system on all articles." />
 	<meta name="keywords" content="blog, blogging, blogging app, site, article, comments, reply"/>
 	<!-- Twitter & OG metas -->
@@ -16,11 +18,11 @@ require_once __DIR__ .'/config.php';
     <meta name="twitter:creator" content="@fkahindi">
     <meta property="og:url" content="<?php echo $url;?>" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Developerspot is more than a blogging site, it is a blogging app"/>
+    <meta property="og:title" content="About Developerspot - blogging app"/>
     <meta property="og:description" content="It's not just a blogging site but a blogging app, complete with an admin module for managing articles, authors and users. It has an embedded comment-reply system on all articles." />
     <meta property="og:image" content="<?php echo BASE_URL ?>resources/icons/logoicon.png" />
     <meta property="fb:app_id" content="502152493814762"/>
-	<?php include_once __DIR__ .'/templates/head.html.php'; ?>
+	
 	<style>
 	html,body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 	margin: 0;
@@ -55,9 +57,27 @@ require_once __DIR__ .'/config.php';
 
 	</style>	 
     <?php include_once __DIR__ .'/templates/head-resources.html.php'; ?>
-</head>
 	
+        <!-- Facebook Pixel Code -->
+        <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1970631019919003');
+        fbq('track', 'PageView');
+        </script>
+        
+</head>
 <body>
+	<noscript><img height="1" width="1"  class="hidden"
+        src="https://www.facebook.com/tr?id=1970631019919003&ev=PageView&noscript=1"
+     /></noscript>
+    <!-- End Facebook Pixel Code -->
 	<header class="grid-wrapper">
 	<?php require_once __DIR__ . '/templates/header.html.php';?>
 	<?php include __DIR__ .'/templates/social-icons-links.php';?>
@@ -75,7 +95,10 @@ require_once __DIR__ .'/config.php';
 	</main>
 	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
 	<footer class="group">
+	<?php include __DIR__ .'/templates/social-icons-links.php';?>
 		<?php include __DIR__ .'/templates/footer.html.php'?>
 	</footer>
 </body>

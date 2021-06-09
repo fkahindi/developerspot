@@ -16,8 +16,9 @@ if(isset($_GET['name'])){
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	<?php require_once __DIR__ .'/head.html.php'; ?>
-		<title><?=$menu_topic['topic_name'] ?> | For Web Development</title>
+		<?php require_once __DIR__ .'/head.html.php'; ?>
+		<link rel="canonical" href="https://www.developerspot.co.ke/topic/<?=$menu_topic['topic_name'] ?>">
+		<title><?=$menu_topic['topic_name'] ?> for Web Development</title>
 	    <meta name="description" content="<?php echo (isset($menu_topic['topic_description'])? htmlspecialchars_decode($menu_topic['topic_description']):''); ?>">
 		<meta name="keywords" content="<?php echo (isset($menu_topic['topic_keywords'])? htmlspecialchars_decode($menu_topic['topic_keywords']):''); ?>" />
     	<!-- Twitter & OG metas -->
@@ -26,7 +27,7 @@ if(isset($_GET['name'])){
 		<meta name="twitter:creator" content="@fkahindi">
 		<meta property="og:url" content="<?php echo $url;?>" />
 		<meta property="og:type" content="article" />
-		<meta property="og:title" content="<?=$menu_topic['topic_name'] ?> | For Web Development" />
+		<meta property="og:title" content="<?=$menu_topic['topic_name'] ?> for Web Development" />
 		<meta property="og:description" content="<?php echo (isset($menu_topic['topic_description'])? htmlspecialchars_decode($menu_topic['topic_description']):''); ?>" />
 		<meta property="og:image" content="" />
 		<meta property="fb:app_id" content="502152493814762"/>
@@ -83,12 +84,13 @@ if(isset($_GET['name'])){
 			fbq('init', '1970631019919003');
 			fbq('track', 'PageView');
 		</script>
-		<noscript><img height="1" width="1" style="display:none"
+		
+	</head>
+	<body>
+		<noscript><img height="1" width="1"  class="hidden"
 		src="https://www.facebook.com/tr?id=1970631019919003&ev=PageView&noscript=1"
 		/></noscript>
 		<!-- End Facebook Pixel Code -->
-	</head>
-	<body>
 		<header class="grid-wrapper">
 		<?php require_once __DIR__ . '/header.html.php';?>
 		<?php include __DIR__ .'/social-icons-links.php';?>
@@ -120,16 +122,8 @@ if(isset($_GET['name'])){
 		</main>
         <script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
         <script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
-		<script>
-      /* Facabook */
-        document.getElementById('shareBtn').onclick = function() {
-          FB.ui({
-            display: 'popup',
-            method: 'share',
-            href="<?php echo $url;?>",
-          }, function(response){});
-        }
-      </script>
+		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    	<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js" ></script>
 		<footer class="grid-wrapper">
         <?php include __DIR__ .'/social-icons-links.php';?>
         <?php include __DIR__ .'/footer.html.php'?>

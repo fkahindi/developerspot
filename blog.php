@@ -11,8 +11,10 @@ $published_post_ids = getAllPublishedPostIds();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+        <?php require_once __DIR__ .'/templates/head.html.php'; ?>
+        <link rel="canonical" href="https://www.developerspot.co.ke/blog.php">
         <title>A blogging site dedicated to building websites and web apps</title>
-	    <meta name="description" content="A blogging site dedicated to building websites and web apps that are SEO friendly. The tutorials focuses on both server-side and front end solutions. ">
+	    <meta name="description" content="Articles dedicated to building websites and web apps that are SEO friendly. The tutorials focuses on both server-side and front end solutions. ">
         <meta name="keywords" content="websites, app, blog, server-side, front end, php, html, javascript, css, solutions"/>
         <!-- Twitter & OG metas -->
         <meta name="twitter:card" content="summary_large_image">
@@ -21,10 +23,9 @@ $published_post_ids = getAllPublishedPostIds();
         <meta property="og:url" content="<?php echo $url;?>" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="A blogging site dedicated to building websites and web apps" />
-        <meta property="og:description" content="A blogging site dedicated to building websites and web apps that are SEO friendly. The tutorials focuses on both server-side and front end solutions." />
+        <meta property="og:description" content="Articles dedicated to building websites and web apps that are SEO friendly. The tutorials focuses on both server-side and front end solutions." />
         <meta property="og:image" content="<?php echo BASE_URL ?>resources/images/html-doc-structure.png" />
         <meta property="fb:app_id" content="502152493814762"/>
-    	<?php require_once __DIR__ .'/templates/head.html.php'; ?>
         <style>
             html,body, div, span, applet, object, iframe,
             h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -64,8 +65,26 @@ $published_post_ids = getAllPublishedPostIds();
             }
             }
         </script>
+        </script>
+            <!-- Facebook Pixel Code -->
+            <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1970631019919003');
+            fbq('track', 'PageView');
+        </script>
 	</head>
 	<body>
+        <noscript><img height="1" width="1"  class="hidden"
+        src="https://www.facebook.com/tr?id=1970631019919003&ev=PageView&noscript=1"
+        /></noscript>
+        <!-- End Facebook Pixel Code -->
 		<header class="grid-wrapper">
 		<?php require_once __DIR__ . '/templates/header.html.php';?>
         <?php include __DIR__ .'/templates/social-icons-links.php';?>
