@@ -11,9 +11,11 @@ if(isset($_POST['login'])){
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-    <meta name="google-signin-client_id" content="652084536686-qpisps8dfmh5h53tsang6fh17qa0tl9u.apps.googleusercontent.com">
-	<title>Log in</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="canonical" href="https://www.developerspot.co.ke/templates/login.html.php">
+	<title>Log in Form</title>
     <meta name="description" content="Use email and password to login to developerspot system.">
+	<meta name="keywords" content="login, email address, password, developerspot">
 	<link rel="stylesheet" href="../resources/css/form.css">
 </head>
 <body>

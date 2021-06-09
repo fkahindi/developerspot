@@ -12,8 +12,10 @@ if(isset($_POST['contact-me'])){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Contact Me</title>
-    <meta name="description" content="Use form to contact me.">
+	<link rel="canonical" href="https://www.developerspot.co.ke/templates/contact-me-form.html.php">
+	<title>Contact Me Form</title>
+    <meta name="description" content="Use this form to contact developerspot.">
+	<meta name="keywords" content="contact me, email, developerspot">
 	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css" >
 </head>
 <body>
