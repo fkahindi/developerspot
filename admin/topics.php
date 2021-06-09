@@ -106,7 +106,7 @@
 								</td>
 								<td>
 									<p>
-									<a href="topics.php?delete-topic=<?php echo $topic['topic_id'] ?>" class="btn btn-danger btn-md"><span class="glyphicon glyphicon-trash"></span> Trash</a>
+									<a href="topics.php?delete-topic=<?php echo $topic['topic_id'] ?>" class="btn btn-danger btn-md delete"><span class="glyphicon glyphicon-trash"></span> Trash</a>
 									</p>
 								</td>
 							</tr>
@@ -121,6 +121,18 @@
 <!-- For local only -->
 <script src="js/jquery-3.4.0.min.js"></script> 
 <script src="js/bootstrap.min.js"></script>
-
+<!-- /// -->
 <script src="js/tooltip-call.js"></script>
+<script>
+$('document').ready(function(){
+	$('.delete').on('click',function(){
+		var isSure = confirm("Are you sure you want to delete post?");
+		if(isSure){
+			return true;
+		}else{
+			return false;
+		}
+	});
+});
+</script>
 </html>
