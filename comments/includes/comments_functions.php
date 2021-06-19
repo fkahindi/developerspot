@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ .'/../../includes_devspot/DatabaseConnection.php';
+require_once __DIR__ .'/../../../includes_devspot/DatabaseConnection.php';
 require_once __DIR__ .'/../classes/CommentsClass.php';
 
 /* //Receives values from jQuery for posting comments */	
@@ -27,7 +27,7 @@ if(isset($_POST['submit_comment']) && $_POST['body']!==""){
 	
 	$comment=$row->fetch();
 	
-	include __DIR__ . '/../comments/comments_output.php';			
+	include __DIR__ . '/../comments_output.php';			
 }
 
 /* //Receives values from jQuery for posting replies */
@@ -56,7 +56,7 @@ if(isset($_POST['post_reply']) && $_POST['reply_text']!==""){
 		$reply_row->execute();
 		$reply=$reply_row->fetch();
 			
-		include __DIR__ . '/../comments/replies_output.php';
+		include __DIR__ . '/../replies_output.php';
 		
 	}	
 }
@@ -67,5 +67,5 @@ if(isset($_POST['load_more'])){
 	$limit = $_POST['limit'];
 	$getComments = new CommentsClass($pdo);
 	$comments = $getComments->getAllPostComments($page_id, $limit);
-	include __DIR__ .'/../comments/comments_display_main_block.php';
+	include __DIR__ .'/../comments_display_main_block.php';
 }

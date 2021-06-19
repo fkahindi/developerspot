@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){
 	session_start();
 }
-require __DIR__ .'/../includes/comments_functions.php';
+require __DIR__ .'/includes/comments_functions.php';
 ?>
 <?php if(!isset($_SESSION['loggedin'])): ?>
 	<!--Display login link  -->
