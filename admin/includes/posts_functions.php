@@ -21,6 +21,18 @@ $topic_id ='';
 /*---------------
 --Post Functions
 -----------------*/
+/* Count all published posts */
+function countPublishedPosts(){
+	global $conn;
+	$total_pub_posts ="SELECT COUNT(*) FROM `posts` WHERE published =1";
+	$result = mysqli_query($conn,$total_pub_posts);
+	if($result){
+		return $total_rows = mysqli_fetch_array($result)[0];
+	}else{
+		return null;
+	}
+	
+}
 /* Get number of published posts in the posts table */
 function getAllPublishedPostIds(){
 	global $conn;
@@ -34,11 +46,11 @@ function getAllPublishedPostIds(){
 		return null;
 	}	
 }
-/* Get 3 latest published posts in the posts table */
-function getThreeLatestPublishedPostIds(){
+/* Get specified published post ids from post table beginning with the recent ones*/
+function getBatchPublishedPostIds($limit,$offset){
 	global $conn;
 	
-	$sql ="SELECT post_id FROM `posts` WHERE published =1 ORDER BY created_at DESC LIMIT 3";
+	$sql ="SELECT post_id FROM `posts` WHERE published =1 ORDER BY created_at DESC LIMIT $limit OFFSET $offset";
 	$result = mysqli_query($conn, $sql);
 	if($result){
 		$published_post_id = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -47,6 +59,7 @@ function getThreeLatestPublishedPostIds(){
 		return null;
 	}	
 }
+
 /* Retrieve published topics using post_id of published posts */
 function getPublishedTopics($published_post_id){
 	global $conn;
@@ -90,7 +103,7 @@ function getTopicByName($topic_name){
 	return $menu_topic;
 }
 
-/* Get the first three most recent posts */
+/* Get specified number of posts starting with the most recent */
 function getMostRecentPosts($limit){
 	global $conn;
 	$sql = "SELECT * FROM `posts` WHERE published=1 ORDER BY created_at DESC LIMIT $limit";
