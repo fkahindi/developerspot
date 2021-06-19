@@ -80,7 +80,6 @@ require_once __DIR__ .'/config.php';
     <!-- End Facebook Pixel Code -->
 	<header class="grid-wrapper">
 	<?php require_once __DIR__ . '/templates/header.html.php';?>
-	<?php include __DIR__ .'/templates/social-icons-links.php';?>
 	</header>
 	<main class="group">
 		<section class="main-article">
@@ -97,9 +96,9 @@ require_once __DIR__ .'/config.php';
 	<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
-	<footer class="group">
-	<?php include __DIR__ .'/templates/social-icons-links.php';?>
-		<?php include __DIR__ .'/templates/footer.html.php'?>
+	<footer class="grid-wrapper">
+		<?php include __DIR__ .'/templates/social-icons-links.php';?>
+        <?php include __DIR__ .'/templates/footer.html.php'?>
 	</footer>
 </body>
 </html>
