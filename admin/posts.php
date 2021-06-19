@@ -11,7 +11,7 @@
 	/* Load necessary functions */
 	include __DIR__ .'/includes/admin_functions.php';
 	include __DIR__ .'/includes/posts_functions.php';
-	include __DIR__ .'/../includes/comments_functions.php';
+	include __DIR__ .'/../comments/includes/comments_functions.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">	

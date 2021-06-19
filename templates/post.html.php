@@ -137,7 +137,8 @@ if(!isset($_SESSION)){
 	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
-	<script src="<?php echo BASE_URL ?>resources/js/subscribe-comments-replies-scripts.js"></script>	
+	<script src="<?php echo BASE_URL ?>resources/js/subscribe.js"></script>
+	<script src="<?php echo BASE_URL ?>comments/js/comments-replies-scripts.js"></script>	
 	<script>window.onload=function(){prettyPrint()}</script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js" ></script>

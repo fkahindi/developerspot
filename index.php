@@ -5,7 +5,7 @@ if(!isset($_SESSION)){
 require_once __DIR__ .'/config.php';
 include __DIR__ .'/admin/includes/posts_functions.php';
 include __DIR__ .'/admin/includes/admin_functions.php';
-	$published_post_ids = getThreeLatestPublishedPostIds();
+	$published_post_ids = getBatchPublishedPostIds(3,0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -118,7 +118,7 @@ include __DIR__ .'/admin/includes/admin_functions.php';
               <source type="image/webp" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.webp 2x">
               <source type="image/webp" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.webp 2x">
               <source type="image/jpeg" media="(max-width: 599px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm@2x.jpg 2x">
-              <source type="image/jpeg" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.jpg 1x">
+              <source type="image/jpeg" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.jpg 1x <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.jpg 2x">
               <source type="image/jpeg" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.jpg 2x">  
               <img src="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01.jpg" alt="profile-image" loading="lazy" width="75px" height="80px" data-pin-nopin="1"/>
             </picture>
