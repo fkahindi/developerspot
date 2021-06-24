@@ -1,12 +1,8 @@
 <?php 
-if(!isset($_SESSION)){
-	session_start();
-}
-require_once __DIR__ .'/config.php';
-include __DIR__ .'/admin/includes/posts_functions.php';
-include __DIR__ .'/admin/includes/admin_functions.php';
-$published_post_ids = getAllPublishedPostIds();
-
+    if(!isset($_SESSION)){
+        session_start();
+    }
+    require_once __DIR__ .'/config.php';    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,22 +93,31 @@ $published_post_ids = getAllPublishedPostIds();
                         Welcome to the blog. This site is dedicated to building websites and web apps that are SEO friendly. It focuses on both server-side and front end solutions. I have tried to be as illustrative as possible, but that's on my side, you may have your opinion. Leaving a feedback will be highly appreciated. Thanks!
                     </p>
                 </div>
-                <?php foreach($published_post_ids as $post_id): ?>
-                
-                    <?php $post = getPostById($post_id['post_id']) ?>
-                    <?php $post['author'] = getPostAuthorById($post['user_id'])?>
+                <div id="posts_thumbnails">
+
+                    <?php include __DIR__.'/includes/posts-pagination.php'?>
+                </div>
+                <div id="pagination" class="pagination">
+                    <?php if($total_pages>1): ?>
+                    <ul id="total_pages" data-id="<?php echo $total_pages;?>">
+                        <li class="previous"></li>
+                        <?php for($i=1; $i<= $total_pages; $i++){
+                        echo '<li class="page-num" data-id="'.$i.'">'.$i.'</li>';}
+                        if($total_pages>1){ echo '<li class="next">Next</li>';}  
+                        ?>
+                    </ul>
+                    <div class="load-more" data-id="1">
+                        <span>Load more...</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <?php endif ?>
                     
-                    <div class="posts-snippets ">         
-                    <?php echo (!empty($post['image'])? '<img src="'.$post['image'].'" loading="lazy" width="100" height="90"alt="'.(!empty($post['image_caption'])? $post['image_caption']:'').'" class="post-thumb-nail">':'')?>
-                    <h4><a href="<?php echo BASE_URL ?>posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>"> <?php echo htmlspecialchars_decode($post['post_title']) ?></a></h4>
-                    <p> <?php echo getFirstParagraphPostById($post_id['post_id']) ?>
-                    <a href="<?php echo BASE_URL ?>posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>"><strong>Read more...</strong></a></p>
-                    </div> 
-                <?php endforeach ?>
+                </div>
 			</section>
 		</main>
         <script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
         <script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
+        <script src="<?php echo BASE_URL ?>resources/js/getPostThumbnails.js"></script>
         <footer class="grid-wrapper">
         <?php include __DIR__ .'/templates/social-icons-links.php';?>
         <?php include __DIR__ .'/templates/footer.html.php'?>

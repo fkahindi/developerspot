@@ -1,8 +1,8 @@
 <?php
 include __DIR__ .'/../admin/includes/posts_functions.php';
 include __DIR__ .'/../admin/includes/admin_functions.php';
-if(isset($_GET['page_num'])){
-    $page_num = $_GET['page_num'];
+if(isset($_POST['page_num'])){
+    $page_num = $_POST['page_num'];
 }else{
     $page_num = 1;
 }
