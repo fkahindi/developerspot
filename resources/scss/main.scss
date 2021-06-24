@@ -969,6 +969,66 @@ section {
     }
 }
 
+.pagination {
+    text-align: left;
+    ul {
+        list-style: none;
+        padding-top: 1em;
+    }
+    li {
+        display: inline-table;
+        padding: 1rem;
+        color: orangered;
+        &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        a {
+            &:active {
+                color: rgb(194, 187, 187);
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .current,
+    .current-active {
+        color: gray;
+        font-style: italic;
+    }
+}
+
+#total_pages {
+    @include for-tablet-portrait-down {
+        display: none;
+    }
+}
+
+.load-more {
+    width: 200px;
+    margin: 1em auto;
+    padding: 0.4em;
+    border: 1px solid rgb(206, 203, 203);
+    text-align: center;
+    &:hover {
+        cursor: pointer;
+        border: 2px ridge rgb(184, 181, 181);
+    }
+    .fa {
+        display: block;
+        color: grey;
+        font-size: 1.4em;
+        line-height: 0.7;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    @include for-tablet-landscape-up {
+        display: none;
+    }
+}
+
 hr {
     border: thin solid rgb(240, 240, 240);
 }

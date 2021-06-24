@@ -809,6 +809,51 @@ section {
     .published-topics ul ul li {
       font-size: .9em; } }
 
+.pagination {
+  text-align: left; }
+  .pagination ul {
+    list-style: none;
+    padding-top: 1em; }
+  .pagination li {
+    display: inline-table;
+    padding: 1rem;
+    color: orangered; }
+    .pagination li:hover {
+      text-decoration: underline;
+      cursor: pointer; }
+    .pagination li a:active {
+      color: #c2bbbb; }
+    .pagination li a:hover {
+      text-decoration: underline; }
+  .pagination .current,
+  .pagination .current-active {
+    color: gray;
+    font-style: italic; }
+
+@media (max-width: 768px) {
+  #total_pages {
+    display: none; } }
+
+.load-more {
+  width: 200px;
+  margin: 1em auto;
+  padding: 0.4em;
+  border: 1px solid #cecbcb;
+  text-align: center; }
+  .load-more:hover {
+    cursor: pointer;
+    border: 2px ridge #b8b5b5; }
+  .load-more .fa {
+    display: block;
+    color: grey;
+    font-size: 1.4em;
+    line-height: 0.7; }
+    .load-more .fa:hover {
+      text-decoration: underline; }
+  @media (min-width: 769px) {
+    .load-more {
+      display: none; } }
+
 hr {
   border: thin solid #f0f0f0; }
 
