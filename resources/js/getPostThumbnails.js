@@ -1,4 +1,5 @@
 $("document").ready(function() {
+
     /* When DOM is fully formed */
     $("li.page-num").first().addClass("current");
     var total_pages = $("#total_pages").data("id");
@@ -8,12 +9,12 @@ $("document").ready(function() {
         var target = e.target;
         switch (target.className.toLowerCase()) {
             case "previous":
-                page_num = $(".current").data("id") - 1;
+                var page_num = $(".current").data("id") - 1;
                 $(".next").text("Next");
                 previousPage(page_num);
                 break;
             case "next":
-                page_num = $(".current").data("id") + 1;
+                var page_num = $(".current").data("id") + 1;
                 nextPage(page_num, total_pages);
                 break;
             default:
