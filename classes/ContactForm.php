@@ -8,7 +8,7 @@ class ContactForm{
 	private $valid;
 	
 	//construct and assignments
-	public function __construct($field,){
+	public function __construct(){
 		$field=$this->field;
 		$pattern=$this->pattern;
 		$errorField=$this->errorField;

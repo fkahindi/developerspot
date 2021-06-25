@@ -6,7 +6,7 @@ class ImageLoad
     public $image_file_type='';
     public $file_size_limit=0; 
     
-    public function __construct($target_file){
+    public function __construct($target_file,$image_temp_name,$image_file_type,$file_size_limit){
         $this->target_file=$target_file;
         $this->image_temp_name=$image_temp_name;
         $this->image_file_type=$image_file_type;
