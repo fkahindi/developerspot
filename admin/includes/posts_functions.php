@@ -209,13 +209,14 @@ if(isset($_GET['delete-post'])){
 	--Post Functions--
 -------------------------*/
 function createPost($request_values){
-	global $conn, $errors, $title, $topic_id, $body,$meta_description, $meta_keywords, $published, $image_file, $image_caption, $sound;
+	global $conn, $errors, $title, $topic_id, $body,$meta_description, $meta_keywords, $published,$image_path, $image_caption, $sound;
 	
 	$title = htmlspecialchars(esc($request_values['title']));
 	$meta_description = htmlspecialchars(esc($request_values['meta_description']));
 	$meta_keywords = htmlspecialchars(esc($request_values['meta_keywords']));
 	$image_caption = htmlspecialchars(esc($request_values['image_caption']));
 	$body = htmlspecialchars(esc($request_values['body']));
+	$topic_id = $request_values['topic_id'];
 	$user_id = $_SESSION['user_id'];
 	
 	/* //Validate form, if $title and $body are not empty create metaphone words */
@@ -235,10 +236,10 @@ function createPost($request_values){
 			$sound .= metaphone($word).' ';
 		}
 	}
-	if(empty($request_values['topic_id'])){
+	if(empty($topic_id)){
 		array_push($errors, "Post topic is required");
 	}else{
-		$topic_id = $request_values['topic_id'];
+		$topic_id = $_POST['topic_id'];
 	}
 	if(isset($_POST['publish'])){
 		$published = $_POST['publish'];
@@ -250,7 +251,7 @@ function createPost($request_values){
 		$meta_keywords = $_POST['meta_keywords'];
 	}
 	if(isset($_POST['image_caption'])){
-		$meta_caption = $_POST['image_caption'];
+		$image_caption = $_POST['image_caption'];
 	}
 	/* Create slug by replacing spaces in title with hyphens */
 	$post_slug = makeSlug($title);
@@ -260,26 +261,28 @@ function createPost($request_values){
     $image_file_size = $_FILES['post_main_image']['size'];
     $file_ext_type = ['jpg','png','gif'];
     
-	if(!empty(getimagesize($image_file_temp_name))){
-		$target_file = '../resources/images/'.basename($image_file_name);
-		$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-		
-		/* Check image size */
-		if($image_file_size>500000){
-			array_push($errors, 'Sorry, image is too large');
-			
-		/* Allow only .jpg, .png and .gif file formats */
-		}else if(!in_array($imageFileType,$file_ext_type)){
-			array_push($errors,'Sorry, only JPG, PNG or GIF files are allowed');
-		}
-		if(!move_uploaded_file($image_file_temp_name, $target_file)){
-			array_push($errors, 'Post image could not be uploaded, if problem persists try publishing without the image.');
-		}else{
-			$image_path = BASE_URL ."resources/images/".basename($image_file_name);
-		}
-	}else{
-		$image_path = null;
-	}
+	if(!empty($image_file_temp_name)){
+		//getimagesize($image_file_temp_name);
+        $target_file = '../resources/images/'.basename($image_file_name);
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    
+       //Check image size
+        if($image_file_size>500000){
+            array_push($errors, 'Sorry, image is too large');
+            
+        // Allow only .jpg, .png and .gif file formats 
+        }
+        if(!in_array($imageFileType,$file_ext_type)){
+            array_push($errors,'Sorry, only JPG, PNG or GIF files are allowed');
+        }
+        if(!move_uploaded_file($image_file_temp_name,$target_file)){
+            array_push($errors, 'Post image could not be uploaded, if problem persists try publishing without the image.');
+        }else{
+            $image_path = BASE_URL .'resources/images/'.basename($image_file_name);
+        }
+    }else{
+    $image_path = null;
+    }
 					
 	/* Make sure no file is saved twice */
 	$post_check ="SELECT * FROM `posts` WHERE post_slug='$post_slug' LIMIT 1";
@@ -292,7 +295,7 @@ function createPost($request_values){
 	
 	/* If no errors in the form, insert posts */	
 	if(!$errors){
-		$query = "INSERT INTO `posts` (user_id, post_title, post_slug, post_body, meta_description, meta_keywords, published, image,image_caption, created_at, metaphoned) VALUES($user_id, '$title', '$post_slug', '$body','$meta_description', $published, '$image_path','$image_caption', now(), '$sound')";
+		$query = "INSERT INTO `posts` (`user_id`, post_title, post_slug, post_body, meta_description, meta_keywords, published, image, image_caption, created_at, metaphoned) VALUES ($user_id, '$title', '$post_slug', '$body','$meta_description','$meta_keywords', $published, '$image_path','$image_caption', now(), '$sound')";
 		
 		$result = mysqli_query($conn, $query);
 		if($result){ /* if post created successful */
@@ -367,15 +370,10 @@ function updatePost($request_values){
     $image_file_name = $_FILES['post_main_image']['name'];
     $image_file_temp_name = $_FILES['post_main_image']['tmp_name'];
     $image_file_size = $_FILES['post_main_image']['size'];
-    $file_size_limit = 500000;
     $file_ext_type = ['jpg','png','gif'];
     $target_file = '../resources/images/'.basename($image_file_name);
-    
-    //$upload_file = new ImageLoad();
-    //$upload_file->isImageThere($image_file_temp_name,$target_file);
-    
-    
-    if(!empty(getimagesize($image_file_temp_name))){
+       
+    if(!empty($image_file_temp_name)){
         $target_file = '../resources/images/'.basename($image_file_name);
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     
