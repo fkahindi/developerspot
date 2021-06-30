@@ -38,7 +38,7 @@
 				<?php endif ?>
 			</div>
 			<div class="col-md-10 panel-body border">
-				<h1>Create/ Edit Post</h1>
+				<h1><?php echo  $_SESSION['role'] ?> | Create/ Edit Post</h1>
 				<form method="post" action="create_post.php" enctype="multipart/form-data">
 					<div class="form-group form-group-lg">
 						<!-- Validate errors on form-->
