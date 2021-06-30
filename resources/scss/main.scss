@@ -203,11 +203,11 @@ h6 {
 }
 
 p {
-    padding-bottom: 16px;
+    padding: 10px 0;
     line-height: 1.5em;
     text-align: justify;
     @include for-tablet-portrait-down {
-        padding: 10px 0;
+        //padding: 10px 0;
         font-size: 1.1em;
     }
     @include for-phone-only {

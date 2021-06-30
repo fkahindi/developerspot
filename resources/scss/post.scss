@@ -126,6 +126,9 @@ main {
 /* ||Pre Code section */
 
 pre {
+    overflow-x: auto;
+    padding: 10px;
+    tab-size: 1;
     @include for-tablet-portrait-down {
         padding-left: 0;
     }
@@ -135,20 +138,12 @@ pre {
     @include for-desktop-up {
         padding-left: 1em;
     }
-    @include for-big-desktop-up {}
 }
 
 pre,
-pre code,
-samp {
+pre code {
     display: block;
     margin: 0;
-}
-
-pre {
-    overflow-x: auto;
-    padding: 10px;
-    tab-size: 1;
 }
 
 code {
@@ -172,6 +167,7 @@ li code {
 }
 
 .special-p {
+    margin: 0.6em 0;
     padding: 10px;
     font-family: calibri;
     background: rgb(100, 200, 250);

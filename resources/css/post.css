@@ -95,26 +95,24 @@ main {
   color: #333333; }
 
 /* ||Pre Code section */
-@media (max-width: 768px) {
-  pre {
-    padding-left: 0; } }
-@media (min-width: 769px) {
-  pre {
-    padding-left: 1em; } }
-@media (min-width: 992px) {
-  pre {
-    padding-left: 1em; } }
-
-pre,
-pre code,
-samp {
-  display: block;
-  margin: 0; }
-
 pre {
   overflow-x: auto;
   padding: 10px;
   tab-size: 1; }
+  @media (max-width: 768px) {
+    pre {
+      padding-left: 0; } }
+  @media (min-width: 769px) {
+    pre {
+      padding-left: 1em; } }
+  @media (min-width: 992px) {
+    pre {
+      padding-left: 1em; } }
+
+pre,
+pre code {
+  display: block;
+  margin: 0; }
 
 code {
   padding: 0 2px;
@@ -133,6 +131,7 @@ li code {
   background: inherit; }
 
 .special-p {
+  margin: 0.6em 0;
   padding: 10px;
   font-family: calibri;
   background: #64c8fa;

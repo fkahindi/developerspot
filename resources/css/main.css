@@ -173,12 +173,11 @@ h6 {
   font-size: 0.8rem; }
 
 p {
-  padding-bottom: 16px;
+  padding: 10px 0;
   line-height: 1.5em;
   text-align: justify; }
   @media (max-width: 768px) {
     p {
-      padding: 10px 0;
       font-size: 1.1em; } }
   @media (max-width: 599px) {
     p {
