@@ -6,7 +6,7 @@ if(isset($_POST['page_num'])){
 }else{
     $page_num = 1;
 }
-    $num_of_posts_per_page = 2;
+    $num_of_posts_per_page = 6;
     $offset = ($page_num - 1) * $num_of_posts_per_page;
     $total_rows = countPublishedPosts();
     $total_pages = ceil($total_rows/$num_of_posts_per_page);
