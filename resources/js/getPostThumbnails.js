@@ -99,7 +99,6 @@ $("document").ready(function() {
             url: "/spexproject/includes/posts-pagination.php",
             type: "POST",
             data: {
-                "page_num": 1,
                 "page_num": page_num
             },
             success: function(data) {

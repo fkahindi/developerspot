@@ -366,7 +366,6 @@ function updatePost($request_values){
 			$sound .= metaphone($word).' ';
 		}
 	}
-	//include __DIR__ .'/../../classes/ImageLoad.php';
     $image_file_name = $_FILES['post_main_image']['name'];
     $image_file_temp_name = $_FILES['post_main_image']['tmp_name'];
     $image_file_size = $_FILES['post_main_image']['size'];
