@@ -12,6 +12,7 @@ if(isset($_POST['create-account'])){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="canonical" href="https://www.developerspot.co.ke/templates/create-account.html.php">
     <title>Create Account</title>
     <meta name="description" content="Create user account with developerspot to access specified system resources.">
     <link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css"/>

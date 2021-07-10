@@ -14,6 +14,7 @@ changePassword();
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="canonical" href="https://www.developerspot.co.ke/templates/change-password.html.php">
 	<title>Change Password </title>
     <meta name="description" content="Helps user to change old password.">
 	<link rel="stylesheet" href="../resources/css/form.css">

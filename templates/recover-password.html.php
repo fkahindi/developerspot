@@ -9,6 +9,7 @@ if(isset($_POST['recover_password'])){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="canonical" href="https://www.developerspot.co.ke/templates/recover-password.html.php">
 	<title>Recover Password </title>
     <meta name="description" content="Helps user recover forgotten password.">
 	<link rel="stylesheet" href="../resources/css/form.css">

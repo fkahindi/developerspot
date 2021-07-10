@@ -21,6 +21,7 @@ if(isset($_POST['set-account-password'])){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="canonical" href="https://www.developerspot.co.ke/templates/set-account-password.html.php">
 	<title>Set Account Password</title>
     <meta name="description" content="Sets password for the account being created.">
     <link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css"/>
