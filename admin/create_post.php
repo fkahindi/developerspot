@@ -110,7 +110,7 @@
 						
 						<!--If editing post, display the update button instead of create button -->
 						<div>
-							<?php if($isEditingPost == true): ?>
+							<?php if($isEditingPost === true): ?>
 							<button type="submit" class="btn btn-success" name="update_post">UPDATE</button>
 							<?php else: ?>
 							<button type="submit" class="btn btn-success" name="create_post">Save post</button>
