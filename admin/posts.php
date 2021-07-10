@@ -114,17 +114,16 @@
 	</div>
 </body>
 <script src="js/jquery-3.4.0.min.js"></script> 
-<script src="js/tooltip-call.js"></script>
 <script>
-$('document').ready(function(){
-	$('.delete').on('click',function(){
-		var isSure = confirm("Are you sure you want to delete post?");
-		if(isSure){
-			return true;
-		}else{
-			return false;
-		}
+	$('document').ready(function(){
+		$('.delete').on('click',function(){
+			var isSure = confirm("Are you sure you want to delete post? \rAll related comments and replies will also be deleted.");
+			if(isSure){
+				return true;
+			}else{
+				return false;
+			}
+		});
 	});
-});
 </script>
 </html>
