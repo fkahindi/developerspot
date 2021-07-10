@@ -1,21 +1,28 @@
 <?php
-
-$target_file = BASE_URL .'resources/images/'.basename($image_file);
-$imageFileType = strtolower(pathinfo($target, PATHINFO_EXTENSION));
-/* Check if image already exists in target folder, to ensure no image overwriting */
-if(file_exists($target_file)){
-    array_push($errors, 'There is already an image with the same name. Try change the name and continue.');
-}
-/* Check image size */
-if($_FILES['post_main_image']['size']>500000){
-    array_push($errors, 'Sorry, image is too large');
+$image_file_name = $_FILES['post_main_image']['name'];
+$image_file_temp_name = $_FILES['post_main_image']['tmp_name'];
+$image_file_size = $_FILES['post_main_image']['size'];
+$file_ext_type = ['jpg','png','gif'];
+$target_file = '../resources/images/'.basename($image_file_name);
     
-/* Allow only .jpg, .png and .gif file formats */
-}else if($imageFileType != 'jpg' && $imageFileType != 'png' && 		$imageFileType != 'gif'){
-    array_push($errors,'Sorry, only JPG, PNG or GIF files are allowed');
-}
-if(!move_uploaded_file($_FILES['post-main-image']['tmp_name'], $target_file)){
-    array_push($errors, 'Post image could not be uploaded, if problem persists try publishing without the image.');
+if(!empty($image_file_temp_name)){
+    $target_file = '../resources/images/'.basename($image_file_name);
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    
+    //Check image size
+    if($image_file_size>500000){
+        array_push($errors, 'Sorry, image is too large');
+        
+    // Allow only .jpg, .png and .gif file formats 
+    }
+    if(!in_array($imageFileType,$file_ext_type)){
+        array_push($errors,'Sorry, only JPG, PNG or GIF files are allowed');
+    }
+    if(!move_uploaded_file($image_file_temp_name,$target_file)){
+        array_push($errors, 'Post image could not be uploaded, if problem persists try publishing without the image.');
+    }else{
+        $image_path = BASE_URL .'resources/images/'.basename($image_file_name);
+    }
 }else{
-    $image_path = BASE_URL ."resources/images/".basename($image_file);
+    $image_path = null;
 }

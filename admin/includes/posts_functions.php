@@ -255,34 +255,9 @@ function createPost($request_values){
 	}
 	/* Create slug by replacing spaces in title with hyphens */
 	$post_slug = makeSlug($title);
-	/* Get image filename */
-    $image_file_name = $_FILES['post_main_image']['name'];
-    $image_file_temp_name = $_FILES['post_main_image']['tmp_name'];
-    $image_file_size = $_FILES['post_main_image']['size'];
-    $file_ext_type = ['jpg','png','gif'];
-    
-	if(!empty($image_file_temp_name)){
-		//getimagesize($image_file_temp_name);
-        $target_file = '../resources/images/'.basename($image_file_name);
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    
-       //Check image size
-        if($image_file_size>500000){
-            array_push($errors, 'Sorry, image is too large');
-            
-        // Allow only .jpg, .png and .gif file formats 
-        }
-        if(!in_array($imageFileType,$file_ext_type)){
-            array_push($errors,'Sorry, only JPG, PNG or GIF files are allowed');
-        }
-        if(!move_uploaded_file($image_file_temp_name,$target_file)){
-            array_push($errors, 'Post image could not be uploaded, if problem persists try publishing without the image.');
-        }else{
-            $image_path = BASE_URL .'resources/images/'.basename($image_file_name);
-        }
-    }else{
-    $image_path = null;
-    }
+
+	/* Get image file */
+    include __DIR__ . '/image_upload_function.php';
 					
 	/* Make sure no file is saved twice */
 	$post_check ="SELECT * FROM `posts` WHERE post_slug='$post_slug' LIMIT 1";
@@ -334,6 +309,7 @@ function editPost($role_id){
 }
 function updatePost($request_values){
 	global $conn, $title, $post_slug, $body, $meta_description,$image_caption, $published, $isEditingPost, $post_id, $topic_id, $sound, $errors;
+	$isEditingPost = true; 
 	$title = htmlspecialchars(esc($request_values['title']));
 	$body = htmlspecialchars(esc($request_values['body']));
 	$meta_description = htmlspecialchars(esc($request_values['meta_description']));
@@ -366,33 +342,8 @@ function updatePost($request_values){
 			$sound .= metaphone($word).' ';
 		}
 	}
-    $image_file_name = $_FILES['post_main_image']['name'];
-    $image_file_temp_name = $_FILES['post_main_image']['tmp_name'];
-    $image_file_size = $_FILES['post_main_image']['size'];
-    $file_ext_type = ['jpg','png','gif'];
-    $target_file = '../resources/images/'.basename($image_file_name);
-       
-    if(!empty($image_file_temp_name)){
-        $target_file = '../resources/images/'.basename($image_file_name);
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    
-       //Check image size
-        if($image_file_size>500000){
-            array_push($errors, 'Sorry, image is too large');
-            
-        // Allow only .jpg, .png and .gif file formats 
-        }
-        if(!in_array($imageFileType,$file_ext_type)){
-            array_push($errors,'Sorry, only JPG, PNG or GIF files are allowed');
-        }
-        if(!move_uploaded_file($image_file_temp_name,$target_file)){
-            array_push($errors, 'Post image could not be uploaded, if problem persists try publishing without the image.');
-        }else{
-            $image_path = BASE_URL .'resources/images/'.basename($image_file_name);
-        }
-    }else{
-    $image_path = null;
-    }	
+	/* Get image file */
+    include __DIR__ . '/image_upload_function.php';
             
 	/* //Udate if there are no errors */
 	if(!$errors){
@@ -421,7 +372,7 @@ function updatePost($request_values){
 /* //Delete blog post */
 function deletePost($post_id){
 	global $conn, $errors;
-	$sql = "DELETE FROM `posts` WHERE post_id=$post_id";
+	$sql = "DELETE FROM `posts` WHERE post_id = $post_id";
 	if(mysqli_query($conn, $sql)){
 				
 		$_SESSION['message'] = 'Post, related comments and replies deleted successfully.';
