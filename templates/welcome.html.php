@@ -3,7 +3,7 @@ session_start();
 
 /* Check if the user is logged in, if not redirect to the login page */
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
-	header('Location: ../templates/login.html.php');
+	header('Location: ../login.html.php');
 	exit;
 }
 ?>

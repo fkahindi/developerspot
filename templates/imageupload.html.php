@@ -31,7 +31,7 @@ if(isset($_POST['image-upload'])){
 	</div>
 </body>
 </html>
-<script src="<?php echo BASE_URL ?>resources/js/jquery-1.7.2.min.js"></script>
+<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 <script>
 $('document').ready(function(){
 	$('#image-upload-btn').on('click', function(e){

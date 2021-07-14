@@ -129,7 +129,7 @@ include __DIR__ .'/admin/includes/admin_functions.php';
               <a href="https://web.facebook.com/developerspotKe" target="_blank" class="fa fa-facebook"></a>
             </div >
             
-            <button><a href="<?php echo BASE_URL ?>templates/contact-me-form.html.php">Contact</a></button>
+            <button><a href="<?php echo BASE_URL ?>contact.php">Contact</a></button>
           </div>
           <div class=php-mysql>
             <h2>PHP and MySQL</h2>

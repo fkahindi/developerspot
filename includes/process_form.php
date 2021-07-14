@@ -96,13 +96,13 @@ function createAccount(){
 					/* If link was sent in less than 24 hrs notify user */
 
 					$_SESSION['email_success'] = 'A link was sent to '.$temp_row['email'].' address in less than 24 hours ago. Check your email inbox.';
-                    header('Location: ../templates/thank-you.html.php');
+                    header('Location: '.BASE_URL.'templates/thank-you.html.php');
 				}else{
 					/* Update token, date and fullname (if set) then send email link */
 					$fields = ['token' => $token, 'created_at' => $created_at];
 					$update_usersToken = $users_tempTable->updateRecords($fields,$email);
 					require_once __DIR__ .'/create-account-email-link.php';
-                    header('Location: ../templates/thank-you.html.php');
+                    header('Location: '.BASE_URL.'templates/thank-you.html.php');
 				} 	
 			}else{
 				$fields = [
@@ -114,7 +114,7 @@ function createAccount(){
 				require_once __DIR__ .'/create-account-email-link.php';	
 				if(isset($_SESSION['email_success'])){
 					$insert_tempRecord = $users_tempTable ->insertRecord($fields);
-                    header('Location: ../templates/thank-you.html.php');
+                    header('Location: '.BASE_URL.'templates/thank-you.html.php');
 				}else{
 					$form_error = $email_error;
 				}
@@ -200,7 +200,7 @@ function setAccountPassword(){
 						/* Redirect to login page */
 						$_SESSION['success_msg'] ='Congratulations! Your account is set. <br> Please, login to your account.';
 										
-						header('Location: ../templates/login.html.php');
+						header('Location:'.BASE_URL.'login');
 									
 					}else{
 						
@@ -304,9 +304,9 @@ function login(){
 					
 				/* Redirect accordingly */
 				if(isset($_SESSION['page_id'])){
-					header('Location: ../templates/post.html.php?id='.$_SESSION['page_id'].'&title='.$_SESSION['post_slug']);
+					header('Location:'.BASE_URL.'posts/'.$_SESSION['page_id'].'/'.$_SESSION['post_slug']);
 				}else{
-					header('Location: ../index.php');
+					header('Location:'.BASE_URL.'index.php');
 				}					
 			}else{
 				$errors['password'] ='Incorrect email or password';
@@ -384,7 +384,7 @@ function changePassword(){
 				$_SESSION['success_msg'] = 'Update successful. <br> Please, login with your new password';
 				
 				/* Redirect to login page */
-				header('Location: ../templates/login.html.php');
+				header('Location: '.BASE_URL.'login');
 				
 			}else{
 				$valid = false;
@@ -511,7 +511,7 @@ function resetPassword(){
 				/* Redirect to login page */
 				$_SESSION['success_msg'] ='You have changed your password. <br> Please, login with your new password';
 								
-				header('Location: ../templates/login.html.php');
+				header('Location: '.BASE_URL.'login');
 							
 			}else{
 				echo 'The token expired';
@@ -532,7 +532,7 @@ function imageUpload(){
 		$page_id = $_SESSION['page_id'];
 		$page_slug = $_SESSION['post_slug'];
 	}	
-	$target_dir = '../resources/photos/';
+	$target_dir = BASE_URL.'resources/photos/';
 	$target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
 	$uploadOk = 1;
 	$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -543,24 +543,24 @@ function imageUpload(){
 		
 		/* Allow only jpg, jpeg, png and gif file formats */
 		if(!in_array($imageFileType, $allowed_image_types)){
-			$uploadOk = 0;
+			$uploadOk = false;
 			$errors['fileToUpload'] = 'Sorry, only JPG, JPEG, PNG or GIF files are allowed';
 							
 			/* Validate image size is 2MB or less */
 		}else if($_FILES['fileToUpload']['size']>500000){
-			$uploadOk = 0;
+			$uploadOk = false;
 			$errors['fileToUpload'] = 'Sorry, image is too large';
 		}else{
-			$uploadOk = 1;
+			$uploadOk = true;
 		}
 		
 	}else{
-		$uploadOk = 0;
+		$uploadOk = false;
 		$errors['fileToUpload'] =  'No image was selected.';	
 	}
 	
 	/* //If everything is ok, try to upload the file */
-	if($uploadOk == 1){
+	if($uploadOk){
 		
 		/* //Get the user name id to use in the file name */
 		$email = $_SESSION['email'];
@@ -591,7 +591,7 @@ function imageUpload(){
 		/* To ensure filename uniqueness combine name with user id, add sufix -0 and the extension name */
 		$target_file = strtolower($name .'-0'. $id .'.'.$extension);
 		
-		if(move_uploaded_file($_FILES['fileToUpload']['tmp_name'],'../resources/photos/'.$target_file)){
+		if(move_uploaded_file($_FILES['fileToUpload']['tmp_name'],''.BASE_URL.'resources/photos/'.$target_file)){
 			$file_path = BASE_URL  .'resources/photos/'.$target_file;
 										
 			/* Update profile_photo file path in the database */
@@ -609,9 +609,9 @@ function imageUpload(){
 			}			
 			/* Redirect accordingly */
 			if(isset($_SESSION['page_id'])){
-				header('Location: ../templates/post.html.php?id='.$_SESSION['page_id'].'&title='.$_SESSION['post_slug']);
+				header('Location: '.BASE_URL.'posts/'.$_SESSION['page_id'].'/'.$_SESSION['post_slug']);
 			}else{
-				header('Location: ../index.php');
+				header('Location: '.BASE_URL.'index.php');
 			}				
 		}else{
 			echo 'Sorry, there was an error uploading your file.';

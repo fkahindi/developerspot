@@ -12,11 +12,11 @@ if(isset($_POST['login'])){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="canonical" href="https://www.developerspot.co.ke/templates/login.html.php">
+	<link rel="canonical" href="https://www.developerspot.co.ke/login">
 	<title>Log in Form</title>
     <meta name="description" content="Use email and password to login to developerspot system.">
 	<meta name="keywords" content="login, email address, password, developerspot">
-	<link rel="stylesheet" href="../resources/css/form.css">
+	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css">
 </head>
 <body>
 	<h4 class="successMsg"><?php echo(!empty($_SESSION['success_msg'])? $_SESSION['success_msg']:'');?></h4>
@@ -41,9 +41,7 @@ if(isset($_POST['login'])){
 		</form>
 	</div>
 	<div class="section">
-		<p class="centered"><a href="<?php echo BASE_URL ?>templates/recover-password.html.php">Forgot password</a> | <a href="<?php echo BASE_URL ?>templates/create-account.html.php"> Create an account</a></p>
+		<p class="centered"><a href="<?php echo BASE_URL ?>recover-password">Forgot password</a> | <a href="<?php echo BASE_URL ?>create-account"> Create an account</a></p>
 	</div>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-
 </body>
 </html>

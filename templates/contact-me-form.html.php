@@ -12,7 +12,7 @@ if(isset($_POST['contact-me'])){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="canonical" href="https://www.developerspot.co.ke/templates/contact-me-form.html.php">
+	<link rel="canonical" href="https://www.developerspot.co.ke/contact.php">
 	<title>Contact Me Form</title>
     <meta name="description" content="Use this form to contact developerspot.">
 	<meta name="keywords" content="contact me, email, developerspot">
@@ -51,7 +51,7 @@ if(isset($_POST['contact-me'])){
 	</div>
 </div>
 	<!-- Scripts -->
-	<script src="<?php echo BASE_URL ?>resources/js/jquery-1.7.2.min.js"></script>
+	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/form_check.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@ if(isset($_POST['create-account'])){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="canonical" href="https://www.developerspot.co.ke/templates/create-account.html.php">
+	<link rel="canonical" href="https://www.developerspot.co.ke/create-account">
     <title>Create Account</title>
     <meta name="description" content="Create user account with developerspot to access specified system resources.">
     <link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css"/>
@@ -48,10 +48,10 @@ if(isset($_POST['create-account'])){
 	</form>
 </div>
 	<div class="section">
-		<p>Already have an account? <a href="<?php echo BASE_URL ?>templates/login.html.php">Log in </a>.</p>
+		<p>Already have an account? <a href="<?php echo BASE_URL ?>login">Log in </a>.</p>
 	</div>
 	<!-- Scripts -->
-	<script src="<?php echo BASE_URL ?>resources/js/jquery-1.7.2.min.js"></script>
+	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/form_check.js"></script>
 </body>
 </html>

@@ -9,10 +9,10 @@ if(isset($_POST['recover_password'])){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="canonical" href="https://www.developerspot.co.ke/templates/recover-password.html.php">
+	<link rel="canonical" href="https://www.developerspot.co.ke/recover-password">
 	<title>Recover Password </title>
     <meta name="description" content="Helps user recover forgotten password.">
-	<link rel="stylesheet" href="../resources/css/form.css">
+	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css">
 </head>
 <body>
 	<div id="recover">
@@ -25,14 +25,14 @@ if(isset($_POST['recover_password'])){
 		</div>
 		<form method="POST" action="">
 			<label for="email">Enter your email address:</label>
-			 <input type="email" name="email" maxlength="50" autocomplete="off"> <span class="errorMsg">
+			 <input type="email" value="<?php echo(empty($email)? '': $email); ?>" name="email" maxlength="50" autocomplete="off"> <span class="errorMsg">
 			 <?php echo (!empty($errors['email'])? $errors['email'] :'');?></span>
 			 
 			<input type="submit" name="recover_password" class="button" value="Submit"> 
 		</form>
 	</div>
     <div class="section">
-		<p class="centered"><a href="<?php echo BASE_URL ?>templates/login.html.php">Let me try again</a></p>
+		<p class="centered"><a href="<?php echo BASE_URL ?>login">Let me try again</a></p>
 	</div>
 </body>
 </html>

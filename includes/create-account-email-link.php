@@ -5,12 +5,12 @@ $output.='<p>------------------------------------------------</p>';
 
 /* **FOR ONLINE SERVER **
 
-	$output.='<p><a href="https://www.developerspot.co.ke/templates/set-account-password.html.php?
+	$output.='<p><a href="https://www.developerspot.co.ke/set-account-password?
 key='.$token.'&email='.$email.'&action=subscribe" target="_blank">
 
 ** */
 /* For Local Server */
-$output.='<p><a href="/spexproject/templates/set-account-password.html.php?key='.$token.'&email='.$email.'&username='.$username.'" target="_blank">
+$output.='<p><a href="/spexproject/set-account-password?key='.$token.'&email='.$email.'&username='.$username.'" target="_blank">
 Confirm account creation </a></p>';		
 $output.='<p>------------------------------------------------</p>';
 $output.='<p>Please click the link above to confirm it is you who requested account creation at Developerspot.

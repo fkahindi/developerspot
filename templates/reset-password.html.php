@@ -18,10 +18,10 @@ if(isset($_POST['reset_password'])){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="canonical" href="https://www.developerspot.co.ke/templates/reset-password.html.php">
+	<link rel="canonical" href="https://www.developerspot.co.ke/reset-password">
 	<title>Reset Password</title>
     <meta name="description" content="Reset password to complete the process of forgotten password recovery.">
-	<link rel="stylesheet" href="../resources/css/form.css">
+	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css">
 </head>
 <body>		
 	<div id="error_msg"></div>
