@@ -10,7 +10,7 @@
 	<?php require_once __DIR__ .'/nav.html.php'; ?>	
 	</nav>
 </div>
-	<!--Login and Search bars follows -->
+	<!--Login bar follows -->
 <div class="log-account-section">
 	<div class="flex-wrapper">
 		<div class="login-signup">
