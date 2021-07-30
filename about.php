@@ -16,6 +16,7 @@ require_once __DIR__ .'/config.php';
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@developerspotke">
     <meta name="twitter:creator" content="@fkahindi">
+    <meta name="twitter:image" content="<?php echo BASE_URL ?>resources/icons/logoicon.png">
     <meta property="og:url" content="<?php echo $url;?>" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="About Developerspot - blogging app"/>
@@ -85,9 +86,9 @@ require_once __DIR__ .'/config.php';
 		<section class="main-article">
 			<h1>About</h1><hr>
 			<div>	
-				<p>Developerspot is more than a blogging site, it is a blogging app, complete with an admin module for articles, authors and user management. It also has an embedded comment-reply system on all articles, enabling feedback, sharing of thoughts and experiences from readers. </p>
+				<p>Developerspot is the implementation of an idea of a blogging app, complete with an admin section for articles, authors and user management. It also has an embedded comment-reply system on all articles, enabling feedback, sharing of thoughts and experiences from readers. </p>
 				<p>On this blog, every article is geared towards accomplishing a particular task. Account creation is just a means to enable association of comments and replies to individuals and in no way will your contact be shared with anyone else, not consistent with the privacy policy. Feel free to engage.</p>
-				<p>I'm available for website building projects, if you would like my services, reach out to me using the contact above.</p>
+				<p>For website building projects, you can reach out to me using the contact above. If you are a developer and want to contribute to the code, I have made the entire codebase available on github at, https://github.com/fkahindi/developerspot. You are free to fork.</p>
 			</div>
 			
 		</section>	
