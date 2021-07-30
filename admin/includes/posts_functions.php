@@ -285,7 +285,7 @@ function createPost($request_values){
 			header('Location: posts.php');
 			exit(0);
 		}else{
-			array_push($errors, 'Insert record was not successful.');
+			array_push($errors, 'Insert record was not successful. <br><strong>Description:</strong><br>'. $conn->error);
 		}		
 	} 
 }
@@ -365,6 +365,8 @@ function updatePost($request_values){
 			$_SESSION['message'] = 'Post update successful.';
 			header('Location: posts.php');
 			exit(0);
+		}else{
+			array_push($errors,'Update was not successful. <br><strong>Description:</strong><br>'. $conn->error);
 		}
 	}
 }
@@ -379,7 +381,7 @@ function deletePost($post_id){
 		header('Location: posts.php');
 			exit(0);
 	}else{
-		array_push($errors, 'Delete failed!');
+		array_push($errors, 'Delete failed! <br><strong>Description:</strong><br>'. $conn->error);
 	}
 }
 
