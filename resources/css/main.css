@@ -47,7 +47,12 @@ q {
     content: '';
     content: none; }
 
+figure {
+  margin: 1em auto; }
+
 figcaption {
+  font-size: 1.2em;
+  font-weight: bold;
   text-align: left; }
 
 strong {
@@ -190,24 +195,8 @@ p {
 /* || LAYOUT AND STRUCTURE */
 /* || Header Section */
 header {
-  position: sticky;
-  top: 0;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
   background-color: #fafaf9; }
-  @media (max-width: 599px) {
-    header {
-      height: 3.75em; } }
-  @media (max-width: 768px) {
-    header {
-      width: 100%;
-      height: 4.375em;
-      z-index: 0; } }
-  @media (min-width: 769px) {
-    header {
-      height: 5.375em; } }
-  @media (min-width: 992px) {
-    header {
-      height: 6.375em; } }
 
 header .social-media {
   display: none;
@@ -243,24 +232,42 @@ header a {
   header a:hover {
     color: darkgray; }
 
+/* Search bar */
+.search-bar {
+  display: block;
+  margin: 3px;
+  max-width: 250px;
+  height: 90%; }
+  .search-bar .search-input {
+    margin-top: 5px;
+    padding: 6px 3px;
+    width: 100%;
+    font-size: 1em;
+    background-color: white;
+    border: thin solid #f5f0f0;
+    border-radius: 10px; }
+    .search-bar .search-input:focus {
+      color: lightslategrey;
+      border-style: none; }
+  @media (max-width: 768px) {
+    .search-bar {
+      margin: 3px auto; } }
+
 /* Banner  */
 .banner-bar {
   display: inline-block;
   margin: 0;
-  padding: 1em 34px;
+  padding: 0.5em 34px;
   text-align: center; }
   @media (max-width: 768px) {
     .banner-bar {
       min-width: 70%;
-      position: absolute;
-      top: 0;
       left: 15%;
-      padding: 0.8em;
+      padding: 0.3em;
       font-size: 1.3em; } }
   @media (min-width: 769px) {
     .banner-bar {
       min-width: 35%;
-      height: 2em;
       font-size: 1.6em; } }
 
 .banner {
@@ -895,11 +902,22 @@ hr {
 
   .banner-bar {
     grid-column: 2/span 3;
-    grid-row: 1/span 2; }
+    grid-row: 1/span 1; }
     @media (min-width: 769px) {
       .banner-bar {
         grid-column: 1/span 2;
         grid-row: 1/span 1; } }
+
+  .search-bar {
+    grid-column: 2/span 3;
+    grid-row: 2/span 1;
+    min-width: 250px;
+    margin: 5px auto; }
+    @media (min-width: 769px) {
+      .search-bar {
+        grid-column: 1/span 2;
+        grid-row: 2/span 1;
+        z-index: 2; } }
 
   .nav-bar {
     grid-column: 1/span 1;
@@ -908,6 +926,10 @@ hr {
     @media (min-width: 769px) {
       .nav-bar {
         grid-column: 3/span 2;
+        grid-row: 2/span 1; } }
+    @media (min-width: 1200px) {
+      .nav-bar {
+        grid-column: 2/span 3;
         grid-row: 2/span 1; } }
 
   .log-account-section {

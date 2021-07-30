@@ -180,8 +180,9 @@ form .form_image {
   color: #D83D5A; }
 
 .successMsg {
-  color: #6B8E23;
-  margin: 10px auto; }
+  color: #c7dd99;
+  margin: 10px auto;
+  text-align: center; }
 
 #error_msg {
   text-align: left;
