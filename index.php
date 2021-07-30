@@ -89,6 +89,7 @@ include __DIR__ .'/admin/includes/admin_functions.php';
       <header class="grid-wrapper">
         <?php require_once __DIR__ . '/templates/header.html.php';?>
         <?php include __DIR__ .'/templates/social-icons-links.php';?>
+        <?php include __DIR__ .'/search/search-form.php';?>
       </header>
       <main class="class="grid-wrapper">
         <section class="section-one">

@@ -110,6 +110,7 @@ if(!isset($_SESSION)){
 	<header class="grid-wrapper">
 		<?php include __DIR__ .'/header.html.php';?>
 		<?php include __DIR__ .'/social-icons-links.php';?>
+		<?php include __DIR__ .'/../search/search-form.php';?>
 	</header>
 	<main class="group">
 		<section class="section-two main-article">

@@ -84,7 +84,6 @@ if(isset($_GET['name'])){
 			fbq('init', '1970631019919003');
 			fbq('track', 'PageView');
 		</script>
-		
 	</head>
 	<body>
 		<noscript><img height="1" width="1"  class="hidden"
@@ -92,8 +91,9 @@ if(isset($_GET['name'])){
 		/></noscript>
 		<!-- End Facebook Pixel Code -->
 		<header class="grid-wrapper">
-		<?php require_once __DIR__ . '/header.html.php';?>
-		<?php include __DIR__ .'/social-icons-links.php';?>
+			<?php require_once __DIR__ . '/header.html.php';?>
+			<?php include __DIR__ .'/social-icons-links.php';?>
+			<?php include __DIR__ .'/../search/search-form.php';?>
 		</header>
 		<main class="group">
 			<section class="posts-section border-not-last-child-div">

@@ -82,8 +82,9 @@
         /></noscript>
         <!-- End Facebook Pixel Code -->
 		<header class="grid-wrapper">
-		<?php require_once __DIR__ . '/templates/header.html.php';?>
-        <?php include __DIR__ .'/templates/social-icons-links.php';?>
+            <?php require_once __DIR__ . '/templates/header.html.php';?>
+            <?php include __DIR__ .'/templates/social-icons-links.php';?>
+            <?php include __DIR__ .'/search/search-form.php';?>
 		</header>
 		<main class="group">
 			<section class="posts-section border-not-last-child-div">
