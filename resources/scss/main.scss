@@ -1,5 +1,5 @@
 @import "partials/layout";
-//@import "partials/colors";
+@import "partials/visuals";
 
 /* ||GENERAL STYLES */
 
@@ -269,12 +269,9 @@ header {
     .fa-instagram,
     .fa-linkedin {
         background: transparent;
-        color: black;
-    }
-    a {
-        color: black;
+        color: $khaki;
         &:hover {
-            color: darkgray;
+            color: $banana-yellow;
         }
     }
 }
@@ -323,10 +320,24 @@ header {
         min-width: 35%;
         font-size: 1.6em;
     }
-}
-
-.banner {
-    font-family: Aladin;
+    .banner {
+        font-family: Aladin;
+    }
+    .banana-yellow {
+        color: $banana-yellow;
+    }
+    .olive {
+        color: $olive;
+    }
+    .autum-orange {
+        color: $autum-orange;
+    }
+    .deep-red {
+        color: $deep-red;
+    }
+    .khaki {
+        color: $khaki;
+    }
 }
 
 
@@ -353,13 +364,13 @@ header {
         top: 3px;
         left: 3px;
         width: 50px;
-        padding: 5px 15px;
-        color: black;
+        padding: 10px 15px;
+        color: $olive;
         border: none;
         font-size: 1.625em;
         &:hover {
             cursor: pointer;
-            background-color: #f0f0f0;
+            background-color: $khaki;
         }
     }
 }
@@ -372,18 +383,18 @@ header {
         left: 3px;
         z-index: 2;
         width: 50px;
-        padding: 5px 15px;
-        color: black;
+        padding: 10px 15px;
+        color: $olive;
         font-size: 2em;
     }
     &:hover {
         cursor: pointer;
-        background-color: #f0f0f0;
+        background-color: $khaki;
     }
 }
 
 .nav-content {
-    font-family: Tahoma;
+    font-family: Arial, Helvetica, sans-serif;
     @include for-tablet-portrait-down {
         display: none;
         position: absolute;
@@ -408,22 +419,30 @@ header {
     li {
         @include for-tablet-landscape-up {
             display: inline-block;
-            padding: 0 10px;
+            padding: 10px 5px;
+        }
+        @include for-desktop-up {
+            padding: 10px;
         }
         @include for-tablet-portrait-down {
             background-color: #f0f0f0;
             padding: 5px 10px;
         }
+        &:hover {
+            background-color: $khaki;
+        }
     }
     a {
         padding: 8px 2px;
         font-size: 0.9em;
+        font-weight: bold;
+        color: $olive;
         @include for-tablet-portrait-down {
             display: block;
             text-align: left;
         }
         &:hover {
-            color: darkgray;
+            color: $banana-yellow;
         }
     }
 }
@@ -454,6 +473,13 @@ header {
     display: block;
     width: 100%;
     margin: 0;
+}
+
+.login {
+    color: $olive;
+    &:hover {
+        color: $banana-yellow;
+    }
 }
 
 .account-photo-box {
@@ -690,7 +716,7 @@ section {
 
 .section-one {
     margin: 0 auto;
-    background-color: #02203a;
+    background-color: $deep-red;
     color: #fff;
     @include for-phone-only {
         padding-top: 1em;
@@ -700,13 +726,13 @@ section {
 .section-two {
     background-color: #f3f0d9;
     button {
-        background-color: #02203a;
-        color: #f3f0d9;
+        background-color: $khaki;
+        color: #000;
     }
 }
 
 .section-three {
-    background-color: #175a49;
+    background-color: $olive;
     color: white;
     button {
         background-color: #f3f0d9;
@@ -768,7 +794,8 @@ section {
 .intro-paragraph {
     padding: 1em 16px;
     border-style: none;
-    background-color: rgb(248, 248, 248);
+    background-color: $khaki;
+    border-radius: 10px;
 }
 
 .html-css,
@@ -863,7 +890,7 @@ section {
 
 .card {
     width: 300px;
-    background-color: rgb(213, 231, 245);
+    background-color: $khaki;
     color: black;
     margin: 0 5%;
     padding: 1em;

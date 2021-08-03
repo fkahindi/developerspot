@@ -1,5 +1,17 @@
 @import "partials/layout.scss";
 @import "partials/visuals";
+input[type="submit"] {
+    padding: .6em;
+    background-color: #0b3128;
+    color: #ffffff;
+    border: 1px solid #0b3128;
+    cursor: pointer;
+    &:hover {
+        background-color: #175a49;
+        border-color: #175a49;
+    }
+}
+
 #subscribe {
     input {
         display: inline-block;
@@ -10,18 +22,10 @@
             border: solid thin silver;
         }
     }
-    input[type="submit"] {
-        padding: .6em;
-        cursor: pointer;
-        font-size: 1em;
-        background-color: #075594;
-        color: #ffffff;
-        border: none;
-    }
 }
 
 .red {
-    color: red;
+    color: $red;
 }
 
 .errorMsg {
@@ -52,15 +56,10 @@
         width: 90%;
     }
     input[type="submit"] {
+        display: block;
         width: 5em;
         height: 2.5em;
-        display: block;
-        padding: 0.625em;
-        border-radius: 10px;
-        background-color: #075594;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
+        border-radius: 5px;
     }
 }
 
@@ -75,12 +74,8 @@
 .reply {
     input[type="submit"] {
         display: block;
-        border-radius: 10px;
-        background-color: #075594;
-        font-weight: bold;
-        color: white;
+        border-radius: 5px;
         margin-right: 10%;
-        cursor: pointer;
         @include for-phone-only {
             width: 5em;
             height: 2.5em;

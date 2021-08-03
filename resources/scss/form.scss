@@ -11,7 +11,21 @@ h2 {
 .banner-bar {
     text-align: left;
     font-family: Aladin;
-    color: #000;
+    .banana-yellow {
+        color: $banana-yellow;
+    }
+    .olive {
+        color: $olive;
+    }
+    .autum-orange {
+        color: $autum-orange;
+    }
+    .deep-red {
+        color: $deep-red;
+    }
+    .khaki {
+        color: $khaki;
+    }
 }
 
 .section {
@@ -167,20 +181,25 @@ form {
         border-radius: 0;
     }
     input[type="submit"] {
-        background: #E5E4E2;
+        background-color: $khaki;
+        border: thin solid $khaki;
+        color: #000;
+        &:hover {
+            color: white;
+        }
     }
 }
 
 .button {
-    background-color: rgb(6, 72, 116);
-    border: solid thin rgb(6, 72, 116);
+    background-color: #0b3128;
+    border: solid thin #0b3128;
     font-weight: bold;
     padding: 12px 15px;
     color: #ffffff;
     margin: 0 auto;
     &:hover {
-        background-color: #02203a;
-        border-color: #02203a;
+        background-color: #175a49;
+        border-color: #175a49;
     }
 }
 
