@@ -534,12 +534,14 @@ function imageUpload(){
 	}	
 	$target_dir = BASE_URL.'resources/photos/';
 	$target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
+	$image_file_temp_name = $_FILES['fileToUpload']['tmp_name'];
+	$image_file_size = $_FILES['fileToUpload']['size'];
 	$uploadOk = 1;
 	$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 	$allowed_image_types = array("png","jpg","jpeg","gif");
 		
 	/* //Check if an image has been selected */
-	if(!empty(getimagesize($_FILES['fileToUpload']['tmp_name']))){
+	if(!empty($image_file_temp_name)){
 		
 		/* Allow only jpg, jpeg, png and gif file formats */
 		if(!in_array($imageFileType, $allowed_image_types)){
@@ -547,7 +549,7 @@ function imageUpload(){
 			$errors['fileToUpload'] = 'Sorry, only JPG, JPEG, PNG or GIF files are allowed';
 							
 			/* Validate image size is 2MB or less */
-		}else if($_FILES['fileToUpload']['size']>500000){
+		}else if($image_file_size>500000){
 			$uploadOk = false;
 			$errors['fileToUpload'] = 'Sorry, image is too large';
 		}else{
@@ -591,7 +593,7 @@ function imageUpload(){
 		/* To ensure filename uniqueness combine name with user id, add sufix -0 and the extension name */
 		$target_file = strtolower($name .'-0'. $id .'.'.$extension);
 		
-		if(move_uploaded_file($_FILES['fileToUpload']['tmp_name'],''.BASE_URL.'resources/photos/'.$target_file)){
+		if(move_uploaded_file($image_file_temp_name,''.BASE_URL.'resources/photos/'.$target_file)){
 			$file_path = BASE_URL  .'resources/photos/'.$target_file;
 										
 			/* Update profile_photo file path in the database */
