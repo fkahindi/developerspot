@@ -1,6 +1,6 @@
 <!-- Banner bar follows-->
 <div class="banner-bar flex-wrapper">
-	<a href="<?php echo BASE_URL ?>index.php" class="banner">DevelopersPot</a>
+	<a href="<?php echo BASE_URL ?>index.php" class="banner"><?php include __DIR__ .'/../resources/banner/devpot-banner.php';?></a>
 </div>
 <!--Navigation bar follows-->
 <div class="nav-bar flex-wrapper">
@@ -15,7 +15,7 @@
 	<div class="flex-wrapper">
 		<div class="login-signup">
 		<?php echo (!isset($_SESSION['loggedin']) || $_SESSION['loggedin']=== false)? 
-		'<a href="'.BASE_URL .'login">Login </a>&nbsp;'
+		'<a class="login" href="'.BASE_URL .'login">Login </a>&nbsp;'
 		: '' ?>
 			<div class="account-photo-box tooltip ">
 				<label for="profile-checkbox-control" id="tooltip">

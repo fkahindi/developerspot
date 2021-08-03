@@ -21,7 +21,7 @@ if(isset($_POST['create-account'])){
 <body>
 	<div id="create-account">
 		<div class="form_image">
-			<div class="banner-bar"><h2>DevelopersPot</h2></div>
+			<div class="banner-bar"><h2><?php include __DIR__ .'/../resources/banner/devpot-banner.php';?></h2></div>
 			<div id="error_msg"><?php echo(!empty($form_error)? $form_error :'');?></div>
 			<h1>Create Account </h1>
 			<p>Fields marked with <span class="red"> &#42;</span> are mandatory. </p>

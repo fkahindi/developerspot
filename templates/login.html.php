@@ -24,7 +24,7 @@ if(isset($_POST['login'])){
 	<div id="login">
 		<h5 class="errorMsg"><?php echo(isset($form_error)? $form_error: '');?></h5>
 		<div class="form_image">
-			<div class="banner-bar"><h2>DevelopersPot</h2></div>
+			<div class="banner-bar"><h2><?php include __DIR__ .'/../resources/banner/devpot-banner.php';?></h2></div>
 			<h1>Login</h1>
 		</div>
 		<form method="POST" action="">

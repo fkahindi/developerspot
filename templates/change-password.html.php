@@ -23,7 +23,7 @@ changePassword();
 	<div id="reset">
 		
 		<div class="form_image">
-			<div class="banner-bar"><h2>DevelopersPot</h2></div>
+			<div class="banner-bar"><h2><?php include __DIR__ .'/../resources/banner/devpot-banner.php';?></h2></div>
 			<p class="form-p">Fields marked with <span class="red"> &#42;</span> are mandatory. </p>
 			<h1>Change Password</h1>
 		</div>	

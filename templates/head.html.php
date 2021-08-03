@@ -9,4 +9,4 @@ $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
  ?>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="author" content="Francis Disii" />  
+<meta name="author" content="Francis Kahindi" />  
