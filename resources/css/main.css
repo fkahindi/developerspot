@@ -767,7 +767,10 @@ section {
 .card picture {
   float: left;
   padding: 0.5em;
-  background-color: transparent; }
+  background-color: transparent;
+  border-radius: 50%; }
+.card img {
+  border-radius: 50%; }
 .card button {
   display: block;
   border: none;

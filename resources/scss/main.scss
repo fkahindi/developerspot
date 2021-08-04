@@ -909,6 +909,10 @@ section {
         float: left;
         padding: 0.5em;
         background-color: transparent;
+        border-radius: 50%;
+    }
+    img {
+        border-radius: 50%;
     }
     button {
         display: block;
