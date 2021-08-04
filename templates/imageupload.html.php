@@ -18,7 +18,7 @@ if(isset($_POST['image-upload'])){
 </head>
 <body>
 	<div id="upload">
-		<div class="banner-bar"><h2>Developers Pot</h2></div>
+		<div class="banner-bar"><h2><?php include __DIR__ .'/../resources/banner/devpot-banner.php' ?></h2></div>
 		<form action="" method="post" enctype="multipart/form-data">
 		<h3>Select image to upload:</h3>
 		<div class="group-form">
