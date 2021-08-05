@@ -6,6 +6,7 @@ require_once __DIR__ .'/config.php';
 include __DIR__ .'/admin/includes/posts_functions.php';
 include __DIR__ .'/admin/includes/admin_functions.php';
 	$published_post_ids = getBatchPublishedPostIds(3,0);
+  $thisPage = "HOME";
 ?>
 <!DOCTYPE html>
 <html lang="en">

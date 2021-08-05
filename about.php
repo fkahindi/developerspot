@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 require_once __DIR__ .'/config.php';
-
+$thisPage = "ABOUT";
 ?>
 <!DOCTYPE html>
 <html lang="en">
