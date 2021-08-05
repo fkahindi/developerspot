@@ -13,6 +13,7 @@ if(isset($_POST['recover_password'])){
 	<title>Recover Password </title>
     <meta name="description" content="Helps user recover forgotten password.">
 	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css">
+	<link rel="icon" href="<?php echo BASE_URL ?>resources/icons/logo_icon.png" sizes="16x16 32x32" type="image/x-icon"/>
 </head>
 <body>
 	<div id="recover">

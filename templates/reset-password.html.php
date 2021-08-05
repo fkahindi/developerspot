@@ -22,6 +22,7 @@ if(isset($_POST['reset_password'])){
 	<title>Reset Password</title>
     <meta name="description" content="Reset password to complete the process of forgotten password recovery.">
 	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css">
+	<link rel="icon" href="<?php echo BASE_URL ?>resources/icons/logo_icon.png" sizes="16x16 32x32" type="image/x-icon"/>
 </head>
 <body>		
 	<div id="error_msg"></div>

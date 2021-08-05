@@ -17,6 +17,7 @@ if(isset($_POST['login'])){
     <meta name="description" content="Use email and password to login to developerspot system.">
 	<meta name="keywords" content="login, email address, password, developerspot">
 	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css">
+	<link rel="icon" href="<?php echo BASE_URL ?>resources/icons/logo_icon.png" sizes="16x16 32x32" type="image/x-icon"/>
 </head>
 <body>
 	<h4 class="successMsg"><?php echo(!empty($_SESSION['success_msg'])? $_SESSION['success_msg']:'');?></h4>

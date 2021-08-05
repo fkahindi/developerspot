@@ -18,6 +18,7 @@ changePassword();
 	<title>Change Password </title>
     <meta name="description" content="Helps user to change old password.">
 	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css">
+	<link rel="icon" href="<?php echo BASE_URL ?>resources/icons/logo_icon.png" sizes="16x16 32x32" type="image/x-icon"/>
 </head>
 <body>
 	<div id="reset">

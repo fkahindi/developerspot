@@ -13,8 +13,10 @@ if(isset($_POST['image-upload'])){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="canonical" href="https://www.developerspot.co.ke/imageupload">
 	<title>Image Upload</title>
-	<link rel="stylesheet" href="../resources/css/form.css">
+	<link rel="stylesheet" href="<?php echo BASE_URL ?>/resources/css/form.css">
+	<link rel="icon" href="<?php echo BASE_URL ?>resources/icons/logo_icon.png" sizes="16x16 32x32" type="image/x-icon"/>
 </head>
 <body>
 	<div id="upload">
