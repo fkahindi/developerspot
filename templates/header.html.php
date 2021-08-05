@@ -32,7 +32,7 @@
 					<ul>
 						<li><a href="<?php echo BASE_URL ?>change-password">Change Password </a> 
 						</li>
-						<li><a href="<?php echo BASE_URL ?>templates/imageupload.html.php">Add Profile Photo</a></li>
+						<li><a href="<?php echo BASE_URL ?>imageupload">Add Profile Photo</a></li>
 						<li><a href="<?php echo BASE_URL ?>includes/logout.php">Sign out </a></li>
 						<?php if($_SESSION['role'] == 'Admin'):?>
 							<li><a href="<?php echo BASE_URL ?>admin/dashboard.php">Admin Area </a></li>
