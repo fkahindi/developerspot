@@ -380,6 +380,8 @@ header .fa-linkedin {
         text-align: left; } }
     .nav-content a:hover {
       color: #c4bf66; }
+  .nav-content .current-page {
+    background-color: #97947f; }
 
 /* Login / Profile  */
 .log-account-section {
