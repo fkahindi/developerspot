@@ -2,8 +2,10 @@
 if(!isset($_SESSION)){
 	session_start();
 }
+
 require __DIR__ . '/../includes/loginStatus.php';
 include __DIR__ .'/../includes/process_form.php';
+
 if(isset($_POST['image-upload'])){
 	imageUpload();
 }
@@ -25,7 +27,7 @@ if(isset($_POST['image-upload'])){
 		<h3>Select image to upload:</h3>
 		<div class="group-form">
 		<input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
-		<span class="errorMsg"><?php echo (!empty($errors['fileToUpload'])? $errors['fileToUpload'] :'');?></span>
+		<span class="errorMsg"><?php echo (!empty($img_error)? $img_error :'');?></span>
 		</div>
 		<input type="submit" value="Upload Image" name="image-upload" class="button" id="image-upload-btn">
 		<p><ul><li>Only images of size less than 0.5 MB with .jpg, jpeg, .png or .gif formats are allowed.</li></ul> </p>

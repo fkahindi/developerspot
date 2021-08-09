@@ -126,7 +126,7 @@ if(!isset($_SESSION)){
 			</div>			
 			<div>
 			<!-- Call to subscribe for notification -->
-			<?php  include __DIR__.'/subscribe.html.php';?>
+			<?php  include __DIR__.'/../forms/subscribe.html.php';?>
 			</div>
 			<div>
 			<!--Comments sections  -->
