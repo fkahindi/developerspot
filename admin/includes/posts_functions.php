@@ -1,6 +1,7 @@
 <?php
 include_once __DIR__ . '/../../config.php';
 require_once __DIR__ .'/../../../includes_devspot/DbConnection.php';
+include __DIR__ . '/../../classes/ImageUpLoad.php';
 
 /* //Post variables */
 $post_id ='';
@@ -256,38 +257,58 @@ function createPost($request_values){
 	/* Create slug by replacing spaces in title with hyphens */
 	$post_slug = makeSlug($title);
 
-	/* Get image file */
-    include __DIR__ . '/image_upload_function.php';
-					
-	/* Make sure no file is saved twice */
-	$post_check ="SELECT * FROM `posts` WHERE post_slug='$post_slug' LIMIT 1";
-	
-	$result = mysqli_query($conn, $post_check);
+	/* Prepare image  */
+	$received_name = $_FILES['post_main_image'];
+	$target_file = '../resources/images/'.basename($received_name['name']);
+	$image_max_size=500000;
+	$allowed_types = ['jpg','jpeg','png','gif','webp'];
+
+    $image_up_load = new ImageUpLoad($received_name,$target_file);
+	$image_up_load->checkImageType($allowed_types);
+	$image_up_load->imageSize($image_max_size);
+
+	$errors = $image_up_load->errors;
 		
-	if(mysqli_num_rows($result)>0){ /* another post with the name exists */
-		array_push($errors, 'A post with that name already exists');
-	}
-	
-	/* If no errors in the form, insert posts */	
 	if(!$errors){
-		$query = "INSERT INTO `posts` (`user_id`, post_title, post_slug, post_body, meta_description, meta_keywords, published, image, image_caption, created_at, metaphoned) VALUES ($user_id, '$title', '$post_slug', '$body','$meta_description','$meta_keywords', $published, '$image_path','$image_caption', now(), '$sound')";
-		
-		$result = mysqli_query($conn, $query);
-		if($result){ /* if post created successful */
-		
-			$inserted_id = mysqli_insert_id($conn);
-			/* Create a relationship between post and topic */
-			$sql ="INSERT INTO `post_topic` (topic_id, post_id) VALUES ($topic_id, $inserted_id)";
-			
-			mysqli_query($conn, $sql);
-			
-			$_SESSION['message']='Post created successfully.';
-			header('Location: posts.php');
-			exit(0);
+		/* Upload image */
+		$result = $image_up_load->moveFile($target_file);
+		$errors = $image_up_load->errors;
+		if(!$errors && $result !== false){
+			$image_path = BASE_URL.'resources/images/'.basename($received_name['name']);
 		}else{
-			array_push($errors, 'Insert record was not successful. <br><strong>Description:</strong><br>'. $conn->error);
-		}		
-	} 
+			$image_path = null;
+		} 
+
+		/* Make sure no file is saved twice */
+		$post_check ="SELECT * FROM `posts` WHERE post_slug='$post_slug' LIMIT 1";
+		
+		$result = mysqli_query($conn, $post_check);
+			
+		if(mysqli_num_rows($result)>0){ /* another post with the name exists */
+			$errors = 'A post with that name already exists';
+		}
+	
+		/* If no errors in the form, insert posts */	
+		if(!$errors){
+			$query = "INSERT INTO `posts` (`user_id`, `post_title`, `post_slug`, `post_body`, `meta_description`, `meta_keywords`, `published`, `image`, `image_caption`, `created_at`, `metaphoned`) VALUES ($user_id, '$title', '$post_slug', '$body','$meta_description','$meta_keywords', $published, '$image_path','$image_caption', now(), '$sound')";
+			
+			$result = mysqli_query($conn, $query);
+			if($result){ /* if post created successful */
+			
+				$inserted_id = mysqli_insert_id($conn);
+				/* Create a relationship between post and topic */
+				$sql ="INSERT INTO `post_topic` (topic_id, post_id) VALUES ($topic_id, $inserted_id)";
+				
+				mysqli_query($conn, $sql);
+				
+				$_SESSION['message']='Post created successfully.';
+				header('Location: posts.php');
+				exit(0);
+			}else{
+				$errors = 'Insert record was not successful. <br><strong>Description:</strong><br>'. $conn->error;
+			}		
+		} 
+    }
 }
 
 function editPost($role_id){
@@ -342,19 +363,35 @@ function updatePost($request_values){
 			$sound .= metaphone($word).' ';
 		}
 	}
-	/* Get image file */
-    include __DIR__ . '/image_upload_function.php';
-            
-	/* //Udate if there are no errors */
+	/* Prepare image  */
+	$received_name = $_FILES['post_main_image'];
+	$target_file = '../resources/images/'.basename($received_name['name']);
+	$image_max_size=500000;
+	$allowed_types = ['jpg','jpeg','png','gif','webp'];
+
+    $image_up_load = new ImageUpLoad($received_name,$target_file);
+	$image_up_load->checkImageType($allowed_types);
+	$image_up_load->imageSize($image_max_size);
+
+	$errors = $image_up_load->errors;
+		
 	if(!$errors){
-		$query = "UPDATE `posts` SET post_title='$title', post_slug='$post_slug', post_body='$body', meta_description='$meta_description', meta_keywords='$meta_keywords', published=$published, image='$image_path',image_caption='$image_caption', updated_at=now(), metaphoned='$sound' WHERE post_id=$post_id";
-		
-		/* //Attach topic to posts in post_topic table */
+		$result = $image_up_load->moveFile($target_file);
+		$errors = $image_up_load->errors;
+		if(!$errors && $result !== false){
+			$image_path = BASE_URL.'resources/images/'.basename($received_name['name']);
+		}else{
+			$image_path = null;
+		} 
+
+		$query = "UPDATE `posts` SET `post_title`='$title', `post_slug`='$post_slug', `post_body`='$body', `meta_description`='$meta_description', `meta_keywords`='$meta_keywords', `published`=$published, `image`='$image_path',`image_caption`='$image_caption', `updated_at`=now(), `metaphoned`='$sound' WHERE `post_id`=$post_id";
+	
+		//Attach topic to posts in post_topic table 
 		if(mysqli_query($conn, $query)){ 
-		/* //if query was created successfully */
-		
+			//if query was created successfully 
+
 			if(isset($topic_id)){
-				/* //create relationship between post and topic */
+				//create relationship between post and topic 
 				$sql = "UPDATE `post_topic` SET topic_id=$topic_id WHERE post_id=$post_id";
 				
 				mysqli_query($conn, $sql);
@@ -366,9 +403,11 @@ function updatePost($request_values){
 			header('Location: posts.php');
 			exit(0);
 		}else{
-			array_push($errors,'Update was not successful. <br><strong>Description:</strong><br>'. $conn->error);
+			$errors = 'Update was not successful. <br><strong>Description:</strong><br>'. $conn->error;
 		}
-	}
+    }     
+	
+	
 }
 
 /* //Delete blog post */
@@ -410,4 +449,7 @@ function togglePublishPost($post_id, $published, $message){
 		header('Location: posts.php');
 		exit(0);
 	}
+}
+function imageUpLoad(){
+	
 }
