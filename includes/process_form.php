@@ -9,6 +9,7 @@ include __DIR__ .'/../../includes_devspot/DatabaseConnection.php';
 include __DIR__ . '/../classes/DatabaseTable.php';
 
 $errors =[];
+$img_error ='';
 $valid = true;
 $gen_pattern ="/^[\w]{3,}$/"; /* //Matches atleast characters made of alpha-numeric and underscore */
 $password_pattern = "/^[\w\-.]+$/"; /* // Matches letters, numbers, underscore, dash or dot */
@@ -480,7 +481,7 @@ function resetPassword(){
 		$errors['confirm_new_password'] ='Your passwords did not match';
 	}
 		
-	/* If everything is OK and valid is true  */
+	//If everything is OK and valid is true 
 	if($valid){
 				
 		$curDate = date('Y-m-d H:i:s');
@@ -527,46 +528,28 @@ function resetPassword(){
 
 /* //This function helps user to upload profile image of their account */
 function imageUpload(){
-	global $pdo;
+	include __DIR__ . '/../classes/ImageUpLoad.php';
+	global $pdo,$img_error;
 	if(isset($_SESSION['page_id'])&& isset($_SESSION['post_slug'])){
 		$page_id = $_SESSION['page_id'];
 		$page_slug = $_SESSION['post_slug'];
-	}	
-	$target_dir = BASE_URL.'resources/photos/';
-	$target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
-	$image_file_temp_name = $_FILES['fileToUpload']['tmp_name'];
-	$image_file_size = $_FILES['fileToUpload']['size'];
-	$uploadOk = 1;
-	$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-	$allowed_image_types = array("png","jpg","jpeg","gif");
-		
-	/* //Check if an image has been selected */
-	if(!empty($image_file_temp_name)){
-		
-		/* Allow only jpg, jpeg, png and gif file formats */
-		if(!in_array($imageFileType, $allowed_image_types)){
-			$uploadOk = false;
-			$errors['fileToUpload'] = 'Sorry, only JPG, JPEG, PNG or GIF files are allowed';
-							
-			/* Validate image size is 2MB or less */
-		}else if($image_file_size>500000){
-			$uploadOk = false;
-			$errors['fileToUpload'] = 'Sorry, image is too large';
-		}else{
-			$uploadOk = true;
-		}
-		
-	}else{
-		$uploadOk = false;
-		$errors['fileToUpload'] =  'No image was selected.';	
 	}
-	
-	/* //If everything is ok, try to upload the file */
-	if($uploadOk){
+			
+	//Prepare image file variable 
+	$received_name = $_FILES['fileToUpload'];
+	$target_file = '../resources/photos/'.basename($received_name['name']);
+	$image_max_size=500000;
+	$allowed_types = ['jpg','jpeg','png','gif','webp'];
+    $image_up_load = new ImageUpLoad($received_name,$target_file);
+	$image_up_load->checkImageType($allowed_types);
+	$image_up_load->imageSize($image_max_size);
+	$img_error = $image_up_load->errors;
 		
-		/* //Get the user name id to use in the file name */
+	//If everything is ok, try to upload the file 
+	if(!$img_error){
+		//Get the user name id to use in the file name 
 		$email = $_SESSION['email'];
-		$username= $_SESSION['username'];
+		$username = $_SESSION['username'];
 		
 		$usersTable = new DatabaseTable($pdo, 'users', 'email');
 		$query = $usersTable->selectColumnRecords($email);
@@ -574,11 +557,11 @@ function imageUpload(){
 		if($query->rowCount()>0){
 			$row = $query->fetch();
 			
-			/* //Set the session photo path again */	
+			//Set the session photo path again 	
 			$id = $row['user_id'];
 		}
 		
-		/* Prepare file by renaming the image file with account session name */
+		//Prepare file by renaming the image file with account session name 
 		if(!empty($_SESSION['fullname'])){
 			$fullname_arr = explode(' ',$_SESSION['fullname']);
 			$name = implode($fullname_arr);
@@ -586,37 +569,39 @@ function imageUpload(){
 			$name = $_SESSION['username'];
 		}
 					
-		/* Split the original file name and take the extension name */
-		$file_pieces = explode('.',$_FILES['fileToUpload']['name']);
+		///Split the original file name and take the extension name 
+		$file_pieces = explode('.',$received_name['name']);
 		$extension = $file_pieces[1];
 		
-		/* To ensure filename uniqueness combine name with user id, add sufix -0 and the extension name */
-		$target_file = strtolower($name .'-0'. $id .'.'.$extension);
+		//To ensure filename uniqueness combine name with user id, add sufix -0 and the extension name 
+		$new_file_name = strtolower($name .'-0'. $id .'.'.$extension);
 		
-		if(move_uploaded_file($image_file_temp_name,''.BASE_URL.'resources/photos/'.$target_file)){
-			$file_path = BASE_URL  .'resources/photos/'.$target_file;
+		//Rename target file and move image to photos folder
+		$target_file = '../resources/photos/'.$new_file_name;
+		$image_up_load->moveFile($target_file);
+		$img_error = $image_up_load->errors;
+		 if(!$img_error){
+			$file_path = BASE_URL  .'resources/photos/'.$new_file_name;
 										
-			/* Update profile_photo file path in the database */
+			//Update profile_photo file path in the database 
 			$fields = ['profile_photo' => $file_path];
 			
 			$usersTable->updateRecords($fields,$email);
 			
-			/* Fetch the records again to place the image photo in session */
+			//Fetch the records again to place the image photo in session 
 			$query = $usersTable->selectColumnRecords($email);
 			if($query->rowCount()== 1){
 				$row = $query->fetch();
 				
-				/* Set the session photo path again */	
+				//Set the session photo path again 	
 				$_SESSION['profile_photo'] = $row['profile_photo'];
 			}			
-			/* Redirect accordingly */
+			//Redirect accordingly 
 			if(isset($_SESSION['page_id'])){
 				header('Location: '.BASE_URL.'posts/'.$_SESSION['page_id'].'/'.$_SESSION['post_slug']);
 			}else{
 				header('Location: '.BASE_URL.'index.php');
 			}				
-		}else{
-			echo 'Sorry, there was an error uploading your file.';
 		}		
 	}
 }
