@@ -142,8 +142,18 @@ function getAllPosts(){
 	}
 	return $all_posts;
 }
+/* Retrive a single post by supplied post slug */
+function getPostBySlug($post_slug)
+{
+	global $conn;
+	$sql = "SELECT * FROM `posts` WHERE post_slug='$post_slug' LIMIT 1";
+	$result = mysqli_query($conn, $sql);
 
-/* Retrive a single post by supplid post id */
+	$post = mysqli_fetch_assoc($result);
+
+	return $post;
+}
+/* Retrive a single post by supplied post id */
 function getPostById($post_id){
 	global $conn;
 	$sql = "SELECT * FROM `posts` WHERE post_id=$post_id LIMIT 1";
@@ -258,16 +268,7 @@ function createPost($request_values){
 	$post_slug = makeSlug($title);
 
 	/* Prepare image  */
-	$received_name = $_FILES['post_main_image'];
-	$target_file = '../resources/images/'.basename($received_name['name']);
-	$image_max_size=500000;
-	$allowed_types = ['jpg','jpeg','png','gif','webp'];
-
-    $image_up_load = new ImageUpLoad($received_name,$target_file);
-	$image_up_load->checkImageType($allowed_types);
-	$image_up_load->imageSize($image_max_size);
-
-	$errors = $image_up_load->errors;
+	include __DIR__ .'/load_image.php';
 		
 	if(!$errors){
 		/* Upload image */
@@ -364,16 +365,7 @@ function updatePost($request_values){
 		}
 	}
 	/* Prepare image  */
-	$received_name = $_FILES['post_main_image'];
-	$target_file = '../resources/images/'.basename($received_name['name']);
-	$image_max_size=500000;
-	$allowed_types = ['jpg','jpeg','png','gif','webp'];
-
-    $image_up_load = new ImageUpLoad($received_name,$target_file);
-	$image_up_load->checkImageType($allowed_types);
-	$image_up_load->imageSize($image_max_size);
-
-	$errors = $image_up_load->errors;
+	include __DIR__ .'/load_image.php';
 		
 	if(!$errors){
 		$result = $image_up_load->moveFile($target_file);
