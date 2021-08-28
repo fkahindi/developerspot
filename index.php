@@ -13,9 +13,9 @@ include __DIR__ .'/admin/includes/admin_functions.php';
 <head>
   <!-- head section -->
   <?php include_once __DIR__ .'/templates/head.html.php'; ?>
-  <link rel="canonical" href="https://www.developerspot.co.ke/index.php">
-  <title>Building dynamic responsive websites and web apps</title> 
-    <meta name="description" content="Building dynamic responsive webpages powered by PHP and MySQL. Core technologies focused are HTML, CSS, JavaScript and their associated libraries." />
+  <link rel="canonical" href="https://www.developerspot.co.ke">
+  <title>Building interactive, responsive websites and web apps</title> 
+    <meta name="description" content="Building interactive, responsive websites and apps powered by PHP and MySQL. Core technologies: HTML, CSS, JavaScript and associated libraries." />
     <meta name="keywords" content="creating, html, webpages, form, javascript, elements, language, php, mysql,  designing, development, developerspot, blog, build,  core technologies, tutorials"/>
     <!-- Twitter & OG metas -->
     <meta name="twitter:card" content="summary">
@@ -23,8 +23,8 @@ include __DIR__ .'/admin/includes/admin_functions.php';
     <meta name="twitter:creator" content="@fkahindi">
     <meta property="og:url" content="<?php echo $url;?>" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Building dynamic responsive websites and web apps" />
-    <meta property="og:description" content="Building dynamic responsive webpages powered by PHP and MySQL. Core technologies focused are HTML, CSS, JavaScript and their associated libraries" />
+    <meta property="og:title" content="Building interactive, responsive websites and web apps" />
+    <meta property="og:description" content="Building dynamic responsive websites and apps powered by PHP and MySQL. Core technologies: HTML, CSS, JavaScript and associated libraries" />
     <meta property="og:image" content="<?php echo BASE_URL ?>resources/images/responsive-webpage.png" />
     <meta property="fb:app_id"	content="502152493814762"/>
   <style>
@@ -95,7 +95,7 @@ include __DIR__ .'/admin/includes/admin_functions.php';
       <main class="class="grid-wrapper">
         <section class="section-one">
           <div class="welcome"> 
-          <h1>Bulding Websites</h1> 
+          <h1>Bulding Interactive, Responsive Websites</h1> 
             
             <p>What does it take to build a website? Well, it depends on what you want to achieve, and the tools at hand. But a grasp of core technologies can go a long way.</p> 
             <p>Take for example this blog site, of course HTML and CSS are the building blocks of web development. But, there's some JavaScript, some jQuery and Ajax added there. Then at the back end, powered by PHP and MySQL. I'm not saying these are the only technologies one can use to build a website, but at least they are the ones I used here. At Developerspot, I focus on these.</p>
@@ -156,9 +156,9 @@ include __DIR__ .'/admin/includes/admin_functions.php';
                           
               <div class="posts-snippets">         
                 <?php echo (!empty($post['image'])? '<img src="'.$post['image'].'" loading="lazy" width="100" height="90" alt="'.(!empty($post['image_caption'])? $post['image_caption']:'').'" class="post-thumb-nail">':'')?>
-                <h4><a href="<?php echo BASE_URL ?>posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>"> <?php echo htmlspecialchars_decode($post['post_title']) ?></a></h4>
+                <h4><a href="<?php echo BASE_URL ?>posts/<?php echo $post['post_slug'] ?>"> <?php echo htmlspecialchars_decode($post['post_title']) ?></a></h4>
                 <p> <?php echo getFirstParagraphPostById($post_id['post_id']) ?>
-                <a href="<?php echo BASE_URL ?>posts/<?php echo $post_id['post_id'] ?>/<?php echo $post['post_slug'] ?>"><strong>Read more...</strong></a></p>
+                <a href="<?php echo BASE_URL ?>posts/<?php echo $post['post_slug'] ?>"><strong>Read more...</strong></a></p>
               </div>
           <?php endforeach ?>
           </div>	
@@ -170,6 +170,7 @@ include __DIR__ .'/admin/includes/admin_functions.php';
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"
           ></script>
+      <script>var stylesheet = "https://app.testdome.com/content/source/stylesheets/embed.css", link = document.createElement("link"); link.href = stylesheet, link.type = "text/css", link.rel = "stylesheet", link.media = "screen,print", document.getElementsByTagName("head")[0].appendChild(link);</script>
           <!--  
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
           <script src="https://www.developerspot.co.ke/resources/js/page-control.js"></script>
