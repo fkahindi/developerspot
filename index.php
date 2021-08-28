@@ -170,7 +170,6 @@ include __DIR__ .'/admin/includes/admin_functions.php';
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"
           ></script>
-      <script>var stylesheet = "https://app.testdome.com/content/source/stylesheets/embed.css", link = document.createElement("link"); link.href = stylesheet, link.type = "text/css", link.rel = "stylesheet", link.media = "screen,print", document.getElementsByTagName("head")[0].appendChild(link);</script>
           <!--  
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
           <script src="https://www.developerspot.co.ke/resources/js/page-control.js"></script>

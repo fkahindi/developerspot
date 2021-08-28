@@ -39,10 +39,6 @@ if(isset($_POST['search_user'])){
 if(isset($_POST['update_user'])){
 	updateUser($_POST['update_user']);
 }
-/* if user clicks Delete admin button */
-if(isset($_GET['delete-User'])){
-	deleteUser($user_id);
-}
 /*-----------------------------
 --Topic actions
 ------------------------------*/
