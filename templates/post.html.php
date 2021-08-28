@@ -4,8 +4,8 @@ if(!isset($_SESSION)){
 }
 	include __DIR__ .'/../admin/includes/posts_functions.php';
 	include __DIR__ .'/../admin/includes/admin_functions.php';
-	if(isset($_GET['id'])){
-		$posts = getPostById($_GET['id']);
+	if(isset($_GET['slug'])){
+		$posts = getPostBySlug($_GET['slug']);
 		if(empty($posts)){
 			header("Location:../index.php");
 		}
@@ -27,7 +27,7 @@ if(!isset($_SESSION)){
 <head>
 <!-- head section -->
 	<?php include_once __DIR__ .'/head.html.php';?>
-	<link rel="canonical" href="https://www.developerspot.co.ke/posts/<?=$page_id ?>/<?=$post_slug ?>">
+	<link rel="canonical" href="https://www.developerspot.co.ke/posts/<?=$post_slug ?>">
 	<title><?php echo htmlspecialchars_decode($posts['post_title']) ;?></title>
 	<meta name="description" content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>" />
 	<meta name="keywords" content="<?php echo (isset($posts['meta_keywords'])? htmlspecialchars_decode($posts['meta_keywords']):''); ?>" />

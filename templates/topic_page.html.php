@@ -108,14 +108,14 @@ if(isset($_GET['name'])){
 				<?php $pub_post['author'] = getPostAuthorById($pub_post['user_id'])?>
 				<div class="posts-snippets">
 				<?php echo (!empty($pub_post['image'])? '<img src="'.$pub_post['image'].'" loading="lazy" width="100" height="90" alt="'.(!empty($pub_post['image_caption'])? $pub_post['image_caption']:'').'" class="post-thumb-nail">':'')?>
-				<h4><a href="<?php echo BASE_URL ?>posts/<?php echo $pub_post['post_id'] ?>/<?php echo $pub_post['post_slug']?>"><?php echo $pub_post['post_title']?></a></h4>
+				<h4><a href="<?php echo BASE_URL ?>posts/<?php echo $pub_post['post_slug']?>"><?php echo $pub_post['post_title']?></a></h4>
 				
 					<span class="post-acreditation">  
 					<?php echo isset($pub_post['updated_at'])? 'Updated on '. date( 'F j, Y', strtotime($pub_post['updated_at'])): 'Published on '. date( 'F j, Y', strtotime($pub_post['created_at'])) ?></span>
 				
 				
 					<?php echo getFirstParagraphPostById($pub_post['post_id']) ?>
-					<a href="<?php echo BASE_URL ?>posts/<?php echo $pub_post['post_id'] ?>/<?php echo $pub_post['post_slug'] ?>">Read more...</a>
+					<a href="<?php echo BASE_URL ?>posts/<?php echo $pub_post['post_slug'] ?>">Read more...</a>
 				</div>
 				<?php endforeach ?>
 			</section>	
