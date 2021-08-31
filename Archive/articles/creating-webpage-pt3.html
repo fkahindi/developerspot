@@ -4,50 +4,126 @@
 
 <p>In this installment we are going to create a web form for placing reservation at our in progress Mara Resort webpage. At the end of this tutorial you should be able to:</p>
 <ul>
-	<li>create a  <em><span class="key">web form</span> and determine what appropriate  <em><span class="key">form input types</span></em> to deploy.</span></em></li>
-    <li>control how <em>form elements</em> function using attributes.  </li>
+    <li>create a <em><span class="key">web form</span> and determine what appropriate  <em><span class="key">form input types</span></em> to deploy.</span>
+        </em>
+    </li>
+    <li>control how <em>form elements</em> function using attributes. </li>
     <li>style a web form with CSS.</li>
 </ul>
 <h2>The <code>&lt;Form&gt;</code> Element</h2>
-<p>A web form starts with <code>&lt;form&gt;</code>  and ends with <code>&lt;/form&gt;</code> tags. In between the two tags goes the various input fields and other form elements.</p>
+<p>A web form starts with <code>&lt;form&gt;</code> and ends with <code>&lt;/form&gt;</code> tags. In between the two tags goes the various input fields and other form elements.</p>
 <pre class="prettyprint linenums">
 &lt;form&gt;
     ...input elements go here...
 &lt;/form&gt;
 </pre>
 <h3>Form <code>&lt;input&gt;</code> Types</h3>
-<p>Every form will have at least one <code>&lt;input&gt;</code> element. How the input will function depends on its <span class="key"><em>type</em> attribute</span>. If the type attribute is not specified in the &lt;input&gt; element, then the input will default to <code>&lt;input type="text"&gt;</code>.</p>
+<p>Every form will have at least one <code>&lt;input&gt;</code> element. How the input will function depends on its <span class="key"><em>type</em> attribute</span>. If the type attribute is not specified in the &lt;input&gt; element, then the input will
+    default to <code>&lt;input type="text"&gt;</code>.</p>
 <p> There are more than a dozen <i>form control types</i> we can't exhaust them here, and there is no way you will need all of them at once.</p>
-<p><b>Usage syntax is:</b> <code>&lt;input type="value"&gt;</code></p> 
+<p><b>Usage syntax is:</b> <code>&lt;input type="value"&gt;</code></p>
 <p>Here is a list of <strong><span class="key">input types</span></strong> you are likely to come across with their brief explanation.</p>
 <table>
     <thead>
-        <tr><th>Type <em>value</em></th><th>Description</th></tr>
+        <tr>
+            <th>Type <em>value</em></th>
+            <th>Description</th>
+        </tr>
     </thead>
     <tbody>
-        <tr><td>button</td><td>Defines a clickable button with no default behavior (mostly used with JavaScript).</td></tr>
-        <tr><td>checkbox</td><td>A check box allows its value to be checked (selected) or unchecked (deselected).</td></tr>
-        <tr><td>file</td><td>An input field that lets the user select a file from local storage for upload.</td></tr>
-        <tr><td>hidden</td><td>Defines an input field that is hidden from view but whose value is submitted with the form.</td></tr>
-        <tr><td>image</td><td>Defines a graphical submit button. The displayed image is defined by the src attribute.</td></tr>
-        <tr><td>password</td><td>Defines a single-line text field whose value is obscured.</td></tr>
-        <tr><td>radio</td><td>A radio button allows a single value to be selected out of multiple choices with the same name value.</td></tr>
-        <tr><td>reset</td><td>A button that clears the form contents to default values (its usage is nowadays discouraged). </td></tr> 
-        <tr><td>submit</td><td>A button that submits the form.</td></tr>
-        <tr><td>text</td><td> Defines a single-line text field.</td></tr>    
-        <tr><td colspan="2"><h4>Introduced in HTML5</h4></td></tr>        
-        <tr><td>color</td><td>A control that opens a color picker when active in supporting browsers.</td></tr>
-        <tr><td>date</td><td>A control that opens a date picker or numeric wheels for entering date, year, month, and day (no time).</td></tr>
-        <tr><td>datetime-local</td><td>A control for entering a date and time, with no time zone.</td></tr>
-        <tr><td>email</td><td>A field that looks like a text input but only allows valid email addresses.</td></tr>
-        <tr><td>month</td><td>A control for entering a month and year, with no time zone.</td></tr>
-        <tr><td>number</td><td>An input field for entering a number. Displays a spinner and adds default validation when supported.</td></tr>
-        <tr><td>range</td><td>A control for entering a number whose exact value is not important. Used in conjunction min and max to define the range of acceptable values.</td></tr>
-       <tr><td>search</td><td>Defines a single-line text field for entering search strings. Displays a search icon instead of enter key on some devices.</td></tr>
-        <tr><td>tel</td><td>Defines an input field for entering a telephone number. </td></tr>        
-        <tr><td>time</td><td>An input field for entering a time value with no time zone.</td></tr>
-        <tr><td>url</td><td>Defines text input that allows only valid URL input.</td></tr>
-        <tr><td>week</td><td>A control for entering a date consisting of a week-year number and a week number with no time zone.</td></tr>        
+        <tr>
+            <td>button</td>
+            <td>Defines a clickable button with no default behavior (mostly used with JavaScript).</td>
+        </tr>
+        <tr>
+            <td>checkbox</td>
+            <td>A check box allows its value to be checked (selected) or unchecked (deselected).</td>
+        </tr>
+        <tr>
+            <td>file</td>
+            <td>An input field that lets the user select a file from local storage for upload.</td>
+        </tr>
+        <tr>
+            <td>hidden</td>
+            <td>Defines an input field that is hidden from view but whose value is submitted with the form.</td>
+        </tr>
+        <tr>
+            <td>image</td>
+            <td>Defines a graphical submit button. The displayed image is defined by the src attribute.</td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>Defines a single-line text field whose value is obscured.</td>
+        </tr>
+        <tr>
+            <td>radio</td>
+            <td>A radio button allows a single value to be selected out of multiple choices with the same name value.</td>
+        </tr>
+        <tr>
+            <td>reset</td>
+            <td>A button that clears the form contents to default values (its usage is nowadays discouraged). </td>
+        </tr>
+        <tr>
+            <td>submit</td>
+            <td>A button that submits the form.</td>
+        </tr>
+        <tr>
+            <td>text</td>
+            <td> Defines a single-line text field.</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h4>Introduced in HTML5</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>color</td>
+            <td>A control that opens a color picker when active in supporting browsers.</td>
+        </tr>
+        <tr>
+            <td>date</td>
+            <td>A control that opens a date picker or numeric wheels for entering date, year, month, and day (no time).</td>
+        </tr>
+        <tr>
+            <td>datetime-local</td>
+            <td>A control for entering a date and time, with no time zone.</td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td>A field that looks like a text input but only allows valid email addresses.</td>
+        </tr>
+        <tr>
+            <td>month</td>
+            <td>A control for entering a month and year, with no time zone.</td>
+        </tr>
+        <tr>
+            <td>number</td>
+            <td>An input field for entering a number. Displays a spinner and adds default validation when supported.</td>
+        </tr>
+        <tr>
+            <td>range</td>
+            <td>A control for entering a number whose exact value is not important. Used in conjunction min and max to define the range of acceptable values.</td>
+        </tr>
+        <tr>
+            <td>search</td>
+            <td>Defines a single-line text field for entering search strings. Displays a search icon instead of enter key on some devices.</td>
+        </tr>
+        <tr>
+            <td>tel</td>
+            <td>Defines an input field for entering a telephone number. </td>
+        </tr>
+        <tr>
+            <td>time</td>
+            <td>An input field for entering a time value with no time zone.</td>
+        </tr>
+        <tr>
+            <td>url</td>
+            <td>Defines text input that allows only valid URL input.</td>
+        </tr>
+        <tr>
+            <td>week</td>
+            <td>A control for entering a date consisting of a week-year number and a week number with no time zone.</td>
+        </tr>
     </tbody>
 </table>
 <p>For example, you can use <i>email</i> type attribute in the following way:</p>
@@ -61,24 +137,72 @@
 <p>Apart from the <i>type</i> attribute, an input can have other attributes that can be used to control the behavior of the form. I have tabulated some of them below.</p>
 <table>
     <thead>
-        <tr><th>Attribute</th><th>Description</th></tr>
+        <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+        </tr>
     </thead>
     <tbody>
-        <tr><td>autocomplete</td><td> Hint for field autofill feature</td></tr>
-        <tr><td>autofocus</td><td>Automatically focus the form control when the page is loaded</td></tr>
-        <tr><td>checked</td><td>Whether the control is selected. Applies to radio and checkboxes.</td></tr>        
-        <tr><td>disabled</td><td>When used, the form control is disabled.</td></tr>
-        <tr><td>maxlength</td><td>Maximum length (number of characters) of the value. Applies to password, search, tel, text, url input types.</td></tr>
-        <tr><td>minlength</td><td>Minimum length (number of characters) of the value. Applies to password, search, tel, text, url input types.</td></tr>
-        <tr><td>multiple</td><td>Whether to allow multiple values.</td></tr>
-        <tr><td>name</td><td>Names the form control. It's name is submitted with the form as part of a name/value pair.</td></tr>
-        <tr><td>pattern</td><td>A validation pattern the value of an input field must match to be valid. </td></tr>
-        <tr><td>placeholder</td><td>Text that appears in  an input field when it has no value set. Applies to password, search, tel, text, url input types.</td></tr>
-        <tr><td>readonly</td><td>Makes the value in an input control not editable.</td></tr>
-        <tr><td>required</td><td>A value is required or must be checked for the form to be submittable.</td></tr>
-        <tr><td>size</td><td>The width of the control in characters. It applies to email, password, tel and text input types.</td></tr>
-        <tr><td>type</td><td>Type of form control</td></tr>
-        <tr><td>value</td><td>The current value of the form control submitted with the form as part of a name/value pair.</td></tr>
+        <tr>
+            <td>autocomplete</td>
+            <td> Hint for field autofill feature</td>
+        </tr>
+        <tr>
+            <td>autofocus</td>
+            <td>Automatically focus the form control when the page is loaded</td>
+        </tr>
+        <tr>
+            <td>checked</td>
+            <td>Whether the control is selected. Applies to radio and checkboxes.</td>
+        </tr>
+        <tr>
+            <td>disabled</td>
+            <td>When used, the form control is disabled.</td>
+        </tr>
+        <tr>
+            <td>maxlength</td>
+            <td>Maximum length (number of characters) of the value. Applies to password, search, tel, text, url input types.</td>
+        </tr>
+        <tr>
+            <td>minlength</td>
+            <td>Minimum length (number of characters) of the value. Applies to password, search, tel, text, url input types.</td>
+        </tr>
+        <tr>
+            <td>multiple</td>
+            <td>Whether to allow multiple values.</td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>Names the form control. It's name is submitted with the form as part of a name/value pair.</td>
+        </tr>
+        <tr>
+            <td>pattern</td>
+            <td>A validation pattern the value of an input field must match to be valid. </td>
+        </tr>
+        <tr>
+            <td>placeholder</td>
+            <td>Text that appears in an input field when it has no value set. Applies to password, search, tel, text, url input types.</td>
+        </tr>
+        <tr>
+            <td>readonly</td>
+            <td>Makes the value in an input control not editable.</td>
+        </tr>
+        <tr>
+            <td>required</td>
+            <td>A value is required or must be checked for the form to be submittable.</td>
+        </tr>
+        <tr>
+            <td>size</td>
+            <td>The width of the control in characters. It applies to email, password, tel and text input types.</td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>Type of form control</td>
+        </tr>
+        <tr>
+            <td>value</td>
+            <td>The current value of the form control submitted with the form as part of a name/value pair.</td>
+        </tr>
     </tbody>
 </table>
 <p>An example of using some of these attributes is like:</p>
@@ -88,7 +212,8 @@
 &lt;/form&gt;
 </pre>
 <h3>Other Form Controls</h3>
-<p>Other form controls that do not use <code>&lt;input type=" "&gt;</code> are <code><span class="key">textarea</span></code> and <code>select</code>. <code>&lt;textarea&gt;</code> control allows multi-line text and can be used to collect user views or comments. <code>&lt;select&gt;</code> provides a list of options for the user to choose from. </p>
+<p>Other form controls that do not use <code>&lt;input type=" "&gt;</code> are <code><span class="key">textarea</span></code> and <code>select</code>. <code>&lt;textarea&gt;</code> control allows multi-line text and can be used to collect user views or comments.
+    <code>&lt;select&gt;</code> provides a list of options for the user to choose from. </p>
 <p>Having gone through all the possible form controls and attributes one can use, here is the code of the <i>reservation form</i> for <i>The Mara Resort</i>.</p>
 <pre class="prettyprint linenums">
   &lt;form action="ContactForm.php" method="POST"&gt;
@@ -139,22 +264,28 @@
 </pre>
 <p>Let me explain some of the not-so-obvious attributes we have used in the above form.</p>
 <h3>Form <code>Action</code> Attribute</h3>
-<p>In the above code we have used <code>action="ContactForm.php"</code> in the opening form tag. Normally, the value of the <span class="key"><code>action=" "</code> attribute</span> specifies the file that will receive or process the form values on form submission. In our case, <i>ContactForm.php</i> is the file that will process the form when submitted. This is a PHP server-side file.</p>
+<p>In the above code we have used <code>action="ContactForm.php"</code> in the opening form tag. Normally, the value of the <span class="key"><code>action=" "</code> attribute</span> specifies the file that will receive or process the form values on form
+    submission. In our case, <i>ContactForm.php</i> is the file that will process the form when submitted. This is a PHP server-side file.</p>
 <p class="special-p">There are other ways to process form values than specifying a file using <code>action</code> attribute. So you are likely to see forms that don't use <code>action</code> attribute. </p>
 <h3>Form <code>Method</code> Attribute</h3>
-<p>The <span class="key"><code>method</code> attribute</span> in the form element tells the browser how to send the form data to the server. Its value specifies the HTTP method to be used in submitting the data. There are two HTTP methods for submitting forms: <b>GET</b> and <b>POST</b>.  </p>
+<p>The <span class="key"><code>method</code> attribute</span> in the form element tells the browser how to send the form data to the server. Its value specifies the HTTP method to be used in submitting the data. There are two HTTP methods for submitting
+    forms: <b>GET</b> and <b>POST</b>. </p>
 <h4><code>GET</code> Method</h4>
-<p>On form submission <b>GET</b> method appends form data at the end of the page <em>URL</em>. Consequently, the form values will be visible in the page URL at submission and can be cached by the browser. <b>GET</b>also limits the size of data it can send. The whole URL including the data should not be more than 2048 characters. Using <span>GET method</span> is unsecure way of submitting data to a server.</p>
+<p>On form submission <b>GET</b> method appends form data at the end of the page <em>URL</em>. Consequently, the form values will be visible in the page URL at submission and can be cached by the browser. <b>GET</b>also limits the size of data it can send.
+    The whole URL including the data should not be more than 2048 characters. Using <span>GET method</span> is unsecure way of submitting data to a server.</p>
 <p class="special-p">Never submit sensitive data using <b>GET</b> method. Nonetheless, there are times GET is the most ideal to use. For example a search form should use GET method so that users can bookmark the search results.</p>
 <h4><code>POST</code> Method</h4>
-<p><b>POST</b> method appends form data in the body of the HTTP request. This method has no size limitation, neither can one bookmark the result. Information sent using <span class="key">POST method</span> is not visible to the user. We have used <code>method="POST"</code> in the form above because the data we are collecting is confidential.</p>
+<p><b>POST</b> method appends form data in the body of the HTTP request. This method has no size limitation, neither can one bookmark the result. Information sent using <span class="key">POST method</span> is not visible to the user. We have used <code>method="POST"</code>    in the form above because the data we are collecting is confidential.</p>
 <p class="special-p"><b>POST</b> method is ideal for submitting sensitive data securely to the server, especially if it is used over HTTPS protocol.</p>
 <h3>Radio Buttons</h3>
-<p><code>&lt;input type="radio"&gt;</code> is used when the user has to choose one out of two or three options. The group of radio buttons should share the same name (<code>name="gender"</code> above)  but different values (<code>value="male"</code>, <code>value="female"</code>, <code>value="other"</code> above). For instance when the form above is submitted, the processing file or program will receive <i>gender = "value of option selected"</i></p>
+<p><code>&lt;input type="radio"&gt;</code> is used when the user has to choose one out of two or three options. The group of radio buttons should share the same name (<code>name="gender"</code> above) but different values (<code>value="male"</code>, <code>value="female"</code>,
+    <code>value="other"</code> above). For instance when the form above is submitted, the processing file or program will receive <i>gender = "value of option selected"</i></p>
 <h4>Pattern Attribute</h4>
-<p><b>Pattern</b> attribute controls what characters or how data should be entered in the field. For example in the <code>tel</code> field above, we have used <code>pattern="/^(\+[\d]{,3})?[ .-]?[\d]{3}[ .-]?[\d]{3}[ .-]?[\d]{3}$/"</code>. This allows an optional country code of upto three digits, then mandatory nine digits in group of threes, seperated by a space, period or hyphen. The <code>placeholder="(+123)-555-555-555"</code> tries to guide the user how to fill the telephone number.   </p>
+<p><b>Pattern</b> attribute controls what characters or how data should be entered in the field. For example in the <code>tel</code> field above, we have used <code>pattern="/^(\+[\d]{,3})?[ .-]?[\d]{3}[ .-]?[\d]{3}[ .-]?[\d]{3}$/"</code>. This allows an
+    optional country code of upto three digits, then mandatory nine digits in group of threes, seperated by a space, period or hyphen. The <code>placeholder="(+123)-555-555-555"</code> tries to guide the user how to fill the telephone number. </p>
 <h3>Form &lt;select&gt; Control</h3>
-<p>&lt;select&gt; element is used to output a list of options a user can select from. The items choices are placed within <code>&lt;option&gt;</code> tags with a <code>value</code> attribute. In our case, I have listed some East African countries and major tourist markets for <i>The Mara Resort.</i></p>
+<p>&lt;select&gt; element is used to output a list of options a user can select from. The items choices are placed within <code>&lt;option&gt;</code> tags with a <code>value</code> attribute. In our case, I have listed some East African countries and major
+    tourist markets for <i>The Mara Resort.</i></p>
 <h2>Styling the Form</h2>
 <p>Next, paste the form code on the <code>aside</code> section of the <i>index.html</i> in the <i>mara-project</i> folder. We will also style the form with the following style rules. </p>
 <pre class="prettyprint linenums">
@@ -311,8 +442,9 @@ input[type="submit"]{
     cursor:pointer;
 }
 </pre>
-<p>Save the file in the <i>mara-project</i> with the name <code>main.css</code></p> 
-<p>Open the <code>index.html</code> file in a text editor again. Then move to the <code>head</code> section of the document and delete all styles within and including <code>&lt;style&gt;</code> and <code>&lt;/style&gt;</code> tags. In its place paste the following reference.</p>
+<p>Save the file in the <i>mara-project</i> with the name <code>main.css</code></p>
+<p>Open the <code>index.html</code> file in a text editor again. Then move to the <code>head</code> section of the document and delete all styles within and including <code>&lt;style&gt;</code> and <code>&lt;/style&gt;</code> tags. In its place paste the
+    following reference.</p>
 <pre class="prettyprint">
 &lt;link rel="stylesheet" href="main.css"&gt;
 </pre>
@@ -422,10 +554,12 @@ input[type="submit"]{
 &lt;/html&gt;
 </pre>
 <p>If you did everything correctly, you can now open the <i>index.html</i> on the browser and the form should look like the one below.</p>
-<figure class="align-center"> 
-	<img src="/spexproject/resources/images/reservation-form.png" alt="Reservation form" width="60%"/>
-	<figcaption class="align-center">Reservation form for The Mara Resort</figcaption>
+<figure class="align-center">
+    <img src="/spexproject/resources/images/reservation-form.png" alt="Reservation form" width="60%" />
+    <figcaption class="align-center">Reservation form for The Mara Resort</figcaption>
 </figure>
 <h2>Conclusion</h2>
-<p>Most of the time we use a small set of HTML form controls, but sometimes you may need the ones not commonly used. Knowing how to design a form is one thing, making it deliver secure data to the server is another. You should always ensure form data is validated before it can be processed by the server. Supplementally, you can check out <a href="/spexproject/posts/1/html5-form-validation">HTML5 Form Validation</a> and <a href="post.html.php?id=3">Form Validation in JavaScript</a> for more understanding on how to secure forms.</p>
+<p>Most of the time we use a small set of HTML form controls, but sometimes you may need the ones not commonly used. Knowing how to design a form is one thing, making it deliver secure data to the server is another. You should always ensure form data is
+    validated before it can be processed by the server. Supplementally, you can check out <a href="/spexproject/posts/1/html5-form-validation">HTML5 Form Validation</a> and <a href="post.html.php?id=3">Form Validation in JavaScript</a> for more understanding
+    on how to secure forms.</p>
 <p>Please, feel free to leave a comment below. If you find this material helpful, subscribe to get notification when a new post is out. Happy coding!</p>
