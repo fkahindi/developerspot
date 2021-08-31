@@ -72,7 +72,7 @@
 									<td><?php echo $post['post_id'] ?></td>
 									<td><?php echo $post['author'] ?></td>
 									<td>
-									<a href="../templates/post.html.php?id=<?php echo $post['post_id'] ?>&title=<?php echo $post['post_slug'] ?>">
+									<a href="../posts/<?php echo $post['post_slug'] ?>">
 									<?php echo $post['post_title'] ?>
 									</a>
 									</td>
