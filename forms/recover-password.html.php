@@ -1,4 +1,7 @@
-<?php 
+<?php
+if (!isset($_SESSION)) {
+	session_start();
+}
 include __DIR__ .'/../includes/process_form.php'; 
 if(isset($_POST['recover_password'])){
 	recoverPassword();	
