@@ -16,7 +16,7 @@ $password_pattern = "/^[\w\-.]+$/"; /* // Matches letters, numbers, underscore, 
 
 /* //This section handles user account creation */
 function createAccount(){
-	global $pdo, $errors,$valid, $gen_pattern, $form_error, $form_success;
+	global $pdo, $errors,$valid, $gen_pattern, $form_error;
 		
 	/* //Assign variables */
 	$username = $_POST['username'];
@@ -97,13 +97,13 @@ function createAccount(){
 					/* If link was sent in less than 24 hrs notify user */
 
 					$_SESSION['email_success'] = 'A link was sent to '.$temp_row['email'].' address in less than 24 hours ago. Check your email inbox.';
-                    header('Location: '.BASE_URL.'templates/thank-you.html.php');
+                    header('Location: '.BASE_URL.'thank-you.php');
 				}else{
 					/* Update token, date and fullname (if set) then send email link */
 					$fields = ['token' => $token, 'created_at' => $created_at];
-					$update_usersToken = $users_tempTable->updateRecords($fields,$email);
+					$users_tempTable->updateRecords($fields,$email);
 					require_once __DIR__ .'/create-account-email-link.php';
-                    header('Location: '.BASE_URL.'templates/thank-you.html.php');
+                    header('Location: '.BASE_URL.'thank-you.php');
 				} 	
 			}else{
 				$fields = [
@@ -114,8 +114,8 @@ function createAccount(){
 				];				
 				require_once __DIR__ .'/create-account-email-link.php';	
 				if(isset($_SESSION['email_success'])){
-					$insert_tempRecord = $users_tempTable ->insertRecord($fields);
-                    header('Location: '.BASE_URL.'templates/thank-you.html.php');
+					$users_tempTable ->insertRecord($fields);
+                    header('Location: '.BASE_URL.'thank-you.php');
 				}else{
 					$form_error = $email_error;
 				}
@@ -183,7 +183,7 @@ function setAccountPassword(){
 						
 						$created_at = new DateTime();	
 						$created_at = $created_at->format('Y-m-d H:i:s');
-						$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+						$password = password_hash($password, PASSWORD_DEFAULT);
 						$profile_photo = BASE_URL . 'resources/photos/profile.png';
 						$fields = [
 							'username'=> $username,
@@ -204,7 +204,6 @@ function setAccountPassword(){
 						header('Location:'.BASE_URL.'login');
 									
 					}else{
-						
 						echo 'The token expired';
 						exit();
 					}			
@@ -225,7 +224,7 @@ function setAccountPassword(){
 	
 /* This function handles user logins */
 function login(){
-	global $pdo, $valid, $errors;
+	global $pdo, $valid, $errors, $form_error;
 	if(isset($_SESSION['page_id'])&& isset($_SESSION['post_slug'])){
 		$page_id = $_SESSION['page_id'];
 		$page_slug = $_SESSION['post_slug'];
@@ -253,7 +252,7 @@ function login(){
 	}else{
 		
 		$password = filter_var($password, FILTER_SANITIZE_STRING);
-		$password =trim($_POST['password']);
+		$password =trim($password);
 		$valid = true;
 	}
 	if(!$valid){
@@ -304,8 +303,8 @@ function login(){
 				$_SESSION['post_slug'] = $page_slug;
 					
 				/* Redirect accordingly */
-				if(isset($_SESSION['page_id'])){
-					header('Location:'.BASE_URL.'posts/'.$_SESSION['page_id'].'/'.$_SESSION['post_slug']);
+				if(isset($_SESSION['post_slug'])){
+					header('Location:'.BASE_URL.'posts/'.$_SESSION['post_slug']);
 				}else{
 					header('Location:'.BASE_URL.'index.php');
 				}					
@@ -358,8 +357,7 @@ function changePassword(){
 		$errors['confirm_new_password'] ='Your new password did not match';
 	}else{
 		$valid = true;
-	}
-		
+	}	
 	if($valid){	
 		
 		$usersTable = new DatabaseTable($pdo,'users', 'email','username');
@@ -379,7 +377,7 @@ function changePassword(){
 				
 				$fields =['password'=> $new_password];
 				
-				$sql=$usersTable->updateRecords($fields,$email);
+				$usersTable->updateRecords($fields,$email);
 											
 				/* Set a variables to display on the login form */
 				$_SESSION['success_msg'] = 'Update successful. <br> Please, login with your new password';
@@ -400,7 +398,7 @@ function changePassword(){
 
 /* This function begins the process of recovering forgotten password */
 function recoverPassword(){
-	global $pdo, $valid, $errors;
+	global $pdo, $valid, $errors, $email_error;
 	$email = $_POST['email'];
 			
 	if(empty($_POST['email'])){
@@ -443,9 +441,11 @@ function recoverPassword(){
 				'expDate' => $expDate
 			];
 			$password_resetTable =  new DatabaseTable($pdo, 'password_reset_temp');
-			$password_resetTable->insertRecord($fields);
-			
-			include __DIR__. '/../includes/reset-password-link.php';
+			include __DIR__ . '/reset-password-link.php';
+			if(isset($_SESSION['email_success'])){
+				$password_resetTable->insertRecord($fields);
+				header('Location: '.BASE_URL.'thank-you.php');
+			}			
 		}
 	}
 }
@@ -465,9 +465,8 @@ function resetPassword(){
 	}else{
 		$valid = true;
 		$new_password = filter_var($_POST['new_password'], FILTER_SANITIZE_STRING);
-		$new_password = trim($_POST['new_password']);
+		$new_password = trim($new_password);
 		$confirm_new_password = filter_var($_POST['confirm_new_password'], FILTER_SANITIZE_STRING);
-		$confirm_new_password = trim($_POST['confirm_new_password']);
 	}
 			
 	if(!preg_match($password_pattern,$new_password)){
@@ -598,7 +597,7 @@ function imageUpload(){
 			}			
 			//Redirect accordingly 
 			if(isset($_SESSION['page_id'])){
-				header('Location: '.BASE_URL.'posts/'.$_SESSION['page_id'].'/'.$_SESSION['post_slug']);
+				header('Location: '.BASE_URL.'posts/'.$_SESSION['post_slug']);
 			}else{
 				header('Location: '.BASE_URL.'index.php');
 			}				

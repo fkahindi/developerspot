@@ -26,5 +26,5 @@ if(!$mail->Send()){
 	$form_error = 'Oops! Sending error has occured.'. $mail->ErrorInfo;
 }else{
    $_SESSION['message_success'] = "Thank you for reaching out to me. Depending on what you are enquiring I will get back to you.";
-    header('Location: templates/thank-you.html.php');
+    header('Location: '.BASE_URL.'thank-you.php');
 }

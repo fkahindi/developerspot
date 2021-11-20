@@ -15,6 +15,13 @@ key='.$token.'&email='.$email.'&action=reset" target="_blank">
 Recover my password</a></p>';		
 $output.='<p>------------------------------------------------</p>';
 $output.='The link will expire after 1 hour for security reasons.</p>';
+$output .= '<p>If the link above is not working, copy the link below and paste on the browser\'s address bar</p>';
+$output .= '<p>------------------------------------------------</p>';
+$output .= '<p><a href="localhost/spexproject/reset-password?
+key=' . $token . '&email=' . $email . '&action=reset" target="_blank">
+localhost/spexproject/reset-password?
+key=' . $token . '&email=' . $email . '&action=reset</a></p>';
+$output .= '<p>------------------------------------------------</p>';
 $output.='<p>If you did not request this forgotten password email, no action 
 is needed, your password will not be reset. However, you may need to log into 
 your account and change your security password as someone may be trying to guess it.</p>';   	
@@ -42,8 +49,8 @@ $mail->Subject = $subject;
 $mail->Body = $body;
 $mail->AddAddress($email_to);
 if(!$mail->Send()){
-	$email_error = ' <div class="errorMsg"> Message could not be sent. Mailer Error: '. $mail->ErrorInfo .'</div>';
+	$email_error = 'Message could not be sent. Mailer Error: '. $mail->ErrorInfo;
 }else{
-	header('Location: ../templates/mail-send.html.php');
-	}
+	$_SESSION['email_success'] = "<p>An email has been sent to " . $email . ", with instructions on how to reset your password.</p>";
+}
  
