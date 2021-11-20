@@ -23,9 +23,12 @@ ErrorDocument 404 errors/404.html
 #
 RewriteRule ^posts/(.*)$ templates/post.html.php?slug=$1 [NC,L]
 RewriteRule ^topic/(.*)$ templates/topic_page.html.php?name=$1 [NC,L]
+RewriteRule ^thank-you.php$ templates/thank-you.html.php [NC,L]
+RewriteRule ^mail-send.php$ templates/mail-send.html.php [NC,L]
 RewriteRule ^contact.php$ forms/contact-me-form.html.php [NC,L]
 RewriteRule ^login$ forms/login.html.php [NC,L]
 RewriteRule ^create-account$ forms/create-account.html.php [NC,L]
+RewriteRule ^set-account-password$ forms/set-account-password.html.php [NC,L]
 RewriteRule ^recover-password$ forms/recover-password.html.php [NC,L]
 RewriteRule ^change-password$ forms/change-password.html.php [NC,L]
 RewriteRule ^reset-password$ forms/reset-password.html.php [NC,L]
