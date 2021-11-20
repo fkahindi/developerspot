@@ -11,7 +11,7 @@ if(!isset($_SESSION)){
 <body>
 <?php if(!empty($_SESSION['email_success'])):?>
 <div class="successMsg"><?php echo $_SESSION['email_success']; ?></div>
-<p> <a href="login"> Continue</a></p>
+<p> <a href="../login"> Continue</a></p>
 <?php unset($_SESSION['email_success']);?>
 <?php else: ?>
 <?php echo ''; endif; ?>
