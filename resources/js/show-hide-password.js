@@ -1,62 +1,43 @@
-$("document").ready(function() {
-    "use strict";
+const form = document.querySelector('form');
 
-    $("#password_1").on('input', function() {
-        applyStyle(1);
-    });
-    $("#password_2").on('input', function() {
-        applyStyle(2);
-    });
-    $("#password_3").on('input', function() {
-        applyStyle(3);
-    });
+form.oninput = (e) => {
+    let elem = e.target;
+    let data_id = elem.getAttribute('data-id');
 
-    $("form").on("click", ["#toggle_view1", "#toggle_view2", "#toggle_view3"], function(e) {
-        let target = e.target;
-        switch (target.id.toLowerCase()) {
-            case "toggle_view1":
-                var id = $("#toggle_view1").data('id');
-                var pass = selectPasswordId(id);
-                var type = pass.getAttribute("type");
-
-                toggleView(type, pass);
-                toogleEye(id);
-                break;
-            case "toggle_view2":
-                var id = $("#toggle_view2").data('id');
-                var pass = selectPasswordId(id);
-                var type = pass.getAttribute("type");
-
-                toggleView(type, pass);
-                toogleEye(id);
-                break;
-            case "toggle_view3":
-                var id = $("#toggle_view3").data('id');
-                var pass = selectPasswordId(id);
-                var type = pass.getAttribute("type");
-
-                toggleView(type, pass);
-                toogleEye(id);
-                break;
-            default:
-                /* do nothing */
-        }
-    });
-
-    function toggleView(type, password) {
-        let toggleType = type === 'password' ? 'text' : 'password';
-        password.setAttribute('type', toggleType);
+    switch (elem.id) {
+        case 'password_' + data_id:
+            let eye_id = document.getElementById('toggle_view' + data_id);
+            applyStyle(data_id, eye_id);
+            break;
+        default:
+            //do nothing
     }
+}
+form.addEventListener('click', (e) => {
+    let target = e.target;
+    let data_id = target.getAttribute('data-id');
 
-    function applyStyle(id) {
-        $('#toggle_view' + id).attr('style', 'visibility : visible');
-    }
-
-    function selectPasswordId(id) {
-        return document.getElementById("password_" + id);
-    }
-
-    function toogleEye(id) {
-        return document.getElementById("toggle_view" + id).classList.toggle('fa-eye-slash');
+    switch (target.id) {
+        case 'toggle_view' + data_id:
+            let password_id = document.getElementById('password_' + data_id);
+            let eye_id = document.getElementById("toggle_view" + data_id);
+            togglePass(data_id, password_id);
+            toogleEye(data_id, eye_id);
+            break;
+        default:
+            //do nothing
     }
 });
+
+const applyStyle = (id, tag) => {
+    tag.setAttribute('style', 'visibility : visible');
+}
+
+const togglePass = (id, pass) => {
+    const type = pass.getAttribute('type') === 'password' ? 'text' : 'password';
+    pass.setAttribute('type', type);
+}
+
+const toogleEye = (id, toogle_view) => {
+    return toogle_view.classList.toggle('fa-eye-slash');
+}
