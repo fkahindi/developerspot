@@ -42,7 +42,7 @@ if (isset($_POST['login'])) {
 
 			<div class="group-form">
 				<label for="password">Password: <span class="right-align"> </span></label>
-				<input type="password" name="password" autocomplete="off" id="password_1">
+				<input type="password" name="password" autocomplete="off" id="password_1" data-id="1">
 				<i class="fa fa-eye" id="toggle_view1" data-id="1"></i>
 				<span class="errorMsg"><?php echo (!empty($errors['password']) ? $errors['password'] : ''); ?></span>
 			</div>
@@ -55,7 +55,6 @@ if (isset($_POST['login'])) {
 	<div class="section">
 		<p class="centered"><a href="<?php echo BASE_URL ?>recover-password">Forgot password</a> | <a href="<?php echo BASE_URL ?>create-account"> Create an account</a></p>
 	</div>
-	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/show-hide-password.js"></script>
 </body>
 

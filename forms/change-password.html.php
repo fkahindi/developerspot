@@ -36,14 +36,14 @@ if (isset($_POST['change_password'])) {
 		<form method="POST" action="">
 			<div class="group-form">
 				<label for="old_password">Old Password:<span class="red"> &#42;</span></label>
-				<input type="password" name="old_password" id="password_1" maxlength="50" autocomplete="off" required>
+				<input type="password" name="old_password" id="password_1" data-id="1" maxlength="50" autocomplete="off" required>
 				<i class="fa fa-eye" id="toggle_view1" data-id="1"></i>
 				<span class="errorMsg"><?php echo (!empty($errors['old_password']) ? $errors['old_password'] : ''); ?></span>
 			</div>
 
 			<div class="group-form">
 				<label for="new_password">New Password:<span class="red"> &#42;</span></label>
-				<input type="password" name="new_password" id="password_2" maxlength="50" autocomplete="off" required>
+				<input type="password" name="new_password" id="password_2" data-id="2" maxlength="50" autocomplete="off" required>
 				<i class="fa fa-eye" id="toggle_view2" data-id="2"></i>
 				<span class="errorMsg"><?php echo (!empty($errors['new_password']) ? $errors['new_password'] : ''); ?></span>
 				<ul class="form-guidelines">
@@ -54,7 +54,7 @@ if (isset($_POST['change_password'])) {
 
 			<div class="group-form">
 				<label for="confirm_new_password">Confirm New Password:<span class="red"> &#42;</span></label>
-				<input type="password" name="confirm_new_password" id="password_3" maxlength="50" autocomplete="off" required>
+				<input type="password" name="confirm_new_password" id="password_3" data-id="3" maxlength="50" autocomplete="off" required>
 				<i class="fa fa-eye" id="toggle_view3" data-id="3"></i>
 				<span class="errorMsg"><?php echo (!empty($errors['confirm_new_password']) ? $errors['confirm_new_password'] : ''); ?></span>
 			</div>
@@ -62,9 +62,7 @@ if (isset($_POST['change_password'])) {
 			<input type="submit" name="change_password" class="button" value="Change">
 		</form>
 	</div>
-	<!-- visibility:hidden -->
-	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
-	<script src="<?php echo BASE_URL ?>resources/js/show-hide-password.js"></script>
+	<script src="<?php echo BASE_URL ?>resources/js/show-hide-password.min2.js"></script>
 </body>
 
 </html>

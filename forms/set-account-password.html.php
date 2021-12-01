@@ -44,7 +44,7 @@ if (!empty($email) && !empty($token)) {
 				<input type="hidden" name="action" value="set">
 				<div class="group-form">
 					<label for="password">Password:<span class="red"> &#42;</span></label>
-					<input type="password" id="password_1" name="password" value="<?php echo (empty($password) ? '' : $password); ?>" maxlength="50" autocomplete="off">
+					<input type="password" id="password_1" data-id="1" name="password" value="<?php echo (empty($password) ? '' : $password); ?>" maxlength="50" autocomplete="off">
 					<i class="fa fa-eye" id="toggle_view1" data-id="1"></i>
 					<span class="errorMsg"><?php echo (!empty($errors['password']) ? $errors['password'] : ''); ?></span>
 					<ul class="form-guidelines">
@@ -54,7 +54,7 @@ if (!empty($email) && !empty($token)) {
 				</div>
 				<div class="group-form">
 					<label for="confirm_password">Confirm Password:<span class="red"> &#42;</span></label>
-					<input type="password" id="password_2" name="confirm_password" value="<?php echo (empty($confirm_password) ? '' : $confirm_password); ?>" maxlength="51" autocomplete="off">
+					<input type="password" id="password_2" data-id="2" name="confirm_password" value="<?php echo (empty($confirm_password) ? '' : $confirm_password); ?>" maxlength="51" autocomplete="off">
 					<i class="fa fa-eye" id="toggle_view2" data-id="2"></i>
 					<span class="errorMsg"><?php echo (!empty($errors['confirm_password']) ? $errors['confirm_password'] : ''); ?></span>
 				</div>
@@ -65,7 +65,6 @@ if (!empty($email) && !empty($token)) {
 				<input type="submit" name="set-account-password" id="submit_btn" class="button" value="Set Password">
 			</form>
 		</div>
-		<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 		<script src="<?php echo BASE_URL ?>resources/js/show-hide-password.js"></script>
 	</body>
 
