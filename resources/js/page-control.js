@@ -1,39 +1,56 @@
 $("document").ready(function() {
     "use strict";
-
     /* Monitor browser window size and display normal menu if size is greater than 600px */
-    window.onresize = function() {
+    const header = $('header');
+    const menu_btn = $("#dropdown-menu-btn");
+    const close_btn = $("#closebtn");
+    const nav_content = $(".nav-content");
+    const profile_chkbox = $("#profile-checkbox-control");
+    const tooltip = $("#tooltip");
+    const tooltip_txt = $(".tooltip-text");
+
+    header.on('click', (e) => {
+        const target = e.target;
+        switch (target.id) {
+            case 'dropdown-menu-btn':
+                menu_btn.hide();
+                close_btn.show();
+                nav_content.show(100);
+                break;
+            case 'closebtn':
+                close_btn.hide();
+                nav_content.hide(100);
+                menu_btn.show();
+                break;
+            case 'profile-checkbox-control':
+                tooltip_txt.hide(200);
+                break;
+            default:
+                /* nothing */
+        }
+    });
+    window.onresize = () => {
             if (window.innerWidth < 769) {
-                $("#dropdown-menu-btn").show();
-                $(".nav-content").hide();
-                $("#closebtn").hide();
+                menu_btn.show();
+                nav_content.hide();
+                close_btn.hide();
 
             } else {
-                $(".nav-content").show();
-                $("#closebtn").hide();
+                nav_content.show();
+                close_btn.hide();
 
             }
         }
         /*Drop down menu for mobile devices */
-    $("#dropdown-menu-btn").on("click", function() {
-        $("#dropdown-menu-btn").hide();
-        $("#closebtn").show();
-        $(".nav-content").show(100);
-    });
-    $("#closebtn").on("click", function() {
-        $("#closebtn").hide();
-        $(".nav-content").hide(100);
-        $("#dropdown-menu-btn").show();
-    });
-    $("#tooltip").mouseenter(function() {
-        if ($("#profile-checkbox-control").prop("checked") === true) {
-            $(".tooltip-text").hide(200);
+
+    tooltip.mouseenter(() => {
+        if (profile_chkbox.prop("checked") === true) {
+            tooltip_txt.hide(200);
         } else {
-            $(".tooltip-text").show(200);
+            tooltip_txt.show(200);
         }
     });
-    $("#profile-checkbox-control").on("click", function() {
-        $(".tooltip-text").hide(200);
-    });
-
 });
+/* For online server, run the following command on the terminal to get minified, compressed and mangled file:
+ "terser page-control.js --compress --mangle --output page-control.min.js"
+*/

@@ -1,12 +1,16 @@
 $("document").ready(function() {
 
-    /* When DOM is fully formed */
+    /* When DOM is fully formed, prepare elements selection */
+    const paging = $("#pagination");
+    const total_pages = $("#total_pages").data("id");
+    const page_num_class = $(".page-num");
+    const load_more_class = $(".load-more");
     $("li.page-num").first().addClass("current");
-    var total_pages = $("#total_pages").data("id");
+
     /* Event delegation for previous and next classes */
-    $("#pagination").on("click", [".previous", ".next"], function(e) {
+    paging.on("click", (e) => {
         e.preventDefault();
-        var target = e.target;
+        let target = e.target;
         switch (target.className.toLowerCase()) {
             case "previous":
                 var page_num = $(".current").data("id") - 1;
@@ -22,9 +26,9 @@ $("document").ready(function() {
         }
     });
     /* When user clicks a page number */
-    $(".page-num").click(function() {
-        var page_num = $(this).on("click").data("id");
-        $(".page-num").removeClass("current");
+    page_num_class.click(function() {
+        let page_num = $(this).data("id");
+        page_num_class.removeClass("current");
         $(this).addClass("current");
 
         aJax(page_num);
@@ -42,7 +46,7 @@ $("document").ready(function() {
         }
     });
 
-    function nextPage(page_num, total_pages) {
+    const nextPage = (page_num, total_pages) => {
         if (page_num <= total_pages) {
             aJax(page_num);
             $("li.current").next("li").addClass("current");
@@ -61,7 +65,7 @@ $("document").ready(function() {
         }
     }
 
-    function previousPage(page_num) {
+    const previousPage = (page_num) => {
         if (page_num >= 1) {
             aJax(page_num);
             $("li.current").prev("li").addClass("current");
@@ -76,7 +80,7 @@ $("document").ready(function() {
             return;
         }
     }
-    $(".load-more").click(function() {
+    load_more_class.click(function() {
         var current_page_num = $(".current").data("id");
         var elem_page_num = $(this).on("click").data("id");
         if (elem_page_num < current_page_num) {
@@ -94,18 +98,19 @@ $("document").ready(function() {
         }
     });
 
-    function aJax(page_num) {
+    const aJax = (page_num) => {
+        const thumbnails = $("#posts_thumbnails");
         $.ajax({
             url: "/spexproject/includes/posts-pagination.php",
             type: "POST",
             data: {
                 "page_num": page_num
             },
-            success: function(data) {
+            success: (data) => {
                 if (window.innerWidth < 769) {
-                    $("#posts_thumbnails").append(data);
+                    thumbnails.append(data);
                 } else {
-                    $("#posts_thumbnails").html(data);
+                    thumbnails.html(data);
                 }
 
             }
