@@ -62,7 +62,7 @@ if (isset($_POST['change_password'])) {
 			<input type="submit" name="change_password" class="button" value="Change">
 		</form>
 	</div>
-	<script src="<?php echo BASE_URL ?>resources/js/show-hide-password.min2.js"></script>
+	<script src="<?php echo BASE_URL ?>resources/js/show-hide-password.js"></script>
 </body>
 
 </html>
