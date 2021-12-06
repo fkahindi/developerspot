@@ -238,7 +238,7 @@ $published_post_ids = getAllPublishedPostIds();
 	<script src="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/subscribe.js"></script>
-	<script src="<?php echo BASE_URL ?>comments/js/comments-replies-scripts.js"></script>
+	<script src="<?php echo BASE_URL ?>comments/js/comments-replies.min.js"></script>
 	<script>
 		window.onload = function() {
 			prettyPrint()

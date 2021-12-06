@@ -44,7 +44,7 @@ require __DIR__ .'/includes/comments_functions.php';
 		<a href="#" data-id="<?php echo ($page_no -1); ?>"
 		class="load-prev" >Load prev... &nbsp; &nbsp;</a>
 		<a href="#" data-id="<?php echo ($page_no +1); ?>"
-		class="load-more" >Load more...</a>
+		class="more-comments" >Load more...</a>
 		</span>
 	</div>
 	<?php endif; ?>
