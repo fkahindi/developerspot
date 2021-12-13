@@ -3,7 +3,7 @@ require_once __DIR__ .'/../../../includes_devspot/DatabaseConnection.php';
 require_once __DIR__ .'/../classes/CommentsClass.php';
 
 /* //Receives values from jQuery for posting comments */	
-if(isset($_POST['submit_comment']) && $_POST['body']!==""){
+if(isset($_POST['submit_comment']) && $_POST['body']!=="" && !empty($_POST['user_id'])){
 	$user_id = $_POST['user_id']; 
 	$page_id = $_POST['page_id'];
 	$body = htmlspecialchars($_POST['body']);
@@ -31,7 +31,7 @@ if(isset($_POST['submit_comment']) && $_POST['body']!==""){
 }
 
 /* //Receives values from jQuery for posting replies */
-if(isset($_POST['post_reply']) && $_POST['reply_text']!==""){
+if(isset($_POST['post_reply']) && $_POST['reply_text']!=="" && !empty($_POST['user_id'])){
 	
 	$comment_id = $_POST['comment_id']; 
 	$user_id = $_POST['user_id'];

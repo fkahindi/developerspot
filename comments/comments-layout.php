@@ -4,14 +4,6 @@ if(!isset($_SESSION)){
 }
 require __DIR__ .'/includes/comments_functions.php';
 ?>
-<?php if(!isset($_SESSION['loggedin'])): ?>
-	<!--Display login link  -->
-	<div class="align-left">
-		<h5><b> To comment or participate in conversations, please <a href="<?php echo BASE_URL ?>login" class="sign-in" id="sign-in">Sign in</a>  &#124; <a href="<?php echo BASE_URL ?>create-account"> Create an account.</a></b></h5>
-	</div>
-<!--**Display the following div container if no session is found**-->
-<div class="comments-container" id="comments-container">
-<?php else: ?>
 <!--**Display the following div container if there is session loggedin**-->
 <div class="comments-container" id="comments-container">	
 
@@ -20,7 +12,6 @@ require __DIR__ .'/includes/comments_functions.php';
 		<h3>Leave a comment</h3>
 		<?php include __DIR__ .'/comments_form.php';?>
 	</div>
-<?php endif; ?>
 	<div>
 		<h5><?php 
 		/* Display total comments so far for every user */

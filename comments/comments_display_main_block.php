@@ -26,18 +26,17 @@ if(!isset($_SESSION)){
 					<?php echo $comment['body']; ?>
 				</div>
 					<!--If user is logged in, provide a link to display reply textbox -->
-					<?php if(isset($_SESSION['loggedin'])): ?> 
-						<a href="#" data-id="<?php echo $comment['comment_id']; ?>" id="reply_btn_<?php echo $comment['comment_id']; ?>" class="reply-btn">Reply</a>
-					<?php endif; ?>
+					
+					<a href="#" data-id="<?php echo $comment['comment_id']; ?>" id="reply_btn_<?php echo $comment['comment_id']; ?>" class="reply-btn">Reply</a>
+					
 					<?php if($num_replies>0):?>
 					<a href="#" data-id="<?php echo $comment['comment_id']; ?>" id="reply_thread_<?php echo $comment['comment_id']; ?>" class="reply-thread">&#9660;</a><span><?php echo $num_replies; ?> Replies</span>
 					<?php endif; ?>
-					<?php if(isset($_SESSION['loggedin'])): ?>
 						<!-- Reply form -->
-						<div class="reply">
-							<?php include __DIR__ .'/reply_form.php';?>
-						</div>
-					<?php endif; ?>	
+					<div class="reply">
+						<?php include __DIR__ .'/reply_form.php';?>
+					</div>
+				
 				<div class="group replies_container_<?php echo $comment['comment_id']; ?>" >
 					<div class="replies_by_ajax">
 						<!--Display reply by AJAX here -->
@@ -64,7 +63,6 @@ if(!isset($_SESSION)){
 							</div><br>
 						<?php endforeach; ?>
 					<?php endif; ?>
-					
 				</div>
 			</div>
 		</div>

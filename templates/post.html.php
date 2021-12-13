@@ -238,18 +238,25 @@ $published_post_ids = getAllPublishedPostIds();
 	<script src="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/subscribe.js"></script>
-	<script src="<?php echo BASE_URL ?>comments/js/comments-replies.min.js"></script>
+	<script src="<?php echo BASE_URL ?>comments/js/comments-replies.js"></script>
 	<script>
 		window.onload = function() {
 			prettyPrint()
 		}
 	</script>
+	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
+		<!-- Run script if user is logged in -->
+		<script src="<?php echo BASE_URL ?>comments/js/comments-cookies.js">
+
+		</script>
+	<?php endif; ?>
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 	<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
 	<!-- Online server
     
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
     -->
+
 	<footer class="grid-wrapper">
 		<?php include __DIR__ . '/social-icons-links.php'; ?>
 		<?php include __DIR__ . '/footer.html.php' ?>

@@ -42,6 +42,19 @@ $("document").ready(() => {
         if (comment === "") {
             return false;
         }
+        if (user_id === "") {
+            /* set comment cookies and call login form */
+            let commentCookie = "commentCookie";
+            let pageId = "pageId";
+            setCookie(commentCookie, comment);
+            setCookie(pageId, page_id);
+
+            return window.location.href = "/spexproject/login";
+
+        }
+        document.cookie = "commentCookie=; path=/; max-age=0";
+        document.cookie = "pageId=; path=/; max-age=0";
+        document.cookie = "userId=; path=/; max-age=0";
         let data = {
             "submit_comment": 1,
             "user_id": user_id,
@@ -61,10 +74,15 @@ $("document").ready(() => {
 
     const showReplyForm = (comment_id) => {
         /* When user clicks reply link to add a reply under user's comment */
+        let reply_form = $("form#comment_reply_form_" + comment_id);
+        let reply_button = $("#reply_btn_" + comment_id);
+        reply_form.toggle(100);
+        if (reply_form.length != 0) {
 
-        $("form#comment_reply_form_" + comment_id).toggle(100);
+            $("#reply_textarea_" + comment_id).focus();
+        }
 
-        $("#reply_btn_" + comment_id).text($("#reply_btn_" + comment_id).text() == "Reply" ? "Cancel" : "Reply");
+        reply_button.text(reply_button.text() == "Reply" ? "Cancel" : "Reply");
     }
 
 
@@ -74,11 +92,25 @@ $("document").ready(() => {
         let reply_text = $("#post_reply_" + comment_id).siblings("#reply_textarea_" + comment_id).val();
         let user_id = $("#post_reply_" + comment_id).siblings(".reply_form_user_id").val();
 
+
         reply_textarea.val("");
 
         if (reply_text === "") {
             return false;
         }
+        if (user_id === "" || user_id === null) {
+            /* set reply cookies and call login form */
+            let replyCookie = "replyCookie";
+            let commentIdCookie = "commentIdCookie";
+
+            setCookie(replyCookie, reply_text);
+            setCookie(commentIdCookie, comment_id);
+
+            return window.location.href = "/spexproject/login";
+        }
+        document.cookie = "replyCookie=; path=/; max-age=0";
+        document.cookie = "commentIdCookie=; path=/; max-age=0";
+
         let data = {
             "post_reply": 1,
             "user_id": user_id,
@@ -155,5 +187,9 @@ $("document").ready(() => {
             success: resFunc
         });
     }
-
+    const setCookie = (cookieName, value) => {
+        let cookie = cookieName + "=" + encodeURIComponent(value);
+        cookie += "; path=/; sameSite=Strict; secure";
+        document.cookie = cookie;
+    }
 });
