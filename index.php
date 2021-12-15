@@ -26,7 +26,7 @@ $thisPage = "HOME";
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Building interactive, responsive websites and web apps" />
   <meta property="og:description" content="Building dynamic responsive websites and apps powered by PHP and MySQL. Core technologies: HTML, CSS, JavaScript and associated libraries" />
-  <meta property="og:image" content="<?php echo BASE_URL ?>resources/images/responsive-webpage.png" />
+  <meta property="og:image" content="<?php echo BASE_URL ?>resources/images/devpot.jpg" />
   <meta property="fb:app_id" content="502152493814762" />
   <style>
     html,
