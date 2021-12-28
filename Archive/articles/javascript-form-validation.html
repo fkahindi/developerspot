@@ -4,7 +4,7 @@
     you should always endevour to have a multi-layer form validation because when one of the layers fail, the next higher layer should be able to rise to the occasion and do a good job.</p>
 <p>In a web application, the form is the window through which users interact directly with your server while you are asleep, so it's important to ensure that what goes into the server is safe to be processed.</p>
 <figure class="align-center">
-    <img src="/spexproject/resources/images/javascript-form-validation.png" alt="Name validation in JavaScript" width="70%"/>
+    <img src="../resources/images/javascript-form-validation.png" alt="Name validation in JavaScript" width="70%" />
     <figcaption class="align-center">Name validation in JavaScript</figcaption>
 </figure>
 <p><span class="key">Validation in JavaScript</span> is effected using <em>regular expressions</em>. In this tutorial we are going to apply the knowledge of regular expressions to validate form data. If you are not familiar with <i><span class="key">regular expressions</span></i>,
@@ -68,10 +68,9 @@
 <p>Generally, form data is checked at the time the form is submitted. At submission, if any field does not pass the validation rule, the browser will respond based on how you told it to handle the error. Alternatively, each field can be validated instantly
     using <span class="key">event handlers</span>. In this case when the user shifts focus to another field, the data is validated and any violation is flagged instantly.</p>
 <p>We are going to create a <code>script</code> that will take care of all the validation in the form. For simplicity, we will place the script below the page just before the <code>&lt;/body&gt;</code> closing tag. The best practice is to create an
-    <span
-        class="key">external script file</span> and place its reference at the same place, but that is only for scripts management purpose, it does not affect the script performance that much.</p>
+    <span class="key">external script file</span> and place its reference at the same place, but that is only for scripts management purpose, it does not affect the script performance that much.</p>
 <p>The reason why JavaScripts should be placed at the bottom of the <span class="key">HTML document</span> is to allow the page to render first, before loading scripts. This improves rendering speed and especially in mobile devices that have limited bandwidth.
-    </p>
+</p>
 <p>Scripts placed on the page must be within the <code>script</code> tags as shown below.</p>
 <pre class="prettyprint linenums">
 &lt;/body&gt;
@@ -261,7 +260,8 @@ function validPassword(){
 </pre>
 <p>However, the regular expression above has a slight weakness. It allows passwords even when they consist of a repeated character such as "pppppp". Of course that is a weak password. To avoid such kind of weak passwords, some impose strinent requirements
     such as, a password should have at least a number, a lowercase letter, an uppercase letter and a symbol. But you also need to exercise caution in doing that, because putting more stringent measures can incovenience users than helping them. Weigh the
-    options.</p>
+    options.
+</p>
 <p>For the sake of this tutorial though, we are going to build another regular expression that will take into account the strict requirements we have outlined above. To do that we need another special character combination we have not used before, and that
     is <em><span class="key">look ahead assertions</span></em>. When we write an expression like <code>a(?=b)</code>, we mean <i>'match "a" only if it is followed by "b" '</i>. That's referred to as look ahead.</p>
 <p>We have already said that the dot <code>.</code> is a special character that matches any character except a new line. So when we write a regular expression as <code>/.{6,}/</code>, it means, match any six or more characters except new line. If this regular
