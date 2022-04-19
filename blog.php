@@ -89,10 +89,11 @@
 		</header>
 		<main class="group">
 			<section class="posts-section border-not-last-child-div">
-                <h1>Tutorials </h1>
+                <h1>Browse Articles </h1>
                 <div class="intro-paragraph">
                     <p>
-                        Welcome to the blog. This site is dedicated to building websites and web apps that are SEO friendly. It focuses on both server-side and front end solutions. I have tried to be as illustrative as possible, but that's on my side, you may have your opinion. Leaving a feedback will be highly appreciated. Thanks!
+                        Building fast, secure, SEO compliant web apps is no longer an option, but a requirement in today's tech world. The articles here, is an opportunity to share design ideas that you can use to incorporate into your web development projects. If it helped you, leave a feedback. 
+                        Happy coding!
                     </p>
                 </div>
                 <div id="posts_thumbnails">

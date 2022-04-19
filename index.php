@@ -184,10 +184,9 @@ $thisPage = "HOME";
   <main class="class=" grid-wrapper">
     <section class="section-one">
       <div class="welcome">
-        <h1>Bulding Interactive, Responsive Websites</h1>
-
-        <p>What does it take to build a website? Well, it depends on what you want to achieve, and the tools at hand. But a grasp of core technologies can go a long way.</p>
-        <p>Take for example this blog site, of course HTML and CSS are the building blocks of web development. But, there's some JavaScript, some jQuery and Ajax added there. Then at the back end, powered by PHP and MySQL. I'm not saying these are the only technologies one can use to build a website, but at least they are the ones I used here. At Developerspot, I focus on these.</p>
+        <h1>Building Interactive, Responsive Websites</h1>
+        <p>When it comes to building websites and web apps, there is no shortage of technologies available to achieve it. Besides HTML and CSS, which are the basic building blocks of web development, there are several programming languages and frameworks that can spoil your for choice.</p>
+        <p>Developerspot is focused on both front-end and back-end solutions. PHP, with its frameworks and MySql are back-end solutions while JavaScript and its frameworks are front-end technologies.</p>
       </div>
     </section>
     <section class="section-two">
@@ -204,16 +203,19 @@ $thisPage = "HOME";
     <section class="section-three">
       <div class="card">
         <h3 class="card-title">Web development services</h3>
-        <picture>
-          <source type="image/webp" media="(max-width: 599px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm.webp 1x">
-          <source type="image/webp" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.webp 2x">
-          <source type="image/webp" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.webp 2x">
-          <source type="image/jpeg" media="(max-width: 599px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm@2x.jpg 2x">
-          <source type="image/jpeg" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.jpg 1x <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.jpg 2x">
-          <source type="image/jpeg" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.jpg 2x">
-          <img src="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01.jpg" alt="profile-image" loading="lazy" width="75px" height="80px" data-pin-nopin="1" />
-        </picture>
-        <p>Hey, I'm Francis Kahindi, a web developer and blogger. I help people build efficient, light-weight SEO friendly websites. On this site I also blog about how to be a web developer. You need a website developed for you? Reach out!</p>
+        <figure>
+          <picture>
+            <source type="image/webp" media="(max-width: 599px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm.webp 1x">
+            <source type="image/webp" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.webp 2x">
+            <source type="image/webp" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.webp 2x">
+            <source type="image/jpeg" media="(max-width: 599px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm@2x.jpg 2x">
+            <source type="image/jpeg" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.jpg 1x <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.jpg 2x">
+            <source type="image/jpeg" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.jpg 2x">
+            <img src="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01.jpg" alt="profile-image" loading="lazy" width="75px" height="80px" data-pin-nopin="1" />
+          </picture>
+          <figcaption>Francis Kahindi</figcaption>
+        </figure>        
+        <p>Hey, I'm a web developer, helping people build interactive, light-weight, SEO compliant websites and web apps. You can reach out to me using the below contact button. Thanks.</p>
         <div class="contact-media-links">
           <a href="http://twitter.com/developerspotke" target="_blank" class="fa fa-twitter"></a>
           <a href="https://www.linkedin.com/in/francis-kahindi-43871440" class="fa fa-linkedin" target="_blank"></a>
