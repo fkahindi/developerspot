@@ -200,7 +200,7 @@ p {
 /* || Header Section */
 header {
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
-  background-color: #fafaf9; }
+  background-color: #feffff; }
 
 header .social-media {
   display: none;
@@ -236,7 +236,7 @@ header .fa-linkedin {
   header .fa-pinterest:hover,
   header .fa-instagram:hover,
   header .fa-linkedin:hover {
-    color: #c4bf66; }
+    color: #0b3128; }
 
 /* Search bar */
 .search-bar {
@@ -316,7 +316,8 @@ header .fa-linkedin {
       font-size: 1.625em; }
       #dropdown-menu-btn:hover {
         cursor: pointer;
-        background-color: #97947f; } }
+        background-color: #0b3128;
+        color: white; } }
 
 #closebtn {
   display: none; }
@@ -332,7 +333,8 @@ header .fa-linkedin {
       font-size: 2em; } }
   #closebtn:hover {
     cursor: pointer;
-    background-color: #97947f; }
+    background-color: #0b3128;
+    color: white; }
 
 .nav-content {
   font-family: Arial, Helvetica, sans-serif; }
@@ -368,7 +370,7 @@ header .fa-linkedin {
       background-color: #f0f0f0;
       padding: 5px 10px; } }
   .nav-content li:hover {
-    background-color: #97947f; }
+    background-color: #0b3128; }
   .nav-content a {
     padding: 8px 2px;
     font-size: 0.9em;
@@ -379,9 +381,11 @@ header .fa-linkedin {
         display: block;
         text-align: left; } }
     .nav-content a:hover {
-      color: #c4bf66; }
+      color: white; }
   .nav-content .current-page {
-    background-color: #97947f; }
+    background-color: #0b3128; }
+    .nav-content .current-page a {
+      color: white; }
 
 /* Login / Profile  */
 .log-account-section {
@@ -598,7 +602,7 @@ section {
 
 .section-one {
   margin: 0 auto;
-  background-color: #500e0c;
+  background-color: #0b3128;
   color: #fff; }
   @media (max-width: 599px) {
     .section-one {
@@ -766,6 +770,7 @@ section {
   text-align: center;
   padding: 1em 0; }
 
+.card figure,
 .card picture {
   float: left;
   padding: 0.5em;
