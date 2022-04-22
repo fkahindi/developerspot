@@ -185,8 +185,8 @@ $thisPage = "HOME";
     <section class="section-one">
       <div class="welcome">
         <h1>Building Interactive, Responsive Websites</h1>
-        <p>When it comes to building websites and web apps, there is no shortage of technologies available to achieve it. Besides HTML and CSS, which are the basic building blocks of web development, there are several programming languages and frameworks that can spoil your for choice.</p>
-        <p>Developerspot is focused on both front-end and back-end solutions. PHP, with its frameworks and MySql are back-end solutions while JavaScript and its frameworks are front-end technologies.</p>
+        <p>When it comes to building websites and web apps, there is no shortage of technologies available to achieve it. Besides HTML and CSS, which are the basic building blocks of web development, there are several programming languages and frameworks that can spoil you for choice.</p>
+        <p>Developerspot looks at both front-end and back-end solutions. For example, PHP, along with its frameworks and MySql are server-side solutions while JavaScript, its libraries and frameworks are client-side technologies.</p>
       </div>
     </section>
     <section class="section-two">
