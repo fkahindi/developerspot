@@ -181,12 +181,15 @@ $thisPage = "HOME";
     <?php include __DIR__ . '/templates/social-icons-links.php'; ?>
     <?php include __DIR__ . '/search/search-form.php'; ?>
   </header>
-  <main class="class=" grid-wrapper">
+  <main class="flex-wrapper">
     <section class="section-one">
       <div class="welcome">
-        <h1>Building Interactive, Responsive Websites</h1>
+        <div class="container">
+          <h1>Building <span class="highlight-container"><span class="highlight">Interactive</span></span> Websites</h1>
+        </div>
+        
         <p>When it comes to building websites and web apps, there is no shortage of technologies available to achieve it. Besides HTML and CSS, which are the basic building blocks of web development, there are several programming languages and frameworks that can spoil you for choice.</p>
-        <p>Developerspot looks at both front-end and back-end solutions. For example, PHP, along with its frameworks and MySql are server-side solutions while JavaScript, its libraries and frameworks are client-side technologies.</p>
+        
       </div>
     </section>
     <section class="section-two">
@@ -200,22 +203,19 @@ $thisPage = "HOME";
         <?php include __DIR__ . '/templates/published_posts_by_topics.html.php'; ?>
       </div>
     </section>
-    <section class="section-three">
-      <div class="card">
-        <h3 class="card-title">Web development services</h3>
-        <figure>
-          <picture>
-            <source type="image/webp" media="(max-width: 599px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm.webp 1x">
-            <source type="image/webp" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.webp 2x">
-            <source type="image/webp" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.webp 2x">
-            <source type="image/jpeg" media="(max-width: 599px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm@2x.jpg 2x">
-            <source type="image/jpeg" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.jpg 1x <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.jpg 2x">
-            <source type="image/jpeg" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.jpg 2x">
-            <img src="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01.jpg" alt="profile-image" loading="lazy" width="75px" height="80px" data-pin-nopin="1" />
-          </picture>
-          <figcaption>Francis Kahindi</figcaption>
-        </figure>        
-        <p>Hey, I'm a web developer, helping people build interactive, light-weight, SEO compliant websites and web apps. You can reach out to me using the below contact button. Thanks.</p>
+    <div class="card">
+        <h3 class="card-title">I'm Francis Kahindi</h3>        
+        <picture>
+          <source type="image/webp" media="(max-width: 599px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm.webp 1x">
+          <source type="image/webp" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.webp 2x">
+          <source type="image/webp" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.webp 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.webp 2x">
+          <source type="image/jpeg" media="(max-width: 599px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-sm@2x.jpg 2x">
+          <source type="image/jpeg" media="(max-width: 1199px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md.jpg 1x <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-md@2x.jpg 2x">
+          <source type="image/jpeg" media="(min-width: 1200px)" srcset="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg.jpg 1x, <?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01-lg@2x.jpg 2x">
+          <img src="<?php echo BASE_URL ?>resources/photos/contact-me/franciskahindi-01.jpg" alt="profile-image" loading="lazy" width="75px" height="80px" data-pin-nopin="1" />
+        </picture>
+                 
+        <p>I provide web developerment  services. Reach out for fast, interactive, SEO-friendly websites and web apps. Thanks!</p>
         <div class="contact-media-links">
           <a href="http://twitter.com/developerspotke" target="_blank" class="fa fa-twitter"></a>
           <a href="https://www.linkedin.com/in/francis-kahindi-43871440" class="fa fa-linkedin" target="_blank"></a>
@@ -224,7 +224,8 @@ $thisPage = "HOME";
 
         <button><a href="<?php echo BASE_URL ?>contact.php">Contact</a></button>
       </div>
-      <div class=php-mysql>
+    <section class="section-three">
+      <div class="php-mysql">
         <h2>PHP and MySQL</h2>
         <p>PHP and MysQL are back end technologies that power many dynamic websites. PHP (Hypertext Preprocessor) is a server scripting language. Using PHP you can program a web server on how it should deliver web content.</p>
         <p>MySQL on the other hand, is a server-based relational database management system. You can use it to store large amounts of data resources; from product items on an e-commerce site, to user profiles on a user management system. PHP and MySql integrates well over the web and many developers use the two to serve dynamic web pages. </p>
@@ -237,10 +238,22 @@ $thisPage = "HOME";
         <p>JavaScript is an essential part of front end web development. It has been widely used as a scripting language to add interactivity to web pages. Over the years, it has evolved to a full-fledged programming language for both front end and back end environments. You can use the language in its pure form or its libraries. There are also JavaScript based frameworks that hasten application development. </p>
         <a href="<?php echo BASE_URL ?>topic/javascript"><button>Visit tutorials</button></a>
       </div>
+      <div class="devpot-focus">
+        <svg>
+          <rect fill="transparent" width="100%" height="100%" />
+          <text>            
+            <tspan x="35" y="50" style="font-family:Aladin;fill:orangered;font-size:3em;">Developerspot</tspan>           
+            <tspan x="100" y="80" style="fill:black;font-family:vivaldi;font-size:4em;">for</tspan>
+            <tspan x="25" y="90" style="fill: darkolivegreen;font-family: Aladin;font-size:1.5em;">
+              frontend and backend solutions
+            </tspan>
+          </text>                      
+        </svg>
+      </div>
     </section>
     <section class="section-five">
       <div class="posts-section border-not-last-child-div">
-        <h3>Latest Tutotials</h3>
+        <h3>Read Latest Articles</h3>
         <?php foreach ($published_post_ids as $post_id) : ?>
 
           <?php $post = getPostById($post_id['post_id']) ?>
@@ -249,7 +262,7 @@ $thisPage = "HOME";
             <?php echo (!empty($post['image']) ? '<img src="' . $post['image'] . '" loading="lazy" width="100" height="90" alt="' . (!empty($post['image_caption']) ? $post['image_caption'] : '') . '" class="post-thumb-nail">' : '') ?>
             <h4><a href="<?php echo BASE_URL ?>posts/<?php echo $post['post_slug'] ?>"> <?php echo htmlspecialchars_decode($post['post_title']) ?></a></h4>
             <p> <?php echo getFirstParagraphPostById($post_id['post_id']) ?>
-              <a href="<?php echo BASE_URL ?>posts/<?php echo $post['post_slug'] ?>"><strong>Read more...</strong></a>
+              <a href="<?php echo BASE_URL ?>posts/<?php echo $post['post_slug'] ?>"><em>Read <i class="fa fa-long-arrow-right"></i></em></a>
             </p>
           </div>
         <?php endforeach ?>

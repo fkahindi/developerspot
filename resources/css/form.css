@@ -2,6 +2,24 @@
   font-family: 'Aladin';
   src: url("../fonts/Aladin-Regular.ttf");
   font-display: swap; }
+@font-face {
+  font-family: 'larken';
+  src: url("../fonts/larken-bold.ttf");
+  font-weight: bold;
+  font-display: swap; }
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../fonts/Montserrat-Bold.ttf");
+  font-weight: bold;
+  font-display: swap; }
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../fonts/Montserrat-Regular.ttf");
+  font-display: swap; }
+@font-face {
+  font-family: 'vivaldi';
+  src: url("../fonts/vivaldi.ttf");
+  font-display: swap; }
 h1 {
   font-size: 1.1em; }
 
@@ -62,7 +80,6 @@ form input {
   display: inline;
   width: 93%;
   border: solid 1px #3E606F;
-  border-radius: 5px;
   padding: .6em; }
   form input:focus {
     border: solid thin silver; }
@@ -74,7 +91,6 @@ form input[type="submit"] {
   font-size: 1em; }
 form input[type="checkbox"] {
   border: solid 1px #3E606F;
-  border-radius: 5px;
   padding: .6em;
   width: 1em;
   height: 1em;

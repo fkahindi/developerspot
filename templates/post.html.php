@@ -212,7 +212,7 @@ $published_post_ids = getAllPublishedPostIds();
 		<?php include __DIR__ . '/../search/search-form.php'; ?>
 	</header>
 	<main class="group">
-		<section class="section-two main-article">
+		<section class="main-article">
 			<!-- The title will be fetched from database -->
 			<h1><?php echo ucwords(htmlspecialchars_decode($posts['post_title'])); ?></h1>
 			<div class="post-acreditation">

@@ -71,7 +71,7 @@ form {
         display: inline;
         width: 93%;
         border: solid 1px #3E606F;
-        border-radius: 5px;
+        //border-radius: 5px;
         padding: .6em;
         &:focus {
             border: solid thin silver;
@@ -86,7 +86,7 @@ form {
     }
     input[type="checkbox"] {
         border: solid 1px #3E606F;
-        border-radius: 5px;
+        //border-radius: 5px;
         padding: .6em;
         width: 1em;
         height: 1em;

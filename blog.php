@@ -92,7 +92,7 @@
                 <h1>Browse Articles </h1>
                 <div class="intro-paragraph">
                     <p>
-                        Building fast, secure, SEO compliant web apps is no longer an option, but a requirement in today's tech world. The articles here, is an opportunity to share design ideas that you can use to incorporate into your web development projects. If it helped you, leave a feedback. 
+                        Building fast, secure, SEO-friendly web apps is no longer an option, but a requirement in today's tech world. The articles here, is an opportunity to share design ideas that you can use to incorporate into your web development projects. If it helped you, leave a feedback. 
                         Happy coding!
                     </p>
                 </div>
@@ -120,10 +120,131 @@
 		</main>
         <script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
         <script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
-        <script src="<?php echo BASE_URL ?>resources/js/getPostThumbnails.js"></script>
+        <!-- <script src="<?php //echo BASE_URL ?>resources/js/getPostThumbnails.js"></script> -->
         <footer class="grid-wrapper">
         <?php include __DIR__ .'/templates/social-icons-links.php';?>
         <?php include __DIR__ .'/templates/footer.html.php'?>
       </footer>
+      <script>
+        $("document").ready(function() {
+
+            /* When DOM is fully formed, prepare elements selection */
+            const paging = $("#pagination");
+            const total_pages = $("#total_pages").data("id");
+            const page_num_class = $(".page-num");
+            const load_more_class = $(".load-more");
+            $("li.page-num").first().addClass("current");
+
+            /* Event delegation for previous and next classes */
+            paging.on("click", (e) => {
+                e.preventDefault();
+                let target = e.target;
+                switch (target.className.toLowerCase()) {
+                    case "previous":
+                        var page_num = $(".current").data("id") - 1;
+                        $(".next").text("Next");
+                        previousPage(page_num);
+                        break;
+                    case "next":
+                        var page_num = $(".current").data("id") + 1;
+                        nextPage(page_num, total_pages);
+                        break;
+                    default:
+                        /* Do nothing */
+                }
+            });
+            /* When user clicks a page number */
+            page_num_class.click(function() {
+                let page_num = $(this).data("id");
+                page_num_class.removeClass("current");
+                $(this).addClass("current");
+
+                aJax(page_num);
+
+                /* display Previous when pages chenges other than 1 */
+                if (page_num !== 1) {
+                    $(".previous").text("Previous");
+                } else {
+                    $(".previous").text("");
+                }
+                if (page_num < total_pages) {
+                    $(".next").text("Next");
+                } else {
+                    $(".next").text("");
+                }
+            });
+
+            const nextPage = (page_num, total_pages) => {
+                if (page_num <= total_pages) {
+                    aJax(page_num);
+                    $("li.current").next("li").addClass("current");
+                    $("li.current").prev("li").removeClass("current");
+                    /* display Previous when pages chenges other than 1 */
+                    if (page_num !== 1) {
+                        $(".previous").text("Previous");
+                    } else {
+                        $(".previous").text("");
+                    }
+                    if (page_num == total_pages) {
+                        $(".next").text("");
+                    }
+                } else {
+                    return;
+                }
+            }
+
+            const previousPage = (page_num) => {
+                if (page_num >= 1) {
+                    aJax(page_num);
+                    $("li.current").prev("li").addClass("current");
+                    $("li.current").next("li").removeClass("current");
+                    /* display Previous when pages chenges other than 1 */
+                    if (page_num <= 1) {
+                        $(".previous").text("");
+                    } else {
+                        $(".previous").text("Previous");
+                    }
+                } else {
+                    return;
+                }
+            }
+            load_more_class.click(function() {
+                var current_page_num = $(".current").data("id");
+                var elem_page_num = $(this).on("click").data("id");
+                if (elem_page_num < current_page_num) {
+                    var page_num = current_page_num;
+                } else {
+                    var page_num = elem_page_num;
+                }
+                page_num = page_num + 1;
+                if (page_num <= total_pages) {
+                    aJax(page_num);
+                    $(this).data("id", page_num);
+                    if (page_num == total_pages) {
+                        $(this).hide();
+                    }
+                }
+            });
+
+            const aJax = (page_num) => {
+                const thumbnails = $("#posts_thumbnails");
+                $.ajax({
+                    url: "/spexproject/includes/posts-pagination.php",
+                    type: "POST",
+                    data: {
+                        "page_num": page_num
+                    },
+                    success: (data) => {
+                        if (window.innerWidth < 769) {
+                            thumbnails.append(data);
+                        } else {
+                            thumbnails.html(data);
+                        }
+
+                    }
+                });
+            }
+        });
+      </script>
 	</body>
 </html>
