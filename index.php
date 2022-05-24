@@ -243,7 +243,7 @@ $thisPage = "HOME";
           <rect fill="transparent" width="100%" height="100%" />
           <text>            
             <tspan x="35" y="50" style="font-family:Aladin;fill:orangered;font-size:3em;">Developerspot</tspan>           
-            <tspan x="100" y="80" style="fill:black;font-family:vivaldi;font-size:4em;">for</tspan>
+            <tspan x="100" y="80" style="fill:black;font-family:Tangerine;font-size:4em;">for</tspan>
             <tspan x="25" y="90" style="fill: darkolivegreen;font-family: Aladin;font-size:1.5em;">
               frontend and backend solutions
             </tspan>
