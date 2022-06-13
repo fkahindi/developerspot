@@ -193,3 +193,6 @@ $("document").ready(() => {
         document.cookie = cookie;
     }
 });
+/* For online server, run the following command on the terminal to get minified, compressed and mangled file:
+ "terser comments-replies.js --compress --mangle --output comments-replies.min.js"
+*/

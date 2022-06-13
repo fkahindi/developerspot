@@ -43,3 +43,6 @@
 
 	    }
 	});
+    /* For online server, run the following command on the terminal to get minified, compressed and mangled file:
+ "terser comments-cookies.js --compress --mangle --output comments-cookies.min.js"
+*/
