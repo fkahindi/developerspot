@@ -18,7 +18,7 @@ if(!isset($_SESSION)){
 
 <?php if(!empty($_SESSION['message_success'])):?>
 <p><?php echo($_SESSION['message_success']) ?> </p>
-<p> <a href="../index.php"> Continue</a>.</p>
+<p> <a href="index.php"> Continue</a>.</p>
 <?php unset($_SESSION['message_success']);?>
 <?php else: ?>
 <?php echo ''; endif; ?>

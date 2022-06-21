@@ -1,4 +1,5 @@
 $("document").ready(function(){
+	'use strict';
 	var username_state = false;
 	var email_state = false;
     var name_state = false;
@@ -187,11 +188,11 @@ $("document").ready(function(){
 			$("#contact_email").parent().addClass("form_error");
 			$("#contact_email").siblings("span").text("Email is required");
 		}
-	}else{
+	}else{	
 		$("#error_msg").text("");
 		$("#name").siblings("span").text("");
 		$("#contact_email").siblings("span").text("");
-		return true;        
+		return true;				            
 	}
  });
  

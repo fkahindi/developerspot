@@ -15,9 +15,10 @@ if(isset($_POST['contact-me'])){
 	<link rel="canonical" href="https://www.developerspot.co.ke/contact.php">
 	<title>Contact Me Form</title>
     <meta name="description" content="Use this form to contact developerspot.">
-	<meta name="keywords" content="contact me, email, developerspot">
+	<meta name="keywords" content="contact me, email, developerspot" >
 	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css" >
 	<link rel="icon" href="<?php echo BASE_URL ?>resources/icons/logo_icon.png" sizes="16x16 32x32" type="image/x-icon"/>
+	<script src="https://www.google.com/recaptcha/api.js?render=6LelO4YgAAAAALww0mhkyM1VG0Mkf81PolDntSf3"></script>
 </head>
 <body>
 	<div id="contact-me">
@@ -45,13 +46,34 @@ if(isset($_POST['contact-me'])){
             
 		</div>
 		<input name="contact-me" type="submit" id="contact_me_btn" value="Submit">
-		
+		<input type="hidden" id="token" name="token">
+		<input type="hidden" name="action" value="validate_captcha">
 	</form>
     <div class="section">
 		<p class="centered"><a href="<?php echo BASE_URL ?>index.php">Take me to Home page</a></p>
 	</div>
+	<div class="g-policy">
+		<a  href="https://policies.google.com/privacy" class="g-policy-a">Privacy Policy</a> and
+    <a href="https://policies.google.com/terms" class="g-policy-a">Terms of Service</a> apply
+	</div>	
 </div>
 	<!-- Scripts -->
+	<script>
+  grecaptcha.ready(function() {
+    grecaptcha.execute('MY SITE KEY', {action: 'validate_captcha'}).then(function(token) {
+        console.log(token);
+       document.getElementById("token").value = token;
+    });
+    // refresh token every minute to prevent expiration
+    setInterval(function(){
+      grecaptcha.execute('MY SITE KEY', {action: 'validate_captcha'}).then(function(token) {
+        console.log( 'refreshed token:', token );
+        document.getElementById("token").value = token;
+      });
+    }, 60000);
+
+  });
+</script>
 	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/form_check.js"></script>
 </body>

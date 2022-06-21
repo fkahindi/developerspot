@@ -605,12 +605,35 @@ function imageUpload(){
 	}
 }
 function contactMe(){
-    global $errors, $valid;
-    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
-    $contact_email = $_POST['contact_email'];
-    $comment = $_POST['comment'];
-    
-    if(empty($_POST['name'])){
+	global $errors, $valid, $token;
+	$name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+	$contact_email = $_POST['contact_email'];
+	$comment = $_POST['comment'];
+	
+	# BEGIN reCaptcha v3 validation
+	$url ="https://www.google.com/recaptcha/api/siteverify";
+	$data = [
+		'secret' => "MY SITE SECRET",
+		'response' => $_POST['token'],
+		'remoteip' => $_SERVER['REMOTE_ADDR']
+	];
+	$options = array(
+		'http' => array(
+			'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+			'method'  => 'POST',
+			'content' => http_build_query($data)
+		)
+	);
+	# Creates and returns stream context with options supplied in options preset 
+	$context  = stream_context_create($options);
+	# file_get_contents() is the preferred way to read the contents of a file into a string
+	$response = file_get_contents($url, false, $context);
+	# Takes a JSON encoded string and converts it into a PHP variable
+	$res = json_decode($response, true);
+	# END setting reCaptcha v3 validation data
+
+	if($res['success']==true && $res['score']>=0.5){
+		if(empty($_POST['name'])){
         $valid = false;
         $errors['name'] = 'Please, provide your name';
     }else{
@@ -628,10 +651,15 @@ function contactMe(){
             $valid = true;
         }
     }
+	
     if($valid){
         $comment = htmlspecialchars($comment, ENT_QUOTES);
         include __DIR__ .'/contact-me-email-link.php';
-    }  
+    }
+	}else{
+		$form_error ="Security token has expired";
+	}
+      
 }
 function test_input($data){
 $data = stripslashes($data);

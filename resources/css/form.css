@@ -267,4 +267,16 @@ form .form_image {
     left: 35%;
     text-align: right; } }
 
+.grecaptcha-badge {
+  visibility: hidden; }
+
+.g-policy {
+  text-align: center;
+  font-size: 00.8em;
+  color: silver; }
+
+.g-policy-a {
+  font-size: 0.8em;
+  color: #28a4c6; }
+
 /*# sourceMappingURL=form.css.map */

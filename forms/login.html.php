@@ -53,7 +53,7 @@ if (isset($_POST['login'])) {
 		</form>
 	</div>
 	<div class="section">
-		<p class="centered"><a href="<?php echo BASE_URL ?>recover-password">Forgot password</a> | <a href="<?php echo BASE_URL ?>create-account"> Create an account</a></p>
+		<p class="centered"><a href="<?php echo BASE_URL ?>create-account"> Create account</a> | <a href="<?php echo BASE_URL ?>recover-password">Forgot password</a> </p>
 	</div>
 	<script src="<?php echo BASE_URL ?>resources/js/show-hide-password.js"></script>
 </body>
