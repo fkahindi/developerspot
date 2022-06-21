@@ -1,10 +1,10 @@
 pwd.txt
-site-captcha-keys.txt
 credentials.php
 DbCredentials.php
 TestFile.php
 to-be-updated-online.html
 admin/tests.php
+*keys.txt
 *.css.map
 *.min.css.map
 *.min.js
