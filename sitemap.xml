@@ -1,138 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="/4237573/sitemap.xsl"?>
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xhtml="http://www.w3.org/1999/xhtml"
-      xsi:schemaLocation="
-            http://www.sitemaps.org/schemas/sitemap/0.9
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with PRO Sitemap Service https://pro-sitemaps.com -->
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-  <url>
-       <loc>https://www.developerspot.co.ke/</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>1.0000</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/blog.php</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/about.php</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/contact.php</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/login</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/posts/event-delegation-with-jquery</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.9500</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/posts/how-to-create-dynamic-web-pages</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.9500</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/posts/how-to-design-a-responsive-web-form</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.9500</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/policies/terms-conditions.php</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/policies/cookie-policy.php</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/posts/how-to-design-a-responsive-web-page</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.9500</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/posts/how-to-structure-an-html-document</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.9500</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/posts/server-side-form-sanitization</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.9500</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/recover-password</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/create-account</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/topic/HTML</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/posts/html5-form-validation</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.9500</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/topic/PHP</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/topic/JavaScript</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/posts/regular-expressions-in-javascript</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.9500</priority>
-  </url>
-  <url>
-       <loc>https://www.developerspot.co.ke/posts/form-validation-in-javascript</loc>
-       <lastmod>2021-08-27T14:12:25+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.9500</priority>
-  </url>
+
+<url>
+  <loc>https://www.developerspot.co.ke/</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/index.php</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/blog.php</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/about.php</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/contact.php</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/login</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/topic/html</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/html5-form-validation</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/how-to-structure-an-html-document</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/how-to-design-a-responsive-webpage-with-collapsible-menu</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/how-to-design-a-responsive-web-form</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/designing-an-html-table</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/regular-expressions-in-javascript</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/form-validation-in-javascript</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/event-delegation-with-jquery</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/server-side-form-sanitization</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/how-to-create-dynamic-web-pages</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/posts/pdo-prepared-statements-with-mysql</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/topic/php</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/topic/javascript</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/policies/terms-conditions.php</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/policies/privacy-policy.php</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/policies/cookie-policy.php</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/create-account</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.developerspot.co.ke/recover-password</loc>
+  <lastmod>2022-06-21T13:16:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>
