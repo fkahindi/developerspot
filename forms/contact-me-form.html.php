@@ -58,22 +58,7 @@ if(isset($_POST['contact-me'])){
 	</div>	
 </div>
 	<!-- Scripts -->
-	<script>
-  grecaptcha.ready(function() {
-    grecaptcha.execute('MY SITE KEY', {action: 'validate_captcha'}).then(function(token) {
-        console.log(token);
-       document.getElementById("token").value = token;
-    });
-    // refresh token every minute to prevent expiration
-    setInterval(function(){
-      grecaptcha.execute('MY SITE KEY', {action: 'validate_captcha'}).then(function(token) {
-        console.log( 'refreshed token:', token );
-        document.getElementById("token").value = token;
-      });
-    }, 60000);
-
-  });
-</script>
+	<script src="<?php echo BASE_URL ?>resources/js/captcha.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/form_check.js"></script>
 </body>
