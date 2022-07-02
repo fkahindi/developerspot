@@ -220,3 +220,7 @@ $("document").ready(function(){
         }
     }
 });
+
+/* For online server, run the following command on the terminal to get minified, compressed and mangled file:
+ "terser form_check.js --compress --mangle --output form_check.min.js"
+*/
