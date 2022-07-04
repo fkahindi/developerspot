@@ -5,7 +5,7 @@
     <a target="_blank" class="fa fa-twitter" href="http://twitter.com/share?text=&url=<?php echo $url;?>&hashtags=webdevelopment,webdesign" >
 </a>
     <!--Pinterest button-->
-    <a target="_blank" class="fa fa-pinterest" href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonPin" data-pin-save="" data-pin-custom="true"></a>
+    <a target="_blank" class="fa fa-pinterest" href="https://www.pinterest.com/pin/99360735500167749/" data-pin-do="buttonPin" data-pin-save="" data-pin-custom="true"></a>
     <!--instagram button-->
     <a target="_blank" class="fa fa-instagram" href="https://www.instagram.com/developerspotke" ></a>
 </div>
