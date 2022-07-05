@@ -1,0 +1,23 @@
+.card {
+  margin: 3rem auto;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1.5em;
+  line-height: 1.5;
+  background-color: beige; }
+  @media (max-width: 768px) {
+    .card {
+      width: 80%; } }
+  @media (max-width: 599px) {
+    .card {
+      width: 90%; } }
+  @media (min-width: 769px) {
+    .card {
+      width: 60%; } }
+
+.success {
+  font-family: Tahoma, sans-serif, Geneva, Verdana;
+  color: #41632f;
+  font-weight: bold; }
+
+/*# sourceMappingURL=thank-you.css.map */

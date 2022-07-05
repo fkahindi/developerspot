@@ -1,0 +1,24 @@
+@import "partials/layout";
+.card {
+    margin: 3rem auto;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1.5em;
+    line-height: 1.5;
+    background-color: beige;
+    @include for-tablet-portrait-down {
+        width: 80%;
+    }
+    @include for-phone-only {
+        width: 90%;
+    }
+    @include for-tablet-landscape-up {
+        width: 60%;
+    }
+}
+
+.success {
+    font-family: Tahoma, sans-serif, Geneva, Verdana, ;
+    color: rgb(65, 99, 47);
+    font-weight: bold;
+}
