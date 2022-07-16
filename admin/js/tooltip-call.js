@@ -1,4 +1,2 @@
-$('document').ready(function(){
-	$('[data-toggle="tooltip"]').tooltip();
-	
-});
+var tooltip = document.getElementById("tooltip");
+tooltip.tooltip();

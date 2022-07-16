@@ -85,7 +85,7 @@ function getPublishedPostsByTopic($topic_id) {
 				
 	$result = mysqli_query($conn, $sql);
 	
-	/* fetch all posts as an associative array called $posts */
+	/* fetch all posts as an associative array */
 	$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 	$final_posts = array();
@@ -220,35 +220,32 @@ if(isset($_GET['delete-post'])){
 	--Post Functions--
 -------------------------*/
 function createPost($request_values){
-	global $conn, $errors, $title, $topic_id, $body,$meta_description, $meta_keywords, $published,$image_path, $image_caption, $sound;
+	global $conn, $post_errors,$image_error, $title, $topic_id, $body,$meta_description, $meta_keywords, $published,$image_path, $image_caption, $sound;
 	
 	$title = htmlspecialchars(esc($request_values['title']));
-	$meta_description = htmlspecialchars(esc($request_values['meta_description']));
-	$meta_keywords = htmlspecialchars(esc($request_values['meta_keywords']));
-	$image_caption = htmlspecialchars(esc($request_values['image_caption']));
 	$body = htmlspecialchars(esc($request_values['body']));
 	$topic_id = $request_values['topic_id'];
 	$user_id = $_SESSION['user_id'];
 	
-	/* //Validate form, if $title and $body are not empty create metaphone words */
+	//Validate form, if $title and $body are not empty create metaphone words
 	if(empty($title)){
-		array_push($errors, "Post title is required");
+		$post_errors['title'] = 'Post title is required';		
 	}else{
 		$words = explode(' ', $title);
 		foreach($words as $word){
 			$sound .= metaphone($word).' ';
 		}
 	}
-	if(empty($body)){
-		array_push($errors, "Post body is required");
+	if(empty($body)){	
+		$post_errors['body']='Post body is required';
 	}else{
 		$words = explode(' ', $body);
 		foreach($words as $word){
 			$sound .= metaphone($word).' ';
 		}
 	}
-	if(empty($topic_id)){
-		array_push($errors, "Post topic is required");
+	if(empty($topic_id)){		
+		$post_errors['topic'] = 'Post topic is required';		
 	}else{
 		$topic_id = $_POST['topic_id'];
 	}
@@ -256,48 +253,49 @@ function createPost($request_values){
 		$published = $_POST['publish'];
 	}
 	if(isset($_POST['meta_description'])){
-		$meta_description = $_POST['meta_description'];
+		$meta_description = htmlspecialchars(esc($_POST['meta_description']));
 	}
 	if(isset($_POST['meta_keywords'])){
-		$meta_keywords = $_POST['meta_keywords'];
+		$meta_keywords = htmlspecialchars(esc($_POST['meta_keywords']));
 	}
 	if(isset($_POST['image_caption'])){
-		$image_caption = $_POST['image_caption'];
+		$image_caption = htmlspecialchars(esc($_POST['image_caption']));
 	}
-	/* Create slug by replacing spaces in title with hyphens */
+	//Create slug by replacing spaces in title with hyphens
 	$post_slug = makeSlug($title);
-
-	/* Prepare image  */
+	
+	if(!$post_errors){
+	//Prepare image for upload
 	include __DIR__ .'/load_image.php';
-		
-	if(!$errors){
-		/* Upload image */
+	
 		$result = $image_up_load->moveFile($target_file);
-		$errors = $image_up_load->errors;
-		if(!$errors && $result !== false){
+		$image_error = $image_up_load->errors;
+
+		if(!$image_error && $result !== false){
 			$image_path = BASE_URL.'resources/images/'.basename($received_name['name']);
 		}else{
 			$image_path = null;
 		} 
 
-		/* Make sure no file is saved twice */
+		//Make sure no file is saved twice
 		$post_check ="SELECT * FROM `posts` WHERE post_slug='$post_slug' LIMIT 1";
 		
 		$result = mysqli_query($conn, $post_check);
 			
-		if(mysqli_num_rows($result)>0){ /* another post with the name exists */
-			$errors = 'A post with that name already exists';
+		if(mysqli_num_rows($result)>0){ //another post with the name exists
+			$post_errors['db_error'] = 'A post with that name already exists';						
 		}
 	
-		/* If no errors in the form, insert posts */	
-		if(!$errors){
+		//If no errors in the form, insert posts	
+		if(!$post_errors && !$image_error){
+			
 			$query = "INSERT INTO `posts` (`user_id`, `post_title`, `post_slug`, `post_body`, `meta_description`, `meta_keywords`, `published`, `image`, `image_caption`, `created_at`, `metaphoned`) VALUES ($user_id, '$title', '$post_slug', '$body','$meta_description','$meta_keywords', $published, '$image_path','$image_caption', now(), '$sound')";
 			
 			$result = mysqli_query($conn, $query);
-			if($result){ /* if post created successful */
+			if($result){ //if post created successful
 			
 				$inserted_id = mysqli_insert_id($conn);
-				/* Create a relationship between post and topic */
+				//Create a relationship between post and topic
 				$sql ="INSERT INTO `post_topic` (topic_id, post_id) VALUES ($topic_id, $inserted_id)";
 				
 				mysqli_query($conn, $sql);
@@ -308,12 +306,13 @@ function createPost($request_values){
 			}else{
 				$errors = 'Insert record was not successful. <br><strong>Description:</strong><br>'. $conn->error;
 			}		
-		} 
-    }
+		}
+  }
 }
 
 function editPost($role_id){
 	global $conn, $title, $body,$meta_description, $meta_keywords,$published,$image_file, $image_caption, $topic_name, $topic_id;
+	
 	$sql = "SELECT * FROM `posts` WHERE post_id = $role_id LIMIT 1";
 	
 	$result = mysqli_query($conn, $sql);
@@ -330,7 +329,8 @@ function editPost($role_id){
 	$topic_id = getPublishedTopics($post['post_id'])['topic_id'];
 }
 function updatePost($request_values){
-	global $conn, $title, $post_slug, $body, $meta_description,$image_caption, $published, $isEditingPost, $post_id, $topic_id, $sound, $errors;
+	global $conn, $post_errors,$image_error, $title, $post_slug, $body, $meta_description,$image_caption, $published, $isEditingPost, $post_id, $topic_id, $sound;
+	
 	$isEditingPost = true; 
 	$title = htmlspecialchars(esc($request_values['title']));
 	$body = htmlspecialchars(esc($request_values['body']));
@@ -345,11 +345,12 @@ function updatePost($request_values){
 		$published = $_POST['publish'];
 	}
 	
-	/* //Create slug by replacing spaces in title with hyphens */
+	//Create slug by replacing spaces in title with hyphens
 	$post_slug = makeSlug($title);
-	/* //Validate form */
+	//Validate form
 	if(empty($title)){
-		array_push($errors, "Post title is required");
+		$post_errors['title'] ='Post title is required';
+		
 	}else{
 		$words = explode(' ', $title);
 		foreach($words as $word){
@@ -357,49 +358,52 @@ function updatePost($request_values){
 		}
 	}
 	if(empty($body)){
-		array_push($errors, "Post body is required");
+		$post_errors['title']='Post body is required';
+		
 	}else{
 		$words = explode(' ', $body);
 		foreach($words as $word){
 			$sound .= metaphone($word).' ';
 		}
 	}
-	/* Prepare image  */
-	include __DIR__ .'/load_image.php';
-		
-	if(!$errors){
+			
+	if(!$post_errors){
+		//Prepare image for upload
+		include __DIR__ .'/load_image.php';
+
 		$result = $image_up_load->moveFile($target_file);
-		$errors = $image_up_load->errors;
-		if(!$errors && $result !== false){
+		$image_error = $image_up_load->errors;
+		if(!$image_error && $result !== false){
 			$image_path = BASE_URL.'resources/images/'.basename($received_name['name']);
 		}else{
 			$image_path = null;
-		} 
-
-		$query = "UPDATE `posts` SET `post_title`='$title', `post_slug`='$post_slug', `post_body`='$body', `meta_description`='$meta_description', `meta_keywords`='$meta_keywords', `published`=$published, `image`='$image_path',`image_caption`='$image_caption', `updated_at`=now(), `metaphoned`='$sound' WHERE `post_id`=$post_id";
+		}
+		
+		if(!$post_errors && !$image_error){
+			//Update post
+			$query = "UPDATE `posts` SET `post_title`='$title', `post_slug`='$post_slug', `post_body`='$body', `meta_description`='$meta_description', `meta_keywords`='$meta_keywords', `published`=$published, `image`='$image_path',`image_caption`='$image_caption', `updated_at`=now(), `metaphoned`='$sound' WHERE `post_id`=$post_id";
 	
-		//Attach topic to posts in post_topic table 
-		if(mysqli_query($conn, $query)){ 
-			//if query was created successfully 
+			//Attach topic to posts in post_topic table 
+			if(mysqli_query($conn, $query)){ 
+				//if query was created successfully 
 
-			if(isset($topic_id)){
-				//create relationship between post and topic 
-				$sql = "UPDATE `post_topic` SET topic_id=$topic_id WHERE post_id=$post_id";
-				
-				mysqli_query($conn, $sql);
-				$_SESSION['message']= 'Post and topic values updated successfully.';
+				if(isset($topic_id)){
+					//create relationship between post and topic 
+					$sql = "UPDATE `post_topic` SET topic_id=$topic_id WHERE post_id=$post_id";
+					
+					mysqli_query($conn, $sql);
+					$_SESSION['message']= 'Post and topic values updated successfully.';
+					header('Location: posts.php');
+					exit(0);
+				}
+				$_SESSION['message'] = 'Post update successful.';
 				header('Location: posts.php');
 				exit(0);
+			}else{
+				$post_errors['db_error'] = 'Update was not successful. <br><strong>Description:</strong><br>'. $conn->error;
 			}
-			$_SESSION['message'] = 'Post update successful.';
-			header('Location: posts.php');
-			exit(0);
-		}else{
-			$errors = 'Update was not successful. <br><strong>Description:</strong><br>'. $conn->error;
-		}
-    }     
-	
-	
+		}		
+    } 	
 }
 
 /* //Delete blog post */

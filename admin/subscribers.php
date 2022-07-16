@@ -21,24 +21,25 @@ $subscription = getSubscribers();
 </head>
 <body>
 	<?php include __DIR__ .'/components/navbar.php'; ?>
-	<div class="container-fluid">
-		<div class="panel panel-default text-success text-center"><?php echo isset($_SESSION['message'])? $_SESSION['message']:''; ?></div> 
-		<div class="mx-auto my-4"><h3>Admin Panel :: <?php echo $_SESSION['fullname']?></h3></div>
-		<div class="row my-5">
-			<!--Row with 3 equal columns-->
-			<div class="col-md-4 panel-body border">
-				<!--Column left Navigation-->
-				<h2><span class="label label-success">Actions</span></h2>
-				<div><a href="create_post.php">Create posts</a></div>
-				<div><a href="posts.php">Manage posts</a></div>
-				<div><a href="users.php">manage users</a></div>
-				<div><a href="#">manage subscribers</a></div>
-				<div><a href="topics.php">manage topics</a></div>
+	<div class="container mt-3">
+		<div class="row mt-2">
+			<div class="col-md-4">
+				<h3  class="text-muted"><?php echo $_SESSION['fullname'] .' | '. $_SESSION['role']?> </h3>
 			</div>
-			<div class="col-md-8 panel-body border">
+			<div class="col-md-8">
+				<div class="text-success"><?php echo isset($_SESSION['message'])? $_SESSION['message']:''; ?></div> 
+			</div>
+		</div>
+		<div class="row mt-2">
+			<!--Row with 3 equal columns-->
+			<div class="col-md-3 bg-light border">
+				
+				<?php include __DIR__ .'/components/navigation.php'?>
+			</div>
+			<div class="col-md-9">
 				<!--Column right database output-->
 				<div class="table-div">
-					<table class="table table-bordered table-hover table-condensed">
+					<table class="table table-striped table-condensed caption-top">
 						<caption class="text-center"><h4>Admin | Subscribers</h4></caption>
 						<thead>
 							<tr>
@@ -61,9 +62,5 @@ $subscription = getSubscribers();
 		</div>
 	</div>
 </body>
-<!-- For local only -->
-<script src="js/jquery-3.4.0.min.js"></script> 
-<script src="js/bootstrap.min.js"></script>
-
-<script src="js/tooltip-call.js"></script>
+<?php include __DIR__ .'/components/footer.php'?>
 </html>

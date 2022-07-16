@@ -61,6 +61,10 @@ if(isset($_GET['delete-topic'])){
 	$topic_id = $_GET['delete-topic'];
 	deleteTopic($topic_id);
 }
+/* Trial of Ajax subscribers retrieval */
+if(isset($_GET['get-subscribers'])){
+	getSubscribers();
+}
 
 /*---------------------------------
 --Admin user functions
@@ -229,26 +233,30 @@ function getAllTopics(){
 }
 
 function createTopic($request_values){
-	global $conn, $errors, $topic_name, $topic_intro,$topic_description,$topic_keywords;
+	global $conn, $topic_errors, $topic_name, $topic_intro,$topic_description,$topic_keywords;
 	
 	$topic_name = esc($request_values['topic_name']);
 	$topic_intro =esc($request_values['topic_intro']);
 	$topic_description =esc($request_values['topic_description']);
 	$topic_keywords =esc($request_values['topic_keywords']);
-	/* create slug */
-	$topic_slug = makeSlug($topic_name);
+	
 	/* Validate form  */
 	if(empty($topic_name)){
-		array_push($errors, 'Topic name required.');
+		$topic_errors['topic']='Topic name required.';
+	}else{
+		/* create slug */
+		$topic_slug = makeSlug($topic_name);
+		/* To ensure that no topic is saved twice */
+		$topic_check_query = "SELECT  * FROM `topics` WHERE topic_slug='$topic_slug' LIMIT 1";
+		$result = mysqli_query($conn, $topic_check_query);
+		if(mysqli_num_rows($result)>0){
+			$topic_errors['db_error']='Topic already exists !!';
+		}
 	}
-	/* To ensure that no topic is saved twice */
-	$topic_check_query = "SELECT  * FROM `topics` WHERE topic_slug='$topic_slug' LIMIT 1";
-	$result = mysqli_query($conn, $topic_check_query);
-	if(mysqli_num_rows($result)>0){
-		array_push($errors, 'Topic already exist');
-	}
+	
 	/* Register topic if no errors */
-	if(count($errors) === 0){
+	if(!$topic_errors){
+
 		$query = "INSERT INTO `topics`(topic_name, topic_slug, topic_intro, meta_descriptio,topic_keywords) VALUES ('$topic_name', '$topic_slug','$topic_intro','$topic_description','$topic_keywords')";
 		mysqli_query($conn, $query);
 		
@@ -277,7 +285,7 @@ function editTopic($topic_id){
 }
 
 function updateTopic($request_values){
-	global $conn, $topic_name, $topic_intro, $topic_description, $topic_keywords, $errors, $topic_id;
+	global $conn, $topic_name,$topic_errors, $topic_intro, $topic_description, $topic_keywords, $topic_id;
 	
 	$topic_id = esc($request_values['topic_id']);
 	$topic_name = esc($request_values['topic_name']);
@@ -289,11 +297,12 @@ function updateTopic($request_values){
 	
 	/* Validate form */
 	if(empty($topic_name)){
-		array_push($errors, 'Topic name is required.');
+		$topic_errors['topic'] ='Topic name is required.';
 	}
 	
 	/* Register topic if there are no errors */
-	if(count($errors) == 0){
+	if(!$topic_errors){
+	
 		$query = "UPDATE `topics` SET topic_name='$topic_name', topic_slug='$topic_slug', topic_intro='$topic_intro',topic_description='$topic_description',topic_keywords='$topic_keywords' WHERE topic_id=$topic_id";
 		mysqli_query($conn, $query);
 		
@@ -306,7 +315,7 @@ function updateTopic($request_values){
 /* Delete topic */
 function deleteTopic($topic_id){
 	global $conn;
-	
+
 	$sql = "DELETE FROM `topics` WHERE topic_id=$topic_id";
 	if(mysqli_query($conn, $sql)){
 		$_SESSION['message'] = 'Topic deleted successfull.';

@@ -23,41 +23,33 @@
 </head>
 <body>
 	<?php include __DIR__ .'/components/navbar.php'; ?>
-	<div class="container-fluid">
-		<div class="container border border-dark m-3">
-		<div class="text-center text-success"><?php include __DIR__ .'/includes/messages.php'?></div>
+	<div class="container mt-3">
+		<div class="row mt-2">
+			<div class="col-md-4">
+				<h3 class="text-muted"><?php echo $_SESSION['fullname'] .' | '. $_SESSION['role']?> </h3>
+			</div>
+			<div class="col-md-8">
+				<div class="text-success"><?php include __DIR__ .'/includes/messages.php'?></div>
+				<div class="text-danger"><?php include __DIR__ .'/includes/errors.php';?></div>
+			</div>	
 		</div>
-			<div class="text-center text-danger"><?php include __DIR__ .'/includes/errors.php';?></div>
-			<h3><?php echo $_SESSION['fullname'] .' | '. $_SESSION['role']?> Posts</h3>
-			<div class="row my-5">
-			
-				<!--Row with 2 equal columns-->
-				<div class="col-md-3 panel-body border border-primary">
-					<!--Column left Navigation-->
-					<div class="bg-success rounded">
-						<h2>Actions</h2>
-					</div>
-					<div ><a href="create_post.php">Create post</a></div>
-					<div><a href="#">Manage posts</a></div>
-					<?php if($_SESSION['role']== 'Admin'):?>
-					<div><a href="users.php">manage users</a></div>
-					<div><a href="subscribers.php">manage subscribers</a></div>
-					<div><a href="topics.php">manage topics</a></div>
-					<?php endif ?>
-				</div>
-				<div class="col-md-9 panel-body border">
+		<div class="row mt-2">		
+			<div class="col-md-3 bg-light border">
+				<?php include __DIR__ .'/components/navigation.php'?>
+			</div>
+			<div class="col-md-9">
 				<?php if(empty($posts)): ?>
 				<div class="mx-auto my-4"><h4>There are no posts to display</h4></div>
 					<!--Column right database output-->
 				<?php else: ?>	
-						<table class="table table-bordered table-hover table-condensed">
+						<table class="table table-sm table-striped caption-top">
+							<caption><h3 class="text-center">Posts</h3></caption>
 							<thead>
-								<tr>
+								<tr class="bg-dark text-light">
 									<th>SNo.</th>
 									<th>Author</th>
 									<th>Title</th>
 									<th>Comments</th>
-									<th>Views</th>
 									<!--Only Admin can publish/ unpublish posts  -->
 									<?php if($_SESSION['role']=='Admin'): ?>
 									<th>Un/Publish</th>
@@ -80,38 +72,36 @@
 										$getComments = new CommentsClass($pdo);
 										echo $getComments->getCommentCountByPostId($post['post_id']);
 									?>
-									</td>
-									<td><?php echo "Compute" ?></td>
-									
+									</td>		
 									<!--Only Admin can publish/ unpublish posts  -->
 									<?php if($_SESSION['role']== 'Admin'): ?>
 									<td>
 										<?php if($post['published'] == true): ?>  
-											<a href="posts.php?unpublish=<?php echo $post['post_id'] ?>" class="btn btn-success btn-md"><span class="glyphicon glyphicon-ok"></span></a>
+											<a href="posts.php?unpublish=<?php echo $post['post_id'] ?>" class="btn btn-success"><i class="bi-eye"></i></a>
 										<?php else:?>
-											<a href="posts.php?publish=<?php echo $post['post_id'] ?>" class="btn btn-danger btn-md"><span class="glyphicon glyphicon-remove"></span></a>
+											<a href="posts.php?publish=<?php echo $post['post_id'] ?>" class="btn btn-danger"><i class="bi-eye-slash"></i></a>
 										<?php endif ?>
 									</td>
 									<?php endif ?>
 									<td>
 										<p  class="mx-auto">
-										<a href="create_post.php?edit-post=<?php echo $post['post_id'] ?>" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+										<a href="create_post.php?edit-post=<?php echo $post['post_id'] ?>" class="btn btn-warning btn-sm"><i class="bi-pencil"></i> Edit</a>
 										</p>
 									</td>
 									<td>
 										<p>
-										<a href="posts.php?delete-post=<?php echo $post['post_id'] ?>" class="btn btn-danger btn-sm delete"><span class="glyphicon glyphicon-trash"></span> Trash</a>
+										<a href="posts.php?delete-post=<?php echo $post['post_id'] ?>" class="btn btn-danger btn-sm delete"><i class="bi-trash"></i> Trash</a>
 										</p>
 									</td>
 								</tr>
 								<?php endforeach ?>
 							</tbody>
 						</table>
-					<?php endif ?>
-				</div>
+				<?php endif ?>
 			</div>
 		</div>
-	</div>
+	</div>	
+	<?php include __DIR__ .'/components/footer.php'?>
 </body>
 <script src="js/jquery-3.4.0.min.js"></script> 
 <script>
