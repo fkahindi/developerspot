@@ -1,49 +1,60 @@
-<?php  
+<?php
 	if(!isset($_SESSION)){
 		session_start();
 	}
 	require_once __DIR__ . '/includes/admin_login_status.php';
 	if($_SESSION['role']!== 'Admin' && $_SESSION['role']!== 'Author'){
 		header('Location: ../index.php');
-	}	
+	}
 	include __DIR__ .'/includes/admin_functions.php';
 	include __DIR__ .'/includes/posts_functions.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">	
+<html lang="en">
 <?php include __DIR__ . '/components/head.php';?>
-	<title><?php echo  $_SESSION['role'] ?> | Create Post</title>	
+	<title><?php echo  $_SESSION['role'] ?> | Create Post</title>
 	<!--Fetch all posts that apply to the user  -->
 	<?php $topics = getAllTopics(); ?>
 </head>
 <body>
 	<?php include __DIR__ .'/components/navbar.php'; ?>
-	<h3 class="text-center text-secondary my-3"><?php echo  $isEditingPost? 'Edit': 'Create' ?> Post</h3>
-	<div class="container">		
-		<div class="row my-5">
-			<div class="text text-right text-success"><?php include __DIR__ .'/includes/messages.php'?></div>
-			<!--Row with  columns-->
-			<div class="col-md-3 bg-light border">
-				<!--Column left Navigation-->
-				<?php include __DIR__ .'/components/navigation.php'?>
-			</div>
+
+	<div class="container-fluid">
+		<?php include __DIR__ .'/components/header-bar.php'?>
+		<div class="row">
+			<?php include __DIR__ .'/components/navigation-bar.php'?>
 			<div class="col-md-9 px-5">
+				<div class="col-md-12 mt-3">
+					<h5 class="text-center text-muted"><?php echo  $isEditingPost? 'Edit': 'Create' ?> Post</h5>
+				</div>
 					<form class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
-						<div class="form-group">			
-							<div class="text-danger"><?php echo $post_errors['db_error']?? ''?></div>
+						<div class="form-group">
+							<?php if(isset($post_errors['db_error'])):?>
+							<div class="alert alert-danger alert-dismissible d-flex align-items-center fade show">
+								<i class="bi-exclamation-octagon-fill"></i>
+								<?php echo $post_errors['db_error']?>
+							</div>
+							<?php endif?>
 							<!--Id is required to identify the form -->
 							<?php if($isEditingPost == true):?>
 							<input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
-							<?php endif ?> 
+							<?php endif ?>
 							<div class="form-group mb-3">
 								<label class="form-label col-form-label" for="title"><b>Post Title:</b> <span class="text-danger">* <?php echo $post_errors['title']?? ''; ?></span></label>
 								<input class="form-control" type="text" name="title" value="<?php echo $title; ?>" placeholder="Title" required>
 								<div class="invalid-feedback">Title is required</div>
-								
+
 							</div>
 							<div class="form-group mb-3">
-								<label class="form-label col-form-label" for="post_main_image"><b>Image: </b> <span class="text-danger"><?php echo $image_error?? ''; ?></span></label>
-								<input class="form-control" type="file" name="post_main_image" placeholder="Select image">
+								<div class="d-flex align-items-center">
+									<div class="col-6">
+										<label class="form-label col-form-label" for="post_main_image"><b>Image: </b> <span class="text-danger"><?php echo $image_error?? ''; ?></span></label>
+										<input class="form-control" type="file" name="post_main_image" placeholder="Select image">
+									</div>
+									<div class="col-6 text-center">
+										<img src="<?php echo $image_file ?>" width="100" class="rounded" alt="image not available"/>
+									</div>
+								</div>
 								<p><ul><li>Only images sizes of less than 0.5 Mb with formats .jpg, .png and .gif are allowed.</li></ul> </p>
 							</div>
 							<div class="form-group mb-3">
@@ -87,17 +98,17 @@
 									<label class="form-check-label" for="publish">
 										<b>Publish</b></label>
 									<input class="form-check-input form-check-input-lg" type="checkbox" value="1" name="publish" checked="checked">&nbsp;
-									
+
 								</div>
 								<?php else: ?>
 								<div class="form-group mb-3">
 									<label class="form-check-label" for="publish">
 									<b>Publish</b></label>
 									<input class="form-check-input form-check-input-lg" type="checkbox" value="0" name="publish">&nbsp;
-									
+
 								</div>
 								<?php endif ?>
-							<?php endif ?>							
+							<?php endif ?>
 							<!--If editing post, display the update button instead of create button -->
 							<div>
 								<?php if($isEditingPost === true): ?>
@@ -107,7 +118,7 @@
 								<?php endif ?>
 							</div>
 						</div>
-					</form>				
+					</form>
 			</div>
 		</div>
 	</div>

@@ -49,7 +49,11 @@ $("document").ready(() => {
             setCookie(commentCookie, comment);
             setCookie(pageId, page_id);
 
+            /* for localhost */
             return window.location.href = "/spexproject/login";
+            /* for online server
+            return window.location.href="https://www.developerspot.co.ke/login";
+            */
 
         }
         document.cookie = "commentCookie=; path=/; max-age=0";

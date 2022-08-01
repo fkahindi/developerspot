@@ -1,7 +1,7 @@
-<?php 	
-if($_SESSION['role'] !== 'Admin'){
-	header('Location: ../index.php');
-}else{
+<?php
+if($_SESSION['role'] == 'Admin'){
 	header('Location: dashboard.php');
+}else{
+	header('Location: ../index.php');
 }
 ?>

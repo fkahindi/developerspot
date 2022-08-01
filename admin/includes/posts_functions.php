@@ -22,6 +22,30 @@ $topic_id ='';
 /*---------------
 --Post Functions
 -----------------*/
+
+//Count all posts
+function countAllPosts(){
+	global $conn;
+	$total_pub_posts ="SELECT COUNT(*) FROM `posts`";
+	$result = mysqli_query($conn,$total_pub_posts);
+	if($result){
+		return $total_rows = mysqli_fetch_array($result)[0];
+	}else{
+		return null;
+	}
+}
+
+function countAllUserPosts($user_id){
+	global $conn;
+	$total_pub_posts ="SELECT COUNT(*) FROM `posts` WHERE `user_id`=$user_id";
+	$result = mysqli_query($conn,$total_pub_posts);
+	if($result){
+		return $total_rows = mysqli_fetch_array($result)[0];
+	}else{
+		return null;
+	}
+}
+
 /* Count all published posts */
 function countPublishedPosts(){
 	global $conn;
@@ -32,12 +56,39 @@ function countPublishedPosts(){
 	}else{
 		return null;
 	}
-	
+
+}
+
+//Retrieve all posts
+function getAllPosts($limit=''){
+	global $conn, $_SESSION;
+
+	/* --Admins can view all posts but Authors will view only the posts they authored-- */
+	if($_SESSION['role'] == 'Admin'){
+
+		$sql = "SELECT * FROM `posts` ORDER BY post_id DESC".$limit;
+		$select = mysqli_query($conn, $sql);
+	}elseif($_SESSION['role'] == 'Author'){
+
+		$user_id = $_SESSION['user_id'];
+		$sql = "SELECT * FROM `posts` WHERE user_id=$user_id";
+		$select = mysqli_query($conn, $sql);
+	}
+
+	$posts = mysqli_fetch_all($select, MYSQLI_ASSOC);
+
+	$all_posts = array();
+
+	foreach($posts as $key => $post){
+		$post['author'] = getPostAuthorById($post['user_id']);
+		array_push($all_posts, $post);
+	}
+	return $all_posts;
 }
 /* Get number of published posts in the posts table */
 function getAllPublishedPostIds(){
 	global $conn;
-	
+
 	$sql ="SELECT post_id FROM `posts` WHERE published =1 ORDER BY created_at DESC";
 	$result = mysqli_query($conn, $sql);
 	if($result){
@@ -45,12 +96,13 @@ function getAllPublishedPostIds(){
 		return $published_post_id;
 	}else{
 		return null;
-	}	
+	}
 }
+
 /* Get specified published post ids from post table beginning with the recent ones*/
 function getBatchPublishedPostIds($limit,$offset){
 	global $conn;
-	
+
 	$sql ="SELECT post_id FROM `posts` WHERE published =1 ORDER BY created_at DESC LIMIT $limit OFFSET $offset";
 	$result = mysqli_query($conn, $sql);
 	if($result){
@@ -58,13 +110,13 @@ function getBatchPublishedPostIds($limit,$offset){
 		return $published_post_id;
 	}else{
 		return null;
-	}	
+	}
 }
 
 /* Retrieve published topics using post_id of published posts */
 function getPublishedTopics($published_post_id){
 	global $conn;
-	$sql ="SELECT * FROM topics WHERE topic_id= 
+	$sql ="SELECT * FROM topics WHERE topic_id=
 	(SELECT topic_id FROM post_topic WHERE post_id=$published_post_id) LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	if($result){
@@ -77,20 +129,20 @@ function getPublishedTopics($published_post_id){
 /* Retrieve published posts categorised by topic using topic_id */
 function getPublishedPostsByTopic($topic_id) {
 	global $conn;
-	$sql = "SELECT * FROM posts ps 
-			WHERE ps.published=1 AND ps.post_id IN 
-			(SELECT pt.post_id FROM post_topic pt 
-				WHERE pt.topic_id=$topic_id GROUP BY pt.post_id 
+	$sql = "SELECT * FROM posts ps
+			WHERE ps.published=1 AND ps.post_id IN
+			(SELECT pt.post_id FROM post_topic pt
+				WHERE pt.topic_id=$topic_id GROUP BY pt.post_id
 				HAVING COUNT(1) = 1)";
-				
+
 	$result = mysqli_query($conn, $sql);
-	
+
 	/* fetch all posts as an associative array */
 	$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 	$final_posts = array();
 	foreach($posts as $post) {
-		$post['topic'] = getPublishedTopics($post['post_id']); 
+		$post['topic'] = getPublishedTopics($post['post_id']);
 		array_push($final_posts, $post);
 	}
 	return $final_posts;
@@ -117,31 +169,7 @@ function getMostRecentPosts($limit){
 	}
 }
 /* Get posts for admins and authors based on the user logged in */
-function getAllPosts(){
-	global $conn, $_SESSION;
-	
-	/* --Admins can view all posts but Authors will view only the posts they authored-- */
-	if($_SESSION['role'] == 'Admin'){
-		
-		$sql = "SELECT * FROM `posts` ORDER BY post_id DESC";
-		$select = mysqli_query($conn, $sql);
-	}elseif($_SESSION['role'] == 'Author'){
-		
-		$user_id = $_SESSION['user_id'];
-		$sql = "SELECT * FROM `posts` WHERE user_id=$user_id";
-		$select = mysqli_query($conn, $sql);
-	}
-	
-	$posts = mysqli_fetch_all($select, MYSQLI_ASSOC);
-	
-	$all_posts = array();
-	
-	foreach($posts as $key => $post){
-		$post['author'] = getPostAuthorById($post['user_id']);
-		array_push($all_posts, $post);
-	}
-	return $all_posts;
-}
+
 /* Retrive a single post by supplied post slug */
 function getPostBySlug($post_slug)
 {
@@ -158,19 +186,19 @@ function getPostById($post_id){
 	global $conn;
 	$sql = "SELECT * FROM `posts` WHERE post_id=$post_id LIMIT 1";
 	$result = mysqli_query($conn, $sql);
-	
+
 	$post = mysqli_fetch_assoc($result);
-	
+
 	return $post;
 }
 /* Get username/ author of each post */
 function getPostAuthorById($user_id){
 	global $conn;
 	$sql ="SELECT username FROM `users` WHERE user_id=$user_id";
-	
+
 	$result = mysqli_query($conn, $sql);
 	if($result){
-		
+
 		$author = mysqli_fetch_assoc($result);
 		return $author['username'];
 	}else{
@@ -186,8 +214,8 @@ function getFirstParagraphPostById($post_id){
 
 	if($result){
 		$paragraph = mysqli_fetch_assoc($result);
-		
-		return htmlspecialchars_decode($paragraph['post_body'].'...');	
+
+		return htmlspecialchars_decode($paragraph['post_body'].'...');
 	}else{
 		return null;
 	}
@@ -199,7 +227,7 @@ function getFirstParagraphPostById($post_id){
 /* If user clicks Save post button */
 if(isset($_POST['create_post'])){
 	createPost($_POST);
-} 
+}
 /* If user clicks Edit post */
 if(isset($_GET['edit-post'])){
 	$isEditingPost = true;
@@ -215,28 +243,28 @@ if(isset($_GET['delete-post'])){
 	$post_id = $_GET['delete-post'];
 	deletePost($post_id);
 }
-
 /*-----------------------
 	--Post Functions--
 -------------------------*/
 function createPost($request_values){
 	global $conn, $post_errors,$image_error, $title, $topic_id, $body,$meta_description, $meta_keywords, $published,$image_path, $image_caption, $sound;
-	
-	$title = htmlspecialchars(esc($request_values['title']));
-	$body = htmlspecialchars(esc($request_values['body']));
+
+	//Receive form raw data
+	$title = $request_values['title'];
+	$body = $request_values['body'];
 	$topic_id = $request_values['topic_id'];
 	$user_id = $_SESSION['user_id'];
-	
+
 	//Validate form, if $title and $body are not empty create metaphone words
 	if(empty($title)){
-		$post_errors['title'] = 'Post title is required';		
+		$post_errors['title'] = 'Post title is required';
 	}else{
 		$words = explode(' ', $title);
 		foreach($words as $word){
 			$sound .= metaphone($word).' ';
 		}
 	}
-	if(empty($body)){	
+	if(empty($body)){
 		$post_errors['body']='Post body is required';
 	}else{
 		$words = explode(' ', $body);
@@ -244,8 +272,8 @@ function createPost($request_values){
 			$sound .= metaphone($word).' ';
 		}
 	}
-	if(empty($topic_id)){		
-		$post_errors['topic'] = 'Post topic is required';		
+	if(empty($topic_id)){
+		$post_errors['topic'] = 'Post topic is required';
 	}else{
 		$topic_id = $_POST['topic_id'];
 	}
@@ -263,11 +291,11 @@ function createPost($request_values){
 	}
 	//Create slug by replacing spaces in title with hyphens
 	$post_slug = makeSlug($title);
-	
+
 	if(!$post_errors){
 	//Prepare image for upload
 	include __DIR__ .'/load_image.php';
-	
+
 		$result = $image_up_load->moveFile($target_file);
 		$image_error = $image_up_load->errors;
 
@@ -275,46 +303,48 @@ function createPost($request_values){
 			$image_path = BASE_URL.'resources/images/'.basename($received_name['name']);
 		}else{
 			$image_path = null;
-		} 
+		}
 
 		//Make sure no file is saved twice
 		$post_check ="SELECT * FROM `posts` WHERE post_slug='$post_slug' LIMIT 1";
-		
+
 		$result = mysqli_query($conn, $post_check);
-			
+
 		if(mysqli_num_rows($result)>0){ //another post with the name exists
-			$post_errors['db_error'] = 'A post with that name already exists';						
+			$post_errors['db_error'] = 'A post with that name already exists';
 		}
-	
-		//If no errors in the form, insert posts	
+
+		//If no errors in the form, insert posts
 		if(!$post_errors && !$image_error){
-			
+			//Sanitize body and title fields
+			$title = htmlspecialchars(esc($title));
+			$body = htmlspecialchars(esc($body));
 			$query = "INSERT INTO `posts` (`user_id`, `post_title`, `post_slug`, `post_body`, `meta_description`, `meta_keywords`, `published`, `image`, `image_caption`, `created_at`, `metaphoned`) VALUES ($user_id, '$title', '$post_slug', '$body','$meta_description','$meta_keywords', $published, '$image_path','$image_caption', now(), '$sound')";
-			
+
 			$result = mysqli_query($conn, $query);
 			if($result){ //if post created successful
-			
+
 				$inserted_id = mysqli_insert_id($conn);
 				//Create a relationship between post and topic
 				$sql ="INSERT INTO `post_topic` (topic_id, post_id) VALUES ($topic_id, $inserted_id)";
-				
+
 				mysqli_query($conn, $sql);
-				
+
 				$_SESSION['message']='Post created successfully.';
 				header('Location: posts.php');
 				exit(0);
 			}else{
-				$errors = 'Insert record was not successful. <br><strong>Description:</strong><br>'. $conn->error;
-			}		
+				$post_errors['db_error'] = 'Insert record was not successful. <br><strong>Description:</strong><br> '. $conn->error;
+			}
 		}
   }
 }
 
-function editPost($role_id){
+function editPost($post_id){
 	global $conn, $title, $body,$meta_description, $meta_keywords,$published,$image_file, $image_caption, $topic_name, $topic_id;
-	
-	$sql = "SELECT * FROM `posts` WHERE post_id = $role_id LIMIT 1";
-	
+
+	$sql = "SELECT * FROM `posts` WHERE post_id = $post_id LIMIT 1";
+
 	$result = mysqli_query($conn, $sql);
 	$post = mysqli_fetch_assoc($result);
 	/* //Set form values to be updated on form */
@@ -329,28 +359,32 @@ function editPost($role_id){
 	$topic_id = getPublishedTopics($post['post_id'])['topic_id'];
 }
 function updatePost($request_values){
-	global $conn, $post_errors,$image_error, $title, $post_slug, $body, $meta_description,$image_caption, $published, $isEditingPost, $post_id, $topic_id, $sound;
-	
-	$isEditingPost = true; 
-	$title = htmlspecialchars(esc($request_values['title']));
-	$body = htmlspecialchars(esc($request_values['body']));
-	$meta_description = htmlspecialchars(esc($request_values['meta_description']));
-	$meta_keywords = htmlspecialchars(esc($request_values['meta_keywords']));
-	$image_caption = htmlspecialchars(esc($request_values['image_caption']));
+	global $conn, $post_errors,$image_error, $title, $post_slug, $body, $meta_description, $image_file, $image_caption, $published, $isEditingPost, $post_id, $topic_id, $sound;
+
+	$isEditingPost = true;
+	//Receive raw form values
+	$title = $request_values['title'];
+	$body = $request_values['body'];
+	$meta_description = $request_values['meta_description'];
+	$meta_keywords = $request_values['meta_keywords'];
+	$image_caption = $request_values['image_caption'];
 	$post_id = esc($request_values['post_id']);
+
+
 	if(isset($request_values['topic_id'])){
 		$topic_id = esc($request_values['topic_id']);
 	}
-	if(isset($_POST['publish'])){
-		$published = $_POST['publish'];
+	if($_SESSION['role'] == 'Admin'){
+		$published = $request_values['publish'];
+	}else{
+		$published = 0;
 	}
-	
+
 	//Create slug by replacing spaces in title with hyphens
 	$post_slug = makeSlug($title);
 	//Validate form
 	if(empty($title)){
 		$post_errors['title'] ='Post title is required';
-		
 	}else{
 		$words = explode(' ', $title);
 		foreach($words as $word){
@@ -359,14 +393,14 @@ function updatePost($request_values){
 	}
 	if(empty($body)){
 		$post_errors['title']='Post body is required';
-		
+
 	}else{
 		$words = explode(' ', $body);
 		foreach($words as $word){
 			$sound .= metaphone($word).' ';
 		}
 	}
-			
+
 	if(!$post_errors){
 		//Prepare image for upload
 		include __DIR__ .'/load_image.php';
@@ -376,23 +410,30 @@ function updatePost($request_values){
 		if(!$image_error && $result !== false){
 			$image_path = BASE_URL.'resources/images/'.basename($received_name['name']);
 		}else{
-			$image_path = null;
+			$image_path = $image_file;
 		}
-		
+
 		if(!$post_errors && !$image_error){
+
+			//Sanitize form data
+			$title = htmlspecialchars(esc($title));
+			$body = htmlspecialchars(esc($body));
+			$meta_description = htmlspecialchars(esc($meta_description));
+			$meta_keywords = htmlspecialchars(esc($meta_keywords));
+			$image_caption = htmlspecialchars(esc($image_caption));
 			//Update post
 			$query = "UPDATE `posts` SET `post_title`='$title', `post_slug`='$post_slug', `post_body`='$body', `meta_description`='$meta_description', `meta_keywords`='$meta_keywords', `published`=$published, `image`='$image_path',`image_caption`='$image_caption', `updated_at`=now(), `metaphoned`='$sound' WHERE `post_id`=$post_id";
-	
-			//Attach topic to posts in post_topic table 
-			if(mysqli_query($conn, $query)){ 
-				//if query was created successfully 
+
+			//Attach topic to posts in post_topic table
+			if(mysqli_query($conn, $query)){
+				//if query was created successfully
 
 				if(isset($topic_id)){
-					//create relationship between post and topic 
+					//create relationship between post and topic
 					$sql = "UPDATE `post_topic` SET topic_id=$topic_id WHERE post_id=$post_id";
-					
+
 					mysqli_query($conn, $sql);
-					$_SESSION['message']= 'Post and topic values updated successfully.';
+					$_SESSION['message']= 'Post and topic values update successful.';
 					header('Location: posts.php');
 					exit(0);
 				}
@@ -400,10 +441,10 @@ function updatePost($request_values){
 				header('Location: posts.php');
 				exit(0);
 			}else{
-				$post_errors['db_error'] = 'Update was not successful. <br><strong>Description:</strong><br>'. $conn->error;
+				$post_errors['db_error'] = 'Update was not successful. <br><strong>Description:</strong><br> '. $conn->error;
 			}
-		}		
-    } 	
+		}
+    }
 }
 
 /* //Delete blog post */
@@ -411,12 +452,12 @@ function deletePost($post_id){
 	global $conn, $errors;
 	$sql = "DELETE FROM `posts` WHERE post_id = $post_id";
 	if(mysqli_query($conn, $sql)){
-				
+
 		$_SESSION['message'] = 'Post, related comments and replies deleted successfully.';
 		header('Location: posts.php');
 			exit(0);
 	}else{
-		array_push($errors, 'Delete failed! <br><strong>Description:</strong><br>'. $conn->error);
+		array_push($errors, 'Delete failed! <br><strong>Description:</strong><br> '. $conn->error);
 	}
 }
 
@@ -425,11 +466,11 @@ if(isset($_GET['publish']) || isset($_GET['unpublish'])){
 	$message ='';
 	if(isset($_GET['publish'])){
 		$published = 1;
-		$message = 'Post published successfully.';
+		$message = 'Post publish successful.';
 		$post_id = $_GET['publish'];
 	}elseif(isset($_GET['unpublish'])){
 		$published = 0;
-		$message = 'Post successfully unpublished.';
+		$message = 'Post unpublish successful.';
 		$post_id = $_GET['unpublish'];
 	}
 	togglePublishPost($post_id, $published, $message);
@@ -438,14 +479,11 @@ if(isset($_GET['publish']) || isset($_GET['unpublish'])){
 /* Publish/ unpublish posts */
 function togglePublishPost($post_id, $published, $message){
 	global $conn;
-	
+
 	$sql = "UPDATE `posts` SET published =$published WHERE post_id=$post_id";
 	if(mysqli_query($conn, $sql)){
 		$_SESSION['message'] = $message;
 		header('Location: posts.php');
 		exit(0);
 	}
-}
-function imageUpLoad(){
-	
 }

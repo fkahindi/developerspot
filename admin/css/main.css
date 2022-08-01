@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'Aladin';
+    src: url('../../resources/fonts/Aladin-Regular.ttf');
+    font-display: swap;
+}
+
+.devpot-banner {
+    font-family: Aladin;
+}
+
+#mynav a span:hover {
+    text-decoration: underline;
+    text-decoration-color: rgba(102, 233, 202, 0.6);
+}
+
+.banana-yellow {
+    color: rgb(196, 191, 102);
+}
+
+.olive {
+    columns: #0b3128;
+}
+
+.autum-orange {
+    color: rgb(236, 128, 26);
+}
+
+.deep-red {
+    color: rgb(80, 14, 12)
+}
+
+.khaki {
+    color: rgb(151, 148, 127);
+}
