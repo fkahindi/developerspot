@@ -1,11 +1,15 @@
+<?php include __DIR__ .'/classes/CommentsClassTest.php'?>
 	<div class="group">
 		<div class="replies-profile-photo">
-			<?php $getUser = new CommentsClass($pdo); ?>
-			<img src="<?php echo $getUser->getUserById($reply['user_id'])['profile_photo']; ?>" alt="" width=30px height=30px data-pin-nopin="0"/>
+			<?php
+				$users_table = new CommentsClassTest($pdo,'users','user_id');
+				$getUser = $users_table->selectSingleRecord($reply['user_id'])->fetch();
+			?>
+			<img src="<?php echo $getUser['profile_photo']; ?>" alt="" width=30px height=30px data-pin-nopin="0"/>
 		</div>
 		<div class="replies-detail">
 			<div class="user-info">
-				<span class="username"><?php echo $getUser->getUserById($reply['user_id'])['username']; ?></span>
+				<span class="username"><?php echo $getUser['username']; ?></span>
 				<span class="created-date"><?php echo date('F j, Y ', strtotime($reply['created_at'])); ?></span>
 			</div>
 			<div class="reply-text">

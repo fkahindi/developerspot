@@ -69,7 +69,7 @@ class CommentsClassTest
 
     return $query;
   }
-  public function getAllPublishedRecords($value1,$value2,$limit)
+  public function getAllPublishedRecords($value1,$value2,$limit='')
   {
     $sql ="SELECT * FROM `".$this->table."`
     WHERE `".$this->keyfield."`=:value1 AND `".$this->keyfield2."`=:value2".$limit;
