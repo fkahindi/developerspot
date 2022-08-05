@@ -3,6 +3,10 @@ RewriteEngine on
 ErrorDocument 403 errors/403.html
 ErrorDocument 404 errors/404.html
 #
+#Set Header Content-Security-Policy[Report-Only]
+#
+
+#
 #RewriteCond %{SCRIPT_FILENAME} !-d
 #RewriteCond %{SCRIPT_FILENAME} !-f
 #RewriteRule . /index.php [L]

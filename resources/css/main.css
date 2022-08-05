@@ -456,7 +456,7 @@ header .fa-linkedin {
     .nav-content {
       display: none;
       position: absolute;
-      top: 3.75em;
+      top: 3em;
       left: 0;
       height: 100%;
       width: 100%;
@@ -510,9 +510,8 @@ header .fa-linkedin {
     .log-account-section {
       min-width: 20%;
       position: absolute;
-      top: 10px;
-      right: 10%;
-      padding: 5px; } }
+      top: 0;
+      right: 10%; } }
   @media (min-width: 769px) {
     .log-account-section {
       position: relative;
@@ -527,10 +526,28 @@ header .fa-linkedin {
   margin: 0; }
 
 .login {
+  position: relative;
+  top: 1.5em;
+  right: 1em;
   font-family: Times, serif;
   color: #0b3128; }
   .login:hover {
     color: orangered; }
+  @media (max-width: 599px) {
+    .login {
+      top: 1em; } }
+  @media (min-width: 769px) {
+    .login {
+      right: 0; } }
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center; }
+  @media (max-width: 768px) {
+    .flex-container {
+      justify-content: space-around; } }
 
 .account-photo-box:hover .tooltip-text {
   visibility: visible;
@@ -543,8 +560,6 @@ header .fa-linkedin {
   height: 2.2em;
   width: 2.2em;
   border-radius: 50%; }
-  .image-photo:hover {
-    cursor: pointer; }
 
 .tooltip {
   position: relative;
@@ -577,9 +592,28 @@ header .fa-linkedin {
   #profile-checkbox-control:checked ~ .tooltip-text {
     visibility: hidden; }
 
+@media (min-width: 769px) {
+  .settings {
+    height: 2.1875em; } }
+
+.settings-char-icon {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  margin-top: 0.25em;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 2rem;
+  color: gray;
+  transform: rotate(90deg);
+  vertical-align: middle; }
+  .settings-char-icon:hover {
+    cursor: pointer;
+    background-color: #dce1dd; }
+
 .account-display-settings {
   display: none;
-  min-width: 9.625em;
+  min-width: 12.25em;
   position: relative;
   top: 0;
   right: 2em;
@@ -591,18 +625,19 @@ header .fa-linkedin {
   @media (max-width: 768px) {
     .account-display-settings {
       position: absolute;
-      top: 2em;
-      right: -20px; } }
+      top: 3em;
+      right: 0; } }
   @media (min-width: 769px) {
     .account-display-settings {
       position: absolute;
-      top: 2em;
-      right: -40px; } }
+      top: 4em;
+      right: 10px; } }
   .account-display-settings ul {
     list-style: none; }
     .account-display-settings ul li {
+      line-height: 2.5em;
       padding: 2px 10px;
-      border-bottom: thin groove gray; }
+      border-bottom: thin groove #f9f9f9; }
       .account-display-settings ul li:last-child {
         border-bottom: none; }
   .account-display-settings a {
@@ -1155,6 +1190,10 @@ hr {
   .banner-bar {
     grid-column: 2/span 3;
     grid-row: 1/span 1; }
+    @media (max-width: 599px) {
+      .banner-bar {
+        grid-column: 2/span 2;
+        grid-row: 1/span 1; } }
     @media (min-width: 769px) {
       .banner-bar {
         grid-column: 1/span 2;
@@ -1185,9 +1224,12 @@ hr {
         grid-row: 2/span 1; } }
 
   .log-account-section {
-    grid-column: 4/span 2;
-    grid-row: 1/span 2;
-    text-align: center; }
+    grid-column: 5/span 1;
+    grid-row: 1/span 2; }
+    @media (max-width: 599px) {
+      .log-account-section {
+        grid-column: 5/span 1;
+        grid-row: 1/span 1; } }
     @media (min-width: 769px) {
       .log-account-section {
         grid-column: 5/span 1;
