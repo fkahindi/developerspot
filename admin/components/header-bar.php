@@ -1,4 +1,4 @@
-<div class="row bg-light py-4 shadow-sm sticky-top">
+<div class="row bg-light py-4 shadow-sm">
   <div class="col-md-4">
     <h6 class="text-dark"><?php echo $_SESSION['role'] .' | '. $_SESSION['fullname'] ?> </h6>
   </div>

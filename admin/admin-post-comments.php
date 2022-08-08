@@ -9,15 +9,15 @@
 		header('Location: ../index.php');
 	}
 	/* Load necessary functions */
-	require_once __DIR__ .'/../comments/includes/comments_functions_test.php';
+	require __DIR__ .'/../comments/includes/comments_functions.php';
 
 	//Fetch all posts that apply to the user
     $page_id = $_GET['view-comments'];
 
-    $postComments = new CommentsClassTest($pdo,'comments','post_id');
+    $postComments = new CommentsReplies($pdo,'comments','post_id');
 
 		//Create pagination for comments
-		$totalPostComments = new CommentsClassTest($pdo,'comments','post_id');
+		$totalPostComments = new CommentsReplies($pdo,'comments','post_id');
 		if (isset($_GET['comment_page_num'])) {
 				$page_num = $_GET['comment_page_num'];
 		} else {
@@ -52,8 +52,8 @@
 								<h4 class="text-center">
 									Post Comments from --
 									<?php
-										$get_post = new CommentsClassTest($pdo,'posts','post_id');
-									 	$post_title=$get_post->selectSingleRecord($page_id)->fetch();
+										$get_post = new CommentsReplies($pdo,'posts','post_id');
+									 	$post_title=$get_post->selectSingleRecord($page_id);
 										echo $post_title['post_title'];
 									?>
 									--
@@ -78,8 +78,8 @@
 									<td><?php echo $page_num==1 ? ($key + 1) : ($offset + $key + 1) ?></td>
 									<td>
                     <?php
-                      $comment_author = new CommentsClassTest($pdo,'users','user_id');
-                      $row = $comment_author->selectSingleRecord($comment['user_id'])->fetch();
+                      $comment_author = new CommentsReplies($pdo,'users','user_id');
+                      $row = $comment_author->selectSingleRecord($comment['user_id']);
 											echo $row['username'];
                     ?>
                   </td>
@@ -87,7 +87,7 @@
 									  <?php echo $comment['body'] ?>
 									</td>
 									<td class="text-center">
-										<?php $getRepliesCount = new CommentsClassTest($pdo,'replies','comment_id')?>
+										<?php $getRepliesCount = new CommentsReplies($pdo,'replies','comment_id')?>
 										<a href="admin-comment-replies.php?view-replies=<?php echo $comment['comment_id'] ?>" data-bs-toggle="tooltip"  title="Click to view replies">
 										 <?php echo $getRepliesCount->countAllRecords($comment['comment_id']) ?>
 										</a>

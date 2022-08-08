@@ -10,14 +10,14 @@
 	}
 	/* Load necessary functions */
 
-	require_once __DIR__ .'/../comments/includes/comments_functions_test.php';
+	require __DIR__ .'/../comments/includes/comments_functions.php';
 
 		//Fetch all posts that apply to the user
     $comment_id = $_GET['view-replies'];
-    $commentReplies = new CommentsClassTest($pdo,'replies','comment_id');
+    $commentReplies = new CommentsReplies($pdo,'replies','comment_id');
 
 		//Create pagination for comments
-		$totalCommentReplies = new CommentsClassTest($pdo,'replies','comment_id');
+		$totalCommentReplies = new CommentsReplies($pdo,'replies','comment_id');
 		if (isset($_GET['reply_page_num'])) {
 				$page_num = $_GET['reply_page_num'];
 		} else {
@@ -68,8 +68,8 @@
 									<td><?php echo $page_num==1 ? ($key + 1) : ($offset + $key + 1) ?></td>
 									<td>
                     <?php
-                      $reply_author = new CommentsClassTest($pdo,'users','user_id');
-											$row = $reply_author->selectSingleRecord($reply['user_id'])->fetch();
+                      $reply_author = new CommentsReplies($pdo,'users','user_id');
+											$row = $reply_author->selectSingleRecord($reply['user_id']);
                       echo $row['username'];
                     ?>
                   </td>

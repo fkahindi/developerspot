@@ -11,7 +11,7 @@
 	/* Load necessary functions */
 	include __DIR__ .'/includes/admin_functions.php';
 	include __DIR__ .'/includes/posts_functions.php';
-	include __DIR__ .'/../comments/includes/comments_functions_test.php';
+	include __DIR__ .'/../comments/includes/comments_functions.php';
 
 	if (isset($_GET['page-num'])) {
 				$page_num = $_GET['page-num'];
@@ -75,7 +75,7 @@
 										</a>
 										</td>
 										<td class="text-center">
-											<?php $getCommentsCount = new CommentsClassTest($pdo,'comments','post_id')?>
+											<?php $getCommentsCount = new CommentsReplies($pdo,'comments','post_id')?>
 											<a href="admin-post-comments.php?view-comments=<?php echo $post['post_id'] ?>" data-bs-toggle="tooltip" title="Click to view post comments">
 												<?php echo $getCommentsCount->countAllRecords(intval($post['post_id']))?>
 											</a>
