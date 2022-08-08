@@ -1,20 +1,17 @@
 <?php
-class CommentsClassTest
+class CommentsReplies
 {
 
   public function __construct(
     PDO $pdo,
     string $table,
     string $keyfield ='',
-    string $keyfield2='',
-    string $limit=''
-  )
-  {
+    string $keyfield2=''
+  ){
       $this->pdo = $pdo;
       $this->table = $table;
       $this->keyfield = $keyfield;
       $this->keyfield2 = $keyfield2;
-      $this->limit = $limit;
   }
 
   private function query( $sql, $parameters=[]){
@@ -28,7 +25,7 @@ class CommentsClassTest
     $sql = "SELECT COUNT(*) FROM `".$this->table."`
     WHERE `".$this->keyfield."`= :value";
 
-    $parameters = ['value' => $value];
+    $parameters = [':value' => $value];
 
     $total = $this->query($sql, $parameters);
 
@@ -40,7 +37,7 @@ class CommentsClassTest
     $sql ="SELECT COUNT(*) FROM `".$this->table."`
     WHERE `".$this->keyfield."`=:value1 AND `".$this->keyfield2."`= :value2";
 
-    $parameters = ['value1'=>$value1, 'value2'=>$value2];
+    $parameters = [':value1'=>$value1, ':value2'=>$value2];
 
     $total = $this->query($sql, $parameters);
 
@@ -52,10 +49,10 @@ class CommentsClassTest
     $sql = "SELECT * FROM `".$this->table."`
     WHERE `".$this->keyfield."`=:value";
 
-    $parameters =['value'=>$value];
+    $parameters =[':value'=>$value];
 
     $query = $this->query($sql, $parameters);
-    return $query;
+    return $query->fetch();
   }
 
   public function getAllRecords($value,$limit='')
@@ -63,7 +60,7 @@ class CommentsClassTest
     $sql = "SELECT * FROM `".$this->table."`
     WHERE `".$this->keyfield."`=:value".$limit;
 
-    $parameters =['value'=>$value];
+    $parameters =[':value'=>$value];
 
     $query = $this->query($sql, $parameters);
 
@@ -74,7 +71,7 @@ class CommentsClassTest
     $sql ="SELECT * FROM `".$this->table."`
     WHERE `".$this->keyfield."`=:value1 AND `".$this->keyfield2."`=:value2".$limit;
 
-    $parameters =['value1'=>$value1,'value2'=>$value2];
+    $parameters =[':value1'=>$value1,':value2'=>$value2];
 
     $query = $this->query($sql, $parameters);
 
@@ -113,7 +110,7 @@ class CommentsClassTest
 
 		$query .= ' WHERE `'.$this->keyfield .'`= :keyfield';
 
-		$fields ['keyfield'] = $keyfield;
+		$fields [':keyfield'] = $keyfield;
 
 		$this->query($query, $fields);
 	}
@@ -134,7 +131,7 @@ class CommentsClassTest
 
      WHERE `'.$this->keyfield .'`= :value1';
 
-    $parameters = ['value1'=>$value1,'value2'=>$value2];
+    $parameters = [':value1'=>$value1,':value2'=>$value2];
 
     $this->query($sql, $parameters);
   }

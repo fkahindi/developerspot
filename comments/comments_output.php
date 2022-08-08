@@ -1,10 +1,9 @@
 <?php
 if(!isset($_SESSION)){
 	session_start();
-	include __DIR__ .'/classes/CommentsClassTest.php';
 }
-$users_table = new CommentsClassTest($pdo,'users','user_id');
-$getUser = $users_table->selectSingleRecord($comment['user_id'])->fetch();
+$users_table = new CommentsReplies($pdo,'users','user_id');
+$getUser = $users_table->selectSingleRecord($comment['user_id']);
 ?>
 <div class="comments-section group" >
 	<div class="hide-comment-id"><?php echo $comment['comment_id']; ?></div>

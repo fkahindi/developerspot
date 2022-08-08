@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ .'/../../../includes_devspot/DatabaseConnection.php';
-require_once __DIR__ .'/../classes/CommentsClass.php';
+require_once __DIR__ .'/../classes/CommentsReplies.php';
 
 //Receives values from jQuery for posting comments
 if(isset($_POST['submit_comment']) && $_POST['body']!=="" && !empty($_POST['user_id'])){
@@ -8,24 +8,18 @@ if(isset($_POST['submit_comment']) && $_POST['body']!=="" && !empty($_POST['user
 	$page_id = $_POST['page_id'];
 	$body = htmlspecialchars($_POST['body']);
 
-	$sql = "INSERT INTO `comments` (user_id, post_id, body, created_at) VALUES (:user_id, :page_id, :body, now())";
+  $fields = [
+    'user_id' =>$user_id,
+    'post_id' => $page_id,
+    'body' => $body
+  ];
 
-	$stmt = $pdo->prepare($sql);
-	$stmt->bindValue(':user_id', $user_id);
-	$stmt->bindValue(':page_id', $page_id);
-	$stmt->bindValue(':body', $body);
+  $comments_table = new CommentsReplies($pdo, 'comments','comment_id');
+  $comments_table->insertRecord($fields);
 
-	$stmt->execute();
+  $last_id = $pdo->lastInsertId();
 
-	$last_id = $pdo->lastInsertId();
-
-	$query = "SELECT * FROM comments WHERE comment_id = :last_id";
-
-	$row = $pdo->prepare($query);
-	$row->bindValue(':last_id', $last_id);
-	$row->execute();
-
-	$comment=$row->fetch();
+  $comment= $comments_table->selectSingleRecord($last_id);
 
 	include __DIR__ . '/../comments_output.php';
 }
@@ -35,38 +29,32 @@ if(isset($_POST['post_reply']) && $_POST['reply_text']!=="" && !empty($_POST['us
 
 	$comment_id = $_POST['comment_id'];
 	$user_id = $_POST['user_id'];
-	$reply_text = htmlspecialchars($_POST['reply_text']);
+	$body = htmlspecialchars($_POST['reply_text']);
 
-	$sql = "INSERT INTO `replies` (user_id, comment_id, body, created_at, updated_at) VALUES (:user_id, :comment_id, :reply_text, now(), null)";
+  $fields =[
+    'comment_id'=>$comment_id,
+    'user_id'=>$user_id,
+    'body'=>$body
+  ];
+  $replies_table = new CommentsReplies($pdo,'replies','reply_id');
 
-	$query=$pdo->prepare($sql);
-	$query->bindValue(':user_id',$user_id);
-	$query->bindValue(':comment_id',$comment_id);
-	$query->bindValue(':reply_text',$reply_text);
+	$replies_table->insertRecord($fields);
+  $last_id = $pdo->lastInsertId();
 
-	$query->execute();
-	$insert_id = $pdo->lastInsertId();
+  $reply = $replies_table->selectSingleRecord($last_id);
 
-	if($insert_id){
-		$query = "SELECT * FROM replies WHERE reply_id = :insert_id";
+  include __DIR__ . '/../replies_output.php';
 
-		$reply_row = $pdo->prepare($query);
-		$reply_row->bindValue(':insert_id', $insert_id);
-
-		$reply_row->execute();
-		$reply=$reply_row->fetch();
-
-		include __DIR__ . '/../replies_output.php';
-
-	}
 }
 
 if(isset($_POST['load_more'])){
 
-	$page_id = $_POST['page_id'];
+	$page_id = intval($_POST['page_id']);
 	$limit = $_POST['limit'];
-	$getComments = new CommentsClass($pdo);
-	$comments = $getComments->getPublishedCommentsByPost($page_id, $limit);
+
+	/* Retrieve next batch of post comments for this post */
+	$postComments = new CommentsReplies($pdo, 'comments','post_id','published');
+	$comments = $postComments->getAllPublishedRecords($page_id,1,$limit);
 	include __DIR__ .'/../comments_display_main_block.php';
 }
 
@@ -83,8 +71,17 @@ if(isset($_GET['publish-comment']) || isset($_GET['unpublish-comment'])){
 		$message = 'Comment successfully unpublished.';
 		$comment_id = $_GET['unpublish-comment'];
 	}
-	togglePublishComment($post_id, $published, $message);
+	$toggle_comment = new CommentsReplies($pdo, 'comments','comment_id','published');
+
+ $toggledComment = $toggle_comment->toggleRecord($comment_id, $published);
+
+
+  $_SESSION['message'] = $message;
+		header('Location: admin-post-comments.php?view-comments='.$post_id);
+		exit(0);
+
 }
+
 //If user clicks Publish/ Unpublish reply button
 if(isset($_GET['publish-reply']) || isset($_GET['unpublish-reply'])){
 	$message ='';
@@ -98,7 +95,13 @@ if(isset($_GET['publish-reply']) || isset($_GET['unpublish-reply'])){
 		$message = 'Reply successfully unpublished.';
 		$reply_id = $_GET['unpublish-reply'];
 	}
-	togglePublishReply($reply_id, $published, $message);
+	$toogle_reply = new CommentsReplies($pdo, 'replies','reply_id','published');
+  $toggledReply = $toogle_reply->ToggleRecord($reply_id,$published);
+
+	$_SESSION['message'] = $message;
+	header('Location: admin-comment-replies.php?view-replies='.$comment_id);
+	exit(0);
+
 }
 
 //If user clickd delete-comment button
@@ -106,7 +109,13 @@ if(isset($_GET['delete-comment'])){
 	$comment_id = $_GET['delete-comment'];
 	$post_id = $_GET['page_id'];
 
-	deleteComment($comment_id, $post_id);
+	$delComment = new CommentsReplies($pdo,'comments','comment_id');
+  $delComment->deleteRecords($comment_id);
+
+	$_SESSION['message'] = 'Comment with related replies deleted successfully.';
+	header('Location: admin-post-comments.php?view-comments='.$post_id);
+	exit(0);
+
 }
 
 //If user clickd delete-reply button
@@ -114,59 +123,10 @@ if(isset($_GET['delete-reply'])){
 	$reply_id = $_GET['delete-reply'];
 	$comment_id = $_GET['comment_id'];
 
-	deleteReply($reply_id, $comment_id);
-}
+	$delReply = new CommentsReplies($pdo,'replies','reply_id');
+  $delReply->deleteRecords($reply_id);
 
-/* Publish/ unpublish comments */
-function togglePublishComment($post_id, $published, $message){
-	global $conn, $comment_id, $post_id;
-
-	$sql = "UPDATE `comments` SET published =$published WHERE comment_id=$comment_id";
-	if(mysqli_query($conn, $sql)){
-		$_SESSION['message'] = $message;
-		header('Location: admin-post-comments.php?view-comments='.$post_id);
-		exit(0);
-	}
-}
-
-/* //Delete comment  */
-function deleteComment($comment_id, $post_id){
-	global $conn, $errors;
-
-	$sql = "DELETE FROM `comments` WHERE comment_id = $comment_id";
-	if(mysqli_query($conn, $sql)){
-
-		$_SESSION['message'] = 'Comment with related replies deleted successfully.';
-		header('Location: admin-post-comments.php?view-comments='.$post_id);
-			exit(0);
-	}else{
-		array_push($errors, 'Delete failed! <br><strong>Description:</strong><br> '. $conn->error);
-	}
-}
-
-/* Publish/ unpublish reply */
-function togglePublishReply($reply_id, $published, $message){
-	global $conn, $reply_id, $comment_id;
-
-	$sql = "UPDATE `replies` SET published =$published WHERE reply_id=$reply_id";
-	if(mysqli_query($conn, $sql)){
-		$_SESSION['message'] = $message;
-		header('Location: admin-comment-replies.php?view-replies='.$comment_id);
-		exit(0);
-	}
-}
-
-/* //Delete reply  */
-function deleteReply($reply_id, $comment_id){
-	global $conn, $errors;
-
-	$sql = "DELETE FROM `replies` WHERE reply_id = $reply_id";
-	if(mysqli_query($conn, $sql)){
-
-		$_SESSION['message'] = 'Reply deleted successfully.';
-		header('Location: admin-comment-replies.php?view-replies='.$comment_id);
-			exit(0);
-	}else{
-		array_push($errors, 'Delete failed! <br><strong>Description:</strong><br> '. $conn->error);
-	}
+	$_SESSION['message'] = 'Reply deleted successfully.';
+	header('Location: admin-comment-replies.php?view-replies='.$comment_id);
+	exit(0);
 }

@@ -10,13 +10,13 @@ if(!isset($_SESSION)){
 		<div class="comments-section group" >
 			<div class="hide-comment-id">
 				<?php echo $comment['comment_id']; ?>
-				<?php $numOfReplies = new CommentsClassTest($pdo,'replies','comment_id','published');?>
+				<?php $numOfReplies = new CommentsReplies($pdo,'replies','comment_id','published');?>
 				<?php $num_replies=$numOfReplies->countPublishedRecords($comment['comment_id'],1) ; ?>
 			</div>
 			<div class="profile-photo">
 			<?php
-				$usersTable = new CommentsClassTest($pdo,'users','user_id');
-				$getUser=$usersTable->selectSingleRecord($comment['user_id'])->fetch();
+				$usersTable = new CommentsReplies($pdo,'users','user_id');
+				$getUser=$usersTable->selectSingleRecord($comment['user_id']);
 			?>
 				<img src="<?php echo $getUser['profile_photo']; ?>" alt="User photo" width=30px height=30px>
 			</div>
@@ -45,14 +45,14 @@ if(!isset($_SESSION)){
 						<!--Display reply by AJAX here -->
 					</div>
 					<!-- Get all replies by comment_id and display them below -->
-					<?php $getReplies = new CommentsClassTest($pdo,'replies','comment_id','published');?>
+					<?php $getReplies = new CommentsReplies($pdo,'replies','comment_id','published');?>
 					<?php $replies = $getReplies->getAllPublishedRecords($comment['comment_id'],1) ?>
 					<?php if(!empty($replies)): ?>
 						<?php foreach($replies as $reply): ?>
 							<!--Reply -->
 							<div class="group">
 								<div class="replies-profile-photo">
-									<?php $getUser=$usersTable->selectSingleRecord($reply['user_id'])->fetch();?>
+									<?php $getUser=$usersTable->selectSingleRecord($reply['user_id']);?>
 									<img src="<?php echo $getUser['profile_photo']; ?>" alt="User photo" width=30px height=30px>
 								</div>
 								<div class="replies-detail">

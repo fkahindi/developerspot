@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){
 	session_start();
 }
-require __DIR__ .'/includes/comments_functions_test.php';
+require __DIR__ .'/includes/comments_functions.php';
 ?>
 <!--**Display the following div container if there is session loggedin**-->
 <div class="comments-container" id="comments-container">
@@ -15,16 +15,15 @@ require __DIR__ .'/includes/comments_functions_test.php';
 	<div>
 		<h5><?php
 		/* Display total comments so far for every user */
-		$getCommentsCount = new CommentsClassTest($pdo,'comments','post_id','published');
-		 $total_comments = $getCommentsCount->countPublishedRecords($page_id,1);
+		$publishedComments = new CommentsReplies($pdo,'comments','post_id','published');
+		 $total_comments = $publishedComments->countPublishedRecords($page_id,1);
 		 echo $total_comments;
 		?>&nbsp;Comment(s)
 		</h5><hr>
 		<?php
 			include __DIR__ .'/comments_pagination.php';
 			/* Retrieve comments for this post */
-			$getComments = new CommentsClassTest($pdo, 'comments','post_id','published');
-			$comments = $getComments->getAllPublishedRecords($page_id,1, $limit);
+			$comments = $publishedComments->getAllPublishedRecords($page_id,1,$limit);
 			include __DIR__ .'/comments_display_main_block.php';
 		?>
 	</div>

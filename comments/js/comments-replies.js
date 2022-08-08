@@ -4,7 +4,10 @@ $("document").ready(() => {
      *	Scripts to manage user comments on articles
      * Using the parent comments-container for events delegation
      */
-    const path = "/spexproject/comments/includes/comments_functions.php";
+    //const path = "/spexproject/comments/includes/comments_functions.php";
+
+    const path ="https://www.developerspot.co.ke/comments/includes/comments_functions.php";
+
     const method = "POST";
 
     $("#comments-container").on("click", [".submit_comment", ".post_reply", ".reply-btn", ".reply-thread", ".more-comments"], (e) => {
@@ -50,10 +53,10 @@ $("document").ready(() => {
             setCookie(pageId, page_id);
 
             /* for localhost */
-            return window.location.href = "/spexproject/login";
-            /* for online server
+            //return window.location.href = "/spexproject/login";
+            //for online server
             return window.location.href="https://www.developerspot.co.ke/login";
-            */
+
 
         }
         document.cookie = "commentCookie=; path=/; max-age=0";
@@ -110,7 +113,10 @@ $("document").ready(() => {
             setCookie(replyCookie, reply_text);
             setCookie(commentIdCookie, comment_id);
 
-            return window.location.href = "/spexproject/login";
+            //return window.location.href = "/spexproject/login";
+            //for online server
+            return window.location.href="https://www.developerspot.co.ke/login";
+
         }
         document.cookie = "replyCookie=; path=/; max-age=0";
         document.cookie = "commentIdCookie=; path=/; max-age=0";
@@ -158,7 +164,7 @@ $("document").ready(() => {
         } else {
             return false;
         }
-        limit = "LIMIT " + offset + ", " + no_of_comments_per_view;
+        limit = " LIMIT " + offset + ", " + no_of_comments_per_view;
 
         let data = {
             "load_more": 1,
