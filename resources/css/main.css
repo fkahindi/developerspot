@@ -549,12 +549,17 @@ header .fa-linkedin {
     .flex-container {
       justify-content: space-around; } }
 
-.account-photo-box:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1; }
-@media (min-width: 769px) {
-  .account-photo-box {
-    height: 2.1875em; } }
+.account-photo-box {
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 50%;
+  text-align: center; }
+  .account-photo-box:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1; }
+  @media (min-width: 769px) {
+    .account-photo-box {
+      height: 2.1875em; } }
 
 .image-photo {
   height: 2.2em;
@@ -570,7 +575,7 @@ header .fa-linkedin {
     position: absolute;
     z-index: 1;
     right: 0;
-    background: rgba(220, 225, 221, 0.822);
+    background-color: rgba(220, 225, 221, 0.822);
     color: #000;
     padding: 5px 0;
     border-radius: 6px;
@@ -619,6 +624,7 @@ header .fa-linkedin {
   right: 2em;
   z-index: 1;
   text-align: left;
+  text-indent: 1rem;
   background-color: #dce1dd;
   color: black;
   border-radius: 5px; }

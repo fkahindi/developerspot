@@ -197,13 +197,6 @@ li code {
   .replies-detail .user-info {
     font-size: 90%; }
 
-.reply-btn {
-  color: black; }
-  @media (max-width: 599px) {
-    .reply-btn {
-      margin-left: 5px;
-      font-size: 0.9em; } }
-
 .user-info .created-date {
   padding-left: 5px;
   font-style: italic; }

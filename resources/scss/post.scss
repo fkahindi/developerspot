@@ -253,14 +253,6 @@ li code {
     }
 }
 
-.reply-btn {
-    color: black;
-    @include for-phone-only {
-        margin-left: 5px;
-        font-size: 0.9em;
-    }
-}
-
 .user-info {
     .created-date {
         padding-left: 5px;

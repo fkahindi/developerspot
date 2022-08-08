@@ -502,7 +502,7 @@ header {
     @include for-tablet-portrait-down {
         display: none;
         position: absolute;
-        top: 3.75em;
+        top: 3em;
         left: 0;
         height: 100%;
         width: 100%;
@@ -567,9 +567,9 @@ header {
     @include for-tablet-portrait-down {
         min-width: 20%;
         position: absolute;
-        top: 10px;
+        top: 0;
         right: 10%;
-        padding: 5px;
+        //padding: 5px;
     }
     @include for-tablet-landscape-up {
         position: relative;
@@ -587,14 +587,37 @@ header {
 }
 
 .login {
+    position: relative;
+    top: 1.5em;
+    right: 1em;
     font-family: Times, serif;
     color: $olive;
     &:hover {
         color: orangered;
     }
+    @include for-phone-only {
+        top: 1em;
+    }
+    @include for-tablet-landscape-up {
+        right: 0;
+    }
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    @include for-tablet-portrait-down {
+        justify-content: space-around;
+    }
 }
 
 .account-photo-box {
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 50%;
+    text-align: center;
     &:hover {
         .tooltip-text {
             visibility: visible;
@@ -610,9 +633,6 @@ header {
     height: 2.2em;
     width: 2.2em;
     border-radius: 50%;
-    &:hover {
-        cursor: pointer;
-    }
 }
 
 .tooltip {
@@ -624,7 +644,7 @@ header {
         position: absolute;
         z-index: 1;
         right: 0;
-        background: rgba(220, 225, 221, 0.822);
+        background-color: rgba(220, 225, 221, 0.822);
         color: #000;
         padding: 5px 0;
         border-radius: 6px;
@@ -659,32 +679,57 @@ header {
     }
 }
 
+.settings {
+    @include for-tablet-landscape-up {
+        height: 2.1875em;
+    }
+}
+
+.settings-char-icon {
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    margin-top: 0.25em;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: gray;
+    transform: rotate(90deg);
+    vertical-align: middle;
+    &:hover {
+        cursor: pointer;
+        background-color: rgb(220, 225, 221);
+    }
+}
+
 .account-display-settings {
     display: none;
-    min-width: 9.625em;
+    min-width: 12.25em;
     position: relative;
     top: 0;
     right: 2em;
     z-index: 1;
     text-align: left;
+    text-indent: 1rem;
     background-color: rgb(220, 225, 221);
     color: black;
     border-radius: 5px;
     @include for-tablet-portrait-down {
         position: absolute;
-        top: 2em;
-        right: -20px;
+        top: 3em;
+        right: 0;
     }
     @include for-tablet-landscape-up {
         position: absolute;
-        top: 2em;
-        right: -40px;
+        top: 4em;
+        right: 10px;
     }
     ul {
         list-style: none;
         li {
+            line-height: 2.5em;
             padding: 2px 10px;
-            border-bottom: thin groove gray;
+            border-bottom: thin groove rgb(249, 249, 249);
             &:last-child {
                 border-bottom: none;
             }
@@ -1355,6 +1400,10 @@ hr {
     .banner-bar {
         grid-column: 2/span 3;
         grid-row: 1/span 1;
+        @include for-phone-only {
+            grid-column: 2/span 2;
+            grid-row: 1/span 1;
+        }
         @include for-tablet-landscape-up {
             grid-column: 1/span 2;
             grid-row: 1/span 1;
@@ -1385,9 +1434,12 @@ hr {
         }
     }
     .log-account-section {
-        grid-column: 4/span 2;
+        grid-column: 5/span 1;
         grid-row: 1/span 2;
-        text-align: center;
+        @include for-phone-only {
+            grid-column: 5/span 1;
+            grid-row: 1/span 1;
+        }
         @include for-tablet-landscape-up {
             grid-column: 5/span 1;
             grid-row: 1/span 2;
