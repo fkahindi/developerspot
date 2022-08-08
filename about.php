@@ -1,5 +1,5 @@
-<?php 
-session_start(); 
+<?php
+session_start();
 require_once __DIR__ .'/config.php';
 $thisPage = "ABOUT";
 ?>
@@ -24,12 +24,13 @@ $thisPage = "ABOUT";
     <meta property="og:image" content="<?php echo BASE_URL ?>resources/icons/logoicon.png" />
     <meta property="fb:app_id" content="502152493814762"/>
 		<link rel="preload" href="<?php echo BASE_URL ?>resources/css/about.css" as="style">
+		<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/about.css" />
     <?php include_once __DIR__ .'/templates/head-resources.html.php'; ?>
-		<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/about.css" />	 
-	
+
+
         <!-- Facebook Pixel Code -->
         <script src="resources/js/facebook-pixel.js"></script>
-        
+
 </head>
 <body>
 	<noscript><img height="1" width="1"  class="hidden"
@@ -43,13 +44,13 @@ $thisPage = "ABOUT";
 	<main class="group">
 		<section class="main-article">
 			<h1>About</h1><hr>
-			<div>	
+			<div>
 				<p>Developerspot is the implementation of an idea of a blogging app, complete with an admin section for articles, authors and user management. It also has an embedded comment-reply system on all articles, enabling feedback, sharing of thoughts and experiences from readers. </p>
 				<p>On this blog, every article is geared towards accomplishing a particular task. Account creation is just a means to enable association of comments and replies to individuals and in no way will your contact be shared with anyone else, not consistent with the privacy policy. Feel free to engage.</p>
 				<p>For website building projects, you can reach out to me using the contact above. If you are a developer and want to contribute to the code, I have made the entire codebase available on github at, https://github.com/fkahindi/developerspot. You are free to fork.</p>
 			</div>
-			
-		</section>	
+
+		</section>
 	</main>
 	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
 	<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
