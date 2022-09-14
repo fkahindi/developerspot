@@ -2,13 +2,13 @@
 @import "partials/visuals";
 input[type="submit"] {
     padding: .6em;
-    background-color: #0b3128;
+    background-color: #072b61;
     color: #ffffff;
-    border: 1px solid #0b3128;
+    border: 1px solid #072b61;
     cursor: pointer;
     &:hover {
-        background-color: #175a49;
-        border-color: #175a49;
+        background-color: #0568ab;
+        border-color: #0568ab;
     }
 }
 
@@ -63,6 +63,10 @@ input[type="submit"] {
     }
 }
 
+.comment-text {
+    margin-bottom: 0.5em;
+}
+
 .reply-textarea {
     background: rgb(245, 245, 245);
     border-radius: 10px;
@@ -106,4 +110,11 @@ input[type="submit"] {
             margin-left: 1%;
         }
     }
+}
+
+.reply-btn {
+    padding: 0.25em 0.6em;
+    background-color: silver;
+    color: black;
+    border-radius: 47%;
 }

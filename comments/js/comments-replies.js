@@ -4,9 +4,9 @@ $("document").ready(() => {
      *	Scripts to manage user comments on articles
      * Using the parent comments-container for events delegation
      */
-    //const path = "/spexproject/comments/includes/comments_functions.php";
+    const path = "/spexproject/comments/includes/comments_functions.php";
 
-    const path ="https://www.developerspot.co.ke/comments/includes/comments_functions.php";
+    //const path ="https://www.developerspot.co.ke/comments/includes/comments_functions.php";
 
     const method = "POST";
 
@@ -53,9 +53,9 @@ $("document").ready(() => {
             setCookie(pageId, page_id);
 
             /* for localhost */
-            //return window.location.href = "/spexproject/login";
+            return window.location.href = "/spexproject/login";
             //for online server
-            return window.location.href="https://www.developerspot.co.ke/login";
+            ///return window.location.href="https://www.developerspot.co.ke/login";
 
 
         }
@@ -113,9 +113,9 @@ $("document").ready(() => {
             setCookie(replyCookie, reply_text);
             setCookie(commentIdCookie, comment_id);
 
-            //return window.location.href = "/spexproject/login";
+            return window.location.href = "/spexproject/login";
             //for online server
-            return window.location.href="https://www.developerspot.co.ke/login";
+           // return window.location.href="https://www.developerspot.co.ke/login";
 
         }
         document.cookie = "replyCookie=; path=/; max-age=0";

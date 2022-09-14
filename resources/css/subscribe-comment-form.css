@@ -22,13 +22,13 @@
   font-display: swap; }
 input[type="submit"] {
   padding: .6em;
-  background-color: #0b3128;
+  background-color: #072b61;
   color: #ffffff;
-  border: 1px solid #0b3128;
+  border: 1px solid #072b61;
   cursor: pointer; }
   input[type="submit"]:hover {
-    background-color: #175a49;
-    border-color: #175a49; }
+    background-color: #0568ab;
+    border-color: #0568ab; }
 
 #subscribe input {
   display: inline-block;
@@ -68,6 +68,9 @@ input[type="submit"] {
   height: 2.5em;
   border-radius: 5px; }
 
+.comment-text {
+  margin-bottom: 0.5em; }
+
 .reply-textarea {
   background: whitesmoke;
   border-radius: 10px; }
@@ -104,5 +107,11 @@ input[type="submit"] {
 @media (max-width: 768px) {
   .reply .reply-text {
     margin-left: 1%; } }
+
+.reply-btn {
+  padding: 0.25em 0.6em;
+  background-color: silver;
+  color: black;
+  border-radius: 47%; }
 
 /*# sourceMappingURL=subscribe-comment-form.css.map */
