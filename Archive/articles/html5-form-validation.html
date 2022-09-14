@@ -1,7 +1,7 @@
 <h1>HTML5 Form Validation</h1>
 <!-- HTML form validation is a front-end validation technique. It uses HTML5 attributes to validate user input at the browser level before the form is submitted to the server. -->
-<p><span class="key">Validating form data</span> is a crucial task a developer needs to think through before getting the form out there, where teaming bots and hackers roam the web, looking for an opportunity to compromise server and innocent user's security.
-    It may not be a permanet fix but it makes the life of the bad guys a little harder.</p>
+<p>Validating form data is a crucial task a developer needs to think through before getting the form out there, where teaming bots and hackers roam the web, looking for an opportunity to compromise server and innocent user's security. It may not be a permanet
+    fix but it makes the life of the bad guys a little harder.</p>
 <h3>Phases of Form Validation</h3>
 <p>There are three stages a form can be validated before its contents are processed by the server:</p>
 <ul>
@@ -9,9 +9,9 @@
     <li>JavaScript validation</li>
     <li>Server-side validation</li>
 </ul>
-<p>The first two techniques are commonly called <span class="key"><em>front-end validation</em></span>, because the validation is done at the user's browser before data is transmitted to the server. The third type of validation is also known as <span class="key"><em>back-end  validation</em></span>,
-    and takes place on the host server computer after the form has been submitted. </p>
-<h3><span class="key">Front-end Vs Back-end Validation</span></h3>
+<p>The first two techniques are commonly called <em>front-end validation</em>, because the validation is done at the user's browser before data is transmitted to the server. The third type of validation is also known as <em>back-end  validation</em>, and
+    takes place on the host server computer after the form has been submitted. </p>
+<h3>Front-end Vs Back-end Validation</h3>
 <p>Form validation is not automatic, the developer has to take deliberate steps to ensure form data is safe to be handled by the server. And, it starts at the front-end. That doesn't mean that back-end validation is less important, on the contrary, it is
     the most important. If the first two methods fail, the server-side validation is the last resort. </p>
 <p>However, relying solely on the server to validate user input can overwork the server and slow other critcal processes, especially in a busy environment. This is because, when server validation detects form errors, the data has to be ralayed back to the
@@ -22,7 +22,8 @@
     <img src="../resources/images/form.jpg" alt="HTML form collecting user information" width="60%" />
     <figcaption class="align-center">HTML form collecting user information</figcaption>
 </figure>
-<p>In this tutorial we will use the <span class="key">features provided by HTML5</span> to carry out form validation at the browser level. Let's begin with creating a form with five input fields: <em>username</em>, <em>email</em>, <em>password</em>, <em>telephone</em>    and <em>textarea</em>. You can just copy the code below into your code editor and save the file as <code>registration.html</code> or any other name of your choice with the extension <code>.html</code></p>
+<p>In this tutorial we will use the features provided by HTML5 to carry out form validation at the browser level. Let's begin with creating a form with five input fields: <em>username</em>, <em>email</em>, <em>password</em>, <em>telephone</em> and <em>textarea</em>.
+    You can just copy the code below into your code editor and save the file as <code>registration.html</code> or any other name of your choice with the extension <code>.html</code></p>
 <pre class="prettyprint linenums">
 &lt;! DOCTYPE html&gt;
 &lt;html lang="en"&gt;
@@ -72,37 +73,38 @@
 &lt;/style&gt;
 </pre>
 <p>If you now refresh the browser page the form will look better.</p>
-<h3><span class="key">HTML Form Attributes</span></h3>
+<h3>HTML Form Attributes</h3>
 <p>Now let's explain the attributes used in the form.</p>
-<h4> The <code><span class="key"> placeholder</span> </code> Attribute</h4>
+<h4> The placeholder </code> Attribute</h4>
 <p>The <code> placeholder=" "</code> guides the user where to type the values. For example <code> placeholder="<em>Username</em>" </code> tells the user where <i>username</i> should be typed. When the user starts typing in the field the placeholder text
     clears up. That is one of the differences between <code> placeholder </code> attribute and <code> value=" " </code> attribute, which developers sometime back used with text inputs to mimic a placeholder in older browsers.</p>
-<h4>The <code> <span class="key">value</span> </code> Attribute</h4>
+<h4>The <code> value </code> Attribute</h4>
 <p>The <code> value=" " </code> attribute labels the input. For example a <em>submit</em> input button must have a <code> value </code> attribute, which is text showing the purpose of the button. It can take values such<code> value="<em>Submit</em>" </code>    or <code> value="<em>Send</em>"</code>.</p>
 <p>If <code> value </code> attribute is used with text input fields, the user has to delete the text placed in the field and type new text, otherwise, the default text will be submitted with the form. To avoid such inconveniences the <code> placeholder </code>    attribute was invented. Older browsers prior HTML5, however, do not support the placeholder attribute and will not display it. To make the form usable in those browsers, naming fields with the <code>label</code> attribute is necessary. For browsers
     that support HTML5, placeholders can be used in place of labels. </p>
-<h4>The <code><span class="key"> maxlength </span> </code> Attribute</h4>
+<h4>The <code> maxlength  </code> Attribute</h4>
 <p>A <code> maxlength=" " </code> attribute is used to limit the number of characters that can be typed in a field. For example <code> maxlength="10" </code> will allow only ten characters in the field. This way the user cannot exceed the number of characters
     expected by the form owner.</p>
 <p class="special-p"><b>Two things to take note of, though:</b> One, <code><i> maxlength</i> </code> does not give feedback to the user on the number of characters expected. Two, if the length is not chosen carefully, it may restrict users unnecessarily and upset them. In
     a business setting that can impact the business negatively. </p>
-<h4>The <code><span class="key"> type </span></code> Attribute</h4>
+<h4>The <code> type </code> Attribute</h4>
 <p>In HTML5, the <code> type="" </code> attribute has been expanded to include several other values that signify specific data items. For example <code> type="email" </code> will only accept valid email addresses. In the case of <code> type="telephone" </code>,
     only numbers and the '+' symbol for country code will be accepted, just like the <code> type="password" </code> will hide the real characters being typed. The <code> type="url" </code> attribute will only accept valid web addresses. So, you can see
     that using this attribute, you let the browser validate emails, urls or telephone numbers.</p>
-<h4>The <code> <span class="key">required</span> </code> Attribute</h4>
+<h4>The <code> required </code> Attribute</h4>
 <p>If you apply the <code> required </code> attribute on any input in the form, that field will become mandatory, and cannot be left blank. If you try to submit the form while one of the required fields is not filled, the browser will refer you back to the
     field. Different browsers have their own way of highlighting required fields, if left blank.</p>
 <p>You can deliberately mess around with these attributes and see how your form responds, before we turn to <em>pattern</em> attribute.</p>
-<h4>The <code><span class="key"> pattern </span></code> Attribute</h4>
+<h4>The <code> pattern </code> Attribute</h4>
 <p>Let's now turn to the <code> pattern </code> atttibute. This attribute was introduced in HTML5 to allow complex HTML validation techniques, using what is called <em> regular expressions</em>. Regular expressions are special defined pattern of characters
     that must be matched against what is typed in the field. The <code> pattern </code> attribute can be used with <code> text </code>, <code> tel </code>, <code> date </code>, <code> email </code>, <code> password </code>, <code> url </code> and <code> search </code>    input types.</p>
 <h3>HTML5 Form Validation Using Regular Expressions</h3>
 <p>We are going to update our earlier form with the <code> pattern </code> attribute in each input we have used. The <code> pattern </code> attribute will enable us to evaluate the input value using a <em> regular expression</em> for a match. So, in essence
-    you define a rule for the type of characters that should be allowed in the input, without which the value in the field will be deemed invalid. I'm intending to post a tutorial on <span class="key">regular expressions</span> for those unfamiliar with
-    these type of rules. Watch out for <i>Regular Expressions in JavaScript</i> in the upcoming post on this site.</p>
+    you define a rule for the type of characters that should be allowed in the input, without which the value in the field will be deemed invalid. I'm intending to post a tutorial on regular expressions for those unfamiliar with these type of rules. Watch
+    out for <i>Regular Expressions in JavaScript</i> in the upcoming post on this site.</p>
 <p>As for now, we are going to use regular expressions that suit our purpose and we will also explain what they mean. Further, a global <code>title</code> attribute will used along with the <code> pattern </code> attribute to enable a pop up guide to the
-    user.</p>
+    user.
+</p>
 
 <h3>Pattern and Title Attributes</h3>
 <pre class="prettyprint linenums">
@@ -117,7 +119,7 @@
     the <i>number</i> of characters allowed in the field can be restricted by using braces <code> { } </code>. For example <code> \w{3,} </code> would allow three or more characters. The pattern <code>\w{3,7}</code> restricts between three and seven characters
     and <code> \w{,7} </code> allows at most seven characters in the field.</p>
 <p>Try the form with different character patterns and see how it responds at submission.</p>
-<h3><span class="key">Validating Telephone Field</span></h3>
+<h3>Validating Telephone Field</h3>
 <p>Let's try to validate a <i>telephone</i> field. Telephone number formats vary from country to country, but generally we expect a telephone number to have a country code that begins with a <code> + </code> symbol. If for instance, the country code is a
     three-digit number, we can represent that by starting the expression with <code> \+[0-9]{3} </code>. This expression uses a <i>character class</i> defined by <code> [ ] </code> for the digit range 0-9. The expression mean that the field values must
     start with <code> + </code>, then followed by exactly any three digits between 0 and 9.</p>
@@ -133,7 +135,7 @@
 <p>Notice that we have used <code> type="text" </code> attribute instead of <code> tel </code> just to illustrate how an expression can change a text field to accept only numbers and the <i> + </i> symbol.</p>
 <p>In instances where there is no restriction regarding the number of digits to be used and how they should be grouped in a field, you could just use <code> type="tel" </code> and it would suffice.</p>
 <p class="special-p">When dealing with telephone numbers for a global audience, caution should be exercised as some countries use different telephone number formats. The <code> type="tel" </code> attribute would be ideal for such instances.</p>
-<h3><span class="key">Validating Email Address</span></h3>
+<h3>Validating Email Address</h3>
 <p>Suppose we wanted to validate an email address using a regular expression instead of the <code> type="email" </code>. In such cases care must be taken for the mandatory special characters that make an email valid. In addition, those special characters
     must also appear in their correct positions.</p>
 <p>For example a valid email must have the <code> @ </code> symbol and it must not begin the email address. Further, there must be a dot <code> . </code> and it should not be ending the email address. After the last dot <i>.</i> there must be at least two
@@ -142,7 +144,7 @@
 
 <pre class="prettyprint linenums">
 &lt;form method="POST" action=""&gt;
-	E-mail: &lt;input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" title="Type a valid email address."&gt; 
+	E-mail: &lt;input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" title="Type a valid email address."&gt;
 &lt;/form&gt;
 </pre>
 <br>
@@ -153,7 +155,7 @@
 <p>The <code> $ </code> symbol is used to mark the end of the matching pattern. Here, it means that the last two or more alphabet characters after the last dot should end the email address. Any other non-alphabet character after that would cause the email
     address to be invalid. The email address in this case must be typed in lowercase letters.</p>
 <p>A pattern like this can be designed to filter emails of certain characteristic where the general <code>type="email"</code> attribute would not be sufficient.</p>
-<h3><span class="key">Validating Passwords</span></h3>
+<h3>Validating Passwords</h3>
 <p>This time we want to build an expression to validate passwords. Many establishements that collect user personal information devise password policies that try to make it harder to be cracked. Policies such as forcing users to use passwords that mix uppercase
     and lowercase letters, numbers and symbols. This trend truly results in stronger passwords, but the practice has proved to be counter productive. Instead, many organisations nowadays prefer using strong encrypting algorithms at the <em>back-end</em>    where passwords are at a higher risk of being stolen than at the <em>front-end</em>.</p>
 <p>In that case, it may not be much beneficial to restict users so much to the point where they may feel being panalised for using the web form. Nonetheless, moderate requirements is necessary. Let's consider the pattern below:</p>
@@ -176,7 +178,7 @@
 	form{
 		width:25%;
 		margin:40px auto;
-		
+
 	}
 	input, label{
 		display:block;
@@ -196,7 +198,7 @@
 &lt;/style&gt;
 &lt;title&gt;Registration Form&lt;/title&gt;
 &lt;/head&gt;
-&lt;body&gt;	
+&lt;body&gt;
     &lt;form method="POST" action=""&gt;
     	&lt;label for="username"&gt;Username:&lt;/label&gt;
     	&lt;input type="text" name="username" maxlength="15" placeholder="Username ..." pattern="\w+" title="Type only letters, numbers and underscore with no space" required&gt;
