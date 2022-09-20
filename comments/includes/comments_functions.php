@@ -106,7 +106,8 @@ if(isset($_GET['publish-reply']) || isset($_GET['unpublish-reply'])){
 
 //If user clickd delete-comment button
 if(isset($_GET['delete-comment'])){
-	$comment_id = $_GET['delete-comment'];
+	echo 'You could have deleted comment!';
+	/* $comment_id = $_GET['delete-comment'];
 	$post_id = $_GET['page_id'];
 
 	$delComment = new CommentsReplies($pdo,'comments','comment_id');
@@ -114,13 +115,14 @@ if(isset($_GET['delete-comment'])){
 
 	$_SESSION['message'] = 'Comment with related replies deleted successfully.';
 	header('Location: admin-post-comments.php?view-comments='.$post_id);
-	exit(0);
+	exit(0); */
 
 }
 
 //If user clickd delete-reply button
 if(isset($_GET['delete-reply'])){
-	$reply_id = $_GET['delete-reply'];
+	echo 'You could have deleted the reply!';
+	/* $reply_id = $_GET['delete-reply'];
 	$comment_id = $_GET['comment_id'];
 
 	$delReply = new CommentsReplies($pdo,'replies','reply_id');
@@ -128,5 +130,5 @@ if(isset($_GET['delete-reply'])){
 
 	$_SESSION['message'] = 'Reply deleted successfully.';
 	header('Location: admin-comment-replies.php?view-replies='.$comment_id);
-	exit(0);
+	exit(0); */
 }

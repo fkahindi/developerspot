@@ -1,8 +1,19 @@
+$(document).ready(function(){
+$(".delete").click(function(e){
+  e.preventDefault();
+  alert('what!');
+  confirmDialogBox("Are sure you want to delete this post?", (ans) => {
+  if (ans) {
+      console.log("yes");
+    }else {
+      console.log("no");
+    }
+  });
+});
 
   function confirmDialogBox(message, handler){
     $(`<div>
-					<!--Modal form for delete confirmation -->
-					<div id="confirm-delete" class="modal fade" data-bs-backdrop="static" tabindex="-1">
+					<div id="confirm-dialog" class="modal fade" data-bs-backdrop="static" tabindex="-1">
 						<div class="modal-dialog modal-dialog-centered">
 							<div class="modal-content">
 								<div class="modal-header bg-muted ">
@@ -10,11 +21,11 @@
 									<button type="button" class="btn-close border w-10" data-bs-dismiss="modal"></button>
 								</div>
 								<div class="modal-body">
-									<p class="lead">Are you sure you want to delete this post? </p>
+									<p class="lead">${message} </p>
 									<p class="text-secondary"> If you choose 'Delete', all related comments and replies will also be deleted.</p>
 								</div>
 								<div class="modal-footer justify-content-around">
-									<button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+									<button type="button" class="btn btn-success btn-cancel" data-bs-dismiss="modal">Cancel</button>
 									<button type="button" class="btn btn-danger btn-delete">Delete</button>
 								</div>
 							</div>
@@ -45,3 +56,5 @@
           $('#confirm-dialog').modal('hide');
         });
   }
+});
+
