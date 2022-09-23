@@ -59,8 +59,7 @@ if(isset($_POST['update_topic'])){
 /* if user clicks the Delete topic button */
 if(isset($_GET['delete-topic'])){
 	$topic_id = $_GET['delete-topic'];
-	//deleteTopic($topic_id);
-	echo 'You are deleting topic... '.$topic_id;
+	deleteTopic($topic_id);
 }
 
 /*---------------------------------
@@ -325,13 +324,14 @@ function updateTopic($request_values){
 /* Delete topic */
 function deleteTopic($topic_id){
 	global $conn, $errors;
-	echo "Careful! You could've deleted topic";
-	/* $sql = "DELETE FROM `topics` WHERE topic_id=$topic_id";
+
+	$sql = "DELETE FROM `topics` WHERE topic_id=$topic_id";
+
 	if(mysqli_query($conn, $sql)){
 		$_SESSION['message'] = 'Topic delete successful.';
 		header('Location: topics.php');
 		exit(0);
 	}else{
 		$errors = 'Topic could not be updated. '.$conn->error;
-	} */
+	}
 }

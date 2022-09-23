@@ -96,7 +96,7 @@
 										</td>
 										<td>
 											<p>
-											<a href="posts.php?delete-post=<?php echo $post['post_id'] ?>" class="btn btn-danger btn-sm delete" data-bs-toggle="modal" data-bs-target="#confirm-dialog"><i class="bi-trash pre-none"></i> Trash</a>
+											<a href="posts.php?delete-post=<?php echo $post['post_id'] ?>" class="btn btn-danger btn-sm delete" data-bs-toggle="modal" data-bs-target="#confirm-dialog"><i class="bi-trash"></i> Trash</a>
 											</p>
 										</td>
 										<?php endif ?>

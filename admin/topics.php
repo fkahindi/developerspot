@@ -52,7 +52,7 @@
 								</td>
 								<td>
 									<p>
-									<a href="topics.php?delete-topic=<?php echo $topic['topic_id'] ?>" id="delete-<?php echo $key + 1 ?>" class="btn btn-danger delete"><span class="bi-trash"></span> Trash</a>
+									<a href="topics.php?delete-topic=<?php echo $topic['topic_id'] ?>" class="btn btn-danger delete" data-bs-toggle="modal" data-bs-target="#confirm-dialog"><span class="bi-trash"></span> Trash</a>
 									</p>
 								</td>
 							</tr>
@@ -62,19 +62,16 @@
 				<?php endif ?>
 			</div>
 		</div>
+		<!-- Confirm modal -->
+		<?php
+			$dialog_title ="Confirm Topic Delete!";
+			$main_text = "<b>STOP! Are you sure you want to delete this topic?</b>";
+			$sub_text = "Topic once deleted, cannot be recovered.";
+			include __DIR__. '/components/confirm-dialog.php'
+		?>
+		<!-- End of confirm modal -->
 	</div>
 	<?php include __DIR__ .'/components/footer.php'?>
-	<script>
-		$('document').ready(function(){
-			$('.delete').on('click',function(){
-				var isSure = confirm("STOP! Are you sure you want to delete this topic? ");
-				if(isSure){
-					return true;
-				}else{
-					return false;
-				}
-			});
-		});
-	</script>
+	<script src="js/confirm-dialog.js"></script>
 </body>
 </html>
