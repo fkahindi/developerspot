@@ -103,7 +103,7 @@
 									</td>
                   <td>
 										<p>
-										<a href="admin-post-comments.php?delete-comment=<?php echo $comment['comment_id'] ?>&page_id=<?php echo $page_id?>" class="btn btn-danger delete"><i class="bi-trash"></i></a>
+										<a href="admin-post-comments.php?delete-comment=<?php echo $comment['comment_id'] ?>&page_id=<?php echo $page_id?>" class="btn btn-danger delete" data-bs-toggle="modal" data-bs-target="#confirm-dialog"><i class="bi-trash"></i></a>
 										</p>
 									</td>
 									<?php endif ?>
@@ -143,19 +143,16 @@
 				</div>
 			</div>
 		</div>
+		<!-- Confirm modal -->
+		<?php
+			$dialog_title = "Confirm Comment Delete!";
+			$main_text = "<b>STOP! Are you sure you want to delete this comment?</b>";
+			$sub_text = "<b>NOTE:</b> All associated replies to this comment will also be deleted.";
+			include __DIR__ .'/components/confirm-dialog.php';
+		?>
+		<!-- End of confirm modal -->
 	</div>
 	<?php include __DIR__ .'/components/footer.php'?>
+	<script src="js/confirm-dialog.js"></script>
 </body>
-<script>
-	$("document").ready(function(){
-		$(".delete").on("click",function(){
-			var isSure = confirm("STOP! Are you sure you want to delete this comment? \r\r NOTE: All related replies will also be deleted.");
-			if(isSure){
-				return true;
-			}else{
-				return false;
-			}
-		});
-	});
-</script>
 </html>

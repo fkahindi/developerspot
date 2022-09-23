@@ -1,60 +1,14 @@
-$(document).ready(function(){
-$(".delete").click(function(e){
-  e.preventDefault();
-  alert('what!');
-  confirmDialogBox("Are sure you want to delete this post?", (ans) => {
-  if (ans) {
-      console.log("yes");
-    }else {
-      console.log("no");
-    }
-  });
+$("document").ready(function(){
+	"use strict";
+	$("#confirm-dialog").on("click",".btn-delete",function(e){
+		$("#confirm-dialog").modal("hide");
+	});
+	$("#confirm-dialog").on("show.bs.modal", function(e){
+		let anchor = $(e.relatedTarget).attr("href");
+		$(".btn-delete",this).attr("href",anchor);
+	});
+	$("#confirm-dialog").on("hidden.bs.modal", function(e){
+		let putHash = "#";
+		$(".btn-delete").attr("href",putHash);
+	});
 });
-
-  function confirmDialogBox(message, handler){
-    $(`<div>
-					<div id="confirm-dialog" class="modal fade" data-bs-backdrop="static" tabindex="-1">
-						<div class="modal-dialog modal-dialog-centered">
-							<div class="modal-content">
-								<div class="modal-header bg-muted ">
-									<h5 class="modal-title fw-bold lead w-90"> <i class="bi-exclamation-triangle-fill text-warning"></i> Confirm Post Delete !</h5>
-									<button type="button" class="btn-close border w-10" data-bs-dismiss="modal"></button>
-								</div>
-								<div class="modal-body">
-									<p class="lead">${message} </p>
-									<p class="text-secondary"> If you choose 'Delete', all related comments and replies will also be deleted.</p>
-								</div>
-								<div class="modal-footer justify-content-around">
-									<button type="button" class="btn btn-success btn-cancel" data-bs-dismiss="modal">Cancel</button>
-									<button type="button" class="btn btn-danger btn-delete">Delete</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>`).appendTo('body');
-
-        //Triger the dialog box
-        $('#confirm-dialog').modal({
-          backdrop: 'static',
-          keyboard: false
-        });
-
-        //Remove dialog once closed
-        $('#confirm-dialog').on('hidden.bs.modal',function(){
-          $('#confirm-dialog').remove();
-        });
-
-        //Pass true callback function
-        $('.btn-delete').click(function(){
-          handler(true);
-          $('#confirm-dialog').modal('hide');
-        });
-
-        //Pass false callback function
-        $('.btn-cancel').click(function(){
-          handler(false);
-          $('#confirm-dialog').modal('hide');
-        });
-  }
-});
-

@@ -80,14 +80,14 @@
 									<?php if($_SESSION['role']== 'Admin'): ?>
 									<td class="text-center">
 										<?php if($reply['published'] == true): ?>
-											<a href="admin-comment-replies.php?unpublish-reply=<?php echo $reply['reply_id'] ?>&comment_id=<?php echo $comment_id?>" class="btn btn-success" data-bs-toggle="tooltip" title="Published replies won't show unless their parent comment is also published."><i class="bi-check-lg"></i> </a>
+											<a href="admin-comment-replies.php?unpublish-reply=<?php echo $reply['reply_id'] ?>&comment-id=<?php echo $comment_id?>" class="btn btn-success" data-bs-toggle="tooltip" title="Published replies won't show unless their parent comment is also published."><i class="bi-check-lg"></i> </a>
 										<?php else:?>
-											<a href="admin-comment-replies.php?publish-reply=<?php echo $reply['reply_id'] ?>&comment_id=<?php echo $comment_id?>" class="btn btn-danger" data-bs-toggle="tooltip" title="Published replies won't show unless their parent comment is also published."><i class="bi-x-lg"></i></a>
+											<a href="admin-comment-replies.php?publish-reply=<?php echo $reply['reply_id'] ?>&comment-id=<?php echo $comment_id?>" class="btn btn-danger" data-bs-toggle="tooltip" title="Published replies won't show unless their parent comment is also published."><i class="bi-x-lg"></i></a>
 										<?php endif ?>
 									</td>
                   <td>
 										<p>
-										<a href="admin-comment-replies.php?delete-reply=<?php echo $reply['reply_id'] ?>&comment_id=<?php echo $comment_id?>" class="btn btn-danger delete"><i class="bi-trash"></i></a>
+										<a href="admin-comment-replies.php?delete-reply=<?php echo $reply['reply_id'] ?>&comment-id=<?php echo $comment_id?>" class="btn btn-danger delete" data-bs-toggle="modal" data-bs-target="#confirm-dialog"><i class="bi-trash"></i></a>
 										</p>
 									</td>
 									<?php endif ?>
@@ -127,20 +127,16 @@
 				</div>
 			</div>
 		</div>
+		<!-- Confirm modal -->
+		<?php
+			$dialog_title = "Confirm Reply Delete!";
+			$main_text = "<b>STOP! Are you sure you want to delete this reply?</b>";
+			$sub_text = "<b>NOTE:</b> Once  deleted, it cannot be recovered.";
+			include __DIR__ .'/components/confirm-dialog.php';
+		?>
+		<!-- End of confirm modal -->
 	</div>
 	<?php include __DIR__ .'/components/footer.php'?>
+	<script src="js/confirm-dialog.js"></script>
 </body>
-<script>
-	$("document").ready(function(){
-
-		$(".delete").on("click",function(){
-			var isSure = confirm("STOP! Are you sure you want to delete this reply? \r\r NOTE: Once  deleted, it cannot be recovered.");
-			if(isSure){
-				return true;
-			}else{
-				return false;
-			}
-		});
-	});
-</script>
 </html>

@@ -96,7 +96,7 @@
 										</td>
 										<td>
 											<p>
-											<a href="posts.php?delete=<?php echo $post['post_id'] ?>" class="btn btn-danger btn-sm delete" data-bs-toggle="modal" data-id="<?php echo $post['post_id'] ?>"><i class="bi-trash pre-none"></i> Trash</a>
+											<a href="posts.php?delete-post=<?php echo $post['post_id'] ?>" class="btn btn-danger btn-sm delete" data-bs-toggle="modal" data-bs-target="#confirm-dialog"><i class="bi-trash pre-none"></i> Trash</a>
 											</p>
 										</td>
 										<?php endif ?>
@@ -138,54 +138,15 @@
 			</div>
 		</div>
 		<!-- Confirm modal -->
-		<div>
-					<div id="confirm-dialog" class="modal fade" data-bs-backdrop="static" tabindex="-1">
-						<div class="modal-dialog modal-dialog-centered">
-							<div class="modal-content">
-								<div class="modal-header bg-muted ">
-									<h5 class="modal-title fw-bold lead w-90"> <i class="bi-exclamation-triangle-fill text-warning"></i> Confirm Post Delete !</h5>
-									<button type="button" class="btn-close border w-10" data-bs-dismiss="modal"></button>
-								</div>
-								<div class="modal-body">
-									<p class="lead">STOP! Are you sure you want to delete this post ${message}</p>
-									<p class="text-secondary"> If you choose 'Delete', all related comments and replies will also be deleted.</p>
-								</div>
-								<div class="modal-footer justify-content-around">
-									<button type="button" class="btn btn-success btn-cancel" data-bs-dismiss="modal">Cancel</button>
-									<button type="submit" class="btn btn-danger btn-delete">Delete</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- End of confirm modal -->
+		<?php
+			$dialog_title ="Confirm Post Delete!";
+			$main_text = "<b>STOP! Are you sure you want to delete this post?</b>";
+			$sub_text = "If you choose <b>'Delete'</b>, all associated comments and replies to this post will also be deleted.";
+			include __DIR__. '/components/confirm-dialog.php'
+		?>
+		<!-- End of confirm modal -->
 	</div>
 	<?php include __DIR__ .'/components/footer.php'?>
-	<script>
-	$(document).ready(function(){
-		"use strict";
-		$(".delete").click(function(){
-			let dataId = $(this).data("id");
-			alert("You are deleting post # = " + dataId);
-			$("#confirm-dialog").modal("show");
-			$("#confirm-dialog").on("hidden.bs.modal",function(){
-				dataId=undefined;
-			});
-			$(".btn-delete").click(function(){
-				$.ajax({
-					url:"/spexproject/admin/includes/posts_functions.php",
-					method:"GET",
-					data:{
-						"delete-post":dataId
-					},
-					success:(data)=>{
-						$("#confirm-dialog").modal("hide");
-						console.log(data);
-					}
-				});
-			});
-		});
-	});
-</script>
+	<script src="js/confirm-dialog.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php
+//include __DIR__ .'/../../config.php';
 require_once __DIR__ .'/../../../includes_devspot/DatabaseConnection.php';
 require_once __DIR__ .'/../classes/CommentsReplies.php';
 
@@ -85,7 +86,7 @@ if(isset($_GET['publish-comment']) || isset($_GET['unpublish-comment'])){
 //If user clicks Publish/ Unpublish reply button
 if(isset($_GET['publish-reply']) || isset($_GET['unpublish-reply'])){
 	$message ='';
-	$comment_id = $_GET['comment_id'];
+	$comment_id = $_GET['comment-id'];
 	if(isset($_GET['publish-reply'])){
 		$published = 1;
 		$message = 'Reply published successfully.';
@@ -104,10 +105,10 @@ if(isset($_GET['publish-reply']) || isset($_GET['unpublish-reply'])){
 
 }
 
-//If user clickd delete-comment button
+//If user clicks delete-comment button
 if(isset($_GET['delete-comment'])){
-	echo 'You could have deleted comment!';
-	/* $comment_id = $_GET['delete-comment'];
+
+	$comment_id = $_GET['delete-comment'];
 	$post_id = $_GET['page_id'];
 
 	$delComment = new CommentsReplies($pdo,'comments','comment_id');
@@ -115,20 +116,20 @@ if(isset($_GET['delete-comment'])){
 
 	$_SESSION['message'] = 'Comment with related replies deleted successfully.';
 	header('Location: admin-post-comments.php?view-comments='.$post_id);
-	exit(0); */
+	exit(0);
 
 }
 
-//If user clickd delete-reply button
+//If user clicks delete-reply button
 if(isset($_GET['delete-reply'])){
-	echo 'You could have deleted the reply!';
-	/* $reply_id = $_GET['delete-reply'];
-	$comment_id = $_GET['comment_id'];
+
+	$reply_id = $_GET['delete-reply'];
+	$comment_id = $_GET['comment-id'];
 
 	$delReply = new CommentsReplies($pdo,'replies','reply_id');
   $delReply->deleteRecords($reply_id);
 
 	$_SESSION['message'] = 'Reply deleted successfully.';
 	header('Location: admin-comment-replies.php?view-replies='.$comment_id);
-	exit(0); */
+	exit(0);
 }

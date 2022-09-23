@@ -450,8 +450,8 @@ function updatePost($request_values){
 /* //Delete blog post */
 function deletePost($post_id){
 	global $conn, $errors;
-	echo "Careful, you coud've deleted the post id = ".$post_id;
-	/* $sql = "DELETE FROM `posts` WHERE post_id = $post_id";
+
+	$sql = "DELETE FROM `posts` WHERE post_id = $post_id";
 	if(mysqli_query($conn, $sql)){
 
 		$_SESSION['message'] = 'Post, related comments and replies deleted successfully.';
@@ -459,7 +459,7 @@ function deletePost($post_id){
 			exit(0);
 	}else{
 		array_push($errors, 'Delete failed! <br><strong>Description:</strong><br> '. $conn->error);
-	} */
+	}
 }
 
 /* //If user clicks Publish post button */
