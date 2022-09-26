@@ -15,8 +15,7 @@ PHPMailer/
 google-code-prettify/
 photos/
 images/
-Archive/
-!Archive/articles/
+archive/
 .sass-cache/
 .vscode
 resources/font-awesome-4.7.0/

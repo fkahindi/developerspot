@@ -9,7 +9,10 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head></head>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
 <body>
 <h4>Welcome <?php echo (!empty($_SESSION['username'])? $_SESSION['username']:'');?></h4>
 <p> <a href="../index.php"> Continue</a>.</p>
