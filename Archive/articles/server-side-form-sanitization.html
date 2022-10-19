@@ -94,7 +94,7 @@
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	//Set empty variables
 	$name=$email=$tel=$password=$comment="";
-	//Collect input values into variables 
+	//Collect input values into variables
 	$name = $_POST["name"];
 	$email = $_POST["email"];
 	$tel = $_POST["tel"];
@@ -114,7 +114,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if(empty($_POST["password"])){
 		$errors["password"] = "Password cannot be blank";
 	}
-	//Since variables are not empty, 
+	//Since variables are not empty,
 	//remove any illegal characters by sanitizing inputs
 	$name = filter_var($name, FILTER_SANITIZE_STRING);
 	$email = filter_var($email, FILTER_SANITIZE_EMAIL);
@@ -176,7 +176,7 @@ $comment = htmlspecialchars($comment);
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	//Set empty variables
 	$name=$email=$tel=$password=$comment="";
-	//Collect input values into variables 
+	//Collect input values into variables
 	$name = $_POST["name"];
 	$email = $_POST["email"];
 	$tel = $_POST["tel"];
@@ -235,7 +235,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		}
 	}
 	$comment = htmlspecialchars($comment);
-	if($valid){				
+	if($valid){
 		// output the sanitized and validated data
 		echo 'Name: '.$name .'&lt;br&gt;';
 		echo 'Email: '.$email .'&lt;br&gt;';
@@ -244,7 +244,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		echo 'This is the comment: &lt;br&gt; " '.$comment.' "';
 		//Clear fields after successful submission
 		$name=$email=$tel=$password=$comment="";
-	}	
+	}
 }
 ?&gt;
 </pre>
@@ -266,7 +266,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	//Set empty variables
 	$name=$email=$tel=$password=$comment="";
-	//Collect input values into variables 
+	//Collect input values into variables
 	$name = $_POST["name"];
 	$email = $_POST["email"];
 	$tel = $_POST["tel"];
@@ -325,7 +325,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		}
 	}
 	$comment = htmlspecialchars($comment);
-	if($valid){			
+	if($valid){
 		// output the sanitized and validated data
 		echo 'Name: '.$name .'&lt;br&gt;';
 		echo 'Email: '.$email .'&lt;br&gt;';
@@ -334,7 +334,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		echo 'This is the comment: &lt;br&gt; " '.$comment.' "';
 		//Clear fields after successful submission
 		$name=$email=$tel=$password=$comment="";
-	}	
+	}
 }
 ?&gt;
 &lt;! DOCTYPE html&gt;
@@ -370,21 +370,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;form method="POST" action="&lt;?php echo htmlspecialchars($_SERVER['PHP_SELF']);?&gt;"&gt;
-		
+
 		&lt;input type="text" name="name"  placeholder="Name ..." value="&lt;?php echo (empty($name)? '': $name) ?&gt;"&gt;
 		&lt;span class="error"&gt;&lt;?php echo (!empty($errors["name"])? $errors["name"]:'') ?&gt;&lt;/span&gt;
-		
+
 		&lt;input type="email" name="email" placeholder="Email..." value="&lt;?php echo (empty($email)? '': $email) ?&gt;" &gt;
 		&lt;span class="error"&gt;&lt;?php echo (!empty($errors["email"])? $errors["email"]:'') ?&gt;&lt;/span&gt;
-		
+
 		&lt;input type="tel" name="tel" placeholder="Phone number..." value="&lt;?php echo (empty($tel)? '': $tel) ?&gt;"&gt;
 		&lt;span class="error"&gt;&lt;?php echo (!empty($errors["tel"])? $errors["tel"]:'') ?&gt;&lt;/span&gt;
-		
+
 		&lt;input type="password" name="password" placeholder="Password..." value="&lt;?php echo (empty($password)? '': $password) ?&gt;"&gt;
 		&lt;span class="error"&gt;&lt;?php echo (!empty($errors["password"])? $errors["password"]:'') ?&gt;&lt;/span&gt;
-		
+
 		&lt;textarea name="comment" col=30 rows=5 placeholder="Type your text here..." &gt;&lt;/textarea&gt;
-		
+
 		&lt;input type="submit" name="submit" value="Submit"&gt;
 	&lt;/form&gt;
 &lt;/body&gt;
@@ -395,7 +395,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <p class="special-p">Server-side form validation is the point of last resort. If it fails here, everything has failed. </p>
         <h2>Conclusion</h2>
         <p>In the previous two posts
-            <a href="/spexproject/posts/1/html5-form-validation"> <em>HTML5 form validation</em> </a> and <a href="/spexproject/posts/3/form-validation-in-javascript"><em>Form validation in JavaScript</em></a>, we highlighted the importance of designing forms that implement security measures from the browser
+            <a href="html5-form-validation"> <em>HTML5 form validation</em> </a> and <a href="/spexproject/posts/3/form-validation-in-javascript"><em>Form validation in JavaScript</em></a>, we highlighted the importance of designing forms that implement security measures from the browser
             level. This means that form validation process should start at the browser level (<em>front-end</em>) to the server level (<em>back-end</em>). Validation rules need to be consistent throughout all <em>validation levels</em> to prevent conflicts,
             as the form transits from the browser to the server. I hope you will have a good start as you imbibe these concepts in your form design.</p>
         <p>If this post has been of help to you, leave a comment below. You can also share it on social media with your friends. Happy coding!</p>
