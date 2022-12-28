@@ -15,7 +15,7 @@
 	<div class="flex-wrapper">
 		<div class="login-signup">
 			<?php echo (!isset($_SESSION['loggedin']) || $_SESSION['loggedin']=== false)?
-			'<a class="login" href="'.BASE_URL .'login">Login </a>&nbsp;'
+			'<a class="login" href="'.BASE_URL .'login"><button class="login-btn">Login</button> </a>&nbsp;'
 			: '' ?>
 			<?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']== true):?>
 			<div class="flex-container">
@@ -33,7 +33,6 @@
 					<input type="checkbox" id="profile-checkbox-control">
 					<div class="account-display-settings">
 						<ul>
-							<li><a href="<?php echo BASE_URL ?>includes/logout.php">Sign out </a></li>
 							<li><a href="<?php echo BASE_URL ?>imageupload">Add Profile Photo</a></li>
 							<li><a href="<?php echo BASE_URL ?>change-password">Change Password </a></li>
 							<?php if($_SESSION['role'] == 'Admin'):?>
@@ -41,6 +40,8 @@
 							<?php elseif($_SESSION['role'] == 'Author'): ?>
 								<li><a href="<?php echo BASE_URL ?>admin/dashboard.php">Admin Posts </a></li>
 							<?php endif; ?>
+							<li><a href="<?php echo BASE_URL ?>includes/logout.php">Sign out </a></li>
+							<li><a href="<?php echo BASE_URL ?>remove-account">Remove Account </a></li>
 						</ul>
 					</div>
 				</div>
