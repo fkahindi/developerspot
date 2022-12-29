@@ -50,6 +50,8 @@ $("document").ready(function() {
         } else {
             $.ajax({
                 url: "/spexproject/includes/subscribeFormFunctions.php",
+                //online
+                //url: "https://www.developerspot.co.ke/includes/subscribeFormFunctions.php",
                 type: "POST",
                 data: {
                     "subscribe": 1,
@@ -66,3 +68,6 @@ $("document").ready(function() {
         }
     });
 });
+/* For online server, run the following command on the terminal to get minified, compressed and mangled file:
+ "terser subscribe.js --compress --mangle --output subscribe.min.js"
+*/

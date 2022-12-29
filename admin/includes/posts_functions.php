@@ -362,6 +362,7 @@ function updatePost($request_values){
 	global $conn, $post_errors,$image_error, $title, $post_slug, $body, $meta_description, $image_file, $image_caption, $published, $isEditingPost, $post_id, $topic_id, $sound;
 
 	$isEditingPost = true;
+
 	//Receive raw form values
 	$title = $request_values['title'];
 	$body = $request_values['body'];
@@ -374,14 +375,12 @@ function updatePost($request_values){
 	if(isset($request_values['topic_id'])){
 		$topic_id = esc($request_values['topic_id']);
 	}
-	if($_SESSION['role'] == 'Admin'){
-		$published = $request_values['publish'];
+	if($_SESSION['role'] == 'Admin' && isset($_POST['publish'])){
+		$published = $_POST['publish'];
 	}else{
 		$published = 0;
 	}
 
-	//Create slug by replacing spaces in title with hyphens
-	$post_slug = makeSlug($title);
 	//Validate form
 	if(empty($title)){
 		$post_errors['title'] ='Post title is required';
@@ -400,6 +399,8 @@ function updatePost($request_values){
 			$sound .= metaphone($word).' ';
 		}
 	}
+	//Create slug by replacing spaces in title with hyphens
+	$post_slug = makeSlug($title);
 
 	if(!$post_errors){
 		//Prepare image for upload

@@ -5,6 +5,9 @@ $("document").ready(function() {
     const total_pages = $("#total_pages").data("id");
     const page_num_class = $(".page-num");
     const load_more_class = $(".load-more");
+    const post_url = '/spexproject/includes/posts-pagination.php';
+    //online
+    //const post_url = 'https://www.developerspot.co.ke/includes/posts-pagination.php';
     $("li.page-num").first().addClass("current");
 
     /* Event delegation for previous and next classes */
@@ -101,7 +104,7 @@ $("document").ready(function() {
     const aJax = (page_num) => {
         const thumbnails = $("#posts_thumbnails");
         $.ajax({
-            url: "/spexproject/includes/posts-pagination.php",
+            url: post_url,
             type: "POST",
             data: {
                 "page_num": page_num
@@ -117,3 +120,6 @@ $("document").ready(function() {
         });
     }
 });
+/* For online server, run the following command on the terminal to get minified, compressed and mangled file:
+ "terser blog-pagination.js --compress --mangle --output blog-pagination.min.js"
+*/

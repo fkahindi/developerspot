@@ -7,7 +7,7 @@ $("document").ready(function(){
 	$("#username").on("blur", function(){
 		var illegalChars = /\W/; /* Allow at least letters, numbers, and underscores */
 		var username = $("#username").val();
-		
+
 		if(username === ""){
 			return;
 		}else if(username.match(illegalChars)){
@@ -23,6 +23,8 @@ $("document").ready(function(){
 		}else{
 			$.ajax({
 			url: "/spexproject/includes/create_account_preprocess.php",
+			//online
+			//url:"https://www.developerspot.co.ke/includes/create_account_preprocess.php",
 			type: "post",
 			data: {
 				"username_check" : 1,
@@ -39,12 +41,12 @@ $("document").ready(function(){
 						$("#username").parent().removeClass();
 						$("#username").parent().addClass("form_success");
 						$("#username").siblings("span").text("");
-					}				
+					}
 				}
 			});
 		}
-		
-	});		
+
+	});
   $("#email").on("blur", function(){
  	var email = $("#email").val();
 	var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/ ; /* //Check if it's valid mail address */
@@ -64,6 +66,7 @@ $("document").ready(function(){
 	}else{
 		$.ajax({
 		url: "/spexproject/includes/create_account_preprocess.php",
+		//url:"https://www.developerspot.co.ke/includes/create_account_preprocess.php",
 		type: "post",
 		data: {
 			"email_check" : 1,
@@ -80,31 +83,31 @@ $("document").ready(function(){
 					$("#email").parent().removeClass();
 					$("#email").parent().addClass("form_success");
 					$("#email").siblings("span").text("");
-				}			
+				}
 			}
 		});
 	}
- 		
- }); 
+
+ });
  $("#privacy-checkbox").on("change",function(){
 		if($(this).is(":checked")){
 			privacy_state = true;
-			
+
 		}else{
 			privacy_state = false;
 		}
 	});
- 
+
  $("#submit_btn").on("click", function(e){
-	 
+
  	if(username_state === false || email_state === false || privacy_state === false)
-	{	
+	{
 		e.preventDefault();
 		var username = $("#username").val();
-		var email = $("#email").val(); 
-				
+		var email = $("#email").val();
+
 		$("#error_msg").text("Fix the errors in the form first");
-				
+
 		if(username === ""){
 			$("#username").parent().removeClass();
 			$("#username").parent().addClass("form_error");
@@ -115,7 +118,7 @@ $("document").ready(function(){
 			$("#email").parent().addClass("form_error");
 			$("#email").siblings("span").text("Email is required");
 		}
-        
+
         if(privacy_state === false){
             $("#privacy-checkbox").parent().removeClass();
 			$("#privacy-checkbox").parent().addClass("errorMsg");
@@ -171,13 +174,13 @@ $("document").ready(function(){
  });
  $("#contact_me_btn").on("click", function(e){
     if(name_state === false || email_state === false)
-	{	
+	{
 		e.preventDefault();
 		var name = $("#name").val();
-		var contactEmail = $("#contact_email").val(); 
-				
+		var contactEmail = $("#contact_email").val();
+
 		$("#error_msg").text("Fix the errors in the form first");
-				
+
 		if(name === ""){
 			$("#name").parent().removeClass();
 			$("#name").parent().addClass("form_error");
@@ -188,18 +191,18 @@ $("document").ready(function(){
 			$("#contact_email").parent().addClass("form_error");
 			$("#contact_email").siblings("span").text("Email is required");
 		}
-	}else{	
+	}else{
 		$("#error_msg").text("");
 		$("#name").siblings("span").text("");
 		$("#contact_email").siblings("span").text("");
-		return true;				            
+		return true;
 	}
  });
- 
+
     function testEmailField(emailField){
         var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/ ; /* Check if it's valid mail address */
         var illegalChars = /[\(\)<>\,\;\:\\\"\[\]]/ ; /* Check for illegal characters */
-        
+
         if(!emailFilter.test(emailField)){
             return "invalidEmail";
         }else if(emailField.match(illegalChars)){

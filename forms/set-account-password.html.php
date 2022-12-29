@@ -37,8 +37,9 @@ if (!empty($email) && !empty($token)) {
 				<div class="banner-bar">
 					<h2><?php include __DIR__ . '/../resources/banner/devpot-banner.php'; ?></h2>
 				</div>
+				<h3>Set Account Password</h3>
 				<p class="form-p">Fields marked with <span class="red"> &#42;</span> are mandatory</p>
-				<h1>Set Account Password</h1>
+
 			</div>
 			<form method="POST" name="set-password" action="">
 				<input type="hidden" name="action" value="set">
