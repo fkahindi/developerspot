@@ -15,14 +15,19 @@ if(!isset($_SESSION)){
 			</div>
 			<div class="profile-photo">
 			<?php
+				//Get commentors from users and aouth tables
 				$usersTable = new CommentsReplies($pdo,'users','user_id');
 				$getUser=$usersTable->selectSingleRecord($comment['user_id']);
+
+				$oauthTable = new CommentsReplies($pdo, 'oauth_login', 'uid');
+				$oauthUser =$oauthTable->selectSingleRecord($comment['user_id']);
+
 			?>
-				<img src="<?php echo $getUser['profile_photo']; ?>" alt="User photo" width=30px height=30px>
+				<img src="<?php echo $comment['authenticator']=='direct'?  $getUser['profile_photo']: $oauthUser['profile_photo'] ?>" alt="User photo" width=30px height=30px>
 			</div>
 			<div class="comments-detail">
 				<div class="user-info">
-					<span class="username"><?php echo $getUser['username']; ?></span>
+					<span class="username"><?php echo $comment['authenticator']=='direct'? $getUser['username']:$oauthUser['username'] ?></span>
 					<span class="created-date"><?php echo date('F j, Y  \a\t H:i', strtotime($comment['created_at'])); ?></span>
 				</div>
 				<div class="comment-text">
@@ -52,12 +57,16 @@ if(!isset($_SESSION)){
 							<!--Reply -->
 							<div class="group">
 								<div class="replies-profile-photo">
-									<?php $getUser=$usersTable->selectSingleRecord($reply['user_id']);?>
-									<img src="<?php echo $getUser['profile_photo']; ?>" alt="User photo" width=30px height=30px>
+									<?php
+										//Get users from users and oauth tables
+										$getUser=$usersTable->selectSingleRecord($reply['user_id']);
+										$oauthUser=$oauthTable->selectSingleRecord($reply['user_id']);
+									?>
+									<img src="<?php echo $reply['authenticator']=='direct'? $getUser['profile_photo'] : $oauthUser['profile_photo'] ?>" alt="User photo" width=30px height=30px>
 								</div>
 								<div class="replies-detail">
 									<div class="user-info">
-										<span class="username"><?php echo $getUser['username']; ?></span>
+										<span class="username"><?php echo $reply['authenticator']=='direct'? $getUser['username'] : $oauthUser['username'] ?></span>
 										<span class="created-date"><?php echo date('F j, Y \a\t H:i', strtotime($reply['created_at'])); ?></span>
 									</div>
 									<div class="reply-text">

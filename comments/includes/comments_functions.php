@@ -7,11 +7,13 @@ require_once __DIR__ .'/../classes/CommentsReplies.php';
 if(isset($_POST['submit_comment']) && $_POST['body']!=="" && !empty($_POST['user_id'])){
 	$user_id = $_POST['user_id'];
 	$page_id = $_POST['page_id'];
+	$authenticator = $_POST['oauth_provider'];
 	$body = htmlspecialchars($_POST['body']);
 
   $fields = [
     'user_id' =>$user_id,
     'post_id' => $page_id,
+		'authenticator' => $authenticator,
     'body' => $body
   ];
 
@@ -30,11 +32,13 @@ if(isset($_POST['post_reply']) && $_POST['reply_text']!=="" && !empty($_POST['us
 
 	$comment_id = $_POST['comment_id'];
 	$user_id = $_POST['user_id'];
+	$authenticator = $_POST['oauth_provider'];
 	$body = htmlspecialchars($_POST['reply_text']);
 
   $fields =[
     'comment_id'=>$comment_id,
     'user_id'=>$user_id,
+		'authenticator' => $authenticator,
     'body'=>$body
   ];
   $replies_table = new CommentsReplies($pdo,'replies','reply_id');
@@ -52,10 +56,10 @@ if(isset($_POST['load_more'])){
 
 	$page_id = intval($_POST['page_id']);
 	$limit = $_POST['limit'];
-
+	$sort_by = ' ORDER BY `created_at` DESC ';
 	/* Retrieve next batch of post comments for this post */
 	$postComments = new CommentsReplies($pdo, 'comments','post_id','published');
-	$comments = $postComments->getAllPublishedRecords($page_id,1,$limit);
+	$comments = $postComments->getAllPublishedRecords($page_id,1,$sort_by,$limit);
 	include __DIR__ .'/../comments_display_main_block.php';
 }
 

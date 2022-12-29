@@ -66,10 +66,10 @@ class CommentsReplies
 
     return $query;
   }
-  public function getAllPublishedRecords($value1,$value2,$limit='')
+  public function getAllPublishedRecords($value1,$value2,$sort_by='',$limit='')
   {
     $sql ="SELECT * FROM `".$this->table."`
-    WHERE `".$this->keyfield."`=:value1 AND `".$this->keyfield2."`=:value2".$limit;
+    WHERE `".$this->keyfield."`=:value1 AND `".$this->keyfield2."`=:value2".$sort_by.$limit;
 
     $parameters =[':value1'=>$value1,':value2'=>$value2];
 
