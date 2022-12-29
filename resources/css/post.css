@@ -1,21 +1,6 @@
 /* ||Main article section */
-@media (max-width: 768px) {
-  h2 {
-    font-size: 1.1rem;
-    padding: 8px 0; } }
-@media (min-width: 769px) {
-  h2 {
-    font-size: 1.3rem; } }
-
-h3 {
-  font-size: 1.5rem; }
-  @media (max-width: 768px) {
-    h3 {
-      font-size: 1.1rem;
-      padding: 6px 0; } }
-  @media (min-width: 769px) {
-    h3 {
-      font-size: 1.2rem; } }
+h2, h3, h4 {
+  padding: 1em 0 0.2em; }
 
 main {
   padding: 16px; }
@@ -143,93 +128,5 @@ li code {
   pre {
     overflow-x: visible;
     white-space: pre-wrap; } }
-/* ||Comments section */
-.comments-container hr {
-  margin: 0;
-  border: thin solid silver; }
-.comments-container p {
-  font-size: 100%; }
-
-.comments-section {
-  margin-top: 10px;
-  font-family: "Times New Roman";
-  font-size: 100%; }
-  .comments-section .hide-comment-id {
-    display: none; }
-  .comments-section .profile-photo {
-    float: left;
-    width: 10%;
-    margin-top: 5px; }
-  .comments-section .comments-detail {
-    float: right;
-    width: 90%;
-    margin-top: 5px;
-    padding-left: 5px; }
-    .comments-section .comments-detail a {
-      margin: 0 10px;
-      font-family: Arial; }
-  .comments-section .comment-text {
-    padding-top: 0;
-    line-height: 1.2; }
-    @media (max-width: 599px) {
-      .comments-section .comment-text {
-        text-align: left; } }
-
-.replies-profile-photo {
-  float: left;
-  margin-left: 30px; }
-  @media (max-width: 599px) {
-    .replies-profile-photo {
-      margin-left: 10px; } }
-
-.replies-detail {
-  float: right;
-  width: 85%;
-  margin-top: 5px;
-  padding: 5px 10px;
-  text-align: left;
-  line-height: 1.2;
-  background: gainsboro;
-  border-radius: 0 10px/ 10px 20px; }
-  .replies-detail .reply-text {
-    text-align: left;
-    padding: 3px 0 5px 0; }
-  .replies-detail .user-info {
-    font-size: 90%; }
-
-.user-info .created-date {
-  padding-left: 5px;
-  font-style: italic; }
-.user-info .username {
-  font-family: sans-serif;
-  color: #323232;
-  font-weight: bold;
-  font-size: 90%; }
-
-.reply {
-  width: 100%; }
-  @media (max-width: 599px) {
-    .reply {
-      margin-left: 5px; } }
-
-@media (min-width: 769px) {
-  .reply-thread {
-    font-size: 0.9em; } }
-
-.reply-form {
-  margin: 5px;
-  display: none; }
-  @media (max-width: 599px) {
-    .reply-form {
-      margin-left: 5px; } }
-
-div[class^="group replies_container_"] {
-  display: none; }
-
-.pagination .load-prev {
-  display: none; }
-
-details > summary {
-  cursor: pointer; }
 
 /*# sourceMappingURL=post.css.map */

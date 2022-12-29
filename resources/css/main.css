@@ -309,6 +309,9 @@ p {
     p {
       font-size: 1.2em; } }
 
+details > summary {
+  cursor: pointer; }
+
 /* || LAYOUT AND STRUCTURE */
 /* || Header Section */
 header {
@@ -528,17 +531,22 @@ header .fa-linkedin {
 .login {
   position: relative;
   top: 1.5em;
-  right: 1em;
-  font-family: Times, serif;
-  color: #0b3128; }
-  .login:hover {
-    color: orangered; }
+  right: 1em; }
   @media (max-width: 599px) {
     .login {
-      top: 1em; } }
+      top: 0.25em; } }
   @media (min-width: 769px) {
     .login {
       right: 0; } }
+  .login .login-btn {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: lighter;
+    background-color: #c1e8fa;
+    border-radius: 3px;
+    padding: 0.5em 16px; }
+    .login .login-btn:hover {
+      background-color: rgba(193, 232, 250, 0.928); }
 
 .flex-container {
   display: flex;
@@ -646,6 +654,11 @@ header .fa-linkedin {
       border-bottom: thin groove #f9f9f9; }
       .account-display-settings ul li:last-child {
         border-bottom: none; }
+        .account-display-settings ul li:last-child:hover {
+          background-color: orangered; }
+          .account-display-settings ul li:last-child:hover a {
+            color: white;
+            text-decoration-color: white; }
   .account-display-settings a {
     color: black; }
     .account-display-settings a:hover {
