@@ -8,8 +8,8 @@ if(!isset($_SESSION)){
 require_once __DIR__ .'/../vendor/autoload.php';
 
 $fb = new \Facebook\Facebook([
-  'app_id' => '504038211760079',
-  'app_secret' => '453598425043313fc0358964c8ddd98e',
+  'app_id' => 'APP_ID',
+  'app_secret' => 'APP_SECRET',
   'default_graph_version' => 'v2.10',
 ]);
 
