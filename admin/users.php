@@ -42,7 +42,7 @@ $roles = ['Admin', 'Author', 'User'];
 							<td><?php echo $user['role'] ?></td>
 							<td>
 							<p>
-							<a href="assign_roles.php?edit-user=<?php echo $user['user_id'] ?>" class="btn btn-warning btn-sm"><i class="bi-pencil"></i> Edit </a>
+							<a href="assign_roles.php?edit-user=<?php echo $user['user_id'] ?>" class="btn btn-warning btn-sm"><i class="bi-pencil"></i> Assign Role </a>
 							</p>
 							</td>
 						</tr>
