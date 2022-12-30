@@ -13,10 +13,10 @@ ErrorDocument 404 errors/404.html
 #
 #### For Online Server ####
 #
-#RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTPS} !=on
 # This checks to make sure the connection is not already HTTPS
 
-#RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 
 # This rule will redirect users from their original location, to the same location but using HTTPS.
 # i.e.  http://www.example.com/foo/ to https://www.example.com/foo/
@@ -30,10 +30,13 @@ RewriteRule ^topic/(.*)$ templates/topic_page.html.php?name=$1 [NC,L]
 RewriteRule ^thank-you.php$ templates/thank-you.html.php [NC,L]
 RewriteRule ^mail-send.php$ templates/mail-send.html.php [NC,L]
 RewriteRule ^contact.php$ forms/contact-me-form.html.php [NC,L]
-RewriteRule ^login$ forms/login.html.php [NC,L]
-RewriteRule ^create-account$ forms/create-account.html.php [NC,L]
+#RewriteRule ^login$ forms/login.html.php [NC,L]
+#RewriteRule ^create-account$ forms/create-account.html.php [NC,L]
+RewriteRule ^login$ forms/sign-option.html.php [NC,L]
+RewriteRule ^create-account$ forms/sign-option.html.php [NC,L]
 RewriteRule ^set-account-password$ forms/set-account-password.html.php [NC,L]
 RewriteRule ^recover-password$ forms/recover-password.html.php [NC,L]
 RewriteRule ^change-password$ forms/change-password.html.php [NC,L]
 RewriteRule ^reset-password$ forms/reset-password.html.php [NC,L]
+RewriteRule ^remove-account$ forms/remove-account.html.php [NC,L]
 RewriteRule ^imageupload$ forms/imageupload.html.php [NC,L]

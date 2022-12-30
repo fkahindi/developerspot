@@ -44,7 +44,9 @@ $published_post_ids = getAllPublishedPostIds();
 
 	<?php include_once __DIR__ . '/head-resources.html.php'; ?>
 	<link rel="preload" href="<?php echo BASE_URL ?>resources/css/post.css" as="style">
+	<link rel="preload" href="<?php echo BASE_URL ?>resources/css/subscribe-comments-replies.css" as="style">
 	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/post.css" />
+	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/subscribe-comments-replies.css" media="print" onload="this.media='all'; this.onload=null;"/>
 	<!-- Links for google code prettify .js at bottom of page files: Local server -->
 	<link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.css" media="print" onload="this.media='all'; this.onload=null;" />
 
@@ -130,7 +132,7 @@ $published_post_ids = getAllPublishedPostIds();
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 	<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
 	<!-- Online server
-    
+
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
     -->
 

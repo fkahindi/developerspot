@@ -23,7 +23,8 @@ require __DIR__ .'/includes/comments_functions.php';
 		<?php
 			include __DIR__ .'/comments_pagination.php';
 			/* Retrieve comments for this post */
-			$comments = $publishedComments->getAllPublishedRecords($page_id,1,$limit);
+			$sort_by = ' ORDER BY `created_at` DESC ';
+			$comments = $publishedComments->getAllPublishedRecords($page_id,1,$sort_by,$limit);
 			include __DIR__ .'/comments_display_main_block.php';
 		?>
 	</div>

@@ -38,6 +38,7 @@ $("document").ready(() => {
     const submitComment = () => {
         let user_id = $("#user_id").val();
         let page_id = $("#page_id").val();
+        let oauth_provider = $("#oauth_provider").val();
         let comment = $("#comment").val();
 
         $("#comment").val("");
@@ -55,7 +56,7 @@ $("document").ready(() => {
             /* for localhost */
             return window.location.href = "/spexproject/login";
             //for online server
-            ///return window.location.href="https://www.developerspot.co.ke/login";
+            //return window.location.href="https://www.developerspot.co.ke/login";
 
 
         }
@@ -65,6 +66,7 @@ $("document").ready(() => {
         let data = {
             "submit_comment": 1,
             "user_id": user_id,
+            "oauth_provider": oauth_provider,
             "page_id": page_id,
             "body": comment,
         }
@@ -89,7 +91,7 @@ $("document").ready(() => {
             $("#reply_textarea_" + comment_id).focus();
         }
 
-        reply_button.text(reply_button.text() == "Reply" ? "Cancel" : "Reply");
+        reply_button.text(reply_button.text() == "Reply" ? "X" : "Reply" );
     }
 
 
@@ -98,6 +100,7 @@ $("document").ready(() => {
         let reply_textarea = $("#post_reply_" + comment_id).siblings(".reply-textarea");
         let reply_text = $("#post_reply_" + comment_id).siblings("#reply_textarea_" + comment_id).val();
         let user_id = $("#post_reply_" + comment_id).siblings(".reply_form_user_id").val();
+        let oauth_provider = $("#post_reply_" + comment_id).siblings(".reply_form_oauth_provider").val();
 
 
         reply_textarea.val("");
@@ -115,7 +118,7 @@ $("document").ready(() => {
 
             return window.location.href = "/spexproject/login";
             //for online server
-           // return window.location.href="https://www.developerspot.co.ke/login";
+            //return window.location.href="https://www.developerspot.co.ke/login";
 
         }
         document.cookie = "replyCookie=; path=/; max-age=0";
@@ -124,6 +127,7 @@ $("document").ready(() => {
         let data = {
             "post_reply": 1,
             "user_id": user_id,
+            "oauth_provider":oauth_provider,
             "comment_id": comment_id,
             "reply_text": reply_text
         }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 if(!isset($_SESSION)){
 	session_start();
 }
@@ -25,13 +25,13 @@ if(isset($_POST['contact-me'])){
 		<div class="form_image">
 			<div class="banner-bar"><h2><?php include __DIR__ .'/../resources/banner/devpot-banner.php';?></h2></div>
 			<div id="error_msg"><?php echo(!empty($form_error)? $form_error :'');?></div>
-			<h1>Contact Me </h1>
+			<h3>Contact Me </h3>
 			<p>Fields marked with <span class="red"> &#42;</span> are mandatory. </p>
 		</div>
-	<form  method="POST" action="" id="signup_form" >	
+	<form  method="POST" action="" id="signup_form" >
 		<div class="group-form">
 			<label for="name">Name:<span class="red"> &#42;</span></label>
-			<input  name="name" id="name" class="form-control" type="text" 
+			<input  name="name" id="name" class="form-control" type="text"
 			value="<?php echo (empty($name)? '': $name); ?>" maxlength="50" autocomplete="off" >
 			<span class="errorMsg"> <?php echo(!empty($errors['name']) ? $errors['name'] : ''); ?></span>
 		</div>
@@ -43,7 +43,7 @@ if(isset($_POST['contact-me'])){
 		<div class="group-form">
             <label for="comment">Type message below:</label>
 			<textarea name="comment" id="comment" cols="40" rows="8" maxlength="1000" placeholder="Type your message here..." ></textarea>
-            
+
 		</div>
 		<input name="contact-me" type="submit" id="contact_me_btn" value="Submit">
 		<input type="hidden" id="token" name="token">
@@ -55,7 +55,7 @@ if(isset($_POST['contact-me'])){
 	<div class="g-policy">
 		<a  href="https://policies.google.com/privacy" class="g-policy-a">Privacy Policy</a> and
     <a href="https://policies.google.com/terms" class="g-policy-a">Terms of Service</a> apply
-	</div>	
+	</div>
 </div>
 	<!-- Scripts -->
 	<script src="<?php echo BASE_URL ?>resources/js/captcha.js"></script>

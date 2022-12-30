@@ -11,6 +11,10 @@ admin/experimentation
 *.min.css.map
 *.min.js
 *.code-workspace
+*.json
+*.lock
+*.zip
+vendor/
 PHPMailer/
 google-code-prettify/
 photos/
