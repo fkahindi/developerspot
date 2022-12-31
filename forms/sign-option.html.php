@@ -41,8 +41,8 @@ if(isset($_POST['create-account'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Francis Kahindi" />
     <meta http-equiv="Content-Security-Policy" content="" />
-    <link rel="canonical" href="https://www.developerspot.co.ke/<?php echo $thisPage ?>">
-    <title><?php echo $thisPage ?></title>
+    <link rel="canonical" href="https://www.developerspot.co.ke/<?php echo $thisPage?? '' ?>">
+    <title><?php echo $thisPage?? '' ?></title>
     <meta name="description" content="Use email and password to login to developerspot system.">
     <meta name="keywords" content="login, email address, password, developerspot">
     <link rel="stylesheet" href="<?php echo BASE_URL ?>resources/css/form.css">

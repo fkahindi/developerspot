@@ -101,13 +101,12 @@ $thisPage = "HOME";
       </div>
     <section class="section-three">
       <div class="advert">
-        <h3 class="title">Have you heard about Microverse?</h3>
-        <p>It's an online school for software development that costs $0 upfront and only charges you once you have a job making more than $1,000 USD/month.</p>
+
         <div class="steam" id="steam1"> </div>
         <div class="steam" id="steam2"> </div>
         <div class="steam" id="steam3"> </div>
         <div class="steam" id="steam4"> </div>
-          <a href="https://www.microverse.org/?grsf=francis-tvvb34"><img src="https://pbs.twimg.com/card_img/1585442314155167745/vbXAW9Kw?format=png&name=small" width="100%" loading="lazy" alt="card-img"/></a>
+
       </div>
       <div class="php-mysql">
         <h2>PHP and MySQL</h2>

@@ -745,10 +745,17 @@ header {
             line-height: 2.5em;
             padding: 2px 10px;
             border-bottom: thin groove rgb(249, 249, 249);
+            &:hover{
+                background-color:#b1bac6;
+                a{
+                    color:black;
+                    text-decoration:overline;
+                }
+            }
             &:last-child {
                 border-bottom: none;
                 &:hover{
-                    background-color: orangered;
+                    background-color: darkred;
                     a {
                         color: white;
                         text-decoration-color: white;
@@ -758,11 +765,7 @@ header {
         }
     }
     a {
-        color: black;
-        &:hover {
-            text-decoration: underline;
-            text-decoration-color: darkred;
-        }
+        color: $olive;
     }
 }
 

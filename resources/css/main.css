@@ -652,18 +652,20 @@ header .fa-linkedin {
       line-height: 2.5em;
       padding: 2px 10px;
       border-bottom: thin groove #f9f9f9; }
+      .account-display-settings ul li:hover {
+        background-color: #b1bac6; }
+        .account-display-settings ul li:hover a {
+          color: black;
+          text-decoration: overline; }
       .account-display-settings ul li:last-child {
         border-bottom: none; }
         .account-display-settings ul li:last-child:hover {
-          background-color: orangered; }
+          background-color: darkred; }
           .account-display-settings ul li:last-child:hover a {
             color: white;
             text-decoration-color: white; }
   .account-display-settings a {
-    color: black; }
-    .account-display-settings a:hover {
-      text-decoration: underline;
-      text-decoration-color: darkred; }
+    color: #0b3128; }
 
 /* || Footer Section */
 footer {
