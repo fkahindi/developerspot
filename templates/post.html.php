@@ -19,7 +19,10 @@ $post_slug = $posts['post_slug'];
 $_SESSION['page_id'] = $page_id;
 $_SESSION['post_slug'] = $post_slug;
 $published_post_ids = getAllPublishedPostIds();
-//modify url dynamically
+
+//Date formats for PHP v8.0.1
+$date_created = new DateTimeImmutable($posts['created_at']);
+$date_updated = new DateTimeImmutable($posts['updated_at']);
 
 ?>
 <!DOCTYPE html>
@@ -57,8 +60,8 @@ $published_post_ids = getAllPublishedPostIds();
     	"@type" : "Article",
     	"name" : "<?php echo ucwords(htmlspecialchars_decode($posts['post_title'])) ?>",
     	"headline": "<?php echo ucwords(htmlspecialchars_decode($posts['post_title'])) ?>",
-    	"datePublished" : "<?php echo date( 'F j, Y', strtotime($posts['created_at'])) ?>",
-    	"dateModified": "<?php date( 'F j, Y', strtotime($posts['updated_at'])) ?>",
+    	"datePublished" : "<?php echo $date_created->format('F j, Y') ?>",
+    	"dateModified": "<?php $date_updated->format('F j, Y') ?>",
     	"image" : "<?php echo ($posts['image']) ?>",
     	"articleSection" : "<?php echo htmlspecialchars_decode(getFirstParagraphPostById($posts['post_id'])) ?>",
     	"author": {
@@ -95,7 +98,9 @@ $published_post_ids = getAllPublishedPostIds();
 			<!-- The title will be fetched from database -->
 			<h1><?php echo ucwords(htmlspecialchars_decode($posts['post_title'])); ?></h1>
 			<div class="post-acreditation">
-				<?php echo isset($posts['updated_at']) ? 'Updated on ' . date('F j, Y', strtotime($posts['updated_at'])) : 'Published on ' . date('F j, Y', strtotime($posts['created_at'])) ?>
+				<?php
+				echo isset($posts['updated_at']) ? 'Updated on ' . $date_updated->format('F j, Y') : 'Published on ' . $date_created->format('F j, Y')
+				?>
 			</div>
 
 			<div class="article-body">
