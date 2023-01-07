@@ -665,7 +665,7 @@ function contactMe(){
 	# BEGIN reCaptcha v3 validation
 	$url ="https://www.google.com/recaptcha/api/siteverify";
 	$data = [
-		'secret' => "MY SITE SECRET",
+		'secret' => "PUT SITE SECRET HERE",
 		'response' => $_POST['token'],
 		'remoteip' => $_SERVER['REMOTE_ADDR']
 	];

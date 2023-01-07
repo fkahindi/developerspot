@@ -2,6 +2,9 @@
 if(!isset($_SESSION)){
 	session_start();
 }
+header("Access-Control-Allow-Origin: https://localhost/");
+header("Content-Security-Policy-Report-Only: default-src 'none';form-action 'self';style-src 'self' https://cdn.jsdelivr.net/ https://cdnjs.cloudflare.com/; img-src 'self' https://www.google-analytics.com https://www.google.co.ke/ https://www.google.com/;font-src 'self';script-src 'unsafe-eval' 'unsafe-inline' https://localhost/ https://cdnjs.cloudflare.com/ https://www.google-analytics.com/ https://www.gstatic.com/ https://www.google.com/ https://www.googletagmanager.com/; frame-ancestors 'self';frame-src 'self' https://www.google.com/;connect-src 'self' https://www.google-analytics.com;");
+
 include __DIR__ .'/../includes/process_form.php';
 if(isset($_POST['contact-me'])){
 	contactMe();
