@@ -5,20 +5,20 @@ include __DIR__ .'/../../includes_devspot/DatabaseConnection.php';
 include __DIR__ . '/../classes/DatabaseTable.php';
 try{
 	$subscribeTempTbl = new DatabaseTable($pdo, 'subscribe_temp_tbl','token','email');
-	$sql = $subscribeTempTbl->selectMatchColumnsRecords($token,$email);
-	
+	$sql = $subscribeTempTbl->selectRecordsOnAndCondition($token,$email);
+
 	/* //There should be only 1 matching record in database */
 	if($sql->rowCount()==1){
-		
+
 		$curDate = date('Y-m-d H:i:s');
 		$row=$sql->fetch();
-		
+
 		$createdDateTimeStamp = strtotime($row['created_at']);
 		$curDateTimeStamp = strtotime($curDate);
-		
+
 		/* //Token expires after 1 day */
 		if($curDateTimeStamp-$createdDateTimeStamp<=86400){
-			$created_at = new DateTime();	
+			$created_at = new DateTime();
 			$created_at = $created_at->format('Y-m-d H:i:s');
 			$fields =[
 				'email' => $row['email'],
@@ -26,7 +26,7 @@ try{
 			];
 			$subscribeUser = new DatabaseTable($pdo, 'subscribers', 'email');
 			$query = $subscribeUser->insertRecord($fields);
-			
+
 			$subscribeTempTbl->deleteRecords($email);
 			echo '<h2>Subscription confirmed! </h2><br>';
 			echo '<h4>You will be notified when a new post is available.</h3><br>';
@@ -34,7 +34,7 @@ try{
 		}else{
 			echo 'Token expired';
 		}
-		
+
 	}else{
 		echo 'Token matching email was not found';
 	}
@@ -44,6 +44,5 @@ try{
 		echo 'Subscriber already exists.';
 	}else{
 		throw $e;
-	}		
-}	
-	
+	}
+}

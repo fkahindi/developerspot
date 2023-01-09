@@ -14,14 +14,14 @@ $valid = true;
 if(isset($_POST['subscribe'])){
 	/* Assign variables */
 	$email = $_POST['email'];
-	
+
 	/* Incase email field is left blank */
 	if(empty($_POST['email'])){
 		$valid = false;
 		$errors['email'] = 'Type your email address';
 	}else{
 		$email = filter_var($email, FILTER_SANITIZE_EMAIL);
-		
+
 		if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 			$valid = false;
 			$errors['email']='Invalid email address';
@@ -29,15 +29,15 @@ if(isset($_POST['subscribe'])){
 			$valid = true;
 		}
 	}
-	
+
 	if($valid){
-		$curDate = date('Y-m-d H:i:s');			
-		$created_at = new DateTime();	
+		$curDate = date('Y-m-d H:i:s');
+		$created_at = new DateTime();
 		$created_at = $created_at->format('Y-m-d H:i:s');
 		$token = bin2hex(random_bytes(50));
-		
+
 		$subscribeTempTbl = new DatabaseTable($pdo, 'subscribe_temp_tbl','email');
-		$sql = $subscribeTempTbl->selectColumnRecords($email);
+		$sql = $subscribeTempTbl->selectRecordsOnCondtion($email);
 		/* Check if email already exists */
 		if(!empty($sql->rowCount())){
 			/* if email exists check if token is still valid */
@@ -45,7 +45,7 @@ if(isset($_POST['subscribe'])){
 			$createdDateTimeStamp = strtotime($row['created_at']);
 			$curDateTimeStamp = strtotime($curDate);
 			if($curDateTimeStamp - $createdDateTimeStamp<=3600){
-			/* If an hour has not elapsed since record update notify user. */                
+			/* If an hour has not elapsed since record update notify user. */
 				echo '<script>
                 $("#subscribe").addClass("hidden");
                 </script>';
@@ -53,14 +53,14 @@ if(isset($_POST['subscribe'])){
 			}else{
 				/* Update token and date then send email link */
 				$fields = ['token' => $token, 'created_at' => $created_at];
-				
+
 				require_once __DIR__ .'/subscribe-email-link.php';
 				if(isset($emil_success)){
 				$updateToken = $subscribeTempTbl->updateRecords($fields,$email);
 				echo $emil_success;
 				}else{
 					echo $email_error;
-				}				
+				}
 			}
 		}else{
 			$fields = [
@@ -68,7 +68,7 @@ if(isset($_POST['subscribe'])){
 			'token' => $token,
 			'created_at' => $created_at
 			];
-		
+
 			/* Insert record into subscribers' temp table and send mail to user, otherwise display error. */
 			require_once __DIR__ .'/subscribe-email-link.php';
 			if(isset($emil_success)){
@@ -77,6 +77,6 @@ if(isset($_POST['subscribe'])){
 			}else{
 				echo $email_error;
 			}
-		}	
+		}
 	}
 }

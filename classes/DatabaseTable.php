@@ -21,21 +21,18 @@ class DatabaseTable
 		return $query;
 	}
 
-	public function selectColumnRecords($value1,$value2=''){
+	public function selectRecordsOnCondtion($value){
 
 		$sql = 'SELECT * FROM `'.$this->table .'`
-		WHERE `'.$this->keyfield .'` = :value1 OR `'
-		.$this->keyfield .'` = :value2';
+		WHERE `'.$this->keyfield .'` = :value';
 
-		$parameters =['value1'=> $value1,
-		'value2'=> $value2
-		];
+		$parameters =['value'=> $value];
 
 		$query = $this->query($sql, $parameters);
 
 		return $query;
 	}
-	public function selectColumnsRecords($value1,$value2){
+	public function selectRecordsOnOrCondition($value1,$value2){
 
 		$sql = 'SELECT * FROM `'.$this->table .'`
 		WHERE `'.$this->keyfield .'` = :value1 OR `'
@@ -49,7 +46,7 @@ class DatabaseTable
 
 		return $query;
 	}
-	public function selectMatchColumnsRecords($value1, $value2){
+	public function selectRecordsOnAndCondition($value1, $value2){
 
 		$sql = 'SELECT * FROM `'.$this->table .'`
 		WHERE `'.$this->keyfield .'` = :value1 AND `'

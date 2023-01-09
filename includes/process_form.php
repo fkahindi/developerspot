@@ -67,7 +67,7 @@ function createAccount(){
 
 		/* Check whether the email or username are already in use */
 		$usersTable = new DatabaseTable($pdo, 'users', 'email','username');
-		$sql = $usersTable->selectColumnsRecords($email,$username);
+		$sql = $usersTable->selectRecordsOnOrCondition($email,$username);
 		if($sql->rowCount()>0){
 			$valid = false;
 			$row = $sql->fetch();
@@ -84,7 +84,7 @@ function createAccount(){
 			$token = bin2hex(random_bytes(20));
 
 			$users_tempTable = new DatabaseTable($pdo, 'users_temp','email');
-			$query = $users_tempTable->selectColumnRecords($email);
+			$query = $users_tempTable->selectRecordsOnCondtion($email);
 
 			if($query->rowCount()>0){
 				/* If email exists check if token still valid */
@@ -169,7 +169,7 @@ function setAccountPassword(){
 			$curDate = date('Y-m-d H:i:s');
 
 			$selectEmailToken = new DatabaseTable ($pdo, 'users_temp','token', 'email');
-			$sql = $selectEmailToken->selectMatchColumnsRecords($token, $email);
+			$sql = $selectEmailToken->selectRecordsOnAndCondition($token, $email);
 
 			if($sql->rowCount()==1){
 
@@ -259,7 +259,7 @@ function login(){
 		//Select from users table
 		$usersTable = new DatabaseTable($pdo,'users', 'email');
 
-		$query = $usersTable->selectColumnRecords($email);
+		$query = $usersTable->selectRecordsOnCondtion($email);
 
 		//Check if records exists in the database
 		if($query->rowCount()==1){
@@ -270,7 +270,7 @@ function login(){
 			//Select from roles table using user's role_id
 			$rolesTable = new DatabaseTable($pdo, 'roles', 'role_id');
 
-			$sql = $rolesTable->selectColumnRecords($row['role_id']);
+			$sql = $rolesTable->selectRecordsOnCondtion($row['role_id']);
 			$record = $sql->fetch();
 
 			//Assign records values to variables
@@ -314,7 +314,7 @@ function login(){
 	}
 }
 
-function fbLogin(){
+function fbLogin($user_data){
 global $pdo, $form_error;
 
 	if(!empty($user_data)){
@@ -322,52 +322,48 @@ global $pdo, $form_error;
 		$uid = $user_data['uid'];
 		$oauth_provider = $user_data['oauth_provider'];
 		$email = $user_data['email'];
-    $username = $user_data['username'];
+		$username = $user_data['first_name'];
 		$name = $user_data['fullname'];
 		$profile_photo = $user_data['profile_photo'];
 
 		//Check if user already exists
-		$outh_table = new DatabaseTable($pdo, 'auth_login', 'uid');
+		$oauth_table = new DatabaseTable($pdo, 'oauth_login', 'uid');
 
-		$sql = $outh_table->selectAllRecords($uid);
+		$sql = $oauth_table->selectRecordsOnCondtion($uid);
 
 		$curr_date = new DateTime();
 
-		if($sql->rowCount()>0){
+		if($sql->rowCount()==1){
 			//user already exists, so update record
 			$updated_at = $curr_date->format('Y-m-d H:i:s');
-			$fields = ['oauth_provider'=>$oauth_provider,'email'=>$email, 'username'=>$username,'fullname'=>$name, 'profile_photo'=>$profile_photo, 'updated_at'=>$updated_at];
-			$outh_table->updateRecords($fields,$uid);
+			$fields = ['oauth_provider'=>$oauth_provider,'email'=>$email,'username'=>$username,'fullname'=>$name, 'profile_photo'=>$profile_photo, 'updated_at'=>$updated_at];
+			$oauth_table->updateRecords($fields,$uid);
 		}else {
 			//insert new user
 			$created_at = $curr_date->format('Y-m-d H:i:s');
-			$fields = ['uid'=>$uid,'oauth_provider'=>$oauth_provider,'email'=>$email, 'username'=>$username, 'fullname'=>$name, 'profile_photo'=>$profile_photo, 'created_at'=>$created_at];
-			$outh_table->insertRecord($fields);
+			$fields = ['uid'=>$uid,'oauth_provider'=>$oauth_provider,'email'=>$email,'username'=>$username,'fullname'=>$name, 'profile_photo'=>$profile_photo, 'created_at'=>$created_at];
+			$oauth_table->insertRecord($fields);
 		}
 
     //Select from roles table using user's role_id
     $rolesTable = new DatabaseTable($pdo, 'roles', 'role_id');
 
-    $sql = $rolesTable->selectColumnRecords(3);
+    $sql = $rolesTable->selectRecordsOnCondtion(3);
     $record = $sql->fetch();
 
 		$_SESSION['loggedin'] = true;
 		$_SESSION['user_id'] = $uid;
 		$_SESSION['role'] = $record['role'];
 		$_SESSION['email'] = $email;
-    $_SESSION['username'] = $username;
+		$_SESSION['username'] = $username;
 		$_SESSION['fullname'] = $name;
 		$_SESSION['profile_photo']= $profile_photo;
     $_SESSION['oauth_provider'] = $oauth_provider;
 
-   	//Redirect accordingly
-		if(isset($_SESSION['post_slug'])){
-			header('Location:'.BASE_URL.'posts/'.$_SESSION['post_slug']);
-		}else{
-			header('Location:'.BASE_URL.'index.php');
-		}
+   	//Respond to AJAX call
+		echo 'success';
 	}else{
-		echo 'No user data returned! ';
+		echo 'No user data found! ';
 	}
 }
 
@@ -413,7 +409,7 @@ function changePassword(){
 	if($valid){
 
 		$usersTable = new DatabaseTable($pdo,'users', 'email','username');
-		$query = $usersTable->selectMatchColumnsRecords($_SESSION['email'],$_SESSION['username']);
+		$query = $usersTable->selectRecordsOnAndCondition($_SESSION['email'],$_SESSION['username']);
 
 		if($query->rowCount()==1){
 
@@ -471,7 +467,7 @@ function recoverPassword(){
 
 		$usersTable = new DatabaseTable($pdo, 'users', 'email');
 
-		$query = $usersTable->selectColumnRecords($email);
+		$query = $usersTable->selectRecordsOnCondtion($email);
 
 		if($query->rowCount() == 0){
 			$valid = false;
@@ -538,7 +534,7 @@ function resetPassword(){
 		$curDate = date('Y-m-d H:i:s');
 
 		$selectEmailToken = new DatabaseTable ($pdo, 'password_reset_temp', 'token','email');
-		$sql = $selectEmailToken->selectMatchColumnsRecords($token, $email);
+		$sql = $selectEmailToken->selectRecordsOnAndCondition($token, $email);
 
 		if(!empty($sql->rowCount())){
 
@@ -603,7 +599,7 @@ function imageUpload(){
 		$username = $_SESSION['username'];
 
 		$usersTable = new DatabaseTable($pdo, 'users', 'email');
-		$query = $usersTable->selectColumnRecords($email);
+		$query = $usersTable->selectRecordsOnCondtion($email);
 
 		if($query->rowCount()>0){
 			$row = $query->fetch();
@@ -640,7 +636,7 @@ function imageUpload(){
 			$usersTable->updateRecords($fields,$email);
 
 			//Fetch the records again to place the image photo in session
-			$query = $usersTable->selectColumnRecords($email);
+			$query = $usersTable->selectRecordsOnCondtion($email);
 			if($query->rowCount()== 1){
 				$row = $query->fetch();
 
@@ -723,9 +719,9 @@ function removeAccount(){
 	$oauth_table = new DatabaseTable($pdo, 'oauth_login', 'uid', 'email');
 
 	//Select records from users table if there's a matche
-	$sql = $users_table->selectMatchColumnsRecords($user_id, $email);
+	$sql = $users_table->selectRecordsOnAndCondition($user_id, $email);
 	//Select records from oauth table if there's a matche
-	$query = $oauth_table->selectMatchColumnsRecords($user_id, $email);
+	$query = $oauth_table->selectRecordsOnAndCondition($user_id, $email);
 
 	if($sql->rowCount()==1){
 		//delete record if exists in users table

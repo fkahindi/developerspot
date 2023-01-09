@@ -1,12 +1,12 @@
-<?php 
+<?php
 require __DIR__ .'/../../includes_devspot/DatabaseConnection.php';
 require __DIR__ .'/../classes/DatabaseTable.php';
   if (isset($_POST['username_check'])) {
   	$username = $_POST['username'];
 	$usersTable = new DatabaseTable($pdo, 'users','username');
-	$sql = $usersTable->selectColumnRecords($username);
+	$sql = $usersTable->selectRecordsOnCondtion($username);
   	if ($sql->rowCount() > 0) {
-  	  echo "taken";	
+  	  echo "taken";
   	}else{
   	  echo 'not_taken';
   	}
@@ -15,9 +15,9 @@ require __DIR__ .'/../classes/DatabaseTable.php';
   if (isset($_POST['email_check'])) {
   	$email = $_POST['email'];
 	$usersTable = new DatabaseTable($pdo, 'users','email');
-	$sql = $usersTable->selectColumnRecords($email);
+	$sql = $usersTable->selectRecordsOnCondtion($email);
   	if ($sql->rowCount() > 0) {
-  	  echo "taken";	
+  	  echo "taken";
   	}else{
   	  echo 'not_taken';
   	}

@@ -8,7 +8,7 @@ header("Access-Control-Allow-Origin: same-origin-allow-popups");
 header("Access-Control-Allow-Origin: https://localhost/");
 header("Access-Control-Allow-Headers: HASH, Content-Type");
 header("Access-Control-Allow-Methods: POST");
-header("Content-Security-Policy-Report-Only: default-src 'none';form-action 'self'; style-src 'self' 'unsafe-inline' https://connect.facebook.net/; img-src 'self'; font-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'  https://connect.facebook.net; frame-ancestors 'self' https://web.facebook.com;frame-src https://web.facebook.com/  https://www.facebook.com;  connect-src 'self' https://web.facebook.com https://www.facebook.com; ");
+header("Content-Security-Policy-Report-Only: default-src 'none';form-action 'self'; style-src 'self' 'unsafe-inline' https://connect.facebook.net/; img-src 'self'; font-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'  https://connect.facebook.net/; frame-ancestors 'self' https://web.facebook.com/;frame-src https://web.facebook.com/  https://www.facebook.com/;  connect-src 'self'  https://z-p3-graph.facebook.com/ https://graph.facebook.com https://web.facebook.com/ https://www.facebook.com/; ");
 header("Set-Cookie: cross-site-cookie=whatever; SameSite=None; Secure");
 
 $uri = $_SERVER['REQUEST_URI'];
@@ -70,31 +70,22 @@ if(isset($_POST['create-account'])){
           <h5 class="successMsg"><?php echo (!empty($_SESSION['success_msg']) ? $_SESSION['success_msg'] : ''); ?></h5>
           <h5 class="errorMsg"><?php echo (isset($form_error) ? $form_error : ''); ?></h5>
         </div>
-        <?php //include __DIR__ .'/../includes/google_authenticate.php';?>
-
-        <?php include __DIR__ .'/../includes/fb_config.php';?>
+        <?php //include __DIR__ .'/../includes/google-login.php';?>
 
        <!-- Google client -->
         <!-- <script src="https://accounts.google.com/gsi/client" async defer></script> -->
 
         <!-- Facebook login button-->
         <div class="oauth-login-btn">
-          <?php
-            if(isset($facebook_login_url)){
-              echo $facebook_login_url;
-            }else{
-              echo '<a href="<?php echo BASE_URL ?>includes/logout.php"><button class="fb btn"><i class="fa fa-facebook"></i> Logout </button></a>';
-            }
-          ?>
+          <button id="login-button" class="fb btn"><i class="fa fa-facebook"></i> Login with Facebook</button>
         </div>
         <!-- Google login button -->
-        <!-- <div class="oauth-login-btn">
-          <div id="g_id_onload"
+        <div class="oauth-login-btn">
+          <!-- <div id="g_id_onload"
               data-client_id="1007627739117-mmn92vm3mqjimnbap1pmm2r32fq50fe4.apps.googleusercontent.com"
               data-context="signin"
               data-ux_mode="popup"
-              data-callback="handleCredentialResponse"
-              data-nonce=""
+              data-login_uri="https://localhost/spexproject/login"
               data-auto_prompt="false">
           </div>
 
@@ -105,8 +96,8 @@ if(isset($_POST['create-account'])){
               data-text="signin_with"
               data-size="large"
               data-logo_alignment="left">
-          </div>
-        </div> -->
+          </div> -->
+        </div>
         <form method="POST" action="">
           <fieldset>
             <legend>Or Use Email</legend>
@@ -128,7 +119,9 @@ if(isset($_POST['create-account'])){
         <div class="section">
           <p class="centered"> <a href="<?php echo BASE_URL ?>recover-password">Forgot password</a> </p>
         </div>
+         <!-- Scripts for login -->
         <script src="<?php echo BASE_URL ?>resources/js/show-hide-password.js"></script>
+        <script src="<?php echo BASE_URL ?>resources/js/facebook-oauth.min.js"></script>
       <?php endif ?>
 
       <?php if($thisPage === 'signup'): ?>
@@ -160,7 +153,7 @@ if(isset($_POST['create-account'])){
         <div class="section">
           <p class="centered">Already have an account? <a href="<?php echo BASE_URL ?>login">Sign in </a>.</p>
         </div>
-        <!-- Scripts -->
+        <!-- Scripts for sign up -->
         <script src="<?php echo BASE_URL ?>resources/js/form_check.min.js"></script>
       <?php endif ?>
     </div>
