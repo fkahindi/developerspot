@@ -1,6 +1,10 @@
 $(document).ready(function() {
   var formError = $('.errorMsg');
+  var pageSession = $('#page-session').val();
+  var baseUrl = $('#base-url').val();
+
   $.ajaxSetup({ cache: true });
+
   $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
     FB.init({
       appId: '504038211760079',
@@ -45,14 +49,16 @@ $(document).ready(function() {
         data: data,
         success: function(response){
           if(response === 'success'){
-            window.location.href ='https://localhost/spexproject/index.php';
-            //For online
-            //window.location.href ='https://www.developerspot.co.ke/index.php';
-
+            if(pageSession.trim().length !== 0){
+              window.location.href = String(baseUrl + pageSession);
+            }else{
+              window.location.href ='https://localhost/spexproject/index.php';
+              //For online
+              //window.location.href ='https://www.developerspot.co.ke/index.php';
+            }
           }else{
             formError.text('Login not successful.');;
           }
-
         }
     });
   }

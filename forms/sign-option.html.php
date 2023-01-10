@@ -8,7 +8,7 @@ header("Access-Control-Allow-Origin: same-origin-allow-popups");
 header("Access-Control-Allow-Origin: https://localhost/");
 header("Access-Control-Allow-Headers: HASH, Content-Type");
 header("Access-Control-Allow-Methods: POST");
-header("Content-Security-Policy-Report-Only: default-src 'none';form-action 'self'; style-src 'self' 'unsafe-inline' https://connect.facebook.net/; img-src 'self'; font-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'  https://connect.facebook.net/; frame-ancestors 'self' https://web.facebook.com/;frame-src https://web.facebook.com/  https://www.facebook.com/;  connect-src 'self'  https://z-p3-graph.facebook.com/ https://graph.facebook.com https://web.facebook.com/ https://www.facebook.com/; ");
+header("Content-Security-Policy-Report-Only: default-src 'none';form-action 'self'; style-src 'self' 'unsafe-inline' https://connect.facebook.net/; img-src 'self' https://web.facebook.com/; font-src 'self' ; script-src 'self' 'unsafe-eval' 'unsafe-inline'  https://connect.facebook.net/; frame-ancestors 'self' https://web.facebook.com/;frame-src https://web.facebook.com/  https://www.facebook.com/;  connect-src 'self'  https://z-p3-graph.facebook.com/ https://graph.facebook.com https://web.facebook.com/ https://www.facebook.com/; ");
 header("Set-Cookie: cross-site-cookie=whatever; SameSite=None; Secure");
 
 $uri = $_SERVER['REQUEST_URI'];
@@ -114,6 +114,8 @@ if(isset($_POST['create-account'])){
               <span class="errorMsg"><?php echo (!empty($errors['password']) ? $errors['password'] : ''); ?></span>
             </div>
             <input type="submit" name="login" class="button" value="Sign in">
+            <input type="hidden" name="session" id="page-session" value="<?php echo($_SESSION['post_slug'])?? ''?>">
+            <input type="hidden" name="baseURL" id="base-url" value="<?php echo BASE_URL.'posts/'?>">
           </fieldset>
         </form>
         <div class="section">
@@ -121,7 +123,7 @@ if(isset($_POST['create-account'])){
         </div>
          <!-- Scripts for login -->
         <script src="<?php echo BASE_URL ?>resources/js/show-hide-password.js"></script>
-        <script src="<?php echo BASE_URL ?>resources/js/facebook-oauth.min.js"></script>
+        <script src="<?php echo BASE_URL ?>resources/js/facebook-oauth.js"></script>
       <?php endif ?>
 
       <?php if($thisPage === 'signup'): ?>

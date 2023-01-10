@@ -315,7 +315,7 @@ function login(){
 }
 
 function fbLogin($user_data){
-global $pdo, $form_error;
+global $pdo;
 
 	if(!empty($user_data)){
 
