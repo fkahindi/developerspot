@@ -16,6 +16,7 @@ $(document).ready(function() {
   });
 
   $('#login-button').click(function(){
+    $(this).toggleClass("fb--loading");
     loginUser();
   });
 

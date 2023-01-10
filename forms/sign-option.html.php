@@ -52,7 +52,6 @@ if(isset($_POST['create-account'])){
     <!-- online -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-
   </head>
   <body>
     <div id="sign-option">
@@ -77,7 +76,7 @@ if(isset($_POST['create-account'])){
 
         <!-- Facebook login button-->
         <div class="oauth-login-btn">
-          <button id="login-button" class="fb btn"><i class="fa fa-facebook"></i> Login with Facebook</button>
+          <button id="login-button" class="fb btn"><i class="fa fa-facebook"></i><span class="fb__text">Login with Facebook</span></button>
         </div>
         <!-- Google login button -->
         <div class="oauth-login-btn">
@@ -124,6 +123,7 @@ if(isset($_POST['create-account'])){
          <!-- Scripts for login -->
         <script src="<?php echo BASE_URL ?>resources/js/show-hide-password.js"></script>
         <script src="<?php echo BASE_URL ?>resources/js/facebook-oauth.js"></script>
+
       <?php endif ?>
 
       <?php if($thisPage === 'signup'): ?>
