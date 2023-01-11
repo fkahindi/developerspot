@@ -5,10 +5,11 @@ if (!isset($_SESSION)) {
 }
 header("Referrer-Policy: no-referrer-when-downgrade");//localhost testing
 header("Access-Control-Allow-Origin: same-origin-allow-popups");
-header("Access-Control-Allow-Origin: https://localhost/");
+header("Access-Control-Allow-Origin: https://play.google.com/");
+header("Access-Control-Allow-Origin: https://www.developerspot.co.ke");
 header("Access-Control-Allow-Headers: HASH, Content-Type");
 header("Access-Control-Allow-Methods: POST");
-header("Content-Security-Policy-Report-Only: default-src 'none';form-action 'self'; style-src 'self' 'unsafe-inline' https://connect.facebook.net/; img-src 'self' https://web.facebook.com/; font-src 'self' ; script-src 'self' 'unsafe-eval' 'unsafe-inline'  https://connect.facebook.net/; frame-ancestors 'self' https://web.facebook.com/;frame-src https://web.facebook.com/  https://www.facebook.com/;  connect-src 'self'  https://z-p3-graph.facebook.com/ https://graph.facebook.com https://web.facebook.com/ https://www.facebook.com/; ");
+header("Content-Security-Policy-Report-Only: default-src 'none';form-action 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com/ https://connect.facebook.net/ https://accounts.google.com; img-src 'self' https://web.facebook.com/; font-src 'self' https://cdnjs.cloudflare.com/;script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdnjs.cloudflare.com/ https://connect.facebook.net/ https://accounts.google.com/; frame-ancestors 'self' https://web.facebook.com/;frame-src https://web.facebook.com/ https://www.facebook.com/ https://accounts.google.com/;  connect-src 'self'  https://z-p3-graph.facebook.com/ https://graph.facebook.com https://web.facebook.com/ https://www.facebook.com/;");
 header("Set-Cookie: cross-site-cookie=whatever; SameSite=None; Secure");
 
 $uri = $_SERVER['REQUEST_URI'];
@@ -69,10 +70,8 @@ if(isset($_POST['create-account'])){
           <h5 class="successMsg"><?php echo (!empty($_SESSION['success_msg']) ? $_SESSION['success_msg'] : ''); ?></h5>
           <h5 class="errorMsg"><?php echo (isset($form_error) ? $form_error : ''); ?></h5>
         </div>
-        <?php //include __DIR__ .'/../includes/google-login.php';?>
-
        <!-- Google client -->
-        <!-- <script src="https://accounts.google.com/gsi/client" async defer></script> -->
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
 
         <!-- Facebook login button-->
         <div class="oauth-login-btn">
@@ -80,22 +79,23 @@ if(isset($_POST['create-account'])){
         </div>
         <!-- Google login button -->
         <div class="oauth-login-btn">
-          <!-- <div id="g_id_onload"
-              data-client_id="1007627739117-mmn92vm3mqjimnbap1pmm2r32fq50fe4.apps.googleusercontent.com"
-              data-context="signin"
-              data-ux_mode="popup"
-              data-login_uri="https://localhost/spexproject/login"
-              data-auto_prompt="false">
+          <!--For ONLINE SERVER get its data-client_id for the online form  -->
+          <div id="g_id_onload"
+            data-client_id="1007627739117-mmn92vm3mqjimnbap1pmm2r32fq50fe4.apps.googleusercontent.com"
+            data-context="signin"
+            data-ux_mode="popup"
+            data-callback="handleCredentialResponse"
+            data-auto_prompt="false">
           </div>
 
           <div class="g_id_signin"
-              data-type="standard"
-              data-shape="rectangular"
-              data-theme="outline"
-              data-text="signin_with"
-              data-size="large"
-              data-logo_alignment="left">
-          </div> -->
+            data-type="standard"
+            data-shape="rectangular"
+            data-theme="outline"
+            data-text="signin_with"
+            data-size="large"
+            data-logo_alignment="left">
+          </div>
         </div>
         <form method="POST" action="">
           <fieldset>
@@ -121,9 +121,10 @@ if(isset($_POST['create-account'])){
           <p class="centered"> <a href="<?php echo BASE_URL ?>recover-password">Forgot password</a> </p>
         </div>
          <!-- Scripts for login -->
+         <!-- For online scripts use min.js -->
         <script src="<?php echo BASE_URL ?>resources/js/show-hide-password.js"></script>
         <script src="<?php echo BASE_URL ?>resources/js/facebook-oauth.js"></script>
-
+        <script src="<?php echo BASE_URL ?>resources/js/google-oauth.js"></script>
       <?php endif ?>
 
       <?php if($thisPage === 'signup'): ?>

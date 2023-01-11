@@ -10,7 +10,7 @@ if(isset($_POST)){
   $fbUser['profile_photo'] = $_POST['picture']['data']['url'];
   $fbUser['oauth_provider'] = 'facebook';
 
-  fbLogin($fbUser);
+  oauthLogin($fbUser);
 }else{
   echo 'No data received';
 }

@@ -314,7 +314,7 @@ function login(){
 	}
 }
 
-function fbLogin($user_data){
+function oauthLogin($user_data){
 global $pdo;
 
 	if(!empty($user_data)){
@@ -360,8 +360,19 @@ global $pdo;
 		$_SESSION['profile_photo']= $profile_photo;
     $_SESSION['oauth_provider'] = $oauth_provider;
 
-   	//Respond to AJAX call
-		echo 'success';
+		if($oauth_provider ==='facebook' || $oauth_provider ==='google'){
+			//Respond to AJAX call
+			echo 'success';
+			exit();
+		}else{
+			//Redirect accordingly
+				if(isset($_SESSION['post_slug'])){
+					header('Location:'.BASE_URL.'posts/'.$_SESSION['post_slug']);
+				}else{
+					header('Location:'.BASE_URL.'index.php');
+				}
+		}
+
 	}else{
 		echo 'No user data found! ';
 	}
