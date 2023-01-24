@@ -15,17 +15,17 @@ $thisPage = "HOME";
   <!-- head section -->
   <?php include_once __DIR__ . '/templates/head.html.php'; ?>
   <link rel="canonical" href="https://www.developerspot.co.ke">
-  <title>Building interactive, responsive websites and web apps</title>
-  <meta name="description" content="Building interactive, responsive websites and apps powered by PHP and MySQL. Core technologies: HTML, CSS, JavaScript and associated libraries." />
-  <meta name="keywords" content="creating, html, webpages, form, javascript, elements, language, php, mysql,  designing, development, developerspot, blog, build,  core technologies, tutorials" />
+  <title>Building dynamic, interactive websites and web apps</title>
+  <meta name="description" content="Building dynamic, interactive websites and apps powered by modern frontend and backend technologies, including: JavaScript, HTML, CSS, MySQL, PHP and associated libraries." />
+  <meta name="keywords" content="creating, javascript, html, css, webpages, form, elements, language, php, mysql,  designing, development, developerspot, technologies, tutorials" />
   <!-- Twitter & OG metas -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@developerspotke">
   <meta name="twitter:creator" content="@fkahindi">
   <meta property="og:url" content="<?php echo $url; ?>" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Building interactive, responsive websites and web apps" />
-  <meta property="og:description" content="Building dynamic responsive websites and apps powered by PHP and MySQL. Core technologies: HTML, CSS, JavaScript and associated libraries" />
+  <meta property="og:title" content="Building dynamic, interactive websites and web apps" />
+  <meta property="og:description" content="Building dynamic, interactive websites and apps powered by modern frontend and backend technologies, including: JavaScript, HTML, CSS, MySQL, PHP and associated libraries." />
   <meta property="og:image" content="<?php echo BASE_URL ?>resources/images/devpot.jpg" />
   <meta property="fb:app_id" content="502152493814762" />
 
@@ -92,9 +92,9 @@ $thisPage = "HOME";
 
         <p>I provide web developerment  services. Reach out for fast, interactive, SEO-friendly websites and web apps. Thanks!</p>
         <div class="contact-media-links">
-          <a href="http://twitter.com/developerspotke" target="_blank" class="fa fa-twitter"></a>
-          <a href="https://www.linkedin.com/in/francis-kahindi-43871440" class="fa fa-linkedin" target="_blank"></a>
-          <a href="https://web.facebook.com/developerspotKe" target="_blank" class="fa fa-facebook"></a>
+          <a href="http://twitter.com/developerspotke" target="_blank" rel="noopener" class="fa fa-twitter"></a>
+          <a href="https://www.linkedin.com/in/francis-kahindi-43871440" class="fa fa-linkedin" target="_blank" rel="noopener"></a>
+          <a href="https://web.facebook.com/developerspotKe" target="_blank" rel="noopener"class="fa fa-facebook"></a>
         </div>
 
         <button><a href="<?php echo BASE_URL ?>contact.php">Contact</a></button>

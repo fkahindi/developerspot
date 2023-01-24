@@ -21,9 +21,9 @@ $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 include_once __DIR__ . '/../includes/process_form.php';
 
 if($url == BASE_URL.'login'){
-  $thisPage='signin';
+  $thisPage='login';
 }elseif($url == BASE_URL.'create-account'){
-  $thisPage='signup';
+  $thisPage='create-account';
 }else{
   header('Location: errors/404.html');
 }
@@ -62,10 +62,10 @@ if(isset($_POST['create-account'])){
 
       <div class="sign-options-btns">
         <a href="<?php echo BASE_URL ?>login">
-        <button <?php echo (isset($thisPage) && $thisPage === "signin")? 'class="current-button"':''?> >  Sign in</button></a><a href="<?php echo BASE_URL ?>create-account"><button <?php echo (isset($thisPage) && $thisPage === "signup")? 'class="current-button"':''?> > Free Sign Up</button></a>
+        <button <?php echo (isset($thisPage) && $thisPage === "login")? 'class="current-button"':''?> >  Sign in</button></a><a href="<?php echo BASE_URL ?>create-account"><button <?php echo (isset($thisPage) && $thisPage === "create-account")? 'class="current-button"':''?> > Free Sign Up</button></a>
       </div>
 
-      <?php if($thisPage === 'signin'): ?>
+      <?php if($thisPage === 'login'): ?>
         <div>
           <h5 class="successMsg"><?php echo (!empty($_SESSION['success_msg']) ? $_SESSION['success_msg'] : ''); ?></h5>
           <h5 class="errorMsg"><?php echo (isset($form_error) ? $form_error : ''); ?></h5>
@@ -127,7 +127,7 @@ if(isset($_POST['create-account'])){
         <script src="<?php echo BASE_URL ?>resources/js/google-oauth.js"></script>
       <?php endif ?>
 
-      <?php if($thisPage === 'signup'): ?>
+      <?php if($thisPage === 'create-account'): ?>
         <!-- Singup form  html -->
         <div>
           <h5 class="errorMsg"><?php echo (isset($form_error) ? $form_error : ''); ?></h5>

@@ -5,14 +5,14 @@ $output.='<p>------------------------------------------------</p>';
 /* ** FOR ONLINE SERVER **
 
 	$output.='<p><a href="https://www.developerspot.co.ke/reset-password?
-key='.$token.'&email='.$email.'&action=subscribe" target="_blank">
+key='.$token.'&email='.$email.'&action=subscribe" target="_blank" rel="noopener">
 
 ** */
 
 /* For Local Server */
 $output.='<p><a href="localhost/spexproject/reset-password?
-key='.$token.'&email='.$email.'&action=reset" target="_blank">
-Recover my password</a></p>';		
+key='.$token.'&email='.$email.'&action=reset" target="_blank" rel="noopener">
+Recover my password</a></p>';
 $output.='<p>------------------------------------------------</p>';
 $output.='The link will expire after 1 hour for security reasons.</p>';
 $output .= '<p>If the link above is not working, copy the link below and paste on the browser\'s address bar</p>';
@@ -22,15 +22,15 @@ key=' . $token . '&email=' . $email . '&action=reset" target="_blank">
 localhost/spexproject/reset-password?
 key=' . $token . '&email=' . $email . '&action=reset</a></p>';
 $output .= '<p>------------------------------------------------</p>';
-$output.='<p>If you did not request this forgotten password email, no action 
-is needed, your password will not be reset. However, you may need to log into 
-your account and change your security password as someone may be trying to guess it.</p>';   	
+$output.='<p>If you did not request this forgotten password email, no action
+is needed, your password will not be reset. However, you may need to log into
+your account and change your security password as someone may be trying to guess it.</p>';
 $output.='<p>Thanks,</p>';
 $output.='<p>Developerspot Team</p>';
-$body = $output; 
+$body = $output;
 $subject = "Password Recovery";
 $email_to = $email;
-$fromserver = "noreply@developerspot.co.ke"; 
+$fromserver = "noreply@developerspot.co.ke";
 require __DIR__ .'/../../includes_devspot/EmailCredentials.php';
 require __DIR__ .'/../PHPMailer/PHPMailerAutoload.php';
 $mail = new PHPMailer();
@@ -53,4 +53,3 @@ if(!$mail->Send()){
 }else{
 	$_SESSION['email_success'] = "<p>An email has been sent to " . $email . ", with instructions on how to reset your password.</p>";
 }
- 

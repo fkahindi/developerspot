@@ -47,7 +47,7 @@ $thisPage = "ABOUT";
 			<div>
 				<p>Developerspot is the implementation of an idea of a blogging app, complete with an admin section for articles, authors and user management. It also has an embedded comment-reply system on all articles, enabling feedback, sharing of thoughts and experiences from readers. </p>
 				<p>On this blog, every article is geared towards accomplishing a particular task. Account creation is just a means to enable association of comments and replies to individuals and in no way will your contact be shared with anyone else, not consistent with the privacy policy. Feel free to engage.</p>
-				<p>For website building projects, you can reach out to me using the contact above. If you are a developer and want to contribute to the code, I have made the entire codebase available on github at, https://github.com/fkahindi/developerspot. You are free to fork.</p>
+				<p>For website building projects, you can reach out to me using the contact above. If you are a developer and want to contribute to the code, I have made the entire codebase available on github at, <a href="https://github.com/fkahindi/developerspot">https://github.com/fkahindi/developerspot</a>. You are free to fork.</p>
 			</div>
 
 		</section>

@@ -5,25 +5,25 @@ $output.='<p>------------------------------------------------</p>';
 /* ** FOR ONLINE SERVER **
 
 	$output.='<p><a href="https://www.developerspot.co.ke/templates/confirm-subscription.html.php?
-key='.$token.'&email='.$email.'&action=subscribe" target="_blank">
+key='.$token.'&email='.$email.'&action=subscribe" target="_blank" rel="noopener">
 
 ** */
 
 /* For Local Server */
 $output.='<p><a href="localhost/spexproject/templates/confirm-subscription.html.php?
-key='.$token.'&email='.$email.'&action=subscribe" target="_blank">
-Confirm email subscription</a></p>';		
+key='.$token.'&email='.$email.'&action=subscribe" target="_blank" rel="noopener">
+Confirm email subscription</a></p>';
 $output.='<p>------------------------------------------------</p>';
 $output.='<p>The link will expire after 1 hour for security reasons.
 </p>';
-$output.='<p>If you did not request this subscription, no action is needed, you will not be subscribed.</p>';   	
+$output.='<p>If you did not request this subscription, no action is needed, you will not be subscribed.</p>';
 $output.='<p>Thanks,</p>';
 $output.='<p>Developerspot Team</p>';
-$body = $output; 
+$body = $output;
 $subject = "Email Subscription";
- 
+
 $email_to = $email;
-$fromserver = "noreply@developerspot.co.ke"; 
+$fromserver = "noreply@developerspot.co.ke";
 require __DIR__ .'/../../includes_devspot/EmailCredentials.php';
 require __DIR__ .'/../PHPMailer/PHPMailerAutoload.php';
 $mail = new PHPMailer();
