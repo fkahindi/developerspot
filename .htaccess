@@ -23,6 +23,8 @@ RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 # The leading slash is made optional so that this will work either in httpd.conf
 # or .htaccess context
 #
+#for online server, only serve https requests
+#Header set Strict-Transport-Security: "max-age=31536000; includeSubDomains; preload"
 # ###########################
 #
 RewriteRule ^posts/(.*)$ templates/post.html.php?slug=$1 [NC,L]

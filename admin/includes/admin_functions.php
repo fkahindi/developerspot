@@ -28,6 +28,7 @@ $topic_keywords = '';
 if(isset($_GET['edit-user'])){
 	$isEditingUser = true;
 	$user_id = $_GET['edit-user'];
+	$user_role = $_GET['role'];
 	editUser($user_id);
 }
 /* if user clicks Search button */

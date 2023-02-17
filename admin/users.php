@@ -27,8 +27,9 @@ $roles = ['Admin', 'Author', 'User'];
 		<div class="row">
 			<?php include __DIR__ .'/components/navigation-bar.php'?>
 			<div class="col-md-9">
+				<div class="text-end"><a href="assign_roles.php" class="btn btn-success btn-md mt-3 text-align-right" >Search Users</a></div>
 				<table class="table table-striped table-condensed caption-top">
-					<caption><h4 class="text-center">Admins and Authors</h4></caption>
+					<caption><h4 class="text-center">Admins and Authors</h4> </caption>
 					<thead>
 						<tr class="lead">
 							<th>SNo.</th><th>User</th><th>Role</th><th>Action</th>
@@ -42,7 +43,7 @@ $roles = ['Admin', 'Author', 'User'];
 							<td><?php echo $user['role'] ?></td>
 							<td>
 							<p>
-							<a href="assign_roles.php?edit-user=<?php echo $user['user_id'] ?>" class="btn btn-warning btn-sm"><i class="bi-pencil"></i> Assign Role </a>
+							<a href="assign_roles.php?edit-user=<?php echo $user['user_id']?>&role=<?php echo $user['role'] ?>" class="btn btn-warning btn-sm"><i class="bi-pencil"></i> Eidt Role </a>
 							</p>
 							</td>
 						</tr>

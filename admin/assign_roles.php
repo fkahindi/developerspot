@@ -27,7 +27,7 @@ $roles = ['Admin', 'Author', 'User'];
       <?php include __DIR__ .'/components/navigation-bar.php'?>
       <div class="col-md-9 px-5">
         <div class="col-md-12 mt-3">
-        <h5 class="text-center text-muted"><?php echo  $isEditingUser? 'Assign Role to': 'Search' ?> User</h5>
+        <h5 class="text-center text-muted"><?php echo  $isEditingUser? 'Re-assign Role to User': 'Add User to Admins & Authors' ?>  </h5>
       </div>
         <form method="post">
           <div class="form-group">
@@ -39,7 +39,7 @@ $roles = ['Admin', 'Author', 'User'];
 							</div>
 							<?php endif?>
             <!-- Attach a hidden id for user being edited-->
-            <?php if($isEditingUser === true || $isSearchUser === true): ?>
+            <?php if($isEditingUser || $isSearchUser): ?>
             <input type="hidden" value="<?php echo $user_id;?>" name="user_id">
             <?php endif ?>
 
@@ -51,15 +51,17 @@ $roles = ['Admin', 'Author', 'User'];
             <input class="form-control" type="email" value="<?php echo $email; ?>" name="email" placeholder="Email" id="email"></div>
             <div class="form-group mb-3">
             <label class="form-label col-form-label" for="role"><b>User role:</b></label>
-            <select class="form-select" type="select" name="role" placeholder="Assign role">
-                <option value="" selected disabled>Assign role</option>
+            <select class="form-select" type="select" name="role" >
+                <option selected disabled><?php echo $isEditingUser? '{ '.$user_role.' }' : 'Assign role'?> </option>
                 <?php foreach($roles as $key=>$role):?>
                 <option value="<?php echo $role; ?>"><?php echo $role; ?></option>
                 <?php endforeach ?>
               </select></div>
             <div class="d-flex justify-content-around">
-                <button type="submit" class="btn btn-success mt-2" name="search_user">SEARCH</button>
-                <button type="submit" class="btn btn-warning mt-2" name="update_user">UPDATE</button>
+              <?php if(!$isEditingUser): ?>
+               <button type="submit" class="btn btn-success mt-2" name="search_user">SEARCH</button>
+              <?php endif ?>
+               <button type="submit" class="btn btn-warning mt-2" name="update_user">UPDATE</button>
             </div>
           </div>
           </form>
@@ -67,5 +69,4 @@ $roles = ['Admin', 'Author', 'User'];
     </div>
   </div>
   <?php include __DIR__ .'/components/footer.php'?>
-	<script src="js/form-validation.js"></script>
 </body>

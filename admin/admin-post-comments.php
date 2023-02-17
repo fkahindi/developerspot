@@ -17,15 +17,18 @@
     $postComments = new CommentsReplies($pdo,'comments','post_id');
 
 		//Create pagination for comments
-		$totalPostComments = new CommentsReplies($pdo,'comments','post_id');
 		if (isset($_GET['comment_page_num'])) {
-				$page_num = $_GET['comment_page_num'];
+
+			$page_num = $_GET['comment_page_num'];
+
 		} else {
-				$page_num = 1;
+
+			$page_num = 1;
 		}
+
 		$num_of_comments_per_page = 6;
 		$offset = ($page_num - 1) * $num_of_comments_per_page;
-		$total_rows = $totalPostComments->countAllRecords($page_id);
+		$total_rows = $postComments->countAllRecords($page_id);
 		$total_pages = ceil($total_rows / $num_of_comments_per_page);
 		$limit=" LIMIT $offset, $num_of_comments_per_page";
 
@@ -78,9 +81,17 @@
 									<td><?php echo $page_num==1 ? ($key + 1) : ($offset + $key + 1) ?></td>
 									<td>
                     <?php
-                      $comment_author = new CommentsReplies($pdo,'users','user_id');
-                      $row = $comment_author->selectSingleRecord($comment['user_id']);
-											echo $row['username'];
+											if($comment['authenticator'] === 'direct') {
+
+												$comment_author = new CommentsReplies($pdo,'users','user_id');
+                      	$user_name = $comment_author->selectSingleRecord($comment['user_id']);
+											}else {
+
+												$comment_author = new CommentsReplies($pdo,'oauth_login','uid');
+                      	$user_name = $comment_author->selectSingleRecord($comment['user_id']);
+											}
+
+											echo $user_name['username'];
                     ?>
                   </td>
 									<td>

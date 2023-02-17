@@ -1,6 +1,10 @@
 <?php
 class CommentsReplies
 {
+  private $pdo;
+  private $table;
+  private $keyfield;
+  private $keyfield2;
 
   public function __construct(
     PDO $pdo,

@@ -8,8 +8,8 @@
 	if($_SESSION['role']!== 'Admin' && $_SESSION['role']!== 'Author'){
 		header('Location: ../index.php');
 	}
-	/* Load necessary functions */
 
+	/* Load necessary functions */
 	require __DIR__ .'/../comments/includes/comments_functions.php';
 
 		//Fetch all posts that apply to the user
@@ -17,16 +17,18 @@
     $commentReplies = new CommentsReplies($pdo,'replies','comment_id');
 
 		//Create pagination for comments
-		$totalCommentReplies = new CommentsReplies($pdo,'replies','comment_id');
 		if (isset($_GET['reply_page_num'])) {
+
 				$page_num = $_GET['reply_page_num'];
+
 		} else {
+
 				$page_num = 1;
 		}
 
 		$num_of_replies_per_page = 6;
 		$offset = ($page_num - 1) * $num_of_replies_per_page;
-		$total_rows = $totalCommentReplies->countAllRecords($comment_id);
+		$total_rows = $commentReplies->countAllRecords($comment_id);
 		$total_pages = ceil($total_rows / $num_of_replies_per_page);
 		$limit=" LIMIT $offset, $num_of_replies_per_page";
 
@@ -68,9 +70,17 @@
 									<td><?php echo $page_num==1 ? ($key + 1) : ($offset + $key + 1) ?></td>
 									<td>
                     <?php
-                      $reply_author = new CommentsReplies($pdo,'users','user_id');
-											$row = $reply_author->selectSingleRecord($reply['user_id']);
-                      echo $row['username'];
+											if($reply['authenticator'] === 'direct') {
+
+												$reply_author = new CommentsReplies($pdo,'users','user_id');
+												$author = $reply_author->selectSingleRecord($reply['user_id']);
+											}else {
+
+												$reply_author = new CommentsReplies($pdo,'oauth_login','uid');
+												$author = $reply_author->selectSingleRecord($reply['user_id']);
+											}
+
+                      echo $author['username'];
                     ?>
                   </td>
 									<td>
