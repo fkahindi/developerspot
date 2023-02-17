@@ -336,7 +336,7 @@ global $pdo;
 		if($sql->rowCount()==1){
 			//user already exists, so update record
 			$updated_at = $curr_date->format('Y-m-d H:i:s');
-			$fields = ['oauth_provider'=>$oauth_provider,'email'=>$email, 'username'=>$username,'fullname'=>$name, 'updated_at'=>$updated_at];
+			$fields = ['oauth_provider'=>$oauth_provider,'email'=>$email, 'username'=>$username,'fullname'=>$name];
 			$oauth_table->updateRecords($fields,$uid);
 		}else {
 			//insert new user
@@ -603,31 +603,10 @@ function imageUpload() {
 	$img_error = $image_up_load->errors;
 
 	//If everything is ok, try to upload the file
-	if (!$img_error) {
+	if (!$img_error && isset($_SESSION['user_id'])) {
 
-		$email = $_SESSION['email'];
-
-		if (isset($_SESSION['oauth_provider'])) {
-
-			$oauthTable = new DatabaseTable($pdo, 'oauth_login', 'email');
-
-			$query = $oauthTable->selectRecordsOnCondtion($email);
-
-		} else {
-
-			$usersTable = new DatabaseTable($pdo, 'users', 'email');
-
-			$query = $usersTable->selectRecordsOnCondtion($email);
-		}
-
-		if ($query->rowCount() > 0) {
-
-			$row = $query->fetch();
-
-			//Set user unique id
-			isset($_SESSION['oauth_provider']) ? $id = $row['uid'] : $id = $row['user_id'];
-
-		}
+		//$email = $_SESSION['email'];
+		$user_id = $_SESSION['user_id'];
 
 		//Prepare file by renaming the image file with account session name
 		if (!empty($_SESSION['fullname'])) {
@@ -645,7 +624,7 @@ function imageUpload() {
 		$extension = $file_pieces[1];
 
 		//Ensure filename uniqueness by combining name with user id, add sufix '-' and the extension name
-		$new_file_name = strtolower($name .'-'. $id .'.'.$extension);
+		$new_file_name = strtolower($name .'-'. $user_id .'.'.$extension);
 
 		//Rename target file and move image to photos folder
 		$target_file = '../resources/photos/'.$new_file_name;
@@ -661,18 +640,22 @@ function imageUpload() {
 
 			if (isset($_SESSION['oauth_provider'])) {
 
-				$oauthTable->updateRecords($fields, $email);
+				$oauthTable = new DatabaseTable($pdo, 'oauth_login', 'uid');
 
-				$query = $oauthTable->selectRecordsOnCondtion($email);
+				$oauthTable->updateRecords($fields, $user_id);
+
+				$query = $oauthTable->selectRecordsOnCondtion($user_id);
 
 			} else {
 
-				$usersTable->updateRecords($fields, $email);
+				$usersTable = new DatabaseTable($pdo, 'users', 'user_id');
 
-				$query = $usersTable->selectRecordsOnCondtion($email);
+				$usersTable->updateRecords($fields, $user_id);
+
+				$query = $usersTable->selectRecordsOnCondtion($user_id);
 			}
 
-			if ($query->rowCount() == 1) {
+			if ($query->rowCount() === 1) {
 
 				$row = $query->fetch();
 
@@ -680,7 +663,7 @@ function imageUpload() {
 				$_SESSION['profile_photo'] = $row['profile_photo'];
 			}
 			//Redirect accordingly
-			if (isset($_SESSION['page_id'])) {
+			if (isset($_SESSION['post_slug'])) {
 				header('Location: '.BASE_URL.'posts/'.$_SESSION['post_slug']);
 			} else {
 				header('Location: '.BASE_URL.'index.php');
