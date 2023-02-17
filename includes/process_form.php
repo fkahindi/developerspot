@@ -324,7 +324,7 @@ global $pdo;
 		$email = $user_data['email'];
 		$username = $user_data['first_name'];
 		$name = $user_data['fullname'];
-		$profile_photo = $user_data['profile_photo'];
+		$profile_photo = !empty($user_data['profile_photo'])? $user_data['profile_photo'] : $profile_photo = BASE_URL . 'resources/photos/profile.png';
 
 		//Check if user already exists
 		$oauth_table = new DatabaseTable($pdo, 'oauth_login', 'uid');
@@ -336,7 +336,7 @@ global $pdo;
 		if($sql->rowCount()==1){
 			//user already exists, so update record
 			$updated_at = $curr_date->format('Y-m-d H:i:s');
-			$fields = ['oauth_provider'=>$oauth_provider,'email'=>$email,'username'=>$username,'fullname'=>$name, 'profile_photo'=>$profile_photo, 'updated_at'=>$updated_at];
+			$fields = ['oauth_provider'=>$oauth_provider,'email'=>$email, 'username'=>$username,'fullname'=>$name, 'updated_at'=>$updated_at];
 			$oauth_table->updateRecords($fields,$uid);
 		}else {
 			//insert new user
@@ -585,84 +585,110 @@ function resetPassword(){
 }
 
 /* //This function helps user to upload profile image of their account */
-function imageUpload(){
+function imageUpload() {
 	include __DIR__ . '/../classes/ImageUpLoad.php';
 	global $pdo,$img_error;
-	if(isset($_SESSION['page_id'])&& isset($_SESSION['post_slug'])){
-		$page_id = $_SESSION['page_id'];
-		$page_slug = $_SESSION['post_slug'];
-	}
 
 	//Prepare image file variable
 	$received_name = $_FILES['fileToUpload'];
 	$target_file = '../resources/photos/'.basename($received_name['name']);
-	$image_max_size=500000;
+	$image_max_size = 500000;
 	$allowed_types = ['jpg','jpeg','png','gif','webp'];
-    $image_up_load = new ImageUpLoad($received_name,$target_file);
+
+  $image_up_load = new ImageUpLoad($received_name,$target_file);
+
 	$image_up_load->checkImageType($allowed_types);
 	$image_up_load->imageSize($image_max_size);
+
 	$img_error = $image_up_load->errors;
 
 	//If everything is ok, try to upload the file
-	if(!$img_error){
-		//Get the user name id to use in the file name
+	if (!$img_error) {
+
 		$email = $_SESSION['email'];
-		$username = $_SESSION['username'];
 
-		$usersTable = new DatabaseTable($pdo, 'users', 'email');
-		$query = $usersTable->selectRecordsOnCondtion($email);
+		if (isset($_SESSION['oauth_provider'])) {
 
-		if($query->rowCount()>0){
+			$oauthTable = new DatabaseTable($pdo, 'oauth_login', 'email');
+
+			$query = $oauthTable->selectRecordsOnCondtion($email);
+
+		} else {
+
+			$usersTable = new DatabaseTable($pdo, 'users', 'email');
+
+			$query = $usersTable->selectRecordsOnCondtion($email);
+		}
+
+		if ($query->rowCount() > 0) {
+
 			$row = $query->fetch();
 
-			//Set the session photo path again
-			$id = $row['user_id'];
+			//Set user unique id
+			isset($_SESSION['oauth_provider']) ? $id = $row['uid'] : $id = $row['user_id'];
+
 		}
 
 		//Prepare file by renaming the image file with account session name
-		if(!empty($_SESSION['fullname'])){
+		if (!empty($_SESSION['fullname'])) {
+
 			$fullname_arr = explode(' ',$_SESSION['fullname']);
 			$name = implode($fullname_arr);
-		}else{
+
+		} else {
+
 			$name = $_SESSION['username'];
 		}
 
-		///Split the original file name and take the extension name
+		//Split the original file name and take the extension name
 		$file_pieces = explode('.',$received_name['name']);
 		$extension = $file_pieces[1];
 
-		//To ensure filename uniqueness combine name with user id, add sufix -0 and the extension name
-		$new_file_name = strtolower($name .'-0'. $id .'.'.$extension);
+		//Ensure filename uniqueness by combining name with user id, add sufix '-' and the extension name
+		$new_file_name = strtolower($name .'-'. $id .'.'.$extension);
 
 		//Rename target file and move image to photos folder
 		$target_file = '../resources/photos/'.$new_file_name;
 		$image_up_load->moveFile($target_file);
 		$img_error = $image_up_load->errors;
-		 if(!$img_error){
+
+		 if (!$img_error) {
+
 			$file_path = BASE_URL  .'resources/photos/'.$new_file_name;
 
 			//Update profile_photo file path in the database
 			$fields = ['profile_photo' => $file_path];
 
-			$usersTable->updateRecords($fields,$email);
+			if (isset($_SESSION['oauth_provider'])) {
 
-			//Fetch the records again to place the image photo in session
-			$query = $usersTable->selectRecordsOnCondtion($email);
-			if($query->rowCount()== 1){
+				$oauthTable->updateRecords($fields, $email);
+
+				$query = $oauthTable->selectRecordsOnCondtion($email);
+
+			} else {
+
+				$usersTable->updateRecords($fields, $email);
+
+				$query = $usersTable->selectRecordsOnCondtion($email);
+			}
+
+			if ($query->rowCount() == 1) {
+
 				$row = $query->fetch();
 
-				//Set the session photo path again
+				//Set photo path in session variable
 				$_SESSION['profile_photo'] = $row['profile_photo'];
 			}
 			//Redirect accordingly
-			if(isset($_SESSION['page_id'])){
+			if (isset($_SESSION['page_id'])) {
 				header('Location: '.BASE_URL.'posts/'.$_SESSION['post_slug']);
-			}else{
+			} else {
 				header('Location: '.BASE_URL.'index.php');
 			}
 		}
 	}
 }
+
 function contactMe(){
 	global $errors, $valid, $token;
 	$name = filter_var($_POST['name'], FILTER_UNSAFE_RAW);

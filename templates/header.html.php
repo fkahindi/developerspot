@@ -24,7 +24,7 @@
 					<div class="tooltip-text">
 						<p><strong>Account:</strong></p>
 						<p><?php echo $_SESSION['fullname'] ?></p>
-						<p><?php echo $_SESSION['email'] ?></p>
+						<p><?php  echo $_SESSION['email'] ?></p>
 					</div>
 				</div>
 				<div class="settings">
@@ -33,8 +33,8 @@
 					<input type="checkbox" id="profile-checkbox-control">
 					<div class="account-display-settings">
 						<ul>
-							<?php if(!isset($_SESSION['oauth_provider'])): //Hide from external authenticated user?>
-								<li><a href="<?php echo BASE_URL ?>imageupload">Add Profile Photo<i class="fa fa-upload"></i></a></li>
+							<li><a href="<?php echo BASE_URL ?>imageupload">Add Profile Photo<i class="fa fa-upload"></i></a></li>
+							<?php if(!isset($_SESSION['oauth_provider'])): //Hide from external authenticated users ?>
 								<li><a href="<?php echo BASE_URL ?>change-password">Change Password<i class="fa fa-user-circle-o"></i> </a></li>
 								<?php if($_SESSION['role'] == 'Admin'):?>
 									<li><a href="<?php echo BASE_URL ?>admin/dashboard.php">Admin Area<i class="fa fa-cogs"></i></a></li>
