@@ -331,21 +331,26 @@ global $pdo;
 
 		$sql = $oauth_table->selectRecordsOnCondtion($uid);
 
-		$curr_date = new DateTime();
+
 
 		if($sql->rowCount()==1){
 			//user already exists, so update record
-			$updated_at = $curr_date->format('Y-m-d H:i:s');
 			$fields = ['oauth_provider'=>$oauth_provider,'email'=>$email, 'username'=>$username,'fullname'=>$name];
 			$oauth_table->updateRecords($fields,$uid);
 		}else {
+			$curr_date = new DateTime();
+
 			//insert new user
 			$created_at = $curr_date->format('Y-m-d H:i:s');
 			$fields = ['uid'=>$uid,'oauth_provider'=>$oauth_provider,'email'=>$email,'username'=>$username,'fullname'=>$name, 'profile_photo'=>$profile_photo, 'created_at'=>$created_at];
 			$oauth_table->insertRecord($fields);
 		}
 
-    //Select from roles table using user's role_id
+		//Get latest stored record in the database
+		$row = $oauth_table->selectRecordsOnCondtion($uid);
+		$auth_user = $row->fetch();
+
+    //Select from 'user' role from roles table
     $rolesTable = new DatabaseTable($pdo, 'roles', 'role_id');
 
     $sql = $rolesTable->selectRecordsOnCondtion(3);
@@ -354,11 +359,11 @@ global $pdo;
 		$_SESSION['loggedin'] = true;
 		$_SESSION['user_id'] = $uid;
 		$_SESSION['role'] = $record['role'];
-		$_SESSION['email'] = $email;
-		$_SESSION['username'] = $username;
-		$_SESSION['fullname'] = $name;
-		$_SESSION['profile_photo']= $profile_photo;
-    $_SESSION['oauth_provider'] = $oauth_provider;
+		$_SESSION['email'] = $auth_user['email'];
+		$_SESSION['username'] = $auth_user['username'];
+		$_SESSION['fullname'] = $auth_user['fullname'];
+		$_SESSION['profile_photo']= $auth_user['profile_photo'];
+    $_SESSION['oauth_provider'] = $auth_user['oauth_provider'];
 
 		if($oauth_provider ==='facebook' || $oauth_provider ==='google'){
 			//Respond to AJAX call

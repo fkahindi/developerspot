@@ -20,6 +20,15 @@ $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 include_once __DIR__ . '/../includes/process_form.php';
 
+//If user is already logged in, no need of showing this page
+if(isset($_SESSION['loggedin'])){
+  if(isset($_SESSION['post_slug'])){
+    header('Location:'.BASE_URL.'posts/'.$_SESSION['post_slug']);
+  }else{
+    header('Location:'.BASE_URL.'index.php');
+  }
+}
+
 if($url == BASE_URL.'login'){
   $thisPage='login';
 }elseif($url == BASE_URL.'create-account'){
