@@ -100,14 +100,6 @@ $thisPage = "HOME";
         <button><a href="<?php echo BASE_URL ?>contact.php">Contact</a></button>
       </div>
     <section class="section-three">
-      <div class="advert">
-
-        <div class="steam" id="steam1"> </div>
-        <div class="steam" id="steam2"> </div>
-        <div class="steam" id="steam3"> </div>
-        <div class="steam" id="steam4"> </div>
-
-      </div>
       <div class="php-mysql">
         <h2>PHP and MySQL</h2>
         <p>PHP and MysQL are back end technologies that power many dynamic websites. PHP (Hypertext Preprocessor) is a server scripting language. Using PHP you can program a web server on how it should deliver web content.</p>
